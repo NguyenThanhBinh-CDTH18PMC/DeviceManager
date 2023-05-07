@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "ItSf5AORkD3JtUhXU6r0F01fc1N3VoT/PI/mPdxm7rWO0AOyZ5ZCZbgjZ4+FPDpfj9NzoEAeR8HyLpFItqV8lg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\This PC\\OneDrive\\Máy tính\\DeviceManagerApp\\DeviceManagerApp\\DeviceManagerApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\This PC\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.25\\microsoft.netcore.app.host.win-x64.3.1.25.nupkg.sha512"
+  ],
+  "logs": []
+}
