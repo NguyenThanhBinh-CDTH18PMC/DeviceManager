@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace DeviceManagerApp
 {
-    public partial class QuanLyTaiKhoan : Form
+    public partial class frmQuanLyPhongMay : Form
     {
-        public QuanLyTaiKhoan()
+        public frmQuanLyPhongMay()
         {
             InitializeComponent();
         }

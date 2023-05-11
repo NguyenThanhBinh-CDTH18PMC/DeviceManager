@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace DeviceManagerApp
 {
-    public partial class Login : Form
+    public partial class frmQuanLyThietBi : Form
     {
-        public Login()
+        public frmQuanLyThietBi()
         {
             InitializeComponent();
         }

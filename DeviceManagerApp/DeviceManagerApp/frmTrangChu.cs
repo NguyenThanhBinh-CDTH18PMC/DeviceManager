@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace DeviceManagerApp
 {
-    public partial class TrangChu : Form
+    public partial class frmTrangChu : Form
     {
-        public TrangChu()
+        public frmTrangChu()
         {
             InitializeComponent();
         }
@@ -40,13 +40,13 @@ namespace DeviceManagerApp
 
         private void btnQLTaiKhoan_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new QuanLyTaiKhoan());
+            OpenChildForm(new frmQuanLyTaiKhoan());
             lbl_text.Text = btnQLTaiKhoan.Text;
         }
 
         private void btnQLPhongMay_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new QuanLyPhongMay());
+            OpenChildForm(new frmQuanLyPhongMay());
             lbl_text.Text = btnQLPhongMay.Text;
         }
 
@@ -57,6 +57,18 @@ namespace DeviceManagerApp
                 currentFormChild.Close();
             }
             lbl_text.Text = "QUẢN LÝ THIẾT BỊ PHÒNG MÁY";
+        }
+
+        private void btnQlThietBi_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmQuanLyThietBi());
+            lbl_text.Text = btnQlThietBi.Text;
+        }
+
+        private void btnQlKhoa_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmQuanLyKhoa());
+            lbl_text.Text = btnQlKhoa.Text;
         }
     }
 }

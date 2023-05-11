@@ -1,6 +1,6 @@
 ﻿namespace DeviceManagerApp
 {
-    partial class TrangChu
+    partial class frmTrangChu
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             panel_Left = new System.Windows.Forms.Panel();
+            btnQlKhoa = new System.Windows.Forms.Button();
+            btnQlThietBi = new System.Windows.Forms.Button();
             btnQLPhongMay = new System.Windows.Forms.Button();
             btnQLTaiKhoan = new System.Windows.Forms.Button();
             pictureBox1_Logo = new System.Windows.Forms.PictureBox();
@@ -46,6 +48,8 @@
             // panel_Left
             // 
             panel_Left.BackColor = System.Drawing.Color.Blue;
+            panel_Left.Controls.Add(btnQlKhoa);
+            panel_Left.Controls.Add(btnQlThietBi);
             panel_Left.Controls.Add(btnQLPhongMay);
             panel_Left.Controls.Add(btnQLTaiKhoan);
             panel_Left.Controls.Add(pictureBox1_Logo);
@@ -54,19 +58,45 @@
             panel_Left.ForeColor = System.Drawing.Color.DarkBlue;
             panel_Left.Location = new System.Drawing.Point(0, 0);
             panel_Left.Name = "panel_Left";
-            panel_Left.Size = new System.Drawing.Size(347, 631);
+            panel_Left.Size = new System.Drawing.Size(347, 989);
             panel_Left.TabIndex = 0;
+            // 
+            // btnQlKhoa
+            // 
+            btnQlKhoa.BackColor = System.Drawing.Color.Blue;
+            btnQlKhoa.Dock = System.Windows.Forms.DockStyle.Top;
+            btnQlKhoa.ForeColor = System.Drawing.Color.White;
+            btnQlKhoa.Location = new System.Drawing.Point(0, 454);
+            btnQlKhoa.Name = "btnQlKhoa";
+            btnQlKhoa.Size = new System.Drawing.Size(347, 60);
+            btnQlKhoa.TabIndex = 4;
+            btnQlKhoa.Text = "Quản Lý Khoa";
+            btnQlKhoa.UseVisualStyleBackColor = false;
+            btnQlKhoa.Click += btnQlKhoa_Click;
+            // 
+            // btnQlThietBi
+            // 
+            btnQlThietBi.BackColor = System.Drawing.Color.Blue;
+            btnQlThietBi.Dock = System.Windows.Forms.DockStyle.Top;
+            btnQlThietBi.ForeColor = System.Drawing.Color.White;
+            btnQlThietBi.Location = new System.Drawing.Point(0, 394);
+            btnQlThietBi.Name = "btnQlThietBi";
+            btnQlThietBi.Size = new System.Drawing.Size(347, 60);
+            btnQlThietBi.TabIndex = 3;
+            btnQlThietBi.Text = "Quản Lý Thiết Bị";
+            btnQlThietBi.UseVisualStyleBackColor = false;
+            btnQlThietBi.Click += btnQlThietBi_Click;
             // 
             // btnQLPhongMay
             // 
             btnQLPhongMay.BackColor = System.Drawing.Color.Blue;
             btnQLPhongMay.Dock = System.Windows.Forms.DockStyle.Top;
             btnQLPhongMay.ForeColor = System.Drawing.Color.White;
-            btnQLPhongMay.Location = new System.Drawing.Point(0, 366);
+            btnQLPhongMay.Location = new System.Drawing.Point(0, 334);
             btnQLPhongMay.Name = "btnQLPhongMay";
-            btnQLPhongMay.Size = new System.Drawing.Size(347, 92);
+            btnQLPhongMay.Size = new System.Drawing.Size(347, 60);
             btnQLPhongMay.TabIndex = 2;
-            btnQLPhongMay.Text = "Quản lý phòng máy";
+            btnQLPhongMay.Text = "Quản lý Phòng Máy";
             btnQLPhongMay.UseVisualStyleBackColor = false;
             btnQLPhongMay.Click += btnQLPhongMay_Click;
             // 
@@ -77,9 +107,9 @@
             btnQLTaiKhoan.ForeColor = System.Drawing.Color.White;
             btnQLTaiKhoan.Location = new System.Drawing.Point(0, 274);
             btnQLTaiKhoan.Name = "btnQLTaiKhoan";
-            btnQLTaiKhoan.Size = new System.Drawing.Size(347, 92);
+            btnQLTaiKhoan.Size = new System.Drawing.Size(347, 60);
             btnQLTaiKhoan.TabIndex = 1;
-            btnQLTaiKhoan.Text = "Quản lý tài khoản";
+            btnQLTaiKhoan.Text = "Quản lý Tài Khoản";
             btnQLTaiKhoan.UseVisualStyleBackColor = false;
             btnQLTaiKhoan.Click += btnQLTaiKhoan_Click;
             // 
@@ -122,7 +152,7 @@
             panel_Body.Dock = System.Windows.Forms.DockStyle.Fill;
             panel_Body.Location = new System.Drawing.Point(347, 76);
             panel_Body.Name = "panel_Body";
-            panel_Body.Size = new System.Drawing.Size(741, 555);
+            panel_Body.Size = new System.Drawing.Size(741, 913);
             panel_Body.TabIndex = 2;
             // 
             // pictureBox1
@@ -131,20 +161,20 @@
             pictureBox1.Image = Properties.Resources.Logo;
             pictureBox1.Location = new System.Drawing.Point(0, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new System.Drawing.Size(741, 555);
+            pictureBox1.Size = new System.Drawing.Size(741, 913);
             pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // TrangChu
+            // frmTrangChu
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1088, 631);
+            ClientSize = new System.Drawing.Size(1088, 989);
             Controls.Add(panel_Body);
             Controls.Add(panel_Top);
             Controls.Add(panel_Left);
-            Name = "TrangChu";
+            Name = "frmTrangChu";
             Text = "Trang Chủ";
             WindowState = System.Windows.Forms.FormWindowState.Maximized;
             Load += TrangChu_Load;
@@ -167,5 +197,7 @@
         private System.Windows.Forms.Button btnQLTaiKhoan;
         private System.Windows.Forms.Button btnQLPhongMay;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnQlThietBi;
+        private System.Windows.Forms.Button btnQlKhoa;
     }
 }
