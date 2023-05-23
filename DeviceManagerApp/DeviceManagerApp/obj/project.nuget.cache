@@ -1,13 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "RRAxw+rRJokRUoRoDxNC1bjbpBfNNqqaWbGOSd8dYeVCnA644OWtHrIwibT6zkepbtCvX/OCqmKKQAuSVmkRRQ==",
+  "dgSpecHash": "VjNqr/TcVD4oaldJ1qwAYdQ37UKLmePkq4ouGGCDbHcqIf7cECjcjPea0zzXdQsJxsUo764wl+6sbsOZ17uS1Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ngoho\\source\\DeviceManager\\DeviceManagerApp\\DeviceManagerApp\\DeviceManagerApp.csproj",
+  "projectFilePath": "C:\\Users\\This PC\\OneDrive\\Máy tính\\DeviceManager\\DeviceManager\\DeviceManagerApp\\DeviceManagerApp\\DeviceManagerApp.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ngoho\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
-    "C:\\Users\\ngoho\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
-    "C:\\Users\\ngoho\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
-    "C:\\Users\\ngoho\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.32\\microsoft.netcore.app.host.win-x64.3.1.32.nupkg.sha512"
+    "C:\\Users\\This PC\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.25\\microsoft.netcore.app.host.win-x64.3.1.25.nupkg.sha512"
   ],
   "logs": []
 }
