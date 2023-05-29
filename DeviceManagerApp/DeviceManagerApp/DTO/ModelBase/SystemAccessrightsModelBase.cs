@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DTO.ModelsBase
+namespace DTO.ModelBase
 {
      /// <summary>
      /// Base class for SystemAccessrightsModel.  Do not make changes to this class,

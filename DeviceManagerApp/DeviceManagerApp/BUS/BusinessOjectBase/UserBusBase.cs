@@ -1,6 +1,6 @@
 ﻿using DAO.DataLayer;
-using DTO.Models;
-using DTO.ModelsBase;
+using DTO.Model;
+using DTO.ModelBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,11 +1,11 @@
-﻿using DTO.ModelsBase;
+﻿using DTO.ModelBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DTO.Models
+namespace DTO.Model
 {
     public class UserModel : UserModelBase
     {
