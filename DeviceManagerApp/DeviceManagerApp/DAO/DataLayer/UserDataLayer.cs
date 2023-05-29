@@ -5,8 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DTO;
-using DTO.Models;
-using DTO.ModelsBase;
+using DTO.Model;
+using DTO.ModelBase;
 namespace DAO.DataLayer
 {
     public class UserDataLayer : UserDataLayerBase

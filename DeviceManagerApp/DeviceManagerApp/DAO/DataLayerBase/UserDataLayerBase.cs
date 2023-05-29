@@ -1,13 +1,14 @@
-﻿using DTO.Models;
+﻿using DTO.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using DTO.ModelsBase;
+using DTO.ModelBase;
+using System.Data.SqlClient;
+
 namespace DAO.DataLayerBase
 {
     public class UserDataLayerBase
