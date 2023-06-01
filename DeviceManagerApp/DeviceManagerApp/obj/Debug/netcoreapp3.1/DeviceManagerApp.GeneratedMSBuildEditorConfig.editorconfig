@@ -1,3 +1,9 @@
 is_global = true
+build_property.ApplicationManifest = 
+build_property.StartupObject = 
+build_property.ApplicationDefaultFont = 
+build_property.ApplicationHighDpiMode = 
+build_property.ApplicationUseCompatibleTextRendering = 
+build_property.ApplicationVisualStyles = 
 build_property.RootNamespace = DeviceManagerApp
-build_property.ProjectDir = C:\Users\This PC\OneDrive\Máy tính\DeviceManagerApp\DeviceManagerApp\
+build_property.ProjectDir = D:\Thanh Binh\DeviceManager\DeviceManagerApp\DeviceManagerApp\
