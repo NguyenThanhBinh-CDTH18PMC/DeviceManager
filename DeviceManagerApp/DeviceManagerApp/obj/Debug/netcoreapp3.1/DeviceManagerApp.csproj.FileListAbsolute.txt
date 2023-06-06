@@ -181,3 +181,7 @@ C:\Users\This PC\OneDrive\Máy tính\DeviceManager\DeviceManager\DeviceManagerAp
 C:\Users\This PC\OneDrive\Máy tính\DeviceManager\DeviceManager\DeviceManagerApp\DeviceManagerApp\obj\Debug\netcoreapp3.1\DeviceManagerApp.dll
 C:\Users\This PC\OneDrive\Máy tính\DeviceManager\DeviceManager\DeviceManagerApp\DeviceManagerApp\obj\Debug\netcoreapp3.1\DeviceManagerApp.pdb
 C:\Users\This PC\OneDrive\Máy tính\DeviceManager\DeviceManager\DeviceManagerApp\DeviceManagerApp\obj\Debug\netcoreapp3.1\DeviceManagerApp.genruntimeconfig.cache
+D:\Thanh Binh\DeviceManager\DeviceManagerApp\DeviceManagerApp\bin\Debug\netcoreapp3.1\QRCoder.dll
+D:\Thanh Binh\DeviceManager\DeviceManagerApp\DeviceManagerApp\bin\Debug\netcoreapp3.1\zxing.dll
+D:\Thanh Binh\DeviceManager\DeviceManagerApp\DeviceManagerApp\obj\Debug\netcoreapp3.1\DeviceManagerApp.frmDevice.resources
+D:\Thanh Binh\DeviceManager\DeviceManagerApp\DeviceManagerApp\obj\Debug\netcoreapp3.1\DeviceManagerApp.QR_Code.resources

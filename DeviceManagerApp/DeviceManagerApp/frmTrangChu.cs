@@ -38,6 +38,19 @@ namespace DeviceManagerApp
 
         }
 
+
+
+
+
+        private void pictureBox1_Logo_Click(object sender, EventArgs e)
+        {
+            if (currentFormChild != null)
+            {
+                currentFormChild.Close();
+            }
+            lbl_text.Text = "QUẢN LÝ THIẾT BỊ PHÒNG MÁY";
+        }
+
         private void btnQLTaiKhoan_Click(object sender, EventArgs e)
         {
             OpenChildForm(new frmQuanLyTaiKhoan());
@@ -48,15 +61,6 @@ namespace DeviceManagerApp
         {
             OpenChildForm(new frmQuanLyPhongMay());
             lbl_text.Text = btnQLPhongMay.Text;
-        }
-
-        private void pictureBox1_Logo_Click(object sender, EventArgs e)
-        {
-            if (currentFormChild != null)
-            {
-                currentFormChild.Close();
-            }
-            lbl_text.Text = "QUẢN LÝ THIẾT BỊ PHÒNG MÁY";
         }
 
         private void btnQlThietBi_Click(object sender, EventArgs e)

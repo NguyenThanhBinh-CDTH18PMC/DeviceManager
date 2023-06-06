@@ -27,12 +27,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="BUS\BusinessObject\" />
-    <Folder Include="BUS\BusinessOjectBase\" />
-    <Folder Include="DAO\DataLayer\" />
-    <Folder Include="DAO\DataLayerBase\" />
-    <Folder Include="DTO\Model\" />
-    <Folder Include="DTO\ModelBase\" />
     <Folder Include="DTO\ModelForm\" />
   </ItemGroup>
 

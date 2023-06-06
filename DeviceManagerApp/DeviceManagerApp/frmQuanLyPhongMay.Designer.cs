@@ -45,6 +45,11 @@
             lblTenPhong = new System.Windows.Forms.Label();
             lblMaPhong = new System.Windows.Forms.Label();
             dgvPhongMay = new System.Windows.Forms.DataGridView();
+            Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             qbPhongMay.SuspendLayout();
             gbTimKiemPhong.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPhongMay).BeginInit();
@@ -56,8 +61,9 @@
             lblQlPhong.Dock = System.Windows.Forms.DockStyle.Top;
             lblQlPhong.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             lblQlPhong.Location = new System.Drawing.Point(0, 0);
+            lblQlPhong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblQlPhong.Name = "lblQlPhong";
-            lblQlPhong.Size = new System.Drawing.Size(442, 60);
+            lblQlPhong.Size = new System.Drawing.Size(299, 41);
             lblQlPhong.TabIndex = 0;
             lblQlPhong.Text = "Quản Lý Phòng Máy";
             // 
@@ -77,9 +83,11 @@
             qbPhongMay.Controls.Add(lblMaPhong);
             qbPhongMay.Dock = System.Windows.Forms.DockStyle.Top;
             qbPhongMay.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            qbPhongMay.Location = new System.Drawing.Point(0, 60);
+            qbPhongMay.Location = new System.Drawing.Point(0, 41);
+            qbPhongMay.Margin = new System.Windows.Forms.Padding(2);
             qbPhongMay.Name = "qbPhongMay";
-            qbPhongMay.Size = new System.Drawing.Size(1394, 314);
+            qbPhongMay.Padding = new System.Windows.Forms.Padding(2);
+            qbPhongMay.Size = new System.Drawing.Size(899, 188);
             qbPhongMay.TabIndex = 0;
             qbPhongMay.TabStop = false;
             qbPhongMay.Text = "Thông tin phòng máy";
@@ -87,34 +95,38 @@
             // txtSoLuongTB
             // 
             txtSoLuongTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            txtSoLuongTB.Location = new System.Drawing.Point(242, 155);
+            txtSoLuongTB.Location = new System.Drawing.Point(169, 93);
+            txtSoLuongTB.Margin = new System.Windows.Forms.Padding(2);
             txtSoLuongTB.Name = "txtSoLuongTB";
-            txtSoLuongTB.Size = new System.Drawing.Size(252, 31);
-            txtSoLuongTB.TabIndex = 20;
+            txtSoLuongTB.Size = new System.Drawing.Size(177, 23);
+            txtSoLuongTB.TabIndex = 3;
             // 
             // lblSoLuongTb
             // 
             lblSoLuongTb.AutoSize = true;
-            lblSoLuongTb.Location = new System.Drawing.Point(54, 161);
+            lblSoLuongTb.Location = new System.Drawing.Point(38, 97);
+            lblSoLuongTb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblSoLuongTb.Name = "lblSoLuongTb";
-            lblSoLuongTb.Size = new System.Drawing.Size(173, 25);
+            lblSoLuongTb.Size = new System.Drawing.Size(112, 15);
             lblSoLuongTb.TabIndex = 19;
             lblSoLuongTb.Text = "Số Lượng Thiết Bị :";
             // 
             // rtbGhiChuPhong
             // 
-            rtbGhiChuPhong.Location = new System.Drawing.Point(242, 203);
+            rtbGhiChuPhong.Location = new System.Drawing.Point(169, 122);
+            rtbGhiChuPhong.Margin = new System.Windows.Forms.Padding(2);
             rtbGhiChuPhong.Name = "rtbGhiChuPhong";
-            rtbGhiChuPhong.Size = new System.Drawing.Size(252, 95);
-            rtbGhiChuPhong.TabIndex = 3;
+            rtbGhiChuPhong.Size = new System.Drawing.Size(178, 59);
+            rtbGhiChuPhong.TabIndex = 4;
             rtbGhiChuPhong.Text = "";
             // 
             // lblGhiChuPhong
             // 
             lblGhiChuPhong.AutoSize = true;
-            lblGhiChuPhong.Location = new System.Drawing.Point(54, 218);
+            lblGhiChuPhong.Location = new System.Drawing.Point(38, 131);
+            lblGhiChuPhong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblGhiChuPhong.Name = "lblGhiChuPhong";
-            lblGhiChuPhong.Size = new System.Drawing.Size(89, 25);
+            lblGhiChuPhong.Size = new System.Drawing.Size(56, 15);
             lblGhiChuPhong.TabIndex = 18;
             lblGhiChuPhong.Text = "Ghi Chú :";
             // 
@@ -122,9 +134,11 @@
             // 
             gbTimKiemPhong.Controls.Add(btnTimKiemPhong);
             gbTimKiemPhong.Controls.Add(txtTiemKiemPhong);
-            gbTimKiemPhong.Location = new System.Drawing.Point(818, 23);
+            gbTimKiemPhong.Location = new System.Drawing.Point(573, 14);
+            gbTimKiemPhong.Margin = new System.Windows.Forms.Padding(2);
             gbTimKiemPhong.Name = "gbTimKiemPhong";
-            gbTimKiemPhong.Size = new System.Drawing.Size(564, 202);
+            gbTimKiemPhong.Padding = new System.Windows.Forms.Padding(2);
+            gbTimKiemPhong.Size = new System.Drawing.Size(395, 121);
             gbTimKiemPhong.TabIndex = 17;
             gbTimKiemPhong.TabStop = false;
             gbTimKiemPhong.Text = "Tìm Kiếm";
@@ -134,112 +148,165 @@
             btnTimKiemPhong.BackColor = System.Drawing.Color.Lime;
             btnTimKiemPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnTimKiemPhong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            btnTimKiemPhong.Location = new System.Drawing.Point(396, 42);
+            btnTimKiemPhong.Location = new System.Drawing.Point(277, 25);
+            btnTimKiemPhong.Margin = new System.Windows.Forms.Padding(2);
             btnTimKiemPhong.Name = "btnTimKiemPhong";
-            btnTimKiemPhong.Size = new System.Drawing.Size(134, 50);
-            btnTimKiemPhong.TabIndex = 8;
+            btnTimKiemPhong.Size = new System.Drawing.Size(94, 30);
+            btnTimKiemPhong.TabIndex = 9;
             btnTimKiemPhong.Text = "Tìm kiếm";
             btnTimKiemPhong.UseVisualStyleBackColor = false;
             // 
             // txtTiemKiemPhong
             // 
             txtTiemKiemPhong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            txtTiemKiemPhong.Location = new System.Drawing.Point(33, 53);
+            txtTiemKiemPhong.Location = new System.Drawing.Point(23, 32);
+            txtTiemKiemPhong.Margin = new System.Windows.Forms.Padding(2);
             txtTiemKiemPhong.Name = "txtTiemKiemPhong";
-            txtTiemKiemPhong.Size = new System.Drawing.Size(252, 31);
-            txtTiemKiemPhong.TabIndex = 7;
+            txtTiemKiemPhong.Size = new System.Drawing.Size(177, 23);
+            txtTiemKiemPhong.TabIndex = 8;
             // 
             // btnXoaPhong
             // 
             btnXoaPhong.BackColor = System.Drawing.Color.Lime;
             btnXoaPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnXoaPhong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            btnXoaPhong.Location = new System.Drawing.Point(663, 175);
+            btnXoaPhong.Location = new System.Drawing.Point(464, 105);
+            btnXoaPhong.Margin = new System.Windows.Forms.Padding(2);
             btnXoaPhong.Name = "btnXoaPhong";
-            btnXoaPhong.Size = new System.Drawing.Size(134, 50);
-            btnXoaPhong.TabIndex = 6;
+            btnXoaPhong.Size = new System.Drawing.Size(94, 30);
+            btnXoaPhong.TabIndex = 7;
             btnXoaPhong.Text = "Xóa";
             btnXoaPhong.UseVisualStyleBackColor = false;
+            btnXoaPhong.Click += btnXoaPhong_Click;
             // 
             // btnSuaPhong
             // 
             btnSuaPhong.BackColor = System.Drawing.Color.Lime;
             btnSuaPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnSuaPhong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            btnSuaPhong.Location = new System.Drawing.Point(663, 101);
+            btnSuaPhong.Location = new System.Drawing.Point(464, 61);
+            btnSuaPhong.Margin = new System.Windows.Forms.Padding(2);
             btnSuaPhong.Name = "btnSuaPhong";
-            btnSuaPhong.Size = new System.Drawing.Size(134, 50);
-            btnSuaPhong.TabIndex = 5;
+            btnSuaPhong.Size = new System.Drawing.Size(94, 30);
+            btnSuaPhong.TabIndex = 6;
             btnSuaPhong.Text = "Cập nhật";
             btnSuaPhong.UseVisualStyleBackColor = false;
+            btnSuaPhong.Click += btnSuaPhong_Click;
             // 
             // btnThemPhong
             // 
             btnThemPhong.BackColor = System.Drawing.Color.Lime;
             btnThemPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnThemPhong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            btnThemPhong.Location = new System.Drawing.Point(663, 23);
+            btnThemPhong.Location = new System.Drawing.Point(464, 14);
+            btnThemPhong.Margin = new System.Windows.Forms.Padding(2);
             btnThemPhong.Name = "btnThemPhong";
-            btnThemPhong.Size = new System.Drawing.Size(134, 50);
-            btnThemPhong.TabIndex = 4;
+            btnThemPhong.Size = new System.Drawing.Size(94, 30);
+            btnThemPhong.TabIndex = 5;
             btnThemPhong.Text = "Thêm Mới";
             btnThemPhong.UseVisualStyleBackColor = false;
+            btnThemPhong.Click += btnThemPhong_Click;
             // 
             // txtTenPhong
             // 
             txtTenPhong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            txtTenPhong.Location = new System.Drawing.Point(242, 95);
+            txtTenPhong.Location = new System.Drawing.Point(169, 57);
+            txtTenPhong.Margin = new System.Windows.Forms.Padding(2);
             txtTenPhong.Name = "txtTenPhong";
-            txtTenPhong.Size = new System.Drawing.Size(252, 31);
+            txtTenPhong.Size = new System.Drawing.Size(177, 23);
             txtTenPhong.TabIndex = 2;
             // 
             // txtMaPhong
             // 
             txtMaPhong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            txtMaPhong.Location = new System.Drawing.Point(242, 34);
+            txtMaPhong.Location = new System.Drawing.Point(169, 20);
+            txtMaPhong.Margin = new System.Windows.Forms.Padding(2);
             txtMaPhong.Name = "txtMaPhong";
-            txtMaPhong.Size = new System.Drawing.Size(252, 31);
+            txtMaPhong.Size = new System.Drawing.Size(177, 23);
             txtMaPhong.TabIndex = 1;
             // 
             // lblTenPhong
             // 
             lblTenPhong.AutoSize = true;
-            lblTenPhong.Location = new System.Drawing.Point(54, 101);
+            lblTenPhong.Location = new System.Drawing.Point(38, 61);
+            lblTenPhong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblTenPhong.Name = "lblTenPhong";
-            lblTenPhong.Size = new System.Drawing.Size(112, 25);
+            lblTenPhong.Size = new System.Drawing.Size(71, 15);
             lblTenPhong.TabIndex = 1;
             lblTenPhong.Text = "Tên Phòng :";
             // 
             // lblMaPhong
             // 
             lblMaPhong.AutoSize = true;
-            lblMaPhong.Location = new System.Drawing.Point(54, 40);
+            lblMaPhong.Location = new System.Drawing.Point(38, 24);
+            lblMaPhong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblMaPhong.Name = "lblMaPhong";
-            lblMaPhong.Size = new System.Drawing.Size(109, 25);
+            lblMaPhong.Size = new System.Drawing.Size(68, 15);
             lblMaPhong.TabIndex = 0;
             lblMaPhong.Text = "Mã Phòng :";
             // 
             // dgvPhongMay
             // 
             dgvPhongMay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvPhongMay.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
             dgvPhongMay.Dock = System.Windows.Forms.DockStyle.Top;
-            dgvPhongMay.Location = new System.Drawing.Point(0, 374);
+            dgvPhongMay.Location = new System.Drawing.Point(0, 229);
+            dgvPhongMay.Margin = new System.Windows.Forms.Padding(2);
             dgvPhongMay.Name = "dgvPhongMay";
+            dgvPhongMay.ReadOnly = true;
             dgvPhongMay.RowHeadersWidth = 62;
             dgvPhongMay.RowTemplate.Height = 33;
-            dgvPhongMay.Size = new System.Drawing.Size(1394, 312);
+            dgvPhongMay.Size = new System.Drawing.Size(899, 187);
             dgvPhongMay.TabIndex = 2;
+            dgvPhongMay.CellClick += dgvPhongMay_CellClick;
+            // 
+            // Column1
+            // 
+            Column1.DataPropertyName = "Id";
+            Column1.HeaderText = "ID";
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            Column2.DataPropertyName = "Code";
+            Column2.HeaderText = "Mã Phòng";
+            Column2.Name = "Column2";
+            Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            Column3.DataPropertyName = "Name";
+            Column3.HeaderText = "Tên Phòng";
+            Column3.Name = "Column3";
+            Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            Column4.DataPropertyName = "Description";
+            Column4.HeaderText = "Ghi Chú";
+            Column4.Name = "Column4";
+            Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            Column5.DataPropertyName = "DeviceQuantity";
+            Column5.HeaderText = "Số Lượng";
+            Column5.Name = "Column5";
+            Column5.ReadOnly = true;
             // 
             // frmQuanLyPhongMay
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1394, 589);
+            ClientSize = new System.Drawing.Size(899, 423);
             Controls.Add(dgvPhongMay);
             Controls.Add(qbPhongMay);
             Controls.Add(lblQlPhong);
+            Margin = new System.Windows.Forms.Padding(2);
             Name = "frmQuanLyPhongMay";
             Text = "QuanLyPhongMay";
+            Load += frmQuanLyPhongMay_Load;
             qbPhongMay.ResumeLayout(false);
             qbPhongMay.PerformLayout();
             gbTimKiemPhong.ResumeLayout(false);
@@ -268,5 +335,10 @@
         private System.Windows.Forms.Label lblGhiChuPhong;
         private System.Windows.Forms.TextBox txtSoLuongTB;
         private System.Windows.Forms.Label lblSoLuongTb;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }
