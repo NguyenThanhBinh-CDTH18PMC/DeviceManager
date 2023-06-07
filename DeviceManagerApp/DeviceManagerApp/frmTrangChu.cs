@@ -84,7 +84,13 @@ namespace DeviceManagerApp
         private void btnQlThanhLy_Click(object sender, EventArgs e)
         {
             OpenChildForm(new frmQuanLyThanhLy());
-            lbl_text.Text=btnQlThanhLy.Text;
+            lbl_text.Text = btnQlThanhLy.Text;
+        }
+
+        private void btbQlLoaiThietBi_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmQuanLyLoaiThietBi());
+            lbl_text.Text = btnQlLoaiThietBi.Text;
         }
     }
 }
