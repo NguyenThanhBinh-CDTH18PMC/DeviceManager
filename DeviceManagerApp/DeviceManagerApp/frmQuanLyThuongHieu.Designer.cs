@@ -43,6 +43,9 @@
             lblTenThuongHieu = new System.Windows.Forms.Label();
             lblMaThuongHieu = new System.Windows.Forms.Label();
             dgvThuongHieu = new System.Windows.Forms.DataGridView();
+            Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             qbThuongHieu.SuspendLayout();
             gbTimKiemThuongHieu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvThuongHieu).BeginInit();
@@ -139,6 +142,7 @@
             btnXoaThuongHieu.TabIndex = 6;
             btnXoaThuongHieu.Text = "Xóa";
             btnXoaThuongHieu.UseVisualStyleBackColor = false;
+            btnXoaThuongHieu.Click += btnXoaThuongHieu_Click;
             // 
             // btnSuaThuongHieu
             // 
@@ -151,6 +155,7 @@
             btnSuaThuongHieu.TabIndex = 5;
             btnSuaThuongHieu.Text = "Cập nhật";
             btnSuaThuongHieu.UseVisualStyleBackColor = false;
+            btnSuaThuongHieu.Click += btnSuaThuongHieu_Click;
             // 
             // btnThemThuongHieu
             // 
@@ -163,6 +168,7 @@
             btnThemThuongHieu.TabIndex = 4;
             btnThemThuongHieu.Text = "Thêm Mới";
             btnThemThuongHieu.UseVisualStyleBackColor = false;
+            btnThemThuongHieu.Click += btnThemThuongHieu_Click;
             // 
             // txtTenThuongHieu
             // 
@@ -201,24 +207,55 @@
             // dgvThuongHieu
             // 
             dgvThuongHieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvThuongHieu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1, Column2, Column3 });
             dgvThuongHieu.Dock = System.Windows.Forms.DockStyle.Top;
             dgvThuongHieu.Location = new System.Drawing.Point(0, 374);
             dgvThuongHieu.Name = "dgvThuongHieu";
+            dgvThuongHieu.ReadOnly = true;
             dgvThuongHieu.RowHeadersWidth = 62;
             dgvThuongHieu.RowTemplate.Height = 33;
             dgvThuongHieu.Size = new System.Drawing.Size(1525, 312);
             dgvThuongHieu.TabIndex = 3;
+            dgvThuongHieu.CellClick += dgvThuongHieu_CellClick;
+            // 
+            // Column1
+            // 
+            Column1.DataPropertyName = "Id";
+            Column1.HeaderText = "Mã Thương Hiệu";
+            Column1.MinimumWidth = 8;
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
+            Column1.Width = 150;
+            // 
+            // Column2
+            // 
+            Column2.DataPropertyName = "Name";
+            Column2.HeaderText = "Tên Thương Hiệu";
+            Column2.MinimumWidth = 8;
+            Column2.Name = "Column2";
+            Column2.ReadOnly = true;
+            Column2.Width = 150;
+            // 
+            // Column3
+            // 
+            Column3.DataPropertyName = "Address";
+            Column3.HeaderText = "Địa Chỉ";
+            Column3.MinimumWidth = 8;
+            Column3.Name = "Column3";
+            Column3.ReadOnly = true;
+            Column3.Width = 150;
             // 
             // frmQuanLyThuongHieu
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1525, 593);
+            ClientSize = new System.Drawing.Size(1525, 658);
             Controls.Add(dgvThuongHieu);
             Controls.Add(qbThuongHieu);
             Controls.Add(label1);
             Name = "frmQuanLyThuongHieu";
             Text = "frmQuanLyThuongHieu";
+            Load += frmQuanLyThuongHieu_Load;
             qbThuongHieu.ResumeLayout(false);
             qbThuongHieu.PerformLayout();
             gbTimKiemThuongHieu.ResumeLayout(false);
@@ -245,5 +282,8 @@
         private System.Windows.Forms.Label lblTenThuongHieu;
         private System.Windows.Forms.Label lblMaThuongHieu;
         private System.Windows.Forms.DataGridView dgvThuongHieu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }

@@ -93,10 +93,7 @@ namespace DeviceManagerApp
                 RoomBus.DeleteRoom(roomModel.Code);
                 MessageBox.Show("Xóa Thành Công");
                 dgvPhongMay.DataSource = RoomBus.GetAllRoom();
-                txtMaPhong = null;
-                txtTenPhong = null;
-                rtbGhiChuPhong = null;
-                txtSoLuongTB = null;
+
 
             }
             catch (Exception ex)

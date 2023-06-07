@@ -185,3 +185,4 @@ D:\Thanh Binh\DeviceManager\DeviceManagerApp\DeviceManagerApp\bin\Debug\netcorea
 D:\Thanh Binh\DeviceManager\DeviceManagerApp\DeviceManagerApp\bin\Debug\netcoreapp3.1\zxing.dll
 D:\Thanh Binh\DeviceManager\DeviceManagerApp\DeviceManagerApp\obj\Debug\netcoreapp3.1\DeviceManagerApp.frmDevice.resources
 D:\Thanh Binh\DeviceManager\DeviceManagerApp\DeviceManagerApp\obj\Debug\netcoreapp3.1\DeviceManagerApp.QR_Code.resources
+D:\Thanh Binh\DeviceManager\DeviceManagerApp\DeviceManagerApp\obj\Debug\netcoreapp3.1\DeviceManagerApp.frmQuanLyLoaiThietBi.resources
