@@ -11,8 +11,10 @@ namespace DeviceManagerApp.DTO.Model
 {
     public class DeviceType_SpecsModel : DeviceType_SpecsModelBase
     {
-        public string BrandName { get; set; }
-        public string DeviceName { get; set; }
+        public string SpecsName { get; set; }
+        public string DataType { get; set; }
+        public int Ordinal { get; set; }
+        public string DeviceTypeName { get; set; }
         public DeviceType_SpecsModel() { }
     }
 }

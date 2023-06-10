@@ -207,7 +207,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         }
 
         /// <summary>
-        /// Selects records based on the passed filters as a collection (List) of Specs.
+        /// 
         /// </summary>
         public static List<DeviceType_SpecsModel> SelectAllDynamicWhere(int? id, int? deviceTypeId, int? deviceSpecsId, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted/*, int? status*/)
         {
@@ -334,8 +334,6 @@ namespace DeviceManagerApp.DAO.DataLayerBase
 
             using (SqlConnection connection = new SqlConnection(PathString.ConnectionString))
             {
-                connection.Open();
-
                 using (SqlCommand command = new SqlCommand(storedProcName, connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
@@ -354,11 +352,14 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                     command.Parameters.AddWithValue("@isDeleted", objDeviceType_Specs.IsDeleted);
                     //command.Parameters.AddWithValue("@status", status);
 
+                    connection.Open();
+
                     if (isUpdate)
                         command.ExecuteNonQuery();
                     else
-                        command.ExecuteScalar();
-                    newlyCreatedId = 1;
+                    {
+                        newlyCreatedId = (int) command.ExecuteScalar();
+                    }
                 }
             }
 
@@ -370,7 +371,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         /// </summary>
         public static void Delete(int id)
         {
-            string storedProcName = "[dbo].[DeviceType_Specs_Delete]";
+            string storedProcName = "[dbo].[DeviceType_Specs_Hide]";
 
             using (SqlConnection connection = new SqlConnection(PathString.ConnectionString))
             {
@@ -387,6 +388,65 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                     command.ExecuteNonQuery();
                 }
             }
+        }
+
+        /// <summary>
+        /// Selects records based on the passed filters as a collection (List) .
+        /// </summary>
+        public static List<DeviceType_SpecsModel> SelectAllSpecsOfDevice(int deviceTypeId, bool isDeleted)
+        {
+            List<DeviceType_SpecsModel> objDeviceType_SpecsCol = null;
+            string storedProcName = "[dbo].[DeviceType_Specs_SelectAllSpecsOfDevice]";
+
+            using (SqlConnection connection = new SqlConnection(PathString.ConnectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand(storedProcName, connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    // search parameters
+                    command.Parameters.AddWithValue("@deviceTypeId", deviceTypeId);
+                    command.Parameters.AddWithValue("@isDeleted", isDeleted);
+
+                    using (SqlDataAdapter da = new SqlDataAdapter(command))
+                    {
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+
+                        if (dt != null)
+                        {
+                            if (dt.Rows.Count > 0)
+                            {
+                                objDeviceType_SpecsCol = new List<DeviceType_SpecsModel>();
+
+                                foreach (DataRow dr in dt.Rows)
+                                {
+                                    DeviceType_SpecsModel objDeviceType_Specs = CreateDeviceType_SpecsFromDataRowShared(dr);
+                                    if (dr["Name"] != System.DBNull.Value)
+                                        objDeviceType_Specs.SpecsName = dr["Name"].ToString();
+                                    else
+                                        objDeviceType_Specs.SpecsName = "";
+
+                                    if (dr["DataType"] != System.DBNull.Value)
+                                        objDeviceType_Specs.DataType = dr["DataType"].ToString();
+                                    else
+                                        objDeviceType_Specs.DataType = "";
+                                    if (dr["Ordinal"] != System.DBNull.Value)
+                                        objDeviceType_Specs.Ordinal = (int)dr["Ordinal"];
+                                    else
+                                        objDeviceType_Specs.Ordinal = 99;
+
+                                    objDeviceType_SpecsCol.Add(objDeviceType_Specs);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            return objDeviceType_SpecsCol;
         }
 
         /// <summary>
