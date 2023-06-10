@@ -5,230 +5,244 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
---store procedure Product
-	create proc [dbo].[Product_SelectByPrimaryKey](@id int)
+--store procedure Device
+	create proc [dbo].[Device_SelectByPrimaryKey](@id int)
 	as 
 	begin
 	SET NOCOUNT ON;
-		select* from [dbo].[P_Product] 
+		select* from [dbo].[D_Device] 
 		where [Id] = @id
 	end
 	go
 
-	create proc [dbo].[Product_SelectAllWhereDynamic]
+	create proc [dbo].[Device_SelectAllWhereDynamic]
 	(
 	@id int = null,
 	@name nvarchar(100) = null,
 	@description nvarchar(100) = null,
-	@manuId int = null,
-	@productCode varchar(20) = null,
-	@discount int = null,
-	@price decimal(18,0) = null,
-	@productTypeId int = null,
+	@brandId int = null,
+	@deviceTypeId int = null,
+	--@shipmentId int = null,
+	@qr_code varchar(100) = null,
+	@note varchar(100) = null,
+	@image varchar(100) = null,
+	@price money = null,
+	@warrantyPeriod datetime = null,
 	@createdDate datetime = null,
-	@modifiedDate datetime = null,
 	@createdUserId int = null,
-	@modifiedUserId int = null,
 	@isDeleted bit = null,
 	@status int = null
-)
-as 
-	begin
-	SET NOCOUNT ON;
-	select * from [dbo].[P_Product]
-	where (@id IS null or [Id] = @id) and
-	(@price is null or [Price] = @price) and
-	(@name is null or [Name] = @name) and
-	(@manuId is null or [ManuId] = @manuId) and
-	(@productCode is null or [ProductCode] = @productCode) and
-	(@description is null or [Description] = @description) and
-	(@productTypeId is null or [ProductTypeId] = @productTypeId) and
-	(@discount is null or [Discount] = @discount) and
-	(@createdDate is null or [CreatedDate] = @createdDate) and
-	(@modifiedDate is null or [ModifiedDate] = @modifiedDate) and
-	(@createdUserId is null or [CreatedUserId] = @createdUserId) and
-	(@modifiedUserId is null or [ModifiedUserId] = @modifiedUserId) and
-	(@isDeleted is null or ISNULL([IsDeleted],0) = @isDeleted) and
-	(@status is null or ISNULL([Status],0) = @status)
-	order by [Name]
-	end
+	)
+	as 
+		begin
+		SET NOCOUNT ON;
+		select * from [dbo].[D_Device]
+		where (@id IS null or [Id] = @id) and
+		(@DeviceTypeId is null or [DeviceTypeId] = @DeviceTypeId) and
+		(@name is null or [Name] = @name) and
+		(@brandId is null or [brandId] = @brandId) and
+		--(@shipmentId is null or [shipmentId] = @shipmentId) and
+		(@qr_code is null or [QR_Code] = @qr_code) and
+		(@note is null or [Note] = @note) and
+		(@image is null or [Image] = @image) and
+		(@price is null or [Price] = @price) and
+		(@description is null or [Description] = @description) and
+		(@warrantyPeriod is null or [WarrantyPeriod] = @warrantyPeriod) and
+		(@createdDate is null or [CreatedDate] = @createdDate) and
+		(@createdUserId is null or [CreatedUserId] = @createdUserId) and
+		(@isDeleted is null or ISNULL([IsDeleted],0) = @isDeleted) and
+		(@status is null or ISNULL([Status],0) = @status)
+		order by [Name]
+		end
 	go
 
-	create proc [dbo].[Product_GetRecordCount]
+	create proc [dbo].[Device_GetRecordCount]
 	as 
 	begin
 	SET NOCOUNT ON;
-		select count(*) [count] from [dbo].[P_Product]
+		select count(*) [count] from [dbo].[D_Device]
 	end
 	go
 
-	create proc [dbo].[Product_SelectSkipAndTakeWhereDynamic](
-@id int = null,
-@name nvarchar(100) = null,
-@description nvarchar(100) = null,
-@manuId int = null,
-@productCode varchar(20) = null,
-@discount int = null,
-@price decimal(18,0) = null,
-@productTypeId int = null,
-@createdDate datetime = null,
-@modifiedDate datetime = null,
-@createdUserId int = null,
-@modifiedUserId int = null,
-@isDeleted bit = null,
-@status int = null,
-@sort varchar(50) = null,
-@numberOfRows int,
-@start int)
-as 
-	begin
-	SET NOCOUNT ON;
-	select * from [dbo].[P_Product]
-	where (@id IS null or [Id] = @id) and
-	(@price is null or [Price] = @price) and
-	(@manuId is null or [ManuId] = @manuId) and
-	(@productCode is null or [ProductCode] = @productCode) and
-	(@description is null or [Description] = @description) and
-	(@productTypeId is null or [ProductTypeId] = @productTypeId) and
-	(@discount is null or [Discount] = @discount) and
-	(@createdDate is null or [CreatedDate] = @createdDate) and
-	(@modifiedDate is null or [ModifiedDate] = @modifiedDate) and
-	(@createdUserId is null or [CreatedUserId] = @createdUserId) and
-	(@modifiedUserId is null or [ModifiedUserId] = @modifiedUserId) and
-	(@isDeleted is null or ISNULL([IsDeleted],0) = @isDeleted) and
-	(@status is null or ISNULL([Status],0) = @status)
-	order by 
-	case when (@sort is null or @sort = 'Id') then [Id] end,
-	case when (@sort = 'Id desc') then [Id] end desc,
-	case when @sort = 'Price' then [Price] end,
-	case when @sort = 'Price desc' then [Price] end desc,
-	case when @sort = 'ModifiedDate' then [ModifiedDate]
-		when @sort = 'CreatedUserId' then [CreatedUserId]
-		when @sort = 'ManuId' then [ManuId]
-		when @sort = 'ModifiedUserId' then [ModifiedUserId]
-		when @sort = 'IsDeleted' then [IsDeleted]
-		when @sort = 'Status' then [Status]
-	end
-	offset     @start ROWS       -- skip s rows
-	FETCH NEXT @numberOfRows ROWS ONLY; -- take n rows
-	end
-	go
-
-	create proc [dbo].[Product_GetRecordCountWhereDynamic](
-@id int = null,
-@name nvarchar(100) = null,
-@description nvarchar(100) = null,
-@manuId int = null,
-@productCode varchar(20) = null,
-@discount int = null,
-@price decimal(18,0) = null,
-@productTypeId int = null,
-@createdDate datetime = null,
-@modifiedDate datetime = null,
-@createdUserId int = null,
-@modifiedUserId int = null,
-@isDeleted bit = null,
-@status int = null)
-as 
-	begin
-	SET NOCOUNT ON;
-	select count(*) [count] from [dbo].[P_Product]
-	where (@id IS null or [Id] = @id) and
-	(@price is null or [Price] = @price) and
-	(@manuId is null or [ManuId] = @manuId) and
-	(@productCode is null or [ProductCode] = @productCode) and
-	(@description is null or [Description] = @description) and
-	(@productTypeId is null or [ProductTypeId] = @productTypeId) and
-	(@discount is null or [Discount] = @discount) and
-	(@createdDate is null or [CreatedDate] = @createdDate) and
-	(@modifiedDate is null or [ModifiedDate] = @modifiedDate) and
-	(@createdUserId is null or [CreatedUserId] = @createdUserId) and
-	(@modifiedUserId is null or [ModifiedUserId] = @modifiedUserId) and
-	(@isDeleted is null or ISNULL([IsDeleted],0) = @isDeleted) and
-	(@status is null or ISNULL([Status],0) = @status)
-	end
-	go
-
-	create proc [dbo].[Product_Insert](
+	create proc [dbo].[Device_SelectSkipAndTakeWhereDynamic](
+	@id int = null,
 	@name nvarchar(100) = null,
 	@description nvarchar(100) = null,
-	@manuId int = null,
-	@productCode varchar(20) = null,
-	@discount int = null,
-	@price decimal(18,0) = null,
-	@productTypeId int = null,
+	@brandId int = null,
+	@deviceTypeId int = null,
+	--@shipmentId int = null,
+	@qr_code varchar(100) = null,
+	@note varchar(100) = null,
+	@image varchar(100) = null,
+	@price money = null,
+	@warrantyPeriod datetime = null,
 	@createdDate datetime = null,
-	@modifiedDate datetime = null,
 	@createdUserId int = null,
-	@modifiedUserId int = null,
+	@isDeleted bit = null,
+	@status int = null,
+	@sort varchar(50) = null,
+	@numberOfRows int,
+	@start int)
+	as 
+		begin
+		SET NOCOUNT ON;
+		select * from [dbo].[D_Device]
+		where (@id IS null or [Id] = @id) and
+		(@DeviceTypeId is null or [DeviceTypeId] = @DeviceTypeId) and
+		(@name is null or [Name] = @name) and
+		(@brandId is null or [brandId] = @brandId) and
+		--(@shipmentId is null or [shipmentId] = @shipmentId) and
+		(@qr_code is null or [QR_Code] = @qr_code) and
+		(@note is null or [Note] = @note) and
+		(@image is null or [Image] = @image) and
+		(@price is null or [Price] = @price) and
+		(@description is null or [Description] = @description) and
+		(@warrantyPeriod is null or [WarrantyPeriod] = @warrantyPeriod) and
+		(@createdDate is null or [CreatedDate] = @createdDate) and
+		(@createdUserId is null or [CreatedUserId] = @createdUserId) and
+		(@isDeleted is null or ISNULL([IsDeleted],0) = @isDeleted) and
+		(@status is null or ISNULL([Status],0) = @status)
+		order by 
+		case when (@sort is null or @sort = 'Id') then [Id] end,
+		case when (@sort = 'Id desc') then [Id] end desc,
+		case when @sort = 'Price' then [Price] end,
+		case when @sort = 'Price desc' then [Price] end desc,
+		case when @sort = 'CreatedUserId' then [CreatedUserId] end,
+		case when @sort = 'brandId' then [brandId] end,
+		case when @sort = 'IsDeleted' then [IsDeleted] end,
+		case when @sort = 'Status' then [Status] end
+		offset   @start ROWS    -- skip s rows
+		FETCH NEXT @numberOfRows ROWS ONLY; -- take n rows
+		end
+	go
+
+	create proc [dbo].[Device_GetRecordCountWhereDynamic](
+	@id int = null,
+	@name nvarchar(100) = null,
+	@description nvarchar(100) = null,
+	@brandId int = null,
+	@deviceTypeId int = null,
+	--@shipmentId int = null,
+	@qr_code varchar(100) = null,
+	@note varchar(100) = null,
+	@image varchar(100) = null,
+	@price money = null,
+	@warrantyPeriod datetime = null,
+	@createdDate datetime = null,
+	@createdUserId int = null,
+	@isDeleted bit = null,
+	@status int = null)
+as 
+	begin
+	SET NOCOUNT ON;
+	select count(*) [count] from [dbo].[D_Device]
+	where (@id IS null or [Id] = @id) and
+		(@DeviceTypeId is null or [DeviceTypeId] = @DeviceTypeId) and
+		(@name is null or [Name] = @name) and
+		(@brandId is null or [brandId] = @brandId) and
+		--(@shipmentId is null or [shipmentId] = @shipmentId) and
+		(@qr_code is null or [QR_Code] = @qr_code) and
+		(@note is null or [Note] = @note) and
+		(@image is null or [Image] = @image) and
+		(@price is null or [Price] = @price) and
+		(@description is null or [Description] = @description) and
+		(@warrantyPeriod is null or [WarrantyPeriod] = @warrantyPeriod) and
+		(@createdDate is null or [CreatedDate] = @createdDate) and
+		(@createdUserId is null or [CreatedUserId] = @createdUserId) and
+		(@isDeleted is null or ISNULL([IsDeleted],0) = @isDeleted) and
+		(@status is null or ISNULL([Status],0) = @status)
+	end
+	go
+
+	create proc [dbo].[Device_Insert](
+	@name nvarchar(100) = null,
+	@description nvarchar(100) = null,
+	@brandId int = null,
+	@deviceTypeId int = null,
+	--@shipmentId int = null,
+	@qr_code varchar(100) = null,
+	@note varchar(100) = null,
+	@image varchar(100) = null,
+	@price money = null,
+	@warrantyPeriod datetime = null,
+	@createdDate datetime = null,
+	@createdUserId int = null,
 	@isDeleted bit = null,
 	@status int = null
 	)
 	as
 	begin
 		SET NOCOUNT ON;
-		declare @id int;
-		Insert into [dbo].[P_Product]
-		([Name],[Description],[ManuId],[ProductTypeId],[Discount],[ProductCode],[Price],[CreatedDate],[ModifiedDate],[CreatedUserId],[ModifiedUserId],[IsDeleted],[Status]) 
-		Values(@name,@description,@manuId,@productTypeId,@discount,@productCode,@price,@createdDate,@modifiedDate,@createdUserId,@modifiedUserId,@isDeleted,@status)
-		set @id = SCOPE_IDENTITY()
-		return @id
+		Insert into [dbo].[D_Device]
+		([Name],[brandId],[DeviceTypeId]/*,[ShipmentId]*/,[qr_code],[Image],[Price],[Note],[Description],[WarrantyPeriod],[CreatedDate],[CreatedUserId],[IsDeleted],[Status]) 
+		Values(@name,@brandId,@DeviceTypeId/*,@shipmentId*/,@qr_code,@image,@price,@note,@description,@warrantyPeriod,@createdDate,@createdUserId,@isDeleted,@status)
+		select SCOPE_IDENTITY() as Id
 	end
 	go
 
-	create proc [dbo].[Product_Update](
+	create proc [dbo].[Device_Update](
 	@id int,
 	@name nvarchar(100) = null,
 	@description nvarchar(100) = null,
-	@manuId int = null,
-	@productCode varchar(20) = null,
-	@discount int = null,
-	@price decimal(18,0) = null,
-	@productTypeId int = null,
+	@brandId int = null,
+	@deviceTypeId int = null,
+	--@shipmentId int = null,
+	@qr_code varchar(100) = null,
+	@note varchar(100) = null,
+	@image varchar(100) = null,
+	@price money = null,
+	@warrantyPeriod datetime = null,
 	@createdDate datetime = null,
-	@modifiedDate datetime = null,
 	@createdUserId int = null,
-	@modifiedUserId int = null,
 	@isDeleted bit = null,
 	@status int = null
 	)
 	as
 	begin
 		SET NOCOUNT ON;
-		Update [dbo].[P_Product]
-		set [Name]=@name,[Description]=@description,[ManuId]=@manuId,[ProductTypeId]=@productTypeId,
-		[Discount]=@discount,[ProductCode]=@productCode,[Price]=@price
-		,[CreatedDate]=@createdDate,[ModifiedDate]=@modifiedDate,
-		[CreatedUserId]=@createdUserId,[ModifiedUserId]=@modifiedUserId,
-		[IsDeleted]=@isDeleted,[Status]=@status 
+		Update [dbo].[D_Device]
+		set [Name]=@name,[brandId]=@brandId,[DeviceTypeId]=@deviceTypeId/*,[ShipmentId]= @shipmentId*/,[qr_code]=@qr_code,[Image]=@image,
+		[Price]=@price,[Note]=@note,[Description]=@description,[WarrantyPeriod]=@warrantyPeriod,
+		[CreatedDate]=@createdDate, [CreatedUserId]=@createdUserId,[IsDeleted]=@isDeleted,[Status]=@status 
+		where [Id] = @id
 	end
 	go
 
-	create proc [dbo].[Product_Delete](@id int)
+	create proc [dbo].[Device_Delete](@id int)
 	as
 	begin
 		SET NOCOUNT ON;
-		Delete from [dbo].[P_Product]		
+		Delete from [dbo].[D_Device]		
 		Where [Id] = @id
 	end
 	go
 
---end Product
+	create proc [dbo].[Device_Hide](@id int)
+	as
+	begin
+		SET NOCOUNT ON;
+		Update [dbo].[D_Device]
+		set [IsDeleted]=1
+		Where [Id] = @id
+	end
+	go
 
-/*ProductType*/
+--end Device
 
-create proc [dbo].[ProductType_SelectByPrimaryKey](@id int)
+/*DeviceType*/
+
+create proc [dbo].[DeviceType_SelectByPrimaryKey](@id int)
 as
 begin
-	select * from [dbo].[P_ProductType]
+	select * from [dbo].[D_Device_Type]
 	where [Id] = @id
 end
 go
 
-create proc [dbo].[ProductType_SelectDropDownListData]
+create proc [dbo].[DeviceType_SelectDropDownListData]
 as
 	begin
-		select * from [dbo].[P_ProductType]
+		select * from [dbo].[D_Device_Type]
 		where ISNULL([IsDeleted],0) = 0
 	end
 go

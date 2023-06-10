@@ -419,7 +419,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         /// </summary>
         public static void Delete(int id)
         {
-            string storedProcName = "[dbo].[Specs_Delete]";
+            string storedProcName = "[dbo].[Specs_Hide]";
 
             using (SqlConnection connection = new SqlConnection(PathString.ConnectionString))
             {
