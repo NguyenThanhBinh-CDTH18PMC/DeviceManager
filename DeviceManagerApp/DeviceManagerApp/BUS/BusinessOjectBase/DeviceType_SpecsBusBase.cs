@@ -105,7 +105,8 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         /// </summary>
         public static List<DeviceType_SpecsModel> SelectAllDynamicWhere(int? id, int? deviceTypeId, int? deviceSpecsId, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted/*, int? status*/)
         {
-            return DeviceType_SpecsDataLayer.SelectAllDynamicWhere(id, deviceTypeId, deviceSpecsId, description, createdDate, createdUserId, isDeleted);
+            List<DeviceType_SpecsModel> list = DeviceType_SpecsDataLayer.SelectAllDynamicWhere(id, deviceTypeId, deviceSpecsId, description, createdDate, createdUserId, isDeleted);
+            return list == null ? new List<DeviceType_SpecsModel>() : list;
         }
 
         /// <summary>

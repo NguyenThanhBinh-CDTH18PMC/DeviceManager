@@ -18,6 +18,17 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         {
             return Device_TypeDao.getData();
         }
+
+        public static Device_TypeModel SelectByPrimaryKey(int id)
+        {
+            return Device_TypeDao.SelectByPrimaryKey(id);
+        }
+
+        public static List<Device_TypeModel> SelectSpecsDropDownListData()
+        {
+            return Device_TypeDao.SelectDeviceTypeDropDownListData();
+        }
+
         public static void InsertDevice_Type(Device_TypeModel device_Type) 
         {
             Device_TypeDao.InsertDevice_Type(device_Type);

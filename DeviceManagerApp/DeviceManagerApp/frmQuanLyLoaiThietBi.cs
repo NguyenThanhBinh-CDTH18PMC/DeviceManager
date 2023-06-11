@@ -13,10 +13,11 @@ namespace DeviceManagerApp
 {
     public partial class frmQuanLyLoaiThietBi : Form
     {
+        int currentDeviceType = 0;
         public frmQuanLyLoaiThietBi()
         {
             InitializeComponent();
-            //QuanLyLoaiThietBi_Load();
+            QuanLyLoaiThietBi_Load();
         }
 
         private void QuanLyLoaiThietBi_Load()
@@ -64,6 +65,15 @@ namespace DeviceManagerApp
             }
         }
 
+        private void dtgvListDevice_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvLoaiTb.SelectedCells.Count > 0)
+            {
+                    currentDeviceType = (int)dgvLoaiTb.SelectedCells[0].OwningRow.Cells["DeviceTypeId"].Value;
+            }
+
+        }
+
         private void btnSuaLoaiTb_Click(object sender, EventArgs e)
         {
             try
@@ -103,8 +113,11 @@ namespace DeviceManagerApp
 
         private void AddSpecs_Click(object sender, EventArgs e)
         {
-            Form addSpecs = new frmSetSpecsForDeviceType();
-            addSpecs.Show();
+            if(currentDeviceType!=0)
+            {
+                Form addSpecs = new frmSetSpecsForDeviceType(Device_TypeBus.SelectByPrimaryKey(currentDeviceType));
+                addSpecs.Show();
+            }
         }
     }
 }

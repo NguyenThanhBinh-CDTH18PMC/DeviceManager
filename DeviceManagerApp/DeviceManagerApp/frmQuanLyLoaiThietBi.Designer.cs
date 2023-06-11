@@ -44,7 +44,7 @@
             this.lblTenLoaiTB = new System.Windows.Forms.Label();
             this.lblMaLoaiTB = new System.Windows.Forms.Label();
             this.dgvLoaiTb = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeviceTypeId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbQlDeviceType.SuspendLayout();
@@ -237,7 +237,7 @@
             // 
             this.dgvLoaiTb.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLoaiTb.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
+            this.DeviceTypeId,
             this.Column2,
             this.Column3});
             this.dgvLoaiTb.Dock = System.Windows.Forms.DockStyle.Top;
@@ -247,17 +247,20 @@
             this.dgvLoaiTb.ReadOnly = true;
             this.dgvLoaiTb.RowHeadersWidth = 62;
             this.dgvLoaiTb.RowTemplate.Height = 33;
-            this.dgvLoaiTb.Size = new System.Drawing.Size(1185, 204);
+            this.dgvLoaiTb.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLoaiTb.Size = new System.Drawing.Size(1185, 196);
             this.dgvLoaiTb.TabIndex = 3;
+            this.dgvLoaiTb.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvListDevice_CellClick);
             // 
-            // Column1
+            // DeviceTypeId
             // 
-            this.Column1.DataPropertyName = "Id";
-            this.Column1.HeaderText = "Mã Loại Thiết Bị";
-            this.Column1.MinimumWidth = 8;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 200;
+            this.DeviceTypeId.DataPropertyName = "Id";
+            this.DeviceTypeId.HeaderText = "Mã Loại Thiết Bị";
+            this.DeviceTypeId.MinimumWidth = 8;
+            this.DeviceTypeId.Name = "DeviceTypeId";
+            this.DeviceTypeId.ReadOnly = true;
+            this.DeviceTypeId.Visible = false;
+            this.DeviceTypeId.Width = 200;
             // 
             // Column2
             // 
@@ -315,9 +318,9 @@
         private System.Windows.Forms.Label lblTenLoaiTB;
         private System.Windows.Forms.Label lblMaLoaiTB;
         private System.Windows.Forms.DataGridView dgvLoaiTb;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.Button btn_AddSpecs;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DeviceTypeId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.Button btn_AddSpecs;
     }
 }

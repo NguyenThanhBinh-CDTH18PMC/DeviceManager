@@ -116,6 +116,58 @@ GO
 		end
 	go
 
+	create proc [dbo].[Device_SelectSkipAndTakeWhereDynamic](
+	@id int = null,
+	@name nvarchar(100) = null,
+	@description nvarchar(100) = null,
+	@brandId int = null,
+	@deviceTypeId int = null,
+	--@shipmentId int = null,
+	@qr_code varchar(100) = null,
+	@note varchar(100) = null,
+	@image varchar(100) = null,
+	@price money = null,
+	@warrantyPeriod datetime = null,
+	@createdDate datetime = null,
+	@createdUserId int = null,
+	@isDeleted bit = null,
+	@status int = null,
+	@sort varchar(50) = null,
+	@numberOfRows int,
+	@start int)
+	as 
+		begin
+		SET NOCOUNT ON;
+		select * from [dbo].[D_Device]
+		where (@id IS null or [Id] = @id) and
+		(@DeviceTypeId is null or [DeviceTypeId] = @DeviceTypeId) and
+		(@name is null or [Name] = @name) and
+		(@brandId is null or [brandId] = @brandId) and
+		--(@shipmentId is null or [shipmentId] = @shipmentId) and
+		(@qr_code is null or [QR_Code] = @qr_code) and
+		(@note is null or [Note] = @note) and
+		(@image is null or [Image] = @image) and
+		(@price is null or [Price] = @price) and
+		(@description is null or [Description] = @description) and
+		(@warrantyPeriod is null or [WarrantyPeriod] = @warrantyPeriod) and
+		(@createdDate is null or [CreatedDate] = @createdDate) and
+		(@createdUserId is null or [CreatedUserId] = @createdUserId) and
+		(@isDeleted is null or ISNULL([IsDeleted],0) = @isDeleted) and
+		(@status is null or ISNULL([Status],0) = @status)
+		order by 
+		case when (@sort is null or @sort = 'Id') then [Id] end,
+		case when (@sort = 'Id desc') then [Id] end desc,
+		case when @sort = 'Price' then [Price] end,
+		case when @sort = 'Price desc' then [Price] end desc,
+		case when @sort = 'CreatedUserId' then [CreatedUserId] end,
+		case when @sort = 'brandId' then [brandId] end,
+		case when @sort = 'IsDeleted' then [IsDeleted] end,
+		case when @sort = 'Status' then [Status] end
+		offset   @start ROWS    -- skip s rows
+		FETCH NEXT @numberOfRows ROWS ONLY; -- take n rows
+		end
+	go
+
 	create proc [dbo].[Device_GetRecordCountWhereDynamic](
 	@id int = null,
 	@name nvarchar(100) = null,
@@ -176,7 +228,7 @@ as
 		Insert into [dbo].[D_Device]
 		([Name],[brandId],[DeviceTypeId]/*,[ShipmentId]*/,[qr_code],[Image],[Price],[Note],[Description],[WarrantyPeriod],[CreatedDate],[CreatedUserId],[IsDeleted],[Status]) 
 		Values(@name,@brandId,@DeviceTypeId/*,@shipmentId*/,@qr_code,@image,@price,@note,@description,@warrantyPeriod,@createdDate,@createdUserId,@isDeleted,@status)
-		select SCOPE_IDENTITY() as Id
+		select Max(Id) as Id from [dbo].[D_Device]
 	end
 	go
 

@@ -17,6 +17,7 @@ namespace DeviceManagerApp
         List<SpecsModel> listSpecs = null;
         Device_TypeModel currentType = null;
         int currentSpecsId = 0;
+        bool isUpdate = false;
         BindingSource specsBS = new BindingSource();
 
         #endregion
@@ -26,6 +27,7 @@ namespace DeviceManagerApp
             Setting();
             currentType = new Device_TypeModel();
             currentType.Id = 1;
+            isUpdate = false;
             listSpecs = SpecsBus.SelectAllSpecs_By_DeviceTypeId(currentType.Id, false);
             LoadForm();
         }
@@ -34,6 +36,8 @@ namespace DeviceManagerApp
         {
             InitializeComponent();
             currentType = deviceType;
+            btn_Create.Text = "Cập nhật";
+            isUpdate = true;
             listSpecs = SpecsBus.SelectAllSpecs_By_DeviceTypeId(currentType.Id, false);
             LoadForm();
         }
@@ -137,7 +141,7 @@ namespace DeviceManagerApp
                     dsm.CreatedUserId = 1; // dùng tạm
                     listAdd.Add(dsm);
                 }
-                DeviceType_SpecsBus.InsertOrUpdate(listAdd, false);
+                DeviceType_SpecsBus.InsertOrUpdate(listAdd, isUpdate);
                 listSpecs.Clear();
                 LoadDataSource(listSpecs);
                 return;
@@ -169,6 +173,7 @@ namespace DeviceManagerApp
                     int specsId = (int) dtgvListSpecs.SelectedCells[0].OwningRow.Cells["SpecsId"].Value;
 
                     currentSpecsId = specsId;
+                    return;
                 }
 
             }
