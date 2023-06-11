@@ -31,7 +31,7 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         }
 
         /// <summary>
-        /// Gets the total number of records in the PBill table
+        /// Gets the total number of records in the Device table
         /// </summary>
         public static int GetRecordCount()
         {
@@ -39,7 +39,7 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         }
 
         /// <summary>
-        /// Gets the total number of records in the PBill table based on search parameters
+        /// Gets the total number of records in the Device table based on search parameters
         /// </summary>
         public static int GetRecordCountDynamicWhere(int? id, int? deviceTypeId, int? brandId, /*int? shipmentId,*/ string name, string image, string qr_code, decimal? price, string note, string description, DateTime? warrantyPeriod, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
         {
@@ -47,7 +47,7 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         }
 
         /// <summary>
-        /// Selects records as a collection (List) of PBill sorted by the sortByExpression and returns the rows (# of records) starting from the startRowIndex
+        /// Selects records as a collection (List) of Device sorted by the sortByExpression and returns the rows (# of records) starting from the startRowIndex
         /// </summary>
         public static List<DeviceModel> SelectSkipAndTake(int rows, int startRowIndex, out int totalRowCount, string sortByExpression)
         {
@@ -58,7 +58,7 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         }
 
         /// <summary>
-        /// Selects records as a collection (List) of PBill sorted by the sortByExpression starting from the startRowIndex.
+        /// Selects records as a collection (List) of Device sorted by the sortByExpression starting from the startRowIndex.
         /// </summary>
         public static List<DeviceModel> SelectSkipAndTake(int rows, int startRowIndex, string sortByExpression)
         {
@@ -67,7 +67,7 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         }
 
         /// <summary>
-        /// Selects records as a collection (List) of PBill sorted by the sortByExpression and returns the rows (# of records) starting from the startRowIndex, based on the search parameters
+        /// Selects records as a collection (List) of Device sorted by the sortByExpression and returns the rows (# of records) starting from the startRowIndex, based on the search parameters
         /// </summary>
         public static List<DeviceModel> SelectSkipAndTakeDynamicWhere(int? id, int? deviceTypeId, int? brandId, /*int? shipmentId,*/ string name, string image, string qr_code, decimal? price, string note, string description, DateTime? warrantyPeriod, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status, int rows, int startRowIndex, out int totalRowCount, string sortByExpression)
         {
@@ -77,7 +77,7 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         }
 
         /// <summary>
-        /// Selects records as a collection (List) of PBill sorted by the sortByExpression starting from the startRowIndex, based on the search parameters
+        /// Selects records as a collection (List) of Device sorted by the sortByExpression starting from the startRowIndex, based on the search parameters
         /// </summary>
         public static List<DeviceModel> SelectSkipAndTakeDynamicWhere(int? id, int? deviceTypeId, int? brandId, /*int? shipmentId,*/ string name, string image, string qr_code, decimal? price, string note, string description, DateTime? warrantyPeriod, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status, int rows, int startRowIndex, string sortByExpression)
         {
@@ -86,7 +86,7 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         }
 
         /// <summary>
-        /// Selects all records as a collection (List) of PBill
+        /// Selects all records as a collection (List) of Device
         /// </summary>
         public static List<DeviceModel> SelectAll()
         {
@@ -94,16 +94,16 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         }
 
         /// <summary>
-        /// Selects all records as a collection (List) of PBill sorted by the sort expression
+        /// Selects all records as a collection (List) of Device sorted by the sort expression
         /// </summary>
         public static List<DeviceModel> SelectAll(string sortExpression)
         {
-            List<DeviceModel> objPBillCol = DeviceDataLayer.SelectAll();
-            return objPBillCol;
+            List<DeviceModel> objDeviceCol = DeviceDataLayer.SelectAll();
+            return objDeviceCol;
         }
 
         /// <summary>
-        /// Selects records based on the passed filters as a collection (List) of PBill.
+        /// Selects records based on the passed filters as a collection (List) of Device.
         /// </summary>
         public static List<DeviceModel> SelectAllDynamicWhere(int? id, int? deviceTypeId, int? brandId, /*int? shipmentId,*/ string name, string image, string qr_code, decimal? price, string note, string description, DateTime? warrantyPeriod, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
         {
@@ -111,23 +111,23 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         }
 
         /// <summary>
-        /// Selects records based on the passed filters as a collection (List) of PBill sorted by the sort expression.
+        /// Selects records based on the passed filters as a collection (List) of Device sorted by the sort expression.
         /// </summary>
         public static List<DeviceModel> SelectAllDynamicWhere(int? id, int? deviceTypeId, int? brandId, /*int? shipmentId,*/ string name, string image, string qr_code, decimal? price, string note, string description, DateTime? warrantyPeriod, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status, string sortExpression)
         {
-            List<DeviceModel> objPBillCol = DeviceDataLayer.SelectAllDynamicWhere(id, deviceTypeId, brandId, name, image, qr_code, price, note, description, warrantyPeriod, createdDate, createdUserId, isDeleted, status);
-            return objPBillCol;
+            List<DeviceModel> objDeviceCol = DeviceDataLayer.SelectAllDynamicWhere(id, deviceTypeId, brandId, name, image, qr_code, price, note, description, warrantyPeriod, createdDate, createdUserId, isDeleted, status);
+            return objDeviceCol;
         }
 
         /// <summary>
         /// Selects Id and TotalPrice columns for use with a DropDownList web control, ComboBox, CheckedBoxList, ListView, ListBox, etc
         /// </summary>
-        public static List<DeviceModel> SelectPBillDropDownListData()
+        public static List<DeviceModel> SelectDeviceDropDownListData()
         {
             return DeviceDataLayer.SelectSpecsDropDownListData();
         }
 
-        private string generated_BillCode()
+        private string generated_deviceCode()
         {
             string mahd = "B";
             for (int i = 0; i < 4; i++)
@@ -138,23 +138,23 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
             }
             for (int j = 0; j < 4; j++)
             {
-                int numBill = GetRecordCount();
-                if (numBill < 10)
+                int numdevice = GetRecordCount();
+                if (numdevice < 10)
                 {
-                    mahd += "000" + numBill;
+                    mahd += "000" + numdevice;
                     break;
                 }
-                if (numBill < 100)
+                if (numdevice < 100)
                 {
-                    mahd += "00" + numBill;
+                    mahd += "00" + numdevice;
                     break;
                 }
-                if (numBill < 100)
+                if (numdevice < 100)
                 {
-                    mahd += "0" + numBill;
+                    mahd += "0" + numdevice;
                     break;
                 }
-                else mahd += numBill;
+                else mahd += numdevice;
                 break;
             }
             return "hd";
@@ -162,19 +162,19 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         /// <summary>
         /// Inserts a record
         /// </summary>
-        public static int Insert(DeviceModel bill)
+        public static int Insert(DeviceModel device)
         {
-            DeviceModel objPBill = bill;
-            return DeviceDataLayer.Insert(objPBill);
+            DeviceModel objDevice = device;
+            return DeviceDataLayer.Insert(objDevice);
         }
 
         /// <summary>
         /// Updates a record
         /// </summary>
-        public static void Update(DeviceModel bill)
+        public static void Update(DeviceModel device)
         {
-            DeviceModel objPBill = bill;
-            DeviceDataLayer.Update(objPBill);
+            DeviceModel objDevice = device;
+            DeviceDataLayer.Update(objDevice);
         }
 
         /// <summary>

@@ -434,8 +434,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                     if (isUpdate)
                         command.ExecuteNonQuery();
                     else
-                        command.ExecuteScalar();
-                    newlyCreatedId = 1;
+                        newlyCreatedId = (int)command.ExecuteScalar();
                 }
             }
 

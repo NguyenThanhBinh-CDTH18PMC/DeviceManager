@@ -13,6 +13,8 @@ using DTO.Model;
 using BUS.BusinessObject;
 using DeviceManagerApp.DTO.Model;
 using DeviceManagerApp.BUS.BusinessObject;
+using ZXing;
+using ZXing.Common;
 
 namespace DeviceManagerApp
 {
@@ -30,8 +32,10 @@ namespace DeviceManagerApp
         private UserModel tkql;
         //Các cài đặt mặt định của form
 
+
         //Khai báo các class lấy dl cho form
         List<DeviceModel> listDevice = null;
+        DeviceModel currentDevice = null;
 
         ////Khai báo biến lưu trữ tạm cho form
         BindingSource bs = new BindingSource();
@@ -43,11 +47,6 @@ namespace DeviceManagerApp
         {
             dtgvQlThietBi.AutoGenerateColumns = false;
             dtgvQlThietBi.AllowUserToAddRows = false;
-            //tb_mahd.ReadOnly = true;
-            //tb_ngayLap.ReadOnly = true;
-            //tb_sdt.ReadOnly = true;
-            //tb_tenkh.ReadOnly = true;
-            //tb_TT.ReadOnly = true;
         }
 
 
@@ -75,35 +74,12 @@ namespace DeviceManagerApp
 
         private void Reset()
         {
-            //tb_mahd.Text = "";
-            //tb_ngayLap.Text = DateTime.Now + "";
-            //tb_sdt.Text = "";
-            //tb_tenkh.Text = "";
-            //tb_nvl.Text = "";
-            //tb_TT.Text = "";
-            //ckb_khv.Checked = true;
         }
 
         private void Load_Form()
         {
-            //DeviceModel b = Device.SelectByPrimaryKey(1);
-            listDevice = DeviceBus.SelectSkipAndTakeDynamicWhere(null, null, null, null, null, null, null, null, null, null, null, null, false, null, 10, 0, "Id desc");
-            if (listDevice != null)
-            {
-                foreach (DeviceModel device in listDevice)
-                {
-                    device.deviceDetail = DeviceDetailBus.SelectAllDynamicWhere(null, device.Id, null, null, null, null, null, null, null, false, null);
-                    if (device.deviceDetail == null)
-                    {
-                        device.deviceDetail = new List<DeviceDetailModel>();
-                    }
-                    
-                }
-            }
-            else
-                listDevice = new List<DeviceModel>();
-            bs.DataSource = listDevice.ToList();
-            dtgvQlThietBi.DataSource = bs;
+            LoadDataGridView();
+            Load_Source();
         }
 
         private void Load_Source()
@@ -119,6 +95,33 @@ namespace DeviceManagerApp
             cbNhaCungCap.DataSource = BrandBus.GetAllBrand();
             cbNhaCungCap.DisplayMember = "Name";
             cbNhaCungCap.ValueMember = "Id";
+        }
+
+        private void LoadDataGridView()
+        {
+            
+            listDevice = DeviceBus.SelectSkipAndTakeDynamicWhere(null, null, null, null, null, null, null, null, null, null, null, null, false, null, 10, 0, "Id desc");
+            if (listDevice != null)
+            {
+                foreach (DeviceModel device in listDevice)
+                {
+                    device.deviceDetail = DeviceDetailBus.SelectAllDynamicWhere(null, device.Id, null, null, null, null, null, null, null, false, null);
+                    if (device.deviceDetail == null)
+                    {
+                        device.deviceDetail = new List<DeviceDetailModel>();
+                    }
+
+                }
+            }
+            else
+                listDevice = new List<DeviceModel>();
+            ReLoadDataGridView(listDevice);
+        }
+
+        private void ReLoadDataGridView(List<DeviceModel> listData)
+        {
+            bs.DataSource = listData.ToList();
+            dtgvQlThietBi.DataSource = bs;
         }
 
 
@@ -204,47 +207,126 @@ namespace DeviceManagerApp
 
         private void btn_Xem_Click_1(object sender, EventArgs e)
         {
-            //foreach (HoaDonDTO hd in dshd)
-            //{
-            //    if (hd.maHD == tb_mahd.Text)
-            //    {
-            //        Order od = new Order(hd, hd.nv_LapHD);
-            //        od.ShowDialog();
-            //    }
-            //}
+            
         }
 
 
-        private void datgv_HD_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        private void dtgvQlThietBi_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if (datgv_HD.SelectedCells.Count > 0 && dshd.Count() > 0)
-            //{
-            //    if (datgv_HD.SelectedCells[0].RowIndex < dshd.Count())
-            //    {
-            //        string mahd = datgv_HD.SelectedCells[0].OwningRow.Cells["col_mahd"].Value.ToString();
-            //        foreach (HoaDonDTO hdD in dshd)
-            //        {
-            //            if (hdD.maHD == mahd)
-            //            {
-            //                tb_mahd.Text = hdD.maHD;
-            //                tb_tenkh.Text = hdD.khachHang.tenKH;
-            //                if (hdD.maKH.StartsWith("KHV"))
-            //                    ckb_khv.Checked = true;
-            //                else
-            //                    ckb_khv.Checked = false;
-            //                tb_sdt.Text = hdD.khachHang.sdt;
-            //                tb_ngayLap.Text = hdD.ngayLap + "";
-            //                tb_nvl.Text = NV.hoNV + " " + NV.tenNV;
-            //                tb_TT.Text = hdD.tongThanhToan + "";
-            //                break;
-            //            }
-            //        }
-            //    }
+            if (dtgvQlThietBi.SelectedCells.Count > 0)
+            {
+                int deviceId = (int) dtgvQlThietBi.SelectedCells[0].OwningRow.Cells["DeviceId"].Value;
+                foreach (DeviceModel de in listDevice)
+                {
+                    if (de.Id == deviceId)
+                    {
+                        cbLoaiTbi.SelectedValue = de.DeviceTypeId;
+                        //cbPhong.SelectedValue = de.Room;
+                        cbNhaCungCap.SelectedValue = de.BrandId;
+                        dtBaoHanh.Value = de.WarrantyPeriod.HasValue?de.WarrantyPeriod.Value: DateTime.Now;
+                        dtp_DateBuy.Value = de.CreatedDate.Value;
+                        txtPrice.Text = de.Price.ToString();
+                        txtTenTbi.Text = de.Name;
+                        //img_QR_Code.Image = de.QR_Code;
 
-            //}
+                        currentDevice = de;
+                        return;
+                    }
+                }
+
+            }
         }
 
 
         #endregion
+
+        public void AddSpecsByType(int deviveTypeId, int deviceId)
+        {
+            List<DeviceType_SpecsModel> listSpecs = DeviceType_SpecsBus.SelectAllDynamicWhere(null, deviveTypeId, null, null, null, null, false);
+            foreach (DeviceType_SpecsModel dtp in listSpecs)
+            {
+                DeviceDetailModel dtl = new DeviceDetailModel();
+                dtl.DeviceId = deviceId;
+                dtl.DeviceTypeSpecsId = dtp.Id;
+                dtl.NameSpecs = SpecsBus.SelectByPrimaryKey(dtp.SpecsId).Name;
+                dtl.CreatedDate = DateTime.Now;
+                dtl.CreatedUserId = 1;
+                dtl.Description = "";
+                dtl.IsDeleted = false;
+                dtl.Status = 0;
+                try
+                {
+                    int kq = DeviceDetailBus.Insert(dtl);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Thất bại, lỗi " + e.Message);
+                    return;
+                }
+
+            }
+        }
+
+        private void btnDetail_Click(object sender, EventArgs e)
+        {
+            if(currentDevice!=null)
+            {
+                Form f = new DeviceDetail(currentDevice);
+                f.Show();
+            }
+        }
+
+        private void btnThemTbi_Click(object sender, EventArgs e)
+        {
+            if (Check_Null())
+                return;
+
+            DeviceModel device = new DeviceModel();
+            device.Name = txtTenTbi.Text;
+            device.DeviceTypeId =(int) cbLoaiTbi.SelectedValue;
+            device.BrandId = (int)cbNhaCungCap.SelectedValue;
+            //Thiếu Khoa
+            device.Note = rtbGhiChuTbi.Text;
+            device.IsDeleted = false;
+            device.Price = Convert.ToDecimal(txtPrice.Text);
+            device.Status = 0;
+            device.WarrantyPeriod = dtBaoHanh.Value;
+            device.CreatedDate = DateTime.Now;
+            device.CreatedUserId = 1;
+
+            try
+            {
+                int id = DeviceBus.Insert(device);
+                AddSpecsByType(device.DeviceTypeId, id);
+                MessageBox.Show("Thành công!  Vui lòng cập nhật thông số chi tiết thiết bị sớm!");
+                listDevice.Add(DeviceBus.SelectByPrimaryKey(id));
+                ReLoadDataGridView(listDevice);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Thất bại! Lỗi " + ex.Message);
+            }
+
+        }
+
+        private void txt_Price_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private bool Check_Null()
+        {
+            if (txtTenTbi.Text.Trim() == "")
+                return true;
+            if (cbLoaiTbi.SelectedItem == null)
+                return true;
+            if(cbNhaCungCap.SelectedItem == null)
+                return true;
+            //if (cbKhoa.SelectedItem == null)
+            //    return true;
+
+            return false;
+        }
     }
 }
