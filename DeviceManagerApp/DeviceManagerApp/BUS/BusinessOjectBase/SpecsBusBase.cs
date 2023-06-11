@@ -35,7 +35,7 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         //    return SpecsDataLayer.SelectByCode(code);
         //}
         /// <summary>
-        /// Gets the total number of records in the PBill table
+        /// Gets the total number of records in the Specs table
         /// </summary>
         public static int GetRecordCount()
         {
@@ -43,7 +43,7 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         }
 
         /// <summary>
-        /// Gets the total number of records in the PBill table based on search parameters
+        /// Gets the total number of records in the Specs table based on search parameters
         /// </summary>
         public static int GetRecordCountDynamicWhere(int? id, string name, string datatype, int? ordinal, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
         {
@@ -51,7 +51,7 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         }
 
         /// <summary>
-        /// Selects records as a collection (List) of PBill sorted by the sortByExpression and returns the rows (# of records) starting from the startRowIndex
+        /// Selects records as a collection (List) of Specs sorted by the sortByExpression and returns the rows (# of records) starting from the startRowIndex
         /// </summary>
         public static List<SpecsModel> SelectSkipAndTake(int rows, int startRowIndex, out int totalRowCount, string sortByExpression)
         {
@@ -62,7 +62,7 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         }
 
         /// <summary>
-        /// Selects records as a collection (List) of PBill sorted by the sortByExpression starting from the startRowIndex.
+        /// Selects records as a collection (List) of Specs sorted by the sortByExpression starting from the startRowIndex.
         /// </summary>
         public static List<SpecsModel> SelectSkipAndTake(int rows, int startRowIndex, string sortByExpression)
         {
@@ -71,7 +71,7 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         }
 
         /// <summary>
-        /// Selects records as a collection (List) of PBill sorted by the sortByExpression and returns the rows (# of records) starting from the startRowIndex, based on the search parameters
+        /// Selects records as a collection (List) of Specs sorted by the sortByExpression and returns the rows (# of records) starting from the startRowIndex, based on the search parameters
         /// </summary>
         public static List<SpecsModel> SelectSkipAndTakeDynamicWhere(int? id, string name, string datatype, int? ordinal, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status, int rows, int startRowIndex, out int totalRowCount, string sortByExpression)
         {
@@ -81,7 +81,7 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         }
 
         /// <summary>
-        /// Selects records as a collection (List) of PBill sorted by the sortByExpression starting from the startRowIndex, based on the search parameters
+        /// Selects records as a collection (List) of Specs sorted by the sortByExpression starting from the startRowIndex, based on the search parameters
         /// </summary>
         public static List<SpecsModel> SelectSkipAndTakeDynamicWhere(int? id, string name, string datatype, int? ordinal, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status, int rows, int startRowIndex, string sortByExpression)
         {
@@ -90,7 +90,7 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         }
 
         /// <summary>
-        /// Selects all records as a collection (List) of PBill
+        /// Selects all records as a collection (List) of Specs
         /// </summary>
         public static List<SpecsModel> SelectAll()
         {
@@ -98,16 +98,16 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         }
 
         /// <summary>
-        /// Selects all records as a collection (List) of PBill sorted by the sort expression
+        /// Selects all records as a collection (List) of Specs sorted by the sort expression
         /// </summary>
         public static List<SpecsModel> SelectAll(string sortExpression)
         {
-            List<SpecsModel> objPBillCol = SpecsDataLayer.SelectAll();
-            return objPBillCol;
+            List<SpecsModel> objSpecsCol = SpecsDataLayer.SelectAll();
+            return objSpecsCol;
         }
 
         /// <summary>
-        /// Selects records based on the passed filters as a collection (List) of PBill.
+        /// Selects records based on the passed filters as a collection (List) of Specs.
         /// </summary>
         public static List<SpecsModel> SelectAllDynamicWhere(int? id, string name, string datatype, int? ordinal, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
         {
@@ -115,23 +115,23 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         }
 
         /// <summary>
-        /// Selects records based on the passed filters as a collection (List) of PBill sorted by the sort expression.
+        /// Selects records based on the passed filters as a collection (List) of Specs sorted by the sort expression.
         /// </summary>
         public static List<SpecsModel> SelectAllDynamicWhere(int? id, string name, string datatype, int? ordinal, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status, string sortExpression)
         {
-            List<SpecsModel> objPBillCol = SpecsDataLayer.SelectAllDynamicWhere(id, name, datatype, ordinal, description, createdDate, createdUserId, isDeleted, status);
-            return objPBillCol;
+            List<SpecsModel> objSpecsCol = SpecsDataLayer.SelectAllDynamicWhere(id, name, datatype, ordinal, description, createdDate, createdUserId, isDeleted, status);
+            return objSpecsCol;
         }
 
         /// <summary>
         /// Selects Id and TotalPrice columns for use with a DropDownList web control, ComboBox, CheckedBoxList, ListView, ListBox, etc
         /// </summary>
-        public static List<SpecsModel> SelectPBillDropDownListData()
+        public static List<SpecsModel> SelectSpecsDropDownListData()
         {
             return SpecsDataLayer.SelectSpecsDropDownListData();
         }
 
-        private string generated_BillCode()
+        private string generated_specsCode()
         {
             string mahd = "B";
             for (int i = 0; i < 4; i++)
@@ -142,23 +142,23 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
             }
             for (int j = 0; j < 4; j++)
             {
-                int numBill = GetRecordCount();
-                if (numBill < 10)
+                int numspecs = GetRecordCount();
+                if (numspecs < 10)
                 {
-                    mahd += "000" + numBill;
+                    mahd += "000" + numspecs;
                     break;
                 }
-                if (numBill < 100)
+                if (numspecs < 100)
                 {
-                    mahd += "00" + numBill;
+                    mahd += "00" + numspecs;
                     break;
                 }
-                if (numBill < 100)
+                if (numspecs < 100)
                 {
-                    mahd += "0" + numBill;
+                    mahd += "0" + numspecs;
                     break;
                 }
-                else mahd += numBill;
+                else mahd += numspecs;
                 break;
             }
             return "hd";
@@ -166,19 +166,19 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         /// <summary>
         /// Inserts a record
         /// </summary>
-        public static int Insert(SpecsModel bill)
+        public static int Insert(SpecsModel specs)
         {
-            SpecsModel objPBill = bill;
-            return SpecsDataLayer.Insert(objPBill);
+            SpecsModel objSpecs = specs;
+            return SpecsDataLayer.Insert(objSpecs);
         }
 
         /// <summary>
         /// Updates a record
         /// </summary>
-        public static void Update(SpecsModel bill)
+        public static void Update(SpecsModel specs)
         {
-            SpecsModel objPBill = bill;
-            SpecsDataLayer.Update(objPBill);
+            SpecsModel objSpecs = specs;
+            SpecsDataLayer.Update(objSpecs);
         }
 
         /// <summary>

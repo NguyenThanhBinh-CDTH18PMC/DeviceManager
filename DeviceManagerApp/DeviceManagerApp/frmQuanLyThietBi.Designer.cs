@@ -52,18 +52,18 @@
             this.lblLoaiTbi = new System.Windows.Forms.Label();
             this.lblTenTBi = new System.Windows.Forms.Label();
             this.lblMaTB = new System.Windows.Forms.Label();
-            this.dgvQlThietBi = new System.Windows.Forms.DataGridView();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtgvQlThietBi = new System.Windows.Forms.DataGridView();
             this.Image = new System.Windows.Forms.DataGridViewImageColumn();
             this.DeviceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WarrantyPeriob = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SpecsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DeviceDetail = new System.Windows.Forms.DataGridViewButtonColumn();
             this.gbThongtinTB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.QR_Code)).BeginInit();
             this.gbTimKiemTbi.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvQlThietBi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvQlThietBi)).BeginInit();
             this.SuspendLayout();
             // 
             // lblQLTbi
@@ -336,39 +336,32 @@
             this.lblMaTB.TabIndex = 0;
             this.lblMaTB.Text = "Mã thiết bị :";
             // 
-            // dgvQlThietBi
+            // dtgvQlThietBi
             // 
-            this.dgvQlThietBi.AllowUserToAddRows = false;
-            this.dgvQlThietBi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvQlThietBi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvQlThietBi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.STT,
+            this.dtgvQlThietBi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgvQlThietBi.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dtgvQlThietBi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvQlThietBi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Image,
             this.DeviceName,
             this.Note,
             this.CreatedDate,
+            this.WarrantyPeriob,
             this.SpecsId,
             this.DeviceDetail});
-            this.dgvQlThietBi.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dgvQlThietBi.Location = new System.Drawing.Point(0, 438);
-            this.dgvQlThietBi.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvQlThietBi.Name = "dgvQlThietBi";
-            this.dgvQlThietBi.RowHeadersWidth = 62;
-            this.dgvQlThietBi.RowTemplate.Height = 33;
-            this.dgvQlThietBi.Size = new System.Drawing.Size(1257, 236);
-            this.dgvQlThietBi.TabIndex = 2;
-            // 
-            // STT
-            // 
-            this.STT.FillWeight = 50F;
-            this.STT.HeaderText = "STT";
-            this.STT.MaxInputLength = 320;
-            this.STT.MinimumWidth = 6;
-            this.STT.Name = "STT";
-            this.STT.ReadOnly = true;
+            this.dtgvQlThietBi.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dtgvQlThietBi.Location = new System.Drawing.Point(0, 438);
+            this.dtgvQlThietBi.Margin = new System.Windows.Forms.Padding(2);
+            this.dtgvQlThietBi.Name = "dtgvQlThietBi";
+            this.dtgvQlThietBi.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dtgvQlThietBi.RowTemplate.Height = 33;
+            this.dtgvQlThietBi.Size = new System.Drawing.Size(1257, 236);
+            this.dtgvQlThietBi.TabIndex = 2;
             // 
             // Image
             // 
+            this.Image.DataPropertyName = "Image";
+            this.Image.FillWeight = 79.3672F;
             this.Image.HeaderText = "Thiết bị";
             this.Image.MinimumWidth = 6;
             this.Image.Name = "Image";
@@ -376,6 +369,8 @@
             // 
             // DeviceName
             // 
+            this.DeviceName.DataPropertyName = "Name";
+            this.DeviceName.FillWeight = 79.3672F;
             this.DeviceName.HeaderText = "Tên thiết bị";
             this.DeviceName.MinimumWidth = 6;
             this.DeviceName.Name = "DeviceName";
@@ -383,6 +378,8 @@
             // 
             // Note
             // 
+            this.Note.DataPropertyName = "Note";
+            this.Note.FillWeight = 79.3672F;
             this.Note.HeaderText = "Mô tả";
             this.Note.MinimumWidth = 6;
             this.Note.Name = "Note";
@@ -390,10 +387,21 @@
             // 
             // CreatedDate
             // 
+            this.CreatedDate.DataPropertyName = "CreatedDate";
+            this.CreatedDate.FillWeight = 79.3672F;
             this.CreatedDate.HeaderText = "Ngày mua";
             this.CreatedDate.MinimumWidth = 6;
             this.CreatedDate.Name = "CreatedDate";
             this.CreatedDate.ReadOnly = true;
+            // 
+            // WarrantyPeriob
+            // 
+            this.WarrantyPeriob.DataPropertyName = "WarrantyPeriod";
+            this.WarrantyPeriob.FillWeight = 79.3672F;
+            this.WarrantyPeriob.HeaderText = "Hạn bảo hành";
+            this.WarrantyPeriob.MinimumWidth = 6;
+            this.WarrantyPeriob.Name = "WarrantyPeriob";
+            this.WarrantyPeriob.ReadOnly = true;
             // 
             // SpecsId
             // 
@@ -404,6 +412,7 @@
             // 
             // DeviceDetail
             // 
+            this.DeviceDetail.FillWeight = 79.3672F;
             this.DeviceDetail.HeaderText = "Thông số chi tiết";
             this.DeviceDetail.MinimumWidth = 6;
             this.DeviceDetail.Name = "DeviceDetail";
@@ -413,7 +422,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1257, 739);
-            this.Controls.Add(this.dgvQlThietBi);
+            this.Controls.Add(this.dtgvQlThietBi);
             this.Controls.Add(this.gbThongtinTB);
             this.Controls.Add(this.lblQLTbi);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -424,7 +433,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.QR_Code)).EndInit();
             this.gbTimKiemTbi.ResumeLayout(false);
             this.gbTimKiemTbi.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvQlThietBi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvQlThietBi)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -455,13 +464,13 @@
         private System.Windows.Forms.GroupBox gbTimKiemTbi;
         private System.Windows.Forms.Button btnTimKiemTbi;
         private System.Windows.Forms.TextBox txtTiemKiemTbi;
-        private System.Windows.Forms.DataGridView dgvQlThietBi;
+        private System.Windows.Forms.DataGridView dtgvQlThietBi;
         private System.Windows.Forms.PictureBox QR_Code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewImageColumn Image;
         private System.Windows.Forms.DataGridViewTextBoxColumn DeviceName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Note;
         private System.Windows.Forms.DataGridViewTextBoxColumn CreatedDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WarrantyPeriob;
         private System.Windows.Forms.DataGridViewTextBoxColumn SpecsId;
         private System.Windows.Forms.DataGridViewButtonColumn DeviceDetail;
     }

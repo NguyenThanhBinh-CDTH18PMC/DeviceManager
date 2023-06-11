@@ -188,3 +188,4 @@ D:\Thanh Binh\DeviceManager\DeviceManagerApp\DeviceManagerApp\obj\Debug\netcorea
 D:\Thanh Binh\DeviceManager\DeviceManagerApp\DeviceManagerApp\obj\Debug\netcoreapp3.1\DeviceManagerApp.frmQuanLyLoaiThietBi.resources
 C:\Users\This PC\OneDrive\Máy tính\DeviceManager\DeviceManager\DeviceManagerApp\DeviceManagerApp\obj\Debug\netcoreapp3.1\DeviceManagerApp.frmDevice.resources
 C:\Users\This PC\OneDrive\Máy tính\DeviceManager\DeviceManager\DeviceManagerApp\DeviceManagerApp\obj\Debug\netcoreapp3.1\DeviceManagerApp.frmQuanLyLoaiThietBi.resources
+C:\Users\This PC\OneDrive\Máy tính\DeviceManager\DeviceManager\DeviceManagerApp\DeviceManagerApp\obj\Debug\netcoreapp3.1\DeviceManagerApp.frmSetSpecsForDeviceType.resources

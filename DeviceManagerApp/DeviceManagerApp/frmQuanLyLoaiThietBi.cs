@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace DeviceManagerApp
@@ -15,6 +16,12 @@ namespace DeviceManagerApp
         public frmQuanLyLoaiThietBi()
         {
             InitializeComponent();
+            //QuanLyLoaiThietBi_Load();
+        }
+
+        private void QuanLyLoaiThietBi_Load()
+        {
+            dgvLoaiTb.DataSource = Device_TypeBus.getAllDevice_Type();
         }
 
         private void frmQuanLyLoaiThietBi_Load(object sender, EventArgs e)
@@ -92,6 +99,12 @@ namespace DeviceManagerApp
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void AddSpecs_Click(object sender, EventArgs e)
+        {
+            Form addSpecs = new frmSetSpecsForDeviceType();
+            addSpecs.Show();
         }
     }
 }

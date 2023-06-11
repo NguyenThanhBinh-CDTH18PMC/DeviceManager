@@ -137,7 +137,7 @@ as
 		Insert into [dbo].[D_Device_Specs]
 		([Name],[DataType],[Ordinal],[Description],[CreatedDate],[CreatedUserId],[IsDeleted],[Status]) 
 		Values(@name,@dataType,@ordinal,@description,@createdDate,@createdUserId,@isDeleted,@status)
-		select SCOPE_IDENTITY() as Id
+		select Max(Id) as Id from [dbo].[D_Device_Specs]
 	end
 	go
 
@@ -172,6 +172,23 @@ as
 	end
 	go
 
+	create proc [dbo].[Specs_SelectAllSpecs_By_DeviceTypeId]
+	(
+	@deviceTypeId int,
+	@isDeleted bit = null
+	)
+	as 
+		begin
+		SET NOCOUNT ON;
+		select * from [dbo].[D_Device_Specs]
+		where (@isDeleted is null or ISNULL([IsDeleted],0) = @isDeleted)
+		and [Id] in (
+		select [DeviceSpecsId] from [dbo].[D_DeviceType_Specs]
+		where [DeviceTypeId] = @deviceTypeId and (ISNULL([IsDeleted],0) = 0)
+		)
+		order by [Ordinal]
+		end
+	go
 
 --end D_DeviceDetail
 

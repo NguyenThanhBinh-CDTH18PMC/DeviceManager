@@ -246,8 +246,9 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                     }
                 }
             }
-
-            return objSpecsCol;
+            if (objSpecsCol != null)
+                return objSpecsCol;
+            else return new List<SpecsModel>();
         }
 
         /// <summary>
@@ -406,8 +407,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                     if (isUpdate)
                         command.ExecuteNonQuery();
                     else
-                        command.ExecuteScalar();
-                    newlyCreatedId = 1;
+                        newlyCreatedId = (int)command.ExecuteScalar();
                 }
             }
 
@@ -493,7 +493,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         /// <summary>
         /// Creates a Specs object from the passed data row
         /// </summary>
-        private static SpecsModel CreateSpecsFromDataRowShared(DataRow dr)
+        protected static SpecsModel CreateSpecsFromDataRowShared(DataRow dr)
         {
             SpecsModel objSpecs = new SpecsModel();
 
