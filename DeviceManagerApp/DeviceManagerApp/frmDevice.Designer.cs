@@ -269,9 +269,10 @@ namespace DeviceManagerApp
             this.label10.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label10.Location = new System.Drawing.Point(24, 9);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(367, 54);
+            this.label10.Size = new System.Drawing.Size(450, 54);
             this.label10.TabIndex = 19;
-            this.label10.Text = "QUẢN LÝ THIẾT BỊ";
+            this.label10.Text = "QUẢN LÝ PHÒNG MÁY";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // dtgvListDevice
             // 

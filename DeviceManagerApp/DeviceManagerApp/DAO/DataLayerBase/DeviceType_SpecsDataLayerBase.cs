@@ -494,7 +494,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         /// <summary>
         /// Creates a Specs object from the passed data row
         /// </summary>
-        private static DeviceType_SpecsModel CreateDeviceType_SpecsFromDataRowShared(DataRow dr)
+        protected static DeviceType_SpecsModel CreateDeviceType_SpecsFromDataRowShared(DataRow dr)
         {
             DeviceType_SpecsModel objDeviceType_Specs = new DeviceType_SpecsModel();
 

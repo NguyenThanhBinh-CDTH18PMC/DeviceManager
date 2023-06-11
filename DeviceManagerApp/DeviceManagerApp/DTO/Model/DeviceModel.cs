@@ -15,6 +15,8 @@ namespace DeviceManagerApp.DTO.Model
         public string DeviceTypeName { get; set; }
         public string UserName { get; set; }
         public string ShipmentName { get; set; }
+
+        public List<DeviceDetailModel> deviceDetail { get; set; }
         public DeviceModel() { }
     }
 }
