@@ -15,7 +15,7 @@ namespace DeviceManagerApp.BUS.BusinessObject
 {
     public class DeviceType_SpecsBus : DeviceType_SpecsBusBase
     {
-        public static bool InsertOrUpdate(List<DeviceType_SpecsModel> listDeviceType_Specs, bool isUpdate)
+        public static bool InsertOrUpdate(List<DeviceType_SpecsModel> listDeviceType_Specs, bool isUpdate, int deviceTypeId)
         {
             foreach (DeviceType_SpecsModel dp in listDeviceType_Specs)
             {
@@ -24,10 +24,11 @@ namespace DeviceManagerApp.BUS.BusinessObject
                     if (isUpdate)
                     {
                         DeviceType_SpecsDataLayer.Update(dp);
+                        MessageBox.Show("Thanh cong");
                     }
                     else
                     {
-                        DeviceType_SpecsDataLayer.Insert(dp);
+                        EventInsert(dp, deviceTypeId, dp.SpecsName);
                     }
                 }
                 catch (Exception e)
@@ -38,6 +39,57 @@ namespace DeviceManagerApp.BUS.BusinessObject
             }
             MessageBox.Show("Thành Công");
             return true;
+        }
+
+        public static bool EventInsert(DeviceType_SpecsModel dp, int deviceTypeId, string specsName)
+        {
+            try
+            {
+                int kq = DeviceType_SpecsDataLayer.Insert(dp);
+                AddDetail(deviceTypeId, kq, specsName);
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Lỗi Insert/n" + ex.Message);
+                return false;
+            }
+            
+            return true;
+        }
+
+        public static void AddDetail(int deviceTypeId, int DeviceType_SpecsId, string specsName)
+        {
+            List<DeviceModel> deviceChange = DeviceBus.SelectAllDynamicWhere(null, deviceTypeId, null, null, null, null, null, null, null, null, null, null, false, null);
+            if (deviceChange != null)
+            {
+                foreach (DeviceModel de in deviceChange)
+                {
+                    try
+                    {
+                        int kq = DeviceDetailBus.Insert(GetDeviceDetail(DeviceType_SpecsId, de.Id, specsName));
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("That Bai, Loi " + ex.Message);
+                    }
+                }
+                MessageBox.Show("Thanh cong");
+
+
+            }
+        }
+        public static DeviceDetailModel GetDeviceDetail(int deviceType_SpecsId, int deviceId, string specsName)
+        {
+            DeviceDetailModel dtl = new DeviceDetailModel();
+            dtl.DeviceId = deviceId;
+            dtl.DeviceTypeSpecsId = deviceType_SpecsId;
+            dtl.NameSpecs = specsName;
+            dtl.CreatedDate = DateTime.Now;
+            dtl.CreatedUserId = 1;
+            dtl.Description = "";
+            dtl.IsDeleted = false;
+            dtl.Status = 0;
+            return dtl;
         }
     }
 }
