@@ -16,6 +16,7 @@ namespace DeviceManagerApp
         #region  model
         List<SpecsModel> listSpecs = null;
         Device_TypeModel currentType = null;
+        int currentLenght = 0;
         int currentSpecsId = 0;
         bool isUpdate = false;
         BindingSource specsBS = new BindingSource();
@@ -35,10 +36,12 @@ namespace DeviceManagerApp
         public frmSetSpecsForDeviceType(Device_TypeModel deviceType)
         {
             InitializeComponent();
+            Setting();
             currentType = deviceType;
             btn_Create.Text = "Cập nhật";
             isUpdate = true;
             listSpecs = SpecsBus.SelectAllSpecs_By_DeviceTypeId(currentType.Id, false);
+            currentLenght = listSpecs.Count;
             LoadForm();
         }
 
@@ -95,6 +98,7 @@ namespace DeviceManagerApp
 
         private void btn_Add_Click(object sender, EventArgs e)
         {
+            SpecsModel add = null;
             if (listSpecs == null)
                 listSpecs = new List<SpecsModel>();
             if (ckb_AddOther.Checked)
@@ -109,7 +113,8 @@ namespace DeviceManagerApp
                 newSpecs.CreatedDate = DateTime.Now;
                 newSpecs.CreatedUserId = 1;
                 int newSpecsId = SpecsBus.Insert(newSpecs);
-                newSpecs.Id = newSpecsId;
+                DeviceType_SpecsBus.EventInsert(getDeviceTypeSpecs(newSpecs, false),currentType.Id,newSpecs.Name);
+                add = newSpecs;
                 LoadListSpecs();
                 listSpecs.Add(newSpecs);
                 LoadDataSource(listSpecs);
@@ -118,34 +123,46 @@ namespace DeviceManagerApp
             else
             {
                 SpecsModel objSpecs = ((SpecsModel)cb_Specs.SelectedItem);
+                add = objSpecs;
                 listSpecs.Add(objSpecs);
+                DeviceType_SpecsBus.Insert(getDeviceTypeSpecs(objSpecs, false));
                 LoadDataSource(listSpecs);
             }
         }
 
         private void btn_Create_Click(object sender, EventArgs e)
         {
+            
             if (listSpecs.Count > 0)
             {
                 List<DeviceType_SpecsModel> listAdd = new List<DeviceType_SpecsModel>();
                 foreach (SpecsModel spe in listSpecs)
                 {
-                    DeviceType_SpecsModel dsm = new DeviceType_SpecsModel();
-                    dsm.DeviceTypeId = currentType.Id;
-                    dsm.SpecsId = spe.Id;
-                    dsm.SpecsName = spe.Name;
-                    dsm.Ordinal = spe.Ordinal.Value;
-                    dsm.IsDeleted = false;
-                    dsm.Description = spe.Description;
-                    dsm.CreatedDate = DateTime.Now;
-                    dsm.CreatedUserId = 1; // dùng tạm
+                    DeviceType_SpecsModel dsm = getDeviceTypeSpecs(spe,false);
                     listAdd.Add(dsm);
                 }
-                DeviceType_SpecsBus.InsertOrUpdate(listAdd, isUpdate);
+                
+                DeviceType_SpecsBus.InsertOrUpdate(listAdd, isUpdate, currentType.Id);
+                
                 listSpecs.Clear();
                 LoadDataSource(listSpecs);
                 return;
             }
+        }
+
+        private DeviceType_SpecsModel getDeviceTypeSpecs(SpecsModel spe,bool isDeleted)
+        {
+            DeviceType_SpecsModel dsm = new DeviceType_SpecsModel();
+            dsm.DeviceTypeId = currentType.Id;
+            dsm.SpecsId = spe.Id;
+            dsm.SpecsName = spe.Name;
+            dsm.Ordinal = spe.Ordinal.HasValue ? spe.Ordinal.Value : 99;
+            dsm.IsDeleted = isDeleted;
+            dsm.Description = spe.Description;
+            dsm.CreatedDate = DateTime.Now;
+            dsm.CreatedUserId = 1;
+
+            return dsm;
         }
 
         private void btn_Remove_Click(object sender, EventArgs e)
@@ -157,6 +174,7 @@ namespace DeviceManagerApp
                     if(spe.Id == currentSpecsId)
                     {
                         listSpecs.Remove(spe);
+                        DeviceType_SpecsBus.Update(getDeviceTypeSpecs(spe, true));
                         LoadDataSource(listSpecs);
                         return;
                     }

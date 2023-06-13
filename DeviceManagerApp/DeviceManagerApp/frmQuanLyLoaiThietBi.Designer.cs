@@ -194,6 +194,7 @@
             this.btnThemLoaiTB.TabIndex = 4;
             this.btnThemLoaiTB.Text = "Thêm Mới";
             this.btnThemLoaiTB.UseVisualStyleBackColor = false;
+            this.btnThemLoaiTB.Click += new System.EventHandler(this.btnThemLoaiTB_Click);
             // 
             // txtTenLoaiTB
             // 
