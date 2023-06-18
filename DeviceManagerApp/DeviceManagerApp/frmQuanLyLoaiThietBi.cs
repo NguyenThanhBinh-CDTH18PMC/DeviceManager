@@ -22,12 +22,14 @@ namespace DeviceManagerApp
 
         private void QuanLyLoaiThietBi_Load()
         {
-            dgvLoaiTb.DataSource = Device_TypeBus.getAllDevice_Type();
+            dgvLoaiTb.DataSource = Device_TypeBus.GetDevice_TypeAfterDelete();
+            //dgvLoaiTb.DataSource = Device_TypeBus.getAllDevice_Type();
         }
 
         private void frmQuanLyLoaiThietBi_Load(object sender, EventArgs e)
         {
-            dgvLoaiTb.DataSource = Device_TypeBus.getAllDevice_Type();
+            //dgvLoaiTb.DataSource = Device_TypeBus.getAllDevice_Type();
+            dgvLoaiTb.DataSource = Device_TypeBus.GetDevice_TypeAfterDelete();
         }
 
         private void btnThemLoaiTB_Click(object sender, EventArgs e)
@@ -35,18 +37,32 @@ namespace DeviceManagerApp
             try
             {
                 Device_TypeModel _TypeModel = new Device_TypeModel();
-                _TypeModel.Id = int.Parse(txtMaLoaiTb.Text);
+
                 _TypeModel.Name = txtTenLoaiTB.Text;
                 _TypeModel.Description = rtbMotaLoaiTB.Text;
-                Device_TypeBus.InsertDevice_Type(_TypeModel);
-                MessageBox.Show("Thêm Thành Công");
-                dgvLoaiTb.DataSource = Device_TypeBus.getAllDevice_Type();
+                _TypeModel.CreatedUserId = 1;
+                _TypeModel.CreatedDate = DateTime.Now;
+                _TypeModel.IsDeleted = false;
+                _TypeModel.Status = 0;
+                if (txtTenLoaiTB.Text == "" || rtbMotaLoaiTB.Text == "")
+                {
+                    MessageBox.Show("Thông Tin Không Được Trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    Device_TypeBus.InsertDevice_Type(_TypeModel);
+                    MessageBox.Show("Thêm Thành Công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dgvLoaiTb.DataSource = Device_TypeBus.GetDevice_TypeAfterDelete();
+                    txtTenLoaiTB.Text = "";
+                    rtbMotaLoaiTB.Text = "";
+                }
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         private void dgvLoaiTb_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -55,7 +71,6 @@ namespace DeviceManagerApp
             {
                 DataGridViewRow row = new DataGridViewRow();
                 row = dgvLoaiTb.Rows[e.RowIndex];
-                txtMaLoaiTb.Text = row.Cells[0].Value.ToString();
                 txtTenLoaiTB.Text = row.Cells[1].Value.ToString();
                 rtbMotaLoaiTB.Text = row.Cells[2].Value.ToString();
             }
@@ -69,7 +84,7 @@ namespace DeviceManagerApp
         {
             if (dgvLoaiTb.SelectedCells.Count > 0)
             {
-                    currentDeviceType = (int)dgvLoaiTb.SelectedCells[0].OwningRow.Cells["DeviceTypeId"].Value;
+                currentDeviceType = (int)dgvLoaiTb.SelectedCells[0].OwningRow.Cells["DeviceTypeId"].Value;
             }
 
         }
@@ -78,18 +93,32 @@ namespace DeviceManagerApp
         {
             try
             {
+                int Id = Convert.ToInt32(dgvLoaiTb.CurrentRow.Cells[0].Value);
                 Device_TypeModel _TypeModel = new Device_TypeModel();
-                _TypeModel.Id = int.Parse(txtMaLoaiTb.Text);
+                _TypeModel.Id = Id;
                 _TypeModel.Name = txtTenLoaiTB.Text;
                 _TypeModel.Description = rtbMotaLoaiTB.Text;
-                Device_TypeBus.UpdateDevice_Type(_TypeModel);
-                MessageBox.Show("Cập Nhật Thành Công");
-                dgvLoaiTb.DataSource = Device_TypeBus.getAllDevice_Type();
+                _TypeModel.CreatedUserId = 1;
+                _TypeModel.CreatedDate = DateTime.Now;
+                _TypeModel.IsDeleted = false;
+                _TypeModel.Status = 0;
+                if (txtTenLoaiTB.Text == "" || rtbMotaLoaiTB.Text == "")
+                {
+                    MessageBox.Show("Thông Tin Không Được Trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    Device_TypeBus.UpdateDevice_Type(_TypeModel);
+                    MessageBox.Show("Cập Nhật Thành Công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dgvLoaiTb.DataSource = Device_TypeBus.GetDevice_TypeAfterDelete();
+                    txtTenLoaiTB.Text = "";
+                    rtbMotaLoaiTB.Text = "";
+                }
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -97,13 +126,27 @@ namespace DeviceManagerApp
         {
             try
             {
-                Device_TypeModel device_Type = new Device_TypeModel();
-                device_Type.Id = int.Parse(txtMaLoaiTb.Text);
-                device_Type.Name = txtTenLoaiTB.Text;
-                device_Type.Description = rtbMotaLoaiTB.Text;
-                Device_TypeBus.DeleteDevice_Type(device_Type.Id);
-                MessageBox.Show("Xóa Thành Công");
-                dgvLoaiTb.DataSource = Device_TypeBus.getAllDevice_Type();
+                if (dgvLoaiTb.SelectedRows.Count > 0)
+                {
+                    int rowIndex = dgvLoaiTb.SelectedRows[0].Index;
+                    int Id = Int32.Parse(dgvLoaiTb.Rows[rowIndex].Cells["DeviceTypeId"].Value.ToString());
+
+                    CurrencyManager currencyManager = (CurrencyManager)BindingContext[dgvLoaiTb.DataSource];
+                    currencyManager.SuspendBinding();
+                    DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Xóa", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        //dgvPhongMay.CurrentCell = dgvPhongMay.Rows[0].Cells[0];
+                        Device_TypeBus.DeleteDevice_Type(Id);
+                        dgvLoaiTb.Rows[rowIndex].Visible = false;
+                        MessageBox.Show("Xóa Thành Công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtTenLoaiTB.Text = "";
+                        rtbMotaLoaiTB.Text = "";
+                        dgvLoaiTb.DataSource = Device_TypeBus.GetDevice_TypeAfterDelete();
+                    }
+                }
+
+
             }
             catch (Exception ex)
             {
@@ -113,7 +156,7 @@ namespace DeviceManagerApp
 
         private void AddSpecs_Click(object sender, EventArgs e)
         {
-            if(currentDeviceType!=0)
+            if (currentDeviceType != 0)
             {
                 Form addSpecs = new frmSetSpecsForDeviceType(Device_TypeBus.SelectByPrimaryKey(currentDeviceType));
                 addSpecs.Show();
