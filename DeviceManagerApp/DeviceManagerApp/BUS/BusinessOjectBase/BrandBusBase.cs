@@ -19,11 +19,26 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         }
         public static void InsertBrand(BrandModel brand)
         {
-            BrandDAO.InsertBrand(brand);
+            if(BrandDAO.CheckNameBrand(brand.Name))
+            {
+                throw new Exception("Tên Thương Hiệu Đã Tồn Tại");
+            }
+            else
+            {
+                BrandDAO.InsertBrand(brand);
+            }
         }
         public static void UpdateBrand(BrandModel brand)
         {
+            if (BrandDAO.IsDuplicateBrand(brand,brand.Id))
+            {
+                throw new Exception("Tên Thương Hiệu Đã Tồn Tại");
+            }
             BrandDAO.UpdateBrand(brand);
+        }
+        public static DataTable GetBrandAfterDelete()
+        {
+            return BrandDAO.GetBrandAfterDelete();
         }
         public static void DeleteBrand(int id) { 
             BrandDAO.DeleteBrand(id);

@@ -3,6 +3,7 @@ using DeviceManagerApp.DAO.DataLayer;
 using DeviceManagerApp.DTO.Model;
 using DTO.Model;
 using DTO.ModelBase;
+using Microsoft.SqlServer.Server;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,21 +15,44 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
 {
     public class RoomBusBase
     {
+        RoomDAO roomDAO = new RoomDAO();
         public static DataTable GetAllRoom()
         {
             return RoomDAO.getData();
         }
         public static void InSertRoom(RoomModel room)
         {
-            RoomDAO.InsertRoom(room);
+            if (RoomDAO.CheckIdRoom(room.Code))
+            {
+                throw new Exception("Mã Phòng Đã Tồn Tại");
+            }
+            else if (RoomDAO.CheckNameRoom(room.Name))
+            {
+                throw new Exception("Tên Phòng Đã Tồn Tại");
+            }
+            else
+            {
+                RoomDAO.InsertRoom(room);
+            }
         }
+        
+        
         public static void UpdateRoom(RoomModel room)
         {
+            if (RoomDAO.IsDuplicateRoom(room, room.Id))
+            {
+                throw new Exception("Mã Phòng Hoặc Tên Phòng Đã Tồn Tại");
+            }
             RoomDAO.UpdateRoom(room);
+            
         }
-        public static void DeleteRoom(string code)
+        public static DataTable GetRoomAfterDelete()
         {
-            RoomDAO.DeleteRoom(code);
+            return RoomDAO.GetRoomAfterDelete();
+        }
+        public static void DeleteRoom(int Id)
+        {
+            RoomDAO.DeleteRoom(Id);
         }
     }
 }

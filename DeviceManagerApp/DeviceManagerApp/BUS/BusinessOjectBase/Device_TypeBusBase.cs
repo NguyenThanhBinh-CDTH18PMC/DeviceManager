@@ -31,11 +31,31 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
 
         public static void InsertDevice_Type(Device_TypeModel device_Type) 
         {
-            Device_TypeDao.InsertDevice_Type(device_Type);
+            if(Device_TypeDao.CheckNameDevice_Type(device_Type.Name))
+            {
+                throw new Exception("Tên Loại Thiết Bị Đã Tồn Tại");
+            }
+            else
+            {
+                Device_TypeDao.InsertDevice_Type(device_Type);
+            }
+           
         }
         public static void UpdateDevice_Type(Device_TypeModel device_Type)
         {
-            Device_TypeDao.UpDateDevice_Type(device_Type);
+            if(Device_TypeDao.IsDuplicateDecice_Type(device_Type,device_Type.Id))
+            {
+                throw new Exception("Tên Loại Thiết Bị Đã Tồn Tại");
+            }
+            else
+            {
+                Device_TypeDao.UpDateDevice_Type(device_Type);
+            }
+            
+        }
+        public static DataTable GetDevice_TypeAfterDelete()
+        {
+            return Device_TypeDao.GetDevice_TypeAfterDelete();
         }
         public static void DeleteDevice_Type(int id)
         {

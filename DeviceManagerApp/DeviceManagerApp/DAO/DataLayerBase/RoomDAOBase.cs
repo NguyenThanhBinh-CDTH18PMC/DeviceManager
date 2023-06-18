@@ -30,9 +30,6 @@ namespace DeviceManagerApp.DAO.DataLayerBase
             conn.Close();
             return dt;
         }
-     
-       
-        
         public static void InsertRoom(RoomModel room)
         {
                 SqlConnection conn = new SqlConnection(PathString.ConnectionString);
@@ -50,19 +47,66 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                 cmd.Parameters["@Name"].Value = room.Name;
                 cmd.Parameters["@Description"].Value = room.Description;
                 cmd.Parameters["@DeviceQuantity"].Value = room.DeviceQuantity;
-                //cmd.Parameters["@CreatedDate"].Value = room.CreatedDate;
-                //cmd.Parameters["@CreatedUserId"].Value = room.CreatedUserId;
-                //cmd.Parameters["@IsDeleted"].Value = room.IsDeleted;
-                //cmd.Parameters["@Status"].Value = room.Status;
+                cmd.Parameters["@CreatedDate"].Value = room.CreatedDate;
+                cmd.Parameters["@CreatedUserId"].Value = room.CreatedUserId;
+                cmd.Parameters["@IsDeleted"].Value = room.IsDeleted;
+                cmd.Parameters["@Status"].Value = room.Status;
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
+        //Kiểm tra trùng mã phòng 
+        public static bool CheckIdRoom(string Code)
+        {
+            using (SqlConnection conn = new SqlConnection(PathString.ConnectionString))
+            {
+                string sql = "select COUNT(*) from D_Room where Code =@Code and IsDeleted=0";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@Code", Code);
+                conn.Open();
+                int count =(int)cmd.ExecuteScalar();
+                conn.Close();
+                //kiểm tra
+                if(count > 0)
+                {
+                    return true;
+                }else 
+                { 
+                    return false; 
+                }
+            }
+        }
+        //kiểm tra trùng tên phòng
+        public static bool CheckNameRoom(string Name)
+        {
+            using (SqlConnection conn = new SqlConnection(PathString.ConnectionString))
+            {
+                string sql = "select COUNT(*) from D_Room where Name =@Name and IsDeleted=0";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@Name", Name);
+                conn.Open();
+                int count = (int)cmd.ExecuteScalar();
+                conn.Close();
+                //kiểm tra
+                if (count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+       
         public static void UpdateRoom(RoomModel room)
         {
             SqlConnection conn = new SqlConnection(PathString.ConnectionString);
             SqlCommand cmd = new SqlCommand("UpdateRoom", conn);
             cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Id", room.Id);
             cmd.Parameters.Add("@Code", SqlDbType.NVarChar, 50);
             cmd.Parameters.Add("@Name", SqlDbType.NVarChar, 50);
             cmd.Parameters.Add("@Description", SqlDbType.NVarChar, 50);
@@ -75,28 +119,63 @@ namespace DeviceManagerApp.DAO.DataLayerBase
             cmd.Parameters["@Name"].Value = room.Name;
             cmd.Parameters["@Description"].Value = room.Description;
             cmd.Parameters["@DeviceQuantity"].Value = room.DeviceQuantity;
-            //cmd.Parameters["@CreatedDate"].Value = room.CreatedDate;
-            //cmd.Parameters["@CreatedUserId"].Value = room.CreatedUserId;
-            //cmd.Parameters["@IsDeleted"].Value = room.IsDeleted;
-            //cmd.Parameters["@Status"].Value = room.Status;
+            cmd.Parameters["@CreatedDate"].Value = room.CreatedDate;
+            cmd.Parameters["@CreatedUserId"].Value = room.CreatedUserId;
+            cmd.Parameters["@IsDeleted"].Value = room.IsDeleted;
+            cmd.Parameters["@Status"].Value = room.Status;
             conn.Open();
             cmd.ExecuteNonQuery();
             conn.Close();
+            
         }
-        public static void DeleteRoom(string Code)
+        //check code va name k trùng với bảng
+        public static bool IsDuplicateRoom(RoomModel room,int Id)
         {
-            SqlConnection conn = new SqlConnection(PathString.ConnectionString);
-            SqlCommand cmd = new SqlCommand("DeleteRoom", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@Code", SqlDbType.NVarChar,50);
-            cmd.Parameters["@Code"].Value = Code;   
-            //cmd.Parameters["@CreatedDate"].Value = room.CreatedDate;
-            //cmd.Parameters["@CreatedUserId"].Value = room.CreatedUserId;
-            //cmd.Parameters["@IsDeleted"].Value = room.IsDeleted;
-            //cmd.Parameters["@Status"].Value = room.Status;
-            conn.Open();
-            cmd.ExecuteNonQuery();
-            conn.Close();
+            using(SqlConnection conn = new SqlConnection(PathString.ConnectionString))
+            {
+                string sql = "Select COUNT(*) from D_Room Where ((Code=@Code or Name=@Name)and Id <>@Id and IsDeleted=0)";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@Id", Id);
+                cmd.Parameters.AddWithValue("@Code",room.Code);
+                cmd.Parameters.AddWithValue("@Name", room.Name);
+                conn.Open();
+                int count = (int)cmd.ExecuteScalar();
+                if(count > 0)
+                {
+                    return true;
+                }else { return false; }
+            }
+        }
+
+        public static DataTable GetRoomAfterDelete()
+        {
+            DataTable room = new DataTable();
+            using(SqlConnection conn = new SqlConnection(PathString.ConnectionString))
+            {
+                SqlCommand cmd =new SqlCommand("GetRoomAfterDelete", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                conn.Open();
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+                conn.Close();
+            }
+            
+        }
+        public static void DeleteRoom(int Id)
+        {
+            using(SqlConnection conn = new SqlConnection(PathString.ConnectionString))
+            {
+                conn.Open();
+                
+                SqlCommand cmd= new SqlCommand("update D_Room set IsDeleted=1 where Id=@Id", conn);
+               // cmd.CommandType=CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Id", Id);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
         }
 
     }

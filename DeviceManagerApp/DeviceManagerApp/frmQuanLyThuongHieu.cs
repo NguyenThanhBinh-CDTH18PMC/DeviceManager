@@ -12,6 +12,7 @@ namespace DeviceManagerApp
 {
     public partial class frmQuanLyThuongHieu : Form
     {
+        private int RowIndex;
         public frmQuanLyThuongHieu()
         {
             InitializeComponent();
@@ -19,7 +20,8 @@ namespace DeviceManagerApp
 
         private void frmQuanLyThuongHieu_Load(object sender, EventArgs e)
         {
-            dgvThuongHieu.DataSource = BrandBus.GetAllBrand();
+            //dgvThuongHieu.DataSource = BrandBus.GetAllBrand();
+            dgvThuongHieu.DataSource = BrandBus.GetBrandAfterDelete();
         }
 
         private void btnThemThuongHieu_Click(object sender, EventArgs e)
@@ -27,16 +29,28 @@ namespace DeviceManagerApp
             try
             {
                 BrandModel brandModel = new BrandModel();
-                brandModel.Id = int.Parse(txtMaThuongHieu.Text);
                 brandModel.Name = txtTenThuongHieu.Text;
                 brandModel.Address = rtbDiaChi.Text;
-                BrandBus.InsertBrand(brandModel);
-                MessageBox.Show("Thêm Thành Công");
-                dgvThuongHieu.DataSource = BrandBus.GetAllBrand();
+                brandModel.CreatedUserId = 1;
+                brandModel.CreatedDate = DateTime.Now;
+                brandModel.IsDeleted = false;
+                brandModel.Status = 0;
+                if (txtTenThuongHieu.Text == "" || rtbDiaChi.Text == "")
+                {
+                    MessageBox.Show("Thông Tin Không Được Trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    BrandBus.InsertBrand(brandModel);
+                    MessageBox.Show("Thêm Thành Công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //dgvThuongHieu.DataSource = BrandBus.GetAllBrand();
+                    dgvThuongHieu.DataSource = BrandBus.GetBrandAfterDelete();
+                }
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -46,7 +60,7 @@ namespace DeviceManagerApp
             {
                 DataGridViewRow row = new DataGridViewRow();
                 row = dgvThuongHieu.Rows[e.RowIndex];
-                txtMaThuongHieu.Text = row.Cells[0].Value.ToString();
+
                 txtTenThuongHieu.Text = row.Cells[1].Value.ToString();
                 rtbDiaChi.Text = row.Cells[2].Value.ToString();
             }
@@ -58,19 +72,36 @@ namespace DeviceManagerApp
 
         private void btnSuaThuongHieu_Click(object sender, EventArgs e)
         {
+
             try
             {
+                //DataGridViewRow row = dgvThuongHieu.Rows[RowIndex];
+                int Id = Convert.ToInt32(dgvThuongHieu.CurrentRow.Cells[0].Value);
                 BrandModel brandModel = new BrandModel();
-                brandModel.Id = int.Parse(txtMaThuongHieu.Text);
+                brandModel.Id = Id;
                 brandModel.Name = txtTenThuongHieu.Text;
                 brandModel.Address = rtbDiaChi.Text;
-                BrandBus.UpdateBrand(brandModel);
-                MessageBox.Show("Cập nhật Thành Công");
-                dgvThuongHieu.DataSource = BrandBus.GetAllBrand();
+                brandModel.CreatedUserId = 1;
+                brandModel.CreatedDate = DateTime.Now;
+                brandModel.IsDeleted = false;
+                brandModel.Status = 0;
+                if (txtTenThuongHieu.Text == "" || rtbDiaChi.Text == "")
+                {
+                    MessageBox.Show("Thông Tin Không Được Trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    BrandBus.UpdateBrand(brandModel);
+                    MessageBox.Show("Cập Nhật Thành Công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //dgvThuongHieu.DataSource = BrandBus.GetAllBrand();
+                    txtTenThuongHieu.Text = "";
+                    rtbDiaChi.Text = "";
+                    dgvThuongHieu.DataSource = BrandBus.GetBrandAfterDelete();
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -78,13 +109,27 @@ namespace DeviceManagerApp
         {
             try
             {
-                BrandModel brandModel = new BrandModel();
-                brandModel.Id = int.Parse(txtMaThuongHieu.Text);
-                brandModel.Name = txtTenThuongHieu.Text;
-                brandModel.Address = rtbDiaChi.Text;
-                BrandBus.DeleteBrand(brandModel.Id);
-                MessageBox.Show("Xóa Thành Công");
-                dgvThuongHieu.DataSource = BrandBus.GetAllBrand();
+                if (dgvThuongHieu.SelectedRows.Count > 0)
+                {
+                    int rowIndex = dgvThuongHieu.SelectedRows[0].Index;
+                    int Id = Int32.Parse(dgvThuongHieu.Rows[rowIndex].Cells["ID"].Value.ToString());
+
+                    CurrencyManager currencyManager = (CurrencyManager)BindingContext[dgvThuongHieu.DataSource];
+                    currencyManager.SuspendBinding();
+                    DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Xóa", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        //dgvPhongMay.CurrentCell = dgvPhongMay.Rows[0].Cells[0];
+                        BrandBus.DeleteBrand(Id);
+                        dgvThuongHieu.Rows[rowIndex].Visible = false;
+                        MessageBox.Show("Xóa Thành Công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtTenThuongHieu.Text = "";
+                        rtbDiaChi.Text = "";
+                        dgvThuongHieu.DataSource = BrandBus.GetBrandAfterDelete();
+                    }
+                }
+
+
             }
             catch (Exception ex)
             {
