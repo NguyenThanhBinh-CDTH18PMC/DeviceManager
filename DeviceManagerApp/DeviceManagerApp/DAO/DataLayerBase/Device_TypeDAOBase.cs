@@ -35,61 +35,114 @@ namespace DeviceManagerApp.DAO.DataLayerBase
             SqlConnection conn = new SqlConnection(PathString.ConnectionString);
             SqlCommand cmd = new SqlCommand("InsertDevice_type", conn);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@Id", SqlDbType.Int);
             cmd.Parameters.Add("@Name", SqlDbType.NVarChar, 50);
             cmd.Parameters.Add("@Description", SqlDbType.NVarChar, 100);
             cmd.Parameters.AddWithValue("@CreatedDate", SqlDbType.DateTime);
             cmd.Parameters.AddWithValue("@CreatedUserId", SqlDbType.Int);
             cmd.Parameters.AddWithValue("@IsDeleted", SqlDbType.Bit);
             cmd.Parameters.AddWithValue("@Status", SqlDbType.Int);
-            cmd.Parameters["@Id"].Value = device_Type.Id;
             cmd.Parameters["@Name"].Value = device_Type.Name;
             cmd.Parameters["@Description"].Value = device_Type.Description;
-            //cmd.Parameters["@CreatedDate"].Value = room.CreatedDate;
-            //cmd.Parameters["@CreatedUserId"].Value = room.CreatedUserId;
-            //cmd.Parameters["@IsDeleted"].Value = room.IsDeleted;
-            //cmd.Parameters["@Status"].Value = room.Status;
+            cmd.Parameters["@CreatedDate"].Value = device_Type.CreatedDate;
+            cmd.Parameters["@CreatedUserId"].Value = device_Type.CreatedUserId;
+            cmd.Parameters["@IsDeleted"].Value = device_Type.IsDeleted;
+            cmd.Parameters["@Status"].Value = device_Type.Status;
             conn.Open();
             cmd.ExecuteNonQuery();
             conn.Close();
+        }
+
+        //kiểm tra trùng tên loại thiết bị 
+        public static bool CheckNameDevice_Type(string Name)
+        {
+            using (SqlConnection conn = new SqlConnection(PathString.ConnectionString))
+            {
+                string sql = "select COUNT(*) from D_Device_Type where Name = @Name and IsDeleted=0";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@Name", Name);
+                conn.Open();
+                int count = (int)cmd.ExecuteScalar();
+                conn.Close();
+                //kiểm tra
+                if (count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
         public static void UpDateDevice_Type(Device_TypeModel device_Type)
         {
             SqlConnection conn = new SqlConnection(PathString.ConnectionString);
             SqlCommand cmd = new SqlCommand("UpdateDevice_Type", conn);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@Id", SqlDbType.Int);
+            cmd.Parameters.AddWithValue("@Id", device_Type.Id);
             cmd.Parameters.Add("@Name", SqlDbType.NVarChar, 50);
             cmd.Parameters.Add("@Description", SqlDbType.NVarChar, 100);
             cmd.Parameters.AddWithValue("@CreatedDate", SqlDbType.DateTime);
             cmd.Parameters.AddWithValue("@CreatedUserId", SqlDbType.Int);
             cmd.Parameters.AddWithValue("@IsDeleted", SqlDbType.Bit);
             cmd.Parameters.AddWithValue("@Status", SqlDbType.Int);
-            cmd.Parameters["@Id"].Value = device_Type.Id;
             cmd.Parameters["@Name"].Value = device_Type.Name;
             cmd.Parameters["@Description"].Value = device_Type.Description;
-            //cmd.Parameters["@CreatedDate"].Value = room.CreatedDate;
-            //cmd.Parameters["@CreatedUserId"].Value = room.CreatedUserId;
-            //cmd.Parameters["@IsDeleted"].Value = room.IsDeleted;
-            //cmd.Parameters["@Status"].Value = room.Status;
+            cmd.Parameters["@CreatedDate"].Value = device_Type.CreatedDate;
+            cmd.Parameters["@CreatedUserId"].Value = device_Type.CreatedUserId;
+            cmd.Parameters["@IsDeleted"].Value = device_Type.IsDeleted;
+            cmd.Parameters["@Status"].Value = device_Type.Status;
             conn.Open();
             cmd.ExecuteNonQuery();
             conn.Close();
         }
-        public static void DeleteDevice_Type(int id)
+        public static bool IsDuplicateDecice_Type(Device_TypeModel device_Type, int Id)
         {
-            SqlConnection conn = new SqlConnection(PathString.ConnectionString);
-            SqlCommand cmd = new SqlCommand("DeleteDevice_Type", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@Id", SqlDbType.Int);
-            cmd.Parameters["@Id"].Value = id;
-            //cmd.Parameters["@CreatedDate"].Value = room.CreatedDate;
-            //cmd.Parameters["@CreatedUserId"].Value = room.CreatedUserId;
-            //cmd.Parameters["@IsDeleted"].Value = room.IsDeleted;
-            //cmd.Parameters["@Status"].Value = room.Status;
-            conn.Open();
-            cmd.ExecuteNonQuery();
-            conn.Close();
+            using (SqlConnection conn = new SqlConnection(PathString.ConnectionString))
+            {
+                string sql = "Select COUNT(*) from D_Device_Type Where (Name=@Name and Id <>@Id) and IsDeleted=0";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@Id", Id);
+                cmd.Parameters.AddWithValue("@Name", device_Type.Name);
+                conn.Open();
+                int count = (int)cmd.ExecuteScalar();
+                if (count > 0)
+                {
+                    return true;
+                }
+                else { return false; }
+            }
+        }
+
+        //Lấy danh sách Sau khi xóa
+        public static DataTable GetDevice_TypeAfterDelete()
+        {
+            DataTable brand = new DataTable();
+            using (SqlConnection conn = new SqlConnection(PathString.ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("GetDevice_TypeAfterDelete", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                conn.Open();
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+                conn.Close();
+            }
+        }
+        public static void DeleteDevice_Type(int Id)
+        {
+            using (SqlConnection conn = new SqlConnection(PathString.ConnectionString))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("update D_Device_Type set IsDeleted=1 where Id=@Id", conn);
+                //cmd.CommandType=CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Id", Id);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
         }
 
         /// <summary>
