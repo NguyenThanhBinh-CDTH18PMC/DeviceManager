@@ -123,7 +123,6 @@
             this.gbThongtinTB.TabIndex = 1;
             this.gbThongtinTB.TabStop = false;
             this.gbThongtinTB.Text = "Thông tin thiết bị";
-            this.gbThongtinTB.Enter += new System.EventHandler(this.gbThongtinTB_Enter);
             // 
             // txtPrice
             // 

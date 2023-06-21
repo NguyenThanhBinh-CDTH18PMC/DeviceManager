@@ -84,15 +84,17 @@ namespace DeviceManagerApp
 
         private void Load_Source()
         {
-            cbLoaiTbi.DataSource = Device_TypeBus.getAllDevice_Type();
+            cbLoaiTbi.DataSource = Device_TypeBus.GetDevice_TypeAfterDelete();
             cbLoaiTbi.DisplayMember = "Name";
             cbLoaiTbi.ValueMember = "Id";
 
-            cbPhong.DataSource = RoomBus.GetAllRoom();
+            cbPhong.DataSource = RoomBus.GetRoomAfterDelete();
             cbPhong.DisplayMember = "Name";
             cbPhong.ValueMember = "Id";
 
-            cbNhaCungCap.DataSource = BrandBus.GetAllBrand();
+            //cbNhaCungCap.DataSource = BrandBus.GetAllBrand();
+            cbNhaCungCap.DataSource = BrandBus.GetBrandAfterDelete();
+
             cbNhaCungCap.DisplayMember = "Name";
             cbNhaCungCap.ValueMember = "Id";
         }
