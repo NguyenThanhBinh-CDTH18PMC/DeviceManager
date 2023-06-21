@@ -140,7 +140,8 @@ begin
 	set IDENTITY_INSERT D_Device_Type Off;
 end
 
-go create proc DeleteDevice_Type
+go 
+create proc DeleteDevice_Type
 @Id int
 as 
 delete from D_Device_Type

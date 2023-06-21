@@ -67,7 +67,7 @@ namespace DeviceManagerApp
         private void ResetDS()
         {
             int loai = 0;
-            
+
 
             //Load_DSTB(DateTime.Now, loai);
         }
@@ -91,7 +91,7 @@ namespace DeviceManagerApp
             cbPhong.DataSource = RoomBus.GetAllRoom();
             cbPhong.DisplayMember = "Name";
             cbPhong.ValueMember = "Id";
-            
+
             cbNhaCungCap.DataSource = BrandBus.GetAllBrand();
             cbNhaCungCap.DisplayMember = "Name";
             cbNhaCungCap.ValueMember = "Id";
@@ -99,7 +99,7 @@ namespace DeviceManagerApp
 
         private void LoadDataGridView()
         {
-            
+
             listDevice = DeviceBus.SelectSkipAndTakeDynamicWhere(null, null, null, null, null, null, null, null, null, null, null, null, false, null, 10, 0, "Id desc");
             if (listDevice != null)
             {
@@ -124,38 +124,35 @@ namespace DeviceManagerApp
             dtgvQlThietBi.DataSource = bs;
         }
 
+        public void UploadImage()
+        {
+            // open file dialog   
+            OpenFileDialog open = new OpenFileDialog();
+
+            //Khoi tao thiet lap cho dialog
+            open.InitialDirectory = "C:\\";
+            open.Filter = "Image Files(*.jpg; *.png; *.jpeg; *.gif; *.bmp)|*.jpg; *.png; *.jpeg; *.gif; *.bmp";
+
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                Stream stream = null;
+                if ((stream = open.OpenFile()) != null)
+                {
+                    ptb_Device.Image = Image.FromStream(stream);
+                }
+                stream.Close();
+                stream.Dispose();
+                GC.Collect();
+
+            }
+        }
+
 
         #endregion
 
         #region Event
 
-        //Xử lý trong form
 
-        /*string path = "../../TRASUA";
-        private void LoadImgList()
-        {
-            DirectoryInfo dirInfo = new DirectoryInfo(path);
-            FileInfo[] fileInfo = dirInfo.GetFiles("*.jpg");
-
-            foreach (FileInfo fInFo in fileInfo)
-            {
-                //Đọc tập tin hình -> byte
-                byte[] bytes = File.ReadAllBytes(fInFo.FullName);
-                MemoryStream mms = new MemoryStream(bytes);
-
-                imgLargeIcon.Images.Add(fInFo.Name, Image.FromStream(mms));
-                imgSmallIcon.Images.Add(fInFo.Name, Image.FromStream(mms));
-
-            }
-        }
-        private void loadList1()
-        {
-
-
-                ListViewItem li = new ListViewItem(imgLargeIcon.Images.ToString());
-                //listView1.Items.Add(li);
-
-        }*/
 
 
         private void btOrder_Click(object sender, EventArgs e)
@@ -207,7 +204,7 @@ namespace DeviceManagerApp
 
         private void btn_Xem_Click_1(object sender, EventArgs e)
         {
-            
+
         }
 
 
@@ -215,7 +212,7 @@ namespace DeviceManagerApp
         {
             if (dtgvQlThietBi.SelectedCells.Count > 0)
             {
-                int deviceId = (int) dtgvQlThietBi.SelectedCells[0].OwningRow.Cells["DeviceId"].Value;
+                int deviceId = (int)dtgvQlThietBi.SelectedCells[0].OwningRow.Cells["DeviceId"].Value;
                 foreach (DeviceModel de in listDevice)
                 {
                     if (de.Id == deviceId)
@@ -223,7 +220,7 @@ namespace DeviceManagerApp
                         cbLoaiTbi.SelectedValue = de.DeviceTypeId;
                         //cbPhong.SelectedValue = de.Room;
                         cbNhaCungCap.SelectedValue = de.BrandId;
-                        dtBaoHanh.Value = de.WarrantyPeriod.HasValue?de.WarrantyPeriod.Value: DateTime.Now;
+                        dtBaoHanh.Value = de.WarrantyPeriod.HasValue ? de.WarrantyPeriod.Value : DateTime.Now;
                         dtp_DateBuy.Value = de.CreatedDate.Value;
                         txtPrice.Text = de.Price.ToString();
                         txtTenTbi.Text = de.Name;
@@ -269,7 +266,7 @@ namespace DeviceManagerApp
 
         private void btnDetail_Click(object sender, EventArgs e)
         {
-            if(currentDevice!=null)
+            if (currentDevice != null)
             {
                 Form f = new DeviceDetail(currentDevice);
                 f.Show();
@@ -283,7 +280,7 @@ namespace DeviceManagerApp
 
             DeviceModel device = new DeviceModel();
             device.Name = txtTenTbi.Text;
-            device.DeviceTypeId =(int) cbLoaiTbi.SelectedValue;
+            device.DeviceTypeId = (int)cbLoaiTbi.SelectedValue;
             device.BrandId = (int)cbNhaCungCap.SelectedValue;
             //Thiếu Khoa
             device.Note = rtbGhiChuTbi.Text;
@@ -302,9 +299,9 @@ namespace DeviceManagerApp
                 listDevice.Add(DeviceBus.SelectByPrimaryKey(id));
                 ReLoadDataGridView(listDevice);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("Thất bại! Lỗi " + ex.Message);
+                MessageBox.Show("Thất bại! Lỗi " + ex.Message, "Thông Báo", MessageBoxButtons.OK);
             }
 
         }
@@ -321,7 +318,7 @@ namespace DeviceManagerApp
                 return true;
             if (cbLoaiTbi.SelectedItem == null)
                 return true;
-            if(cbNhaCungCap.SelectedItem == null)
+            if (cbNhaCungCap.SelectedItem == null)
                 return true;
             //if (cbKhoa.SelectedItem == null)
             //    return true;
