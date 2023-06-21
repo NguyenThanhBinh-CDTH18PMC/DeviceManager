@@ -30,18 +30,35 @@ Create table [S_UserLog]
 	constraint pk_UserLog primary key(Id),
 	--constraint fk_UserLog_User foreign key(UserId) references [System_User](Id),
 )
+ 
+ --alter table [dbo].[D_Device_Type]
+--add [Image] nvarchar(100) null
 
 create table [D_Device_Type]
 (
 	[Id] int not null IDENTITY(1,1),
 	[Name] nvarchar(50) null,
 	[Description] nvarchar(100) null,
+	[Image] nvarchar(100) null,
 	[CreatedDate] DateTime null,
 	[CreatedUserId] int null,
 	[IsDeleted] bit,
 	[Status] int null,
 	constraint pk_DeviceType primary key(Id),
 	--constraint fk_DeviceType_User foreign key(CreatedUserId) references [System_User](Id),
+)
+
+create table [D_Faculty]
+(
+	[Id] int not null IDENTITY(1,1),
+	[Name] nvarchar(50) null,
+	[Description] nvarchar(100) null,
+	[Image] nvarchar(100) null,
+	[CreatedDate] DateTime null,
+	[CreatedUserId] int null,
+	[IsDeleted] bit,
+	constraint pk_Faculty primary key(Id),
+	--constraint fk_Faculty_User foreign key(CreatedUserId) references [System_User](Id),
 )
 
 create table [D_Device_Specs]
@@ -85,12 +102,15 @@ Create table [D_Brand]
 	--constraint fk_Brand_User foreign key(CreatedUserId) references [System_User](Id),
 )
 
+--alter table [D_Device]
+--add [Faculty_Id] int null
 create table [D_Device]
 (
 	[Id] int not null IDENTITY(1,1),
 	[Name] nvarchar(50) null,
 	[DeviceTypeId] int not null,
 	[ShipmentId] int null,
+	[Faculty_Id] int null,
 	[BrandId] int null,
 	[QR_Code] varchar(100) null,
 	[Description] nvarchar(100) null,
@@ -307,6 +327,7 @@ Create table [System_AccessRights]
 	--constraint fk_ _User foreign key(CreatedUserId) references [System_User](Id),
 )
 
+--drop table [System_Borrow_Device_Letter]
 Create table [System_Borrow_Device_Letter]
 (
 	[Id] int not null IDENTITY(1,1),
@@ -315,9 +336,8 @@ Create table [System_Borrow_Device_Letter]
 	[RoomId] int not null,
 	[ManagerDeviceId] int null,
 	[CreatedDate] DateTime null,
-	[ModifiedDate] DateTime null,
+	[DueDate] DateTime null,
 	[CreatedUserId] int null,
-	[ModifiedUserId] int null,
 	[IsDeleted] bit,
 	[Status] int null,
 	constraint pk_Borrow primary key(Id),
@@ -396,6 +416,9 @@ Create table [System_PositionLog]
 	--constraint pk_PositionLog primary key(Id),
 )
 */
+
+--alter table [dbo].[S_Teacher]
+--add [Gender] bit
 Create table [S_Teacher]
 (
 	[Id] int not null IDENTITY(1,1),
@@ -403,6 +426,7 @@ Create table [S_Teacher]
 	[LastName] nvarchar(20) null,
 	[FullName] nvarchar(60) null,
 	[Birth] Datetime null,
+	[Gender] bit,
 	[Address] nvarchar(200) null,
 	[Image] nvarchar(200) null,
 	[Phone] varchar(20) null,

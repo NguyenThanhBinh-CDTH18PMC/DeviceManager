@@ -166,14 +166,18 @@ begin
 	return @Id
 	
 end
-go
+go 
+
+
 create proc GetDevice_TypeAfterDelete
 as
 select Id,Name,Description from D_Device_Type
 where IsDeleted=0
 go 
-go create proc DeleteDevice_Type
+
+create proc DeleteDevice_Type
 @Id int
 as 
 delete from D_Device_Type
 Where Id=@Id
+go

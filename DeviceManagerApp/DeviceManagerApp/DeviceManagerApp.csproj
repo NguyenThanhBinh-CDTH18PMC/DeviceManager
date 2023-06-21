@@ -12,6 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Resources\QR\2023-06-21_20920_PM_QR1.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -28,6 +32,8 @@
 
   <ItemGroup>
     <Folder Include="DTO\ModelForm\" />
+    <Folder Include="Resources\ImageDevice\" />
+    <Folder Include="Resources\DefaultImage\" />
     <Folder Include="Resources\QR\" />
   </ItemGroup>
 

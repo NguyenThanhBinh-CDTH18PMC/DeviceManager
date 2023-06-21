@@ -13,8 +13,7 @@ using DTO.Model;
 using BUS.BusinessObject;
 using DeviceManagerApp.DTO.Model;
 using DeviceManagerApp.BUS.BusinessObject;
-using ZXing;
-using ZXing.Common;
+
 
 namespace DeviceManagerApp
 {
@@ -92,7 +91,9 @@ namespace DeviceManagerApp
             cbPhong.DisplayMember = "Name";
             cbPhong.ValueMember = "Id";
 
+            //cbNhaCungCap.DataSource = BrandBus.GetAllBrand();
             cbNhaCungCap.DataSource = BrandBus.GetBrandAfterDelete();
+
             cbNhaCungCap.DisplayMember = "Name";
             cbNhaCungCap.ValueMember = "Id";
         }
@@ -124,38 +125,35 @@ namespace DeviceManagerApp
             dtgvQlThietBi.DataSource = bs;
         }
 
+        public void UploadImage()
+        {
+            // open file dialog   
+            OpenFileDialog open = new OpenFileDialog();
+
+            //Khoi tao thiet lap cho dialog
+            open.InitialDirectory = "C:\\";
+            open.Filter = "Image Files(*.jpg; *.png; *.jpeg; *.gif; *.bmp)|*.jpg; *.png; *.jpeg; *.gif; *.bmp";
+
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                Stream stream = null;
+                if ((stream = open.OpenFile()) != null)
+                {
+                    ptb_Device.Image = Image.FromStream(stream);
+                }
+                stream.Close();
+                stream.Dispose();
+                GC.Collect();
+
+            }
+        }
+
 
         #endregion
 
         #region Event
 
-        //Xử lý trong form
 
-        /*string path = "../../TRASUA";
-        private void LoadImgList()
-        {
-            DirectoryInfo dirInfo = new DirectoryInfo(path);
-            FileInfo[] fileInfo = dirInfo.GetFiles("*.jpg");
-
-            foreach (FileInfo fInFo in fileInfo)
-            {
-                //Đọc tập tin hình -> byte
-                byte[] bytes = File.ReadAllBytes(fInFo.FullName);
-                MemoryStream mms = new MemoryStream(bytes);
-
-                imgLargeIcon.Images.Add(fInFo.Name, Image.FromStream(mms));
-                imgSmallIcon.Images.Add(fInFo.Name, Image.FromStream(mms));
-
-            }
-        }
-        private void loadList1()
-        {
-
-
-                ListViewItem li = new ListViewItem(imgLargeIcon.Images.ToString());
-                //listView1.Items.Add(li);
-
-        }*/
 
 
         private void btOrder_Click(object sender, EventArgs e)
@@ -304,7 +302,7 @@ namespace DeviceManagerApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Thất bại! Lỗi " + ex.Message);
+                MessageBox.Show("Thất bại! Lỗi " + ex.Message, "Thông Báo", MessageBoxButtons.OK);
             }
 
         }
