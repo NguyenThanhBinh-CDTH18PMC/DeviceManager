@@ -77,15 +77,15 @@
             // 
             // lblQLTbi
             // 
-            lblQLTbi.AutoSize = true;
-            lblQLTbi.Dock = System.Windows.Forms.DockStyle.Top;
-            lblQLTbi.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblQLTbi.Location = new System.Drawing.Point(0, 0);
-            lblQLTbi.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            lblQLTbi.Name = "lblQLTbi";
-            lblQLTbi.Size = new System.Drawing.Size(248, 41);
-            lblQLTbi.TabIndex = 0;
-            lblQLTbi.Text = "Quản Lý Thiết Bị";
+            this.lblQLTbi.AutoSize = true;
+            this.lblQLTbi.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblQLTbi.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblQLTbi.Location = new System.Drawing.Point(0, 0);
+            this.lblQLTbi.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.lblQLTbi.Name = "lblQLTbi";
+            this.lblQLTbi.Size = new System.Drawing.Size(306, 50);
+            this.lblQLTbi.TabIndex = 0;
+            this.lblQLTbi.Text = "Quản Lý Thiết Bị";
             // 
             // gbThongtinTB
             // 
@@ -117,28 +117,27 @@
             this.gbThongtinTB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbThongtinTB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.gbThongtinTB.Location = new System.Drawing.Point(0, 50);
-            this.gbThongtinTB.Margin = new System.Windows.Forms.Padding(2);
+            this.gbThongtinTB.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbThongtinTB.Name = "gbThongtinTB";
-            this.gbThongtinTB.Padding = new System.Windows.Forms.Padding(2);
-            this.gbThongtinTB.Size = new System.Drawing.Size(1257, 384);
+            this.gbThongtinTB.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gbThongtinTB.Size = new System.Drawing.Size(1498, 512);
             this.gbThongtinTB.TabIndex = 1;
             this.gbThongtinTB.TabStop = false;
             this.gbThongtinTB.Text = "Thông tin thiết bị";
-
             // 
             // cbPhong
             // 
             this.cbPhong.FormattingEnabled = true;
-            this.cbPhong.Location = new System.Drawing.Point(1049, 100);
-            this.cbPhong.Margin = new System.Windows.Forms.Padding(2);
+            this.cbPhong.Location = new System.Drawing.Point(1199, 133);
+            this.cbPhong.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cbPhong.Name = "cbPhong";
-            this.cbPhong.Size = new System.Drawing.Size(197, 28);
+            this.cbPhong.Size = new System.Drawing.Size(225, 28);
             this.cbPhong.TabIndex = 23;
             // 
             // lblPhong
             // 
             this.lblPhong.AutoSize = true;
-            this.lblPhong.Location = new System.Drawing.Point(933, 103);
+            this.lblPhong.Location = new System.Drawing.Point(1066, 137);
             this.lblPhong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPhong.Name = "lblPhong";
             this.lblPhong.Size = new System.Drawing.Size(62, 20);
@@ -148,33 +147,33 @@
             // cbNhaCungCap
             // 
             this.cbNhaCungCap.FormattingEnabled = true;
-            this.cbNhaCungCap.Location = new System.Drawing.Point(355, 171);
-            this.cbNhaCungCap.Margin = new System.Windows.Forms.Padding(2);
+            this.cbNhaCungCap.Location = new System.Drawing.Point(406, 228);
+            this.cbNhaCungCap.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cbNhaCungCap.Name = "cbNhaCungCap";
-            this.cbNhaCungCap.Size = new System.Drawing.Size(174, 28);
+            this.cbNhaCungCap.Size = new System.Drawing.Size(198, 28);
             this.cbNhaCungCap.TabIndex = 22;
             // 
             // cbLoaiTbi
             // 
             this.cbLoaiTbi.FormattingEnabled = true;
-            this.cbLoaiTbi.Location = new System.Drawing.Point(355, 100);
-            this.cbLoaiTbi.Margin = new System.Windows.Forms.Padding(2);
+            this.cbLoaiTbi.Location = new System.Drawing.Point(406, 133);
+            this.cbLoaiTbi.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cbLoaiTbi.Name = "cbLoaiTbi";
-            this.cbLoaiTbi.Size = new System.Drawing.Size(174, 28);
+            this.cbLoaiTbi.Size = new System.Drawing.Size(198, 28);
             this.cbLoaiTbi.TabIndex = 20;
             // 
             // txtTenTbi
             // 
-            this.txtTenTbi.Location = new System.Drawing.Point(355, 30);
-            this.txtTenTbi.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTenTbi.Location = new System.Drawing.Point(406, 40);
+            this.txtTenTbi.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtTenTbi.Name = "txtTenTbi";
-            this.txtTenTbi.Size = new System.Drawing.Size(174, 27);
+            this.txtTenTbi.Size = new System.Drawing.Size(198, 27);
             this.txtTenTbi.TabIndex = 18;
             // 
             // lblNhaCungCap
             // 
             this.lblNhaCungCap.AutoSize = true;
-            this.lblNhaCungCap.Location = new System.Drawing.Point(239, 174);
+            this.lblNhaCungCap.Location = new System.Drawing.Point(273, 232);
             this.lblNhaCungCap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNhaCungCap.Name = "lblNhaCungCap";
             this.lblNhaCungCap.Size = new System.Drawing.Size(106, 20);
@@ -184,7 +183,7 @@
             // lblLoaiTbi
             // 
             this.lblLoaiTbi.AutoSize = true;
-            this.lblLoaiTbi.Location = new System.Drawing.Point(237, 103);
+            this.lblLoaiTbi.Location = new System.Drawing.Point(271, 137);
             this.lblLoaiTbi.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLoaiTbi.Name = "lblLoaiTbi";
             this.lblLoaiTbi.Size = new System.Drawing.Size(100, 20);
@@ -194,7 +193,7 @@
             // lblTenTBi
             // 
             this.lblTenTBi.AutoSize = true;
-            this.lblTenTBi.Location = new System.Drawing.Point(239, 35);
+            this.lblTenTBi.Location = new System.Drawing.Point(273, 47);
             this.lblTenTBi.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTenTBi.Name = "lblTenTBi";
             this.lblTenTBi.Size = new System.Drawing.Size(96, 20);
@@ -203,18 +202,17 @@
             // 
             // txtPrice
             // 
-
-            this.txtPrice.Location = new System.Drawing.Point(1033, 171);
-            this.txtPrice.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPrice.Location = new System.Drawing.Point(1181, 228);
+            this.txtPrice.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(213, 27);
+            this.txtPrice.Size = new System.Drawing.Size(243, 27);
             this.txtPrice.TabIndex = 16;
             this.txtPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Price_KeyPress);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(933, 174);
+            this.label3.Location = new System.Drawing.Point(1066, 232);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 20);
@@ -226,10 +224,10 @@
             this.btnDetail.BackColor = System.Drawing.Color.Lime;
             this.btnDetail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDetail.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnDetail.Location = new System.Drawing.Point(1076, 310);
-            this.btnDetail.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDetail.Location = new System.Drawing.Point(1230, 413);
+            this.btnDetail.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnDetail.Name = "btnDetail";
-            this.btnDetail.Size = new System.Drawing.Size(170, 40);
+            this.btnDetail.Size = new System.Drawing.Size(194, 53);
             this.btnDetail.TabIndex = 14;
             this.btnDetail.Text = "Thông số kỹ thuật";
             this.btnDetail.UseVisualStyleBackColor = false;
@@ -237,9 +235,10 @@
             // 
             // ptb_Device
             // 
-            this.ptb_Device.Location = new System.Drawing.Point(11, 80);
+            this.ptb_Device.Location = new System.Drawing.Point(13, 137);
+            this.ptb_Device.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ptb_Device.Name = "ptb_Device";
-            this.ptb_Device.Size = new System.Drawing.Size(200, 200);
+            this.ptb_Device.Size = new System.Drawing.Size(229, 237);
             this.ptb_Device.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptb_Device.TabIndex = 13;
             this.ptb_Device.TabStop = false;
@@ -252,11 +251,11 @@
             this.gbTimKiemTbi.Controls.Add(this.label2);
             this.gbTimKiemTbi.Controls.Add(this.btnTimKiemTbi);
             this.gbTimKiemTbi.Controls.Add(this.txtTiemKiemTbi);
-            this.gbTimKiemTbi.Location = new System.Drawing.Point(5, 289);
-            this.gbTimKiemTbi.Margin = new System.Windows.Forms.Padding(2);
+            this.gbTimKiemTbi.Location = new System.Drawing.Point(6, 385);
+            this.gbTimKiemTbi.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbTimKiemTbi.Name = "gbTimKiemTbi";
-            this.gbTimKiemTbi.Padding = new System.Windows.Forms.Padding(2);
-            this.gbTimKiemTbi.Size = new System.Drawing.Size(873, 75);
+            this.gbTimKiemTbi.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gbTimKiemTbi.Size = new System.Drawing.Size(998, 100);
             this.gbTimKiemTbi.TabIndex = 12;
             this.gbTimKiemTbi.TabStop = false;
             this.gbTimKiemTbi.Text = "Tìm kiếm thiết bị";
@@ -264,16 +263,16 @@
             // dtp_DateBuy
             // 
             this.dtp_DateBuy.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_DateBuy.Location = new System.Drawing.Point(592, 30);
-            this.dtp_DateBuy.Margin = new System.Windows.Forms.Padding(2);
+            this.dtp_DateBuy.Location = new System.Drawing.Point(677, 40);
+            this.dtp_DateBuy.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dtp_DateBuy.Name = "dtp_DateBuy";
-            this.dtp_DateBuy.Size = new System.Drawing.Size(216, 27);
+            this.dtp_DateBuy.Size = new System.Drawing.Size(246, 27);
             this.dtp_DateBuy.TabIndex = 15;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(451, 35);
+            this.label2.Location = new System.Drawing.Point(515, 47);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 20);
@@ -287,11 +286,11 @@
             this.btnTimKiemTbi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnTimKiemTbi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTimKiemTbi.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnTimKiemTbi.Location = new System.Drawing.Point(241, 34);
-            this.btnTimKiemTbi.Margin = new System.Windows.Forms.Padding(10);
+            this.btnTimKiemTbi.Location = new System.Drawing.Point(275, 45);
+            this.btnTimKiemTbi.Margin = new System.Windows.Forms.Padding(11, 13, 11, 13);
             this.btnTimKiemTbi.Name = "btnTimKiemTbi";
-            this.btnTimKiemTbi.Padding = new System.Windows.Forms.Padding(5);
-            this.btnTimKiemTbi.Size = new System.Drawing.Size(40, 27);
+            this.btnTimKiemTbi.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.btnTimKiemTbi.Size = new System.Drawing.Size(34, 27);
             this.btnTimKiemTbi.TabIndex = 13;
             this.toolTip1.SetToolTip(this.btnTimKiemTbi, "Tìm kiếm");
             this.btnTimKiemTbi.UseVisualStyleBackColor = false;
@@ -299,10 +298,10 @@
             // txtTiemKiemTbi
             // 
             this.txtTiemKiemTbi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTiemKiemTbi.Location = new System.Drawing.Point(6, 34);
-            this.txtTiemKiemTbi.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTiemKiemTbi.Location = new System.Drawing.Point(7, 45);
+            this.txtTiemKiemTbi.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtTiemKiemTbi.Name = "txtTiemKiemTbi";
-            this.txtTiemKiemTbi.Size = new System.Drawing.Size(223, 27);
+            this.txtTiemKiemTbi.Size = new System.Drawing.Size(255, 27);
             this.txtTiemKiemTbi.TabIndex = 12;
             // 
             // btnXoaTbi
@@ -312,10 +311,10 @@
             this.btnXoaTbi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnXoaTbi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoaTbi.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnXoaTbi.Location = new System.Drawing.Point(457, 223);
-            this.btnXoaTbi.Margin = new System.Windows.Forms.Padding(2);
+            this.btnXoaTbi.Location = new System.Drawing.Point(522, 297);
+            this.btnXoaTbi.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnXoaTbi.Name = "btnXoaTbi";
-            this.btnXoaTbi.Size = new System.Drawing.Size(72, 57);
+            this.btnXoaTbi.Size = new System.Drawing.Size(82, 76);
             this.btnXoaTbi.TabIndex = 11;
             this.toolTip1.SetToolTip(this.btnXoaTbi, "Xóa");
             this.btnXoaTbi.UseVisualStyleBackColor = false;
@@ -327,13 +326,14 @@
             this.btnSuaTbi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnSuaTbi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSuaTbi.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSuaTbi.Location = new System.Drawing.Point(347, 223);
-            this.btnSuaTbi.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSuaTbi.Location = new System.Drawing.Point(397, 297);
+            this.btnSuaTbi.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnSuaTbi.Name = "btnSuaTbi";
-            this.btnSuaTbi.Size = new System.Drawing.Size(71, 57);
+            this.btnSuaTbi.Size = new System.Drawing.Size(81, 76);
             this.btnSuaTbi.TabIndex = 10;
             this.toolTip1.SetToolTip(this.btnSuaTbi, "Cập nhật");
             this.btnSuaTbi.UseVisualStyleBackColor = false;
+            this.btnSuaTbi.Click += new System.EventHandler(this.btnSuaTbi_Click);
             // 
             // btnThemTbi
             // 
@@ -342,10 +342,10 @@
             this.btnThemTbi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnThemTbi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThemTbi.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnThemTbi.Location = new System.Drawing.Point(239, 223);
-            this.btnThemTbi.Margin = new System.Windows.Forms.Padding(2);
+            this.btnThemTbi.Location = new System.Drawing.Point(273, 297);
+            this.btnThemTbi.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnThemTbi.Name = "btnThemTbi";
-            this.btnThemTbi.Size = new System.Drawing.Size(67, 57);
+            this.btnThemTbi.Size = new System.Drawing.Size(77, 76);
             this.btnThemTbi.TabIndex = 9;
             this.toolTip1.SetToolTip(this.btnThemTbi, "Thêm thiết bị");
             this.btnThemTbi.UseVisualStyleBackColor = false;
@@ -353,17 +353,17 @@
             // 
             // rtbGhiChuTbi
             // 
-            this.rtbGhiChuTbi.Location = new System.Drawing.Point(670, 103);
-            this.rtbGhiChuTbi.Margin = new System.Windows.Forms.Padding(2);
+            this.rtbGhiChuTbi.Location = new System.Drawing.Point(766, 137);
+            this.rtbGhiChuTbi.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.rtbGhiChuTbi.Name = "rtbGhiChuTbi";
-            this.rtbGhiChuTbi.Size = new System.Drawing.Size(208, 96);
+            this.rtbGhiChuTbi.Size = new System.Drawing.Size(237, 127);
             this.rtbGhiChuTbi.TabIndex = 8;
             this.rtbGhiChuTbi.Text = "";
             // 
             // lblGhiChuTbi
             // 
             this.lblGhiChuTbi.AutoSize = true;
-            this.lblGhiChuTbi.Location = new System.Drawing.Point(597, 103);
+            this.lblGhiChuTbi.Location = new System.Drawing.Point(682, 137);
             this.lblGhiChuTbi.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblGhiChuTbi.Name = "lblGhiChuTbi";
             this.lblGhiChuTbi.Size = new System.Drawing.Size(72, 20);
@@ -373,16 +373,16 @@
             // dtBaoHanh
             // 
             this.dtBaoHanh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtBaoHanh.Location = new System.Drawing.Point(1072, 29);
-            this.dtBaoHanh.Margin = new System.Windows.Forms.Padding(2);
+            this.dtBaoHanh.Location = new System.Drawing.Point(1225, 39);
+            this.dtBaoHanh.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dtBaoHanh.Name = "dtBaoHanh";
-            this.dtBaoHanh.Size = new System.Drawing.Size(174, 27);
+            this.dtBaoHanh.Size = new System.Drawing.Size(198, 27);
             this.dtBaoHanh.TabIndex = 7;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(933, 34);
+            this.label1.Location = new System.Drawing.Point(1066, 45);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(114, 20);
@@ -392,16 +392,16 @@
             // cbKhoa
             // 
             this.cbKhoa.FormattingEnabled = true;
-            this.cbKhoa.Location = new System.Drawing.Point(670, 31);
-            this.cbKhoa.Margin = new System.Windows.Forms.Padding(2);
+            this.cbKhoa.Location = new System.Drawing.Point(766, 41);
+            this.cbKhoa.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cbKhoa.Name = "cbKhoa";
-            this.cbKhoa.Size = new System.Drawing.Size(208, 28);
+            this.cbKhoa.Size = new System.Drawing.Size(237, 28);
             this.cbKhoa.TabIndex = 6;
             // 
             // lblKhoa
             // 
             this.lblKhoa.AutoSize = true;
-            this.lblKhoa.Location = new System.Drawing.Point(597, 34);
+            this.lblKhoa.Location = new System.Drawing.Point(682, 45);
             this.lblKhoa.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblKhoa.Name = "lblKhoa";
             this.lblKhoa.Size = new System.Drawing.Size(53, 20);
@@ -411,7 +411,7 @@
             // lb_Image
             // 
             this.lb_Image.AutoSize = true;
-            this.lb_Image.Location = new System.Drawing.Point(11, 33);
+            this.lb_Image.Location = new System.Drawing.Point(13, 49);
             this.lb_Image.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_Image.Name = "lb_Image";
             this.lb_Image.Size = new System.Drawing.Size(96, 20);
@@ -420,116 +420,127 @@
             // 
             // DeviceId
             // 
-            DeviceId.DataPropertyName = "Id";
-            DeviceId.HeaderText = "Id";
-            DeviceId.MinimumWidth = 6;
-            DeviceId.Name = "DeviceId";
-            DeviceId.ReadOnly = true;
-            DeviceId.Visible = false;
+            this.DeviceId.DataPropertyName = "Id";
+            this.DeviceId.HeaderText = "Id";
+            this.DeviceId.MinimumWidth = 6;
+            this.DeviceId.Name = "DeviceId";
+            this.DeviceId.ReadOnly = true;
+            this.DeviceId.Visible = false;
             // 
             // Brand
             // 
-            Brand.HeaderText = "Thương hiệu";
-            Brand.MinimumWidth = 6;
-            Brand.Name = "Brand";
-            Brand.ReadOnly = true;
+            this.Brand.HeaderText = "Thương hiệu";
+            this.Brand.MinimumWidth = 6;
+            this.Brand.Name = "Brand";
+            this.Brand.ReadOnly = true;
             // 
             // DeviceDetail
             // 
-            DeviceDetail.FillWeight = 79.3672F;
-            DeviceDetail.HeaderText = "Thông số chi tiết";
-            DeviceDetail.MinimumWidth = 6;
-            DeviceDetail.Name = "DeviceDetail";
+            this.DeviceDetail.FillWeight = 79.3672F;
+            this.DeviceDetail.HeaderText = "Thông số chi tiết";
+            this.DeviceDetail.MinimumWidth = 6;
+            this.DeviceDetail.Name = "DeviceDetail";
             // 
             // SpecsId
             // 
-            SpecsId.HeaderText = "Thông số";
-            SpecsId.MinimumWidth = 6;
-            SpecsId.Name = "SpecsId";
-            SpecsId.Visible = false;
+            this.SpecsId.HeaderText = "Thông số";
+            this.SpecsId.MinimumWidth = 6;
+            this.SpecsId.Name = "SpecsId";
+            this.SpecsId.Visible = false;
             // 
             // WarrantyPeriob
             // 
-            WarrantyPeriob.DataPropertyName = "WarrantyPeriod";
-            WarrantyPeriob.FillWeight = 79.3672F;
-            WarrantyPeriob.HeaderText = "Hạn bảo hành";
-            WarrantyPeriob.MinimumWidth = 6;
-            WarrantyPeriob.Name = "WarrantyPeriob";
-            WarrantyPeriob.ReadOnly = true;
+            this.WarrantyPeriob.DataPropertyName = "WarrantyPeriod";
+            this.WarrantyPeriob.FillWeight = 79.3672F;
+            this.WarrantyPeriob.HeaderText = "Hạn bảo hành";
+            this.WarrantyPeriob.MinimumWidth = 6;
+            this.WarrantyPeriob.Name = "WarrantyPeriob";
+            this.WarrantyPeriob.ReadOnly = true;
             // 
             // CreatedDate
             // 
-            CreatedDate.DataPropertyName = "CreatedDate";
-            CreatedDate.FillWeight = 79.3672F;
-            CreatedDate.HeaderText = "Ngày mua";
-            CreatedDate.MinimumWidth = 6;
-            CreatedDate.Name = "CreatedDate";
-            CreatedDate.ReadOnly = true;
+            this.CreatedDate.DataPropertyName = "CreatedDate";
+            this.CreatedDate.FillWeight = 79.3672F;
+            this.CreatedDate.HeaderText = "Ngày mua";
+            this.CreatedDate.MinimumWidth = 6;
+            this.CreatedDate.Name = "CreatedDate";
+            this.CreatedDate.ReadOnly = true;
             // 
             // Note
             // 
-            Note.DataPropertyName = "Note";
-            Note.FillWeight = 79.3672F;
-            Note.HeaderText = "Mô tả";
-            Note.MinimumWidth = 6;
-            Note.Name = "Note";
-            Note.ReadOnly = true;
+            this.Note.DataPropertyName = "Note";
+            this.Note.FillWeight = 79.3672F;
+            this.Note.HeaderText = "Mô tả";
+            this.Note.MinimumWidth = 6;
+            this.Note.Name = "Note";
+            this.Note.ReadOnly = true;
             // 
             // DeviceName
             // 
-            DeviceName.DataPropertyName = "Name";
-            DeviceName.FillWeight = 79.3672F;
-            DeviceName.HeaderText = "Tên thiết bị";
-            DeviceName.MinimumWidth = 6;
-            DeviceName.Name = "DeviceName";
-            DeviceName.ReadOnly = true;
+            this.DeviceName.DataPropertyName = "Name";
+            this.DeviceName.FillWeight = 79.3672F;
+            this.DeviceName.HeaderText = "Tên thiết bị";
+            this.DeviceName.MinimumWidth = 6;
+            this.DeviceName.Name = "DeviceName";
+            this.DeviceName.ReadOnly = true;
             // 
             // DeviceImage
             // 
-            DeviceImage.DataPropertyName = "Image";
-            DeviceImage.FillWeight = 79.3672F;
-            DeviceImage.HeaderText = "Thiết bị";
-            DeviceImage.MinimumWidth = 6;
-            DeviceImage.Name = "DeviceImage";
-            DeviceImage.ReadOnly = true;
-            DeviceImage.Visible = false;
+            this.DeviceImage.DataPropertyName = "Image";
+            this.DeviceImage.FillWeight = 79.3672F;
+            this.DeviceImage.HeaderText = "Thiết bị";
+            this.DeviceImage.MinimumWidth = 6;
+            this.DeviceImage.Name = "DeviceImage";
+            this.DeviceImage.ReadOnly = true;
+            this.DeviceImage.Visible = false;
             // 
             // dtgvQlThietBi
             // 
-            dtgvQlThietBi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dtgvQlThietBi.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dtgvQlThietBi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvQlThietBi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { DeviceImage, DeviceName, Note, CreatedDate, WarrantyPeriob, SpecsId, DeviceDetail, Brand, DeviceId });
-            dtgvQlThietBi.Dock = System.Windows.Forms.DockStyle.Top;
-            dtgvQlThietBi.Location = new System.Drawing.Point(0, 329);
-            dtgvQlThietBi.Margin = new System.Windows.Forms.Padding(1);
-            dtgvQlThietBi.Name = "dtgvQlThietBi";
-            dtgvQlThietBi.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dtgvQlThietBi.RowTemplate.Height = 33;
-            dtgvQlThietBi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            dtgvQlThietBi.Size = new System.Drawing.Size(899, 227);
-            dtgvQlThietBi.TabIndex = 2;
-            dtgvQlThietBi.CellClick += dtgvQlThietBi_CellClick;
+            this.dtgvQlThietBi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgvQlThietBi.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dtgvQlThietBi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvQlThietBi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DeviceImage,
+            this.DeviceName,
+            this.Note,
+            this.CreatedDate,
+            this.WarrantyPeriob,
+            this.SpecsId,
+            this.DeviceDetail,
+            this.Brand,
+            this.DeviceId});
+            this.dtgvQlThietBi.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dtgvQlThietBi.Location = new System.Drawing.Point(0, 562);
+            this.dtgvQlThietBi.Margin = new System.Windows.Forms.Padding(1);
+            this.dtgvQlThietBi.Name = "dtgvQlThietBi";
+            this.dtgvQlThietBi.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dtgvQlThietBi.RowTemplate.Height = 33;
+            this.dtgvQlThietBi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgvQlThietBi.Size = new System.Drawing.Size(1498, 303);
+            this.dtgvQlThietBi.TabIndex = 2;
+            this.dtgvQlThietBi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvQlThietBi_CellClick);
             // 
             // frmQuanLyThietBi
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(899, 421);
-            Controls.Add(dtgvQlThietBi);
-            Controls.Add(gbThongtinTB);
-            Controls.Add(lblQLTbi);
-            Margin = new System.Windows.Forms.Padding(1);
-            Name = "frmQuanLyThietBi";
-            Text = "QuanLyThietBi";
-            gbThongtinTB.ResumeLayout(false);
-            gbThongtinTB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)ptb_Device).EndInit();
-            gbTimKiemTbi.ResumeLayout(false);
-            gbTimKiemTbi.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dtgvQlThietBi).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1498, 683);
+            this.Controls.Add(this.dtgvQlThietBi);
+            this.Controls.Add(this.gbThongtinTB);
+            this.Controls.Add(this.lblQLTbi);
+            this.Margin = new System.Windows.Forms.Padding(1);
+            this.MinimumSize = new System.Drawing.Size(1516, 730);
+            this.Name = "frmQuanLyThietBi";
+            this.Text = "QuanLyThietBi";
+            this.gbThongtinTB.ResumeLayout(false);
+            this.gbThongtinTB.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_Device)).EndInit();
+            this.gbTimKiemTbi.ResumeLayout(false);
+            this.gbTimKiemTbi.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvQlThietBi)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

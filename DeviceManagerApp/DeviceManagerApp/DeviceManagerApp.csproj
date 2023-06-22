@@ -12,6 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Resources\ImageDevice\2023-06-23_25708_AM_Máy Tính" />
+    <None Remove="Resources\ImageDevice\2023-06-23_30233_AM_Máy Tính.jpg" />
     <None Remove="Resources\QR\2023-06-21_20920_PM_QR1.jpg" />
   </ItemGroup>
 

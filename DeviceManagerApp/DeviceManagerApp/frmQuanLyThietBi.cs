@@ -147,10 +147,7 @@ namespace DeviceManagerApp
 
         #endregion
 
-        #region Event
-
-
-
+        #region Event bug
 
         private void btOrder_Click(object sender, EventArgs e)
         {
@@ -205,6 +202,10 @@ namespace DeviceManagerApp
         }
 
 
+        #endregion
+
+        #region Event
+
         private void dtgvQlThietBi_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dtgvQlThietBi.SelectedCells.Count > 0)
@@ -215,13 +216,23 @@ namespace DeviceManagerApp
                     if (de.Id == deviceId)
                     {
                         cbLoaiTbi.SelectedValue = de.DeviceTypeId;
-                        //cbPhong.SelectedValue = de.Room;
+                        cbPhong.SelectedValue = de.RoomId == null ? 1 : de.RoomId.Value;
+                        cbKhoa.SelectedValue = de.FacultyId;
                         cbNhaCungCap.SelectedValue = de.BrandId;
                         dtBaoHanh.Value = de.WarrantyPeriod.HasValue ? de.WarrantyPeriod.Value : DateTime.Now;
                         dtp_DateBuy.Value = de.CreatedDate.Value;
                         txtPrice.Text = de.Price.ToString();
                         txtTenTbi.Text = de.Name;
-                        //img_QR_Code.Image = de.QR_Code;
+                        rtbGhiChuTbi.Text = de.Note;
+                        if(de.Image == null)
+                        {
+                            ptb_Device.Image = Image.FromFile(SettingClass.path_NoImage_Default);
+                        }
+                        else
+                        {
+                            ptb_Device.Image = Image.FromFile(SettingClass.path_Folder_Image_Device + de.Image);
+                        }
+                        ptb_Device.Tag = de.Image;
 
                         currentDevice = de;
                         return;
@@ -241,23 +252,14 @@ namespace DeviceManagerApp
             if (Check_Null())
                 return;
 
-            DeviceModel device = new DeviceModel();
-            device.Name = txtTenTbi.Text;
-            device.DeviceTypeId = (int)cbLoaiTbi.SelectedValue;
-            device.BrandId = (int)cbNhaCungCap.SelectedValue;
-            device.ShipmentId = 1; // test
-            device.FacultyId = (int)cbKhoa.SelectedValue;
-            device.Note = rtbGhiChuTbi.Text;
-            device.IsDeleted = false;
-            device.Price = Convert.ToDecimal(txtPrice.Text);
-            device.Status = 0;
-            device.WarrantyPeriod = dtBaoHanh.Value;
-            device.CreatedDate = DateTime.Now;
-            device.CreatedUserId = 1;
+            DeviceModel device = GetDeviceInfo();
 
             try
             {
-                device.Image = SaveImage(device.Name, SettingClass.path_Folder_Image_Device, device.CreatedDate.Value);
+                if(device.Image != null)
+                {
+                    device.Image = SaveImage(device.Name, SettingClass.path_Folder_Image_Device, device.CreatedDate.Value);
+                }
                 device.Id = DeviceBus.Insert(device);
                 //device.QR_Code = SaveQR_Code(SettingClass.path_Folder_QR_Image, device);
                 //DeviceBus.Update(device);
@@ -273,17 +275,40 @@ namespace DeviceManagerApp
 
         }
 
+        private DeviceModel GetDeviceInfo()
+        {
+            DeviceModel device = new DeviceModel();
+            device.Id = currentDevice.Id;
+            device.Name = txtTenTbi.Text;
+            device.DeviceTypeId = (int)cbLoaiTbi.SelectedValue;
+            device.BrandId = (int)cbNhaCungCap.SelectedValue;
+            device.ShipmentId = 1; // test
+            device.Image = ptb_Device.Tag.ToString();
+            device.FacultyId = (int)cbKhoa.SelectedValue;
+            device.Note = rtbGhiChuTbi.Text;
+            device.IsDeleted = false;
+            device.Price = Convert.ToDecimal(txtPrice.Text);
+            device.Status = 0;
+            device.WarrantyPeriod = dtBaoHanh.Value;
+            device.CreatedDate = DateTime.Now;
+            device.CreatedUserId = 1;
+
+            return device;
+        }
+
         private string SaveImage(string fileName, string path, DateTime createdDate)
         {
-            string fileSaveName = ((createdDate.ToString().Replace("/", "-")).Replace(":", "")).Replace(" ", "_") + "_" + fileName;
-            ptb_Device.Image.Save(path + fileSaveName, ImageFormat.Jpeg);
+            string fileSaveName = ((createdDate.ToString().Replace("/", "-")).Replace(":", "")).Replace(" ", "_") + "_" + fileName + ".jpg";
+            //ptb_Device.Image.Save(path + fileSaveName, ImageFormat.Jpeg);
+            var img = new Bitmap(ptb_Device.Image);
+            img.Save(path + fileSaveName, ImageFormat.Jpeg);
 
             return fileSaveName;
         }
 
         private string SaveQR_Code(string path, DeviceModel device)
         {
-            string fileSaveName = ((device.CreatedDate.ToString().Replace("/", "-")).Replace(":", "")).Replace(" ", "_") + "_QR_" + device.Id + "_" + device.Name;
+            string fileSaveName = ((device.CreatedDate.ToString().Replace("/", "-")).Replace(":", "")).Replace(" ", "_") + "_QR_" + device.Id + "_" + device.Name + ".jpg";
             Image imageSave = Create_QR(DeviceInfo(device));
             imageSave.Save(path + fileSaveName, ImageFormat.Jpeg);
             return fileSaveName;
@@ -391,6 +416,7 @@ namespace DeviceManagerApp
                 if ((stream = open.OpenFile()) != null)
                 {
                     ptb_Device.Image = Image.FromStream(stream);
+                    ptb_Device.Tag = Path.GetFileName(open.FileName);
                 }
                 stream.Close();
                 stream.Dispose();
@@ -399,6 +425,26 @@ namespace DeviceManagerApp
             }
         }
 
-        
+        private void btnSuaTbi_Click(object sender, EventArgs e)
+        {
+            DeviceModel device = GetDeviceInfo();
+            if (device.Image != null)
+            {
+                device.Image = SaveImage(device.Name, SettingClass.path_Folder_Image_Device, device.CreatedDate.Value);
+            }
+            try
+            {
+                
+                DeviceBus.Update(device);
+                MessageBox.Show("Thành công", "Thông Báo", MessageBoxButtons.OK);
+                LoadDataGridView();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Thất bại! Lỗi " + ex.Message, "Thông Báo", MessageBoxButtons.OK);
+                return;
+            }
+        }
     }
 }

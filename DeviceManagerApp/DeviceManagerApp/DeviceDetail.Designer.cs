@@ -32,8 +32,8 @@ namespace DeviceManagerApp
             this.components = new System.ComponentModel.Container();
             this.btn_Update = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.ptb_Device = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.ptb_Device = new System.Windows.Forms.PictureBox();
             this.cb_ListSpecs = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dtgv_ListDetail = new System.Windows.Forms.DataGridView();
@@ -63,15 +63,6 @@ namespace DeviceManagerApp
             this.btn_Update.UseVisualStyleBackColor = false;
             this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
             // 
-            // ptb_Device
-            // 
-            this.ptb_Device.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ptb_Device.Location = new System.Drawing.Point(12, 49);
-            this.ptb_Device.Name = "ptb_Device";
-            this.ptb_Device.Size = new System.Drawing.Size(295, 200);
-            this.ptb_Device.TabIndex = 4;
-            this.ptb_Device.TabStop = false;
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.White;
@@ -86,6 +77,15 @@ namespace DeviceManagerApp
             this.toolTip1.SetToolTip(this.button1, "ĐÓNG");
             this.button1.UseVisualStyleBackColor = false;
             // 
+            // ptb_Device
+            // 
+            this.ptb_Device.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ptb_Device.Location = new System.Drawing.Point(12, 49);
+            this.ptb_Device.Name = "ptb_Device";
+            this.ptb_Device.Size = new System.Drawing.Size(295, 200);
+            this.ptb_Device.TabIndex = 4;
+            this.ptb_Device.TabStop = false;
+            // 
             // cb_ListSpecs
             // 
             this.cb_ListSpecs.FormattingEnabled = true;
@@ -93,6 +93,7 @@ namespace DeviceManagerApp
             this.cb_ListSpecs.Name = "cb_ListSpecs";
             this.cb_ListSpecs.Size = new System.Drawing.Size(278, 28);
             this.cb_ListSpecs.TabIndex = 6;
+            this.cb_ListSpecs.SelectedIndexChanged += new System.EventHandler(this.cb_ListSpecs_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -107,6 +108,7 @@ namespace DeviceManagerApp
             // dtgv_ListDetail
             // 
             this.dtgv_ListDetail.AllowDrop = true;
+            this.dtgv_ListDetail.AllowUserToAddRows = false;
             this.dtgv_ListDetail.AllowUserToResizeColumns = false;
             this.dtgv_ListDetail.AllowUserToResizeRows = false;
             this.dtgv_ListDetail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -121,6 +123,7 @@ namespace DeviceManagerApp
             this.dtgv_ListDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgv_ListDetail.Size = new System.Drawing.Size(997, 230);
             this.dtgv_ListDetail.TabIndex = 8;
+            this.dtgv_ListDetail.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_ListDetail_CellClick);
             // 
             // txt_Description
             // 
@@ -144,7 +147,7 @@ namespace DeviceManagerApp
             // 
             this.lb_DeviceName.AutoSize = true;
             this.lb_DeviceName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lb_DeviceName.Location = new System.Drawing.Point(12, 225);
+            this.lb_DeviceName.Location = new System.Drawing.Point(92, 225);
             this.lb_DeviceName.Name = "lb_DeviceName";
             this.lb_DeviceName.Size = new System.Drawing.Size(81, 24);
             this.lb_DeviceName.TabIndex = 11;
@@ -156,7 +159,7 @@ namespace DeviceManagerApp
             this.label3.Font = new System.Drawing.Font("Calibri", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(743, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(259, 41);
+            this.label3.Size = new System.Drawing.Size(248, 40);
             this.label3.TabIndex = 12;
             this.label3.Text = "CHI TIẾT THIẾT BỊ";
             // 
@@ -167,6 +170,7 @@ namespace DeviceManagerApp
             this.Specs.HeaderText = "Thông số";
             this.Specs.MinimumWidth = 100;
             this.Specs.Name = "Specs";
+            this.Specs.ReadOnly = true;
             // 
             // Description
             // 
@@ -208,11 +212,11 @@ namespace DeviceManagerApp
         private System.Windows.Forms.ComboBox cb_ListSpecs;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dtgv_ListDetail;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Specs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.TextBox txt_Description;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lb_DeviceName;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Specs;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
     }
 }
