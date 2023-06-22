@@ -1,16 +1,13 @@
-﻿using BUS.BusinessObjectBase;
-using DAO.DataLayer;
-using DeviceManagerApp.BUS.BusinessOjectBase;
-using DTO.Model;
+
+﻿using DeviceManagerApp.BUS.BusinessOjectBase;
+using DeviceManagerApp.DAO.DataLayer;
+using DeviceManagerApp.DTO.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DeviceManagerApp.BUS.BusinessObject
 {
-    public class FacultyBus:FacultyBusBase
+    public class FacultyBus : FacultyBusBase
     {
     }
 }

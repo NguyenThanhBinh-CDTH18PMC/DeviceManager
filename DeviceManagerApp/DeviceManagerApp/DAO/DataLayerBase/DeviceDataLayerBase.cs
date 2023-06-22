@@ -106,7 +106,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         /// <summary>
         /// Gets the total number of records in the Specs table based on search parameters
         /// </summary>
-        public static int GetRecordCountDynamicWhere(int? id, int? deviceTypeId, int? brandId, /*int? shipmentId,*/ string name, string image, string qr_code, decimal? price, string note, string description, DateTime? warrantyPeriod, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
+        public static int GetRecordCountDynamicWhere(int? id, int? deviceTypeId, int? brandId, int? facultyId, int? shipmentId, string name, string image, string qr_code, decimal? price, string note, string description, DateTime? warrantyPeriod, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
         {
             int recordCount = 0;
             string storedProcName = "[dbo].[Device_GetRecordCountWhereDynamic]";
@@ -120,7 +120,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                     command.CommandType = CommandType.StoredProcedure;
 
                     // search parameters
-                    AddSearchCommandParamsShared(command, id, deviceTypeId, brandId, /*shipmentId,*/ name, image, qr_code, price, note, description, warrantyPeriod, createdDate, createdUserId, isDeleted, status);
+                    AddSearchCommandParamsShared(command, id, deviceTypeId, brandId, facultyId, shipmentId, name, image, qr_code, price, note, description, warrantyPeriod, createdDate, createdUserId, isDeleted, status);
 
                     using (SqlDataAdapter da = new SqlDataAdapter(command))
                     {
@@ -152,7 +152,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         /// <summary>
         /// Selects Specs records sorted by the sortByExpression and returns records from the startRowIndex with rows (# of records) based on search parameters
         /// </summary>
-        public static List<DeviceModel> SelectSkipAndTakeDynamicWhere(int? id, int? deviceTypeId, int? brandId, /*int? shipmentId,*/ string name, string image, string qr_code, decimal? price, string note, string description, DateTime? warrantyPeriod, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status, string sortByExpression, int startRowIndex, int rows)
+        public static List<DeviceModel> SelectSkipAndTakeDynamicWhere(int? id, int? deviceTypeId, int? brandId, int? facultyId, int? shipmentId, string name, string image, string qr_code, decimal? price, string note, string description, DateTime? warrantyPeriod, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status, string sortByExpression, int startRowIndex, int rows)
         {
             List<DeviceModel> objDeviceCol = null;
             string storedProcName = "[dbo].[Device_SelectSkipAndTakeWhereDynamic]";
@@ -171,7 +171,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                     command.Parameters.AddWithValue("@sort", sortByExpression);
 
                     // search parameters
-                    AddSearchCommandParamsShared(command, id, deviceTypeId, brandId, /*shipmentId,*/ name, image, qr_code, price, note, description, warrantyPeriod, createdDate, createdUserId, isDeleted, status);
+                    AddSearchCommandParamsShared(command, id, deviceTypeId, brandId, facultyId, shipmentId, name, image, qr_code, price, note, description, warrantyPeriod, createdDate, createdUserId, isDeleted, status);
 
                     using (SqlDataAdapter da = new SqlDataAdapter(command))
                     {
@@ -209,7 +209,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         /// <summary>
         /// Selects records based on the passed filters as a collection (List) of Specs.
         /// </summary>
-        public static List<DeviceModel> SelectAllDynamicWhere(int? id, int? deviceTypeId, int? brandId, /*int? shipmentId,*/ string name, string image, string qr_code, decimal? price, string note, string description, DateTime? warrantyPeriod, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
+        public static List<DeviceModel> SelectAllDynamicWhere(int? id, int? deviceTypeId, int? brandId, int? facultyId, int? shipmentId, string name, string image, string qr_code, decimal? price, string note, string description, DateTime? warrantyPeriod, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
         {
             List<DeviceModel> objDeviceCol = null;
             string storedProcName = "[dbo].[Device_SelectAllWhereDynamic]";
@@ -223,7 +223,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                     command.CommandType = CommandType.StoredProcedure;
 
                     // search parameters
-                    AddSearchCommandParamsShared(command, id, deviceTypeId, brandId, /*shipmentId,*/ name, image, qr_code, price, note, description, warrantyPeriod, createdDate, createdUserId, isDeleted, status);
+                    AddSearchCommandParamsShared(command, id, deviceTypeId, brandId, facultyId, shipmentId, name, image, qr_code, price, note, description, warrantyPeriod, createdDate, createdUserId, isDeleted, status);
 
                     using (SqlDataAdapter da = new SqlDataAdapter(command))
                     {
@@ -367,8 +367,10 @@ namespace DeviceManagerApp.DAO.DataLayerBase
 
             object deviceTypeId = objDevice.DeviceTypeId;
             object brandId = objDevice.BrandId;
-            //object shipmentId = objDevice.ShipmentId;
+            object facultyId = objDevice.FacultyId;
+            object shipmentId = objDevice.ShipmentId;
             object name = objDevice.Name;
+            object image = objDevice.Image;
             object qr_code = objDevice.QR_Code;
             object price = objDevice.Price;
             object note = objDevice.Note;
@@ -419,8 +421,10 @@ namespace DeviceManagerApp.DAO.DataLayerBase
 
                     command.Parameters.AddWithValue("@deviceTypeId", deviceTypeId);
                     command.Parameters.AddWithValue("@brandId", brandId);
-                    //command.Parameters.AddWithValue("@shipmentId", shipmentId);
+                    command.Parameters.AddWithValue("@facultyId", facultyId);
+                    command.Parameters.AddWithValue("@shipmentId", shipmentId);
                     command.Parameters.AddWithValue("@name", name);
+                    command.Parameters.AddWithValue("@image", image);
                     command.Parameters.AddWithValue("@note", note);
                     command.Parameters.AddWithValue("@qr_code", qr_code);
                     command.Parameters.AddWithValue("@price", price);
@@ -468,7 +472,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         /// <summary>
         /// Adds search parameters to the Command object
         /// </summary>
-        private static void AddSearchCommandParamsShared(SqlCommand command, int? id, int? deviceTypeId, int? brandId, /*int? shipmentId,*/ string name, string image, string qr_code, decimal? price, string note, string description, DateTime? warrantyPeriod, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
+        private static void AddSearchCommandParamsShared(SqlCommand command, int? id, int? deviceTypeId, int? brandId, int? facultyId, int? shipmentId, string name, string image, string qr_code, decimal? price, string note, string description, DateTime? warrantyPeriod, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
         {
             if (id != null)
                 command.Parameters.AddWithValue("@id", id);
@@ -484,6 +488,11 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                 command.Parameters.AddWithValue("@brandId", brandId);
             else
                 command.Parameters.AddWithValue("@brandId", System.DBNull.Value);
+
+            if (brandId != null)
+                command.Parameters.AddWithValue("@facultyId", brandId);
+            else
+                command.Parameters.AddWithValue("@facultyId", System.DBNull.Value);
 
             //if (shipmentId != null)
             //    command.Parameters.AddWithValue("@shipmentId", shipmentId);
@@ -558,11 +567,27 @@ namespace DeviceManagerApp.DAO.DataLayerBase
             objDevice.DeviceTypeId = (int)dr["DeviceTypeId"];
             //objDevice.ShipmentId = (int)dr["ShipmentId"];
             objDevice.BrandId = (int)dr["BrandId"];
+            //objDevice.FacultyId = (int)dr["FacultyId"];
 
             if (dr["Name"] != System.DBNull.Value)
                 objDevice.Name = dr["Name"].ToString();
             else
                 objDevice.Name = null;
+
+            if (dr["BrandId"] != System.DBNull.Value)
+                objDevice.BrandId = (int)dr["BrandId"];
+            else
+                objDevice.BrandId = 1;
+
+            if (dr["FacultyId"] != System.DBNull.Value)
+                objDevice.FacultyId = (int)dr["FacultyId"];
+            else
+                objDevice.FacultyId = 1;
+
+            if (dr["ShipmentId"] != System.DBNull.Value)
+                objDevice.ShipmentId = (int)dr["ShipmentId"];
+            else
+                objDevice.ShipmentId = 1;
 
             if (dr["QR_Code"] != System.DBNull.Value)
                 objDevice.QR_Code = dr["QR_Code"].ToString();

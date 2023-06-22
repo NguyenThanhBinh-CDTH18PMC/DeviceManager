@@ -41,9 +41,9 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         /// <summary>
         /// Gets the total number of records in the Device table based on search parameters
         /// </summary>
-        public static int GetRecordCountDynamicWhere(int? id, int? deviceTypeId, int? brandId, /*int? shipmentId,*/ string name, string image, string qr_code, decimal? price, string note, string description, DateTime? warrantyPeriod, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
+        public static int GetRecordCountDynamicWhere(int? id, int? deviceTypeId, int? brandId, int? facultyId, int? shipmentId, string name, string image, string qr_code, decimal? price, string note, string description, DateTime? warrantyPeriod, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
         {
-            return DeviceDataLayer.GetRecordCountDynamicWhere(id, deviceTypeId, brandId, name, image, qr_code, price, note, description, warrantyPeriod, createdDate, createdUserId, isDeleted, status);
+            return DeviceDataLayer.GetRecordCountDynamicWhere(id, deviceTypeId, brandId, facultyId, shipmentId, name, image, qr_code, price, note, description, warrantyPeriod, createdDate, createdUserId, isDeleted, status);
         }
 
         /// <summary>
@@ -69,20 +69,20 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         /// <summary>
         /// Selects records as a collection (List) of Device sorted by the sortByExpression and returns the rows (# of records) starting from the startRowIndex, based on the search parameters
         /// </summary>
-        public static List<DeviceModel> SelectSkipAndTakeDynamicWhere(int? id, int? deviceTypeId, int? brandId, /*int? shipmentId,*/ string name, string image, string qr_code, decimal? price, string note, string description, DateTime? warrantyPeriod, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status, int rows, int startRowIndex, out int totalRowCount, string sortByExpression)
+        public static List<DeviceModel> SelectSkipAndTakeDynamicWhere(int? id, int? deviceTypeId, int? brandId, int? facultyId, int? shipmentId, string name, string image, string qr_code, decimal? price, string note, string description, DateTime? warrantyPeriod, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status, int rows, int startRowIndex, out int totalRowCount, string sortByExpression)
         {
-            totalRowCount = GetRecordCountDynamicWhere(id, deviceTypeId, brandId, name, image, qr_code, price, note, description, warrantyPeriod, createdDate, createdUserId, isDeleted, status);
+            totalRowCount = GetRecordCountDynamicWhere(id, deviceTypeId, brandId, facultyId, shipmentId, name, image, qr_code, price, note, description, warrantyPeriod, createdDate, createdUserId, isDeleted, status);
             sortByExpression = GetSortExpression(sortByExpression);
-            return DeviceDataLayer.SelectSkipAndTakeDynamicWhere(id, deviceTypeId, brandId, name, image, qr_code, price, note, description, warrantyPeriod, createdDate, createdUserId, isDeleted, status, sortByExpression, startRowIndex, rows);
+            return DeviceDataLayer.SelectSkipAndTakeDynamicWhere(id, deviceTypeId, brandId, facultyId, shipmentId, name, image, qr_code, price, note, description, warrantyPeriod, createdDate, createdUserId, isDeleted, status, sortByExpression, startRowIndex, rows);
         }
 
         /// <summary>
         /// Selects records as a collection (List) of Device sorted by the sortByExpression starting from the startRowIndex, based on the search parameters
         /// </summary>
-        public static List<DeviceModel> SelectSkipAndTakeDynamicWhere(int? id, int? deviceTypeId, int? brandId, /*int? shipmentId,*/ string name, string image, string qr_code, decimal? price, string note, string description, DateTime? warrantyPeriod, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status, int rows, int startRowIndex, string sortByExpression)
+        public static List<DeviceModel> SelectSkipAndTakeDynamicWhere(int? id, int? deviceTypeId, int? brandId, int? facultyId, int? shipmentId, string name, string image, string qr_code, decimal? price, string note, string description, DateTime? warrantyPeriod, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status, int rows, int startRowIndex, string sortByExpression)
         {
             sortByExpression = GetSortExpression(sortByExpression);
-            return DeviceDataLayer.SelectSkipAndTakeDynamicWhere(id, deviceTypeId, brandId, name, image, qr_code, price, note, description, warrantyPeriod, createdDate, createdUserId, isDeleted, status, sortByExpression, startRowIndex, rows);
+            return DeviceDataLayer.SelectSkipAndTakeDynamicWhere(id, deviceTypeId, brandId, facultyId, shipmentId, name, image, qr_code, price, note, description, warrantyPeriod, createdDate, createdUserId, isDeleted, status, sortByExpression, startRowIndex, rows);
         }
 
         /// <summary>
@@ -105,17 +105,17 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         /// <summary>
         /// Selects records based on the passed filters as a collection (List) of Device.
         /// </summary>
-        public static List<DeviceModel> SelectAllDynamicWhere(int? id, int? deviceTypeId, int? brandId, /*int? shipmentId,*/ string name, string image, string qr_code, decimal? price, string note, string description, DateTime? warrantyPeriod, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
+        public static List<DeviceModel> SelectAllDynamicWhere(int? id, int? deviceTypeId, int? brandId, int? facultyId, int? shipmentId, string name, string image, string qr_code, decimal? price, string note, string description, DateTime? warrantyPeriod, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
         {
-            return DeviceDataLayer.SelectAllDynamicWhere(id, deviceTypeId, brandId, name, image, qr_code, price, note, description, warrantyPeriod, createdDate, createdUserId, isDeleted, status);
+            return DeviceDataLayer.SelectAllDynamicWhere(id, deviceTypeId, brandId, facultyId, shipmentId, name, image, qr_code, price, note, description, warrantyPeriod, createdDate, createdUserId, isDeleted, status);
         }
 
         /// <summary>
         /// Selects records based on the passed filters as a collection (List) of Device sorted by the sort expression.
         /// </summary>
-        public static List<DeviceModel> SelectAllDynamicWhere(int? id, int? deviceTypeId, int? brandId, /*int? shipmentId,*/ string name, string image, string qr_code, decimal? price, string note, string description, DateTime? warrantyPeriod, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status, string sortExpression)
+        public static List<DeviceModel> SelectAllDynamicWhere(int? id, int? deviceTypeId, int? brandId, int? facultyId, int? shipmentId, string name, string image, string qr_code, decimal? price, string note, string description, DateTime? warrantyPeriod, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status, string sortExpression)
         {
-            List<DeviceModel> objDeviceCol = DeviceDataLayer.SelectAllDynamicWhere(id, deviceTypeId, brandId, name, image, qr_code, price, note, description, warrantyPeriod, createdDate, createdUserId, isDeleted, status);
+            List<DeviceModel> objDeviceCol = DeviceDataLayer.SelectAllDynamicWhere(id, deviceTypeId, brandId, facultyId, shipmentId, name, image, qr_code, price, note, description, warrantyPeriod, createdDate, createdUserId, isDeleted, status);
             return objDeviceCol;
         }
 
@@ -127,38 +127,6 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
             return DeviceDataLayer.SelectSpecsDropDownListData();
         }
 
-        private string generated_deviceCode()
-        {
-            string mahd = "B";
-            for (int i = 0; i < 4; i++)
-            {
-                Random a = new Random();
-                mahd += (char)(a.Next(65, 90));
-
-            }
-            for (int j = 0; j < 4; j++)
-            {
-                int numdevice = GetRecordCount();
-                if (numdevice < 10)
-                {
-                    mahd += "000" + numdevice;
-                    break;
-                }
-                if (numdevice < 100)
-                {
-                    mahd += "00" + numdevice;
-                    break;
-                }
-                if (numdevice < 100)
-                {
-                    mahd += "0" + numdevice;
-                    break;
-                }
-                else mahd += numdevice;
-                break;
-            }
-            return "hd";
-        }
         /// <summary>
         /// Inserts a record
         /// </summary>

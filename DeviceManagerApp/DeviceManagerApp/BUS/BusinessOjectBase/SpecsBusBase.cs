@@ -30,10 +30,7 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
             return SpecsDataLayer.SelectByPrimaryKey(id);
         }
 
-        //public static SpecsModel SelectByCode(string code)
-        //{
-        //    return SpecsDataLayer.SelectByCode(code);
-        //}
+       
         /// <summary>
         /// Gets the total number of records in the Specs table
         /// </summary>
@@ -131,38 +128,7 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
             return SpecsDataLayer.SelectSpecsDropDownListData();
         }
 
-        private string generated_specsCode()
-        {
-            string mahd = "B";
-            for (int i = 0; i < 4; i++)
-            {
-                Random a = new Random();
-                mahd += (char)(a.Next(65, 90));
-
-            }
-            for (int j = 0; j < 4; j++)
-            {
-                int numspecs = GetRecordCount();
-                if (numspecs < 10)
-                {
-                    mahd += "000" + numspecs;
-                    break;
-                }
-                if (numspecs < 100)
-                {
-                    mahd += "00" + numspecs;
-                    break;
-                }
-                if (numspecs < 100)
-                {
-                    mahd += "0" + numspecs;
-                    break;
-                }
-                else mahd += numspecs;
-                break;
-            }
-            return "hd";
-        }
+        
         /// <summary>
         /// Inserts a record
         /// </summary>

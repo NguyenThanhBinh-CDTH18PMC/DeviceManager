@@ -59,7 +59,7 @@ namespace DeviceManagerApp.BUS.BusinessObject
 
         public static void AddDetail(int deviceTypeId, int DeviceType_SpecsId, string specsName)
         {
-            List<DeviceModel> deviceChange = DeviceBus.SelectAllDynamicWhere(null, deviceTypeId, null, null, null, null, null, null, null, null, null, null, false, null);
+            List<DeviceModel> deviceChange = DeviceBus.SelectAllDynamicWhere(null, deviceTypeId,null,null, null, null, null, null, null, null, null, null, null, null, false, null);
             if (deviceChange != null)
             {
                 foreach (DeviceModel de in deviceChange)

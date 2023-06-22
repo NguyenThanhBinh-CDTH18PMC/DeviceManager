@@ -13,7 +13,8 @@ using DTO.Model;
 using BUS.BusinessObject;
 using DeviceManagerApp.DTO.Model;
 using DeviceManagerApp.BUS.BusinessObject;
-
+using System.Drawing.Imaging;
+using QRCoder;
 
 namespace DeviceManagerApp
 {
@@ -46,6 +47,7 @@ namespace DeviceManagerApp
         {
             dtgvQlThietBi.AutoGenerateColumns = false;
             dtgvQlThietBi.AllowUserToAddRows = false;
+            txtPrice.Text = "0.0";
         }
 
 
@@ -61,20 +63,6 @@ namespace DeviceManagerApp
             }
         }
 
-
-
-        private void ResetDS()
-        {
-            int loai = 0;
-
-
-            //Load_DSTB(DateTime.Now, loai);
-        }
-
-        private void Reset()
-        {
-        }
-
         private void Load_Form()
         {
             LoadDataGridView();
@@ -86,6 +74,10 @@ namespace DeviceManagerApp
             cbLoaiTbi.DataSource = Device_TypeBus.GetDevice_TypeAfterDelete();
             cbLoaiTbi.DisplayMember = "Name";
             cbLoaiTbi.ValueMember = "Id";
+
+            cbKhoa.DataSource = FacultyBus.SelectAllDynamicWhere(null, null, null, null, null, null,false);
+            cbKhoa.DisplayMember = "Name";
+            cbKhoa.ValueMember = "Id";
 
             cbPhong.DataSource = RoomBus.GetRoomAfterDelete();
             cbPhong.DisplayMember = "Name";
@@ -105,7 +97,7 @@ namespace DeviceManagerApp
         private void LoadDataGridView()
         {
 
-            listDevice = DeviceBus.SelectSkipAndTakeDynamicWhere(null, null, null, null, null, null, null, null, null, null, null, null, false, null, 10, 0, "Id desc");
+            listDevice = DeviceBus.SelectSkipAndTakeDynamicWhere(null, null, null, null, null, null, null, null, null, null, null, null, null, null, false, null, 10, 0, "Id desc");
             if (listDevice != null)
             {
                 foreach (DeviceModel device in listDevice)
@@ -203,8 +195,8 @@ namespace DeviceManagerApp
 
         private void btn_Reset_Click_1(object sender, EventArgs e)
         {
-            ResetDS();
-            Reset();
+            //ResetDS();
+            //Reset();
         }
 
         private void btn_Xem_Click_1(object sender, EventArgs e)
@@ -242,6 +234,87 @@ namespace DeviceManagerApp
 
         #endregion
 
+        #region Create Device
+
+        private void btnThemTbi_Click(object sender, EventArgs e)
+        {
+            if (Check_Null())
+                return;
+
+            DeviceModel device = new DeviceModel();
+            device.Name = txtTenTbi.Text;
+            device.DeviceTypeId = (int)cbLoaiTbi.SelectedValue;
+            device.BrandId = (int)cbNhaCungCap.SelectedValue;
+            device.ShipmentId = 1; // test
+            device.FacultyId = (int)cbKhoa.SelectedValue;
+            device.Note = rtbGhiChuTbi.Text;
+            device.IsDeleted = false;
+            device.Price = Convert.ToDecimal(txtPrice.Text);
+            device.Status = 0;
+            device.WarrantyPeriod = dtBaoHanh.Value;
+            device.CreatedDate = DateTime.Now;
+            device.CreatedUserId = 1;
+
+            try
+            {
+                device.Image = SaveImage(device.Name, SettingClass.path_Folder_Image_Device, device.CreatedDate.Value);
+                device.Id = DeviceBus.Insert(device);
+                //device.QR_Code = SaveQR_Code(SettingClass.path_Folder_QR_Image, device);
+                //DeviceBus.Update(device);
+                AddSpecsByType(device.DeviceTypeId, device.Id);
+                MessageBox.Show("Thành công! Vui lòng cập nhật thông số chi tiết thiết bị sớm!", "Thông Báo", MessageBoxButtons.OK);
+                listDevice.Add(DeviceBus.SelectByPrimaryKey(device.Id));
+                ReLoadDataGridView(listDevice);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Thất bại! Lỗi " + ex.Message, "Thông Báo", MessageBoxButtons.OK);
+            }
+
+        }
+
+        private string SaveImage(string fileName, string path, DateTime createdDate)
+        {
+            string fileSaveName = ((createdDate.ToString().Replace("/", "-")).Replace(":", "")).Replace(" ", "_") + "_" + fileName;
+            ptb_Device.Image.Save(path + fileSaveName, ImageFormat.Jpeg);
+
+            return fileSaveName;
+        }
+
+        private string SaveQR_Code(string path, DeviceModel device)
+        {
+            string fileSaveName = ((device.CreatedDate.ToString().Replace("/", "-")).Replace(":", "")).Replace(" ", "_") + "_QR_" + device.Id + "_" + device.Name;
+            Image imageSave = Create_QR(DeviceInfo(device));
+            imageSave.Save(path + fileSaveName, ImageFormat.Jpeg);
+            return fileSaveName;
+        }
+
+        private string DeviceInfo(DeviceModel device)
+        {
+            string detail = "\n ";
+            List<DeviceDetailModel> listDeviceDetail = DeviceDetailBus.SelectAllDynamicWhere(null, device.Id, null, null, null, null, null, null, null, null, null);
+            foreach (DeviceDetailModel deviceDetail in listDeviceDetail)
+            {
+                detail += deviceDetail.NameSpecs + ": " + deviceDetail.Description + "\n";
+            }
+            string info = "Ngày tạo:" + device.CreatedDate.ToString() + "\n  Thiet bi: " + device.Name + detail;
+
+            return info;
+        }
+
+        private Image Create_QR(string content)
+        {
+            QRCodeGenerator qrGenerator = new QRCodeGenerator();
+            QRCodeData qrCodeData = qrGenerator.CreateQrCode(content, QRCodeGenerator.ECCLevel.Q);
+            QRCode qrCode = new QRCode(qrCodeData);
+            Bitmap qrCodeImage = qrCode.GetGraphic(4);
+            Image img = qrCodeImage;
+
+            return img;
+        }
+
+        
+
         public void AddSpecsByType(int deviveTypeId, int deviceId)
         {
             List<DeviceType_SpecsModel> listSpecs = DeviceType_SpecsBus.SelectAllDynamicWhere(null, deviveTypeId, null, null, null, null, false);
@@ -262,12 +335,15 @@ namespace DeviceManagerApp
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("Thất bại, lỗi " + e.Message);
+                    MessageBox.Show("Thất bại! Lỗi " + e.Message, "Thông Báo", MessageBoxButtons.OK);
                     return;
                 }
 
             }
         }
+
+        #endregion
+
 
         private void btnDetail_Click(object sender, EventArgs e)
         {
@@ -278,38 +354,7 @@ namespace DeviceManagerApp
             }
         }
 
-        private void btnThemTbi_Click(object sender, EventArgs e)
-        {
-            if (Check_Null())
-                return;
-
-            DeviceModel device = new DeviceModel();
-            device.Name = txtTenTbi.Text;
-            device.DeviceTypeId = (int)cbLoaiTbi.SelectedValue;
-            device.BrandId = (int)cbNhaCungCap.SelectedValue;
-            //Thiếu Khoa
-            device.Note = rtbGhiChuTbi.Text;
-            device.IsDeleted = false;
-            device.Price = Convert.ToDecimal(txtPrice.Text);
-            device.Status = 0;
-            device.WarrantyPeriod = dtBaoHanh.Value;
-            device.CreatedDate = DateTime.Now;
-            device.CreatedUserId = 1;
-
-            try
-            {
-                int id = DeviceBus.Insert(device);
-                AddSpecsByType(device.DeviceTypeId, id);
-                MessageBox.Show("Thành công!  Vui lòng cập nhật thông số chi tiết thiết bị sớm!");
-                listDevice.Add(DeviceBus.SelectByPrimaryKey(id));
-                ReLoadDataGridView(listDevice);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Thất bại! Lỗi " + ex.Message, "Thông Báo", MessageBoxButtons.OK);
-            }
-
-        }
+        
 
         private void txt_Price_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -330,5 +375,30 @@ namespace DeviceManagerApp
 
             return false;
         }
+
+        private void ptb_Device_DoubleClick(object sender, EventArgs e)
+        {
+            // open file dialog   
+            OpenFileDialog open = new OpenFileDialog();
+
+            //Khoi tao thiet lap cho dialog
+            open.InitialDirectory = "C:\\";
+            open.Filter = "Image Files(*.jpg; *.png; *.jpeg; *.gif; *.bmp)|*.jpg; *.png; *.jpeg; *.gif; *.bmp";
+
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                Stream stream = null;
+                if ((stream = open.OpenFile()) != null)
+                {
+                    ptb_Device.Image = Image.FromStream(stream);
+                }
+                stream.Close();
+                stream.Dispose();
+                GC.Collect();
+
+            }
+        }
+
+        
     }
 }

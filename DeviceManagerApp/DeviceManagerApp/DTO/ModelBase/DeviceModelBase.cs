@@ -11,6 +11,7 @@ namespace DeviceManagerApp.DTO.ModelBase
         public int Id { get; set; }
         public int DeviceTypeId { get; set; }
         public int ShipmentId { get; set; }
+        public int FacultyId { get; set; }
         public int BrandId { get; set; }
         public string Name { get; set; }
         public string QR_Code { get; set; }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -19,10 +20,8 @@ namespace DeviceManagerApp
         {
             InitializeComponent();
             device = de;
-            lb_DeviceName.Text = de.Name;
             //AddSpecsByType(de.DeviceTypeId, de.Id);
-            listDetail = DeviceDetailBus.SelectAllDynamicWhere(null, de.Id, null, null, null, null, null, null, null, null, null);
-
+            LoadListDetail();
             Load_Form();
             
         }
@@ -31,29 +30,35 @@ namespace DeviceManagerApp
 
         public void Load_Form()
         {
-            Load_Specs();
+            lb_DeviceName.Text = device.Name;
+            if(listDetail.Count > 0)
+            {
+                cb_ListSpecs.SelectedIndex = listDetail[0].Id;
+                txt_Description.Text = listDetail[0].Description;
+            }
+            Load_ComboboxSpecs();
         }
 
-        public void Load_Specs()
+        private List<DeviceDetailModel> GetDetail(int deviceId)
         {
-            string description = "";
-            foreach (DeviceDetailModel detail in listDetail)
-            {
-                description += detail.NameSpecs + ": " + detail.Description + ";";
-                Label lb = new Label();
-                lb.Font = new Font("Arial", 12f, FontStyle.Bold);
-                lb.Text = detail.NameSpecs + ":";
-                flp_ListSpecs.Controls.Add(lb);
+            return DeviceDetailBus.SelectAllDynamicWhere(null, deviceId, null, null, null, null, null, null, null, false, null);
+        }
 
-                TextBox tbValue = new TextBox();
-                tbValue.Name = "txt" + detail.NameSpecs;
-                tbValue.Text = detail.Description;
-                tbValue.Left = 50;
-                tbValue.Font = new Font("Arial", 12f, FontStyle.Bold);
-                tbValue.Width = 220;
-                flp_ListSpecs.Controls.Add(tbValue);
-            }
-            txtDescription.Text = description;
+        public void Load_ComboboxSpecs()
+        {
+            cb_ListSpecs.DataSource = listDetail.ToList();
+            cb_ListSpecs.ValueMember = "Id";
+            cb_ListSpecs.DisplayMember = "NameSpecs";
+
+            var cbData = (DataGridViewComboBoxColumn)dtgv_ListDetail.Columns["Specs"];
+            cbData.DisplayMember = "NameSpecs";
+            cbData.ValueMember = "Id";
+            cbData.DataSource = listDetail;
+        }
+
+        private void LoadListDetail()
+        {
+            listDetail = GetDetail(device.Id);
         }
 
         public void Load_DeviceInfo()
@@ -63,7 +68,7 @@ namespace DeviceManagerApp
             {
                 description += dt.NameSpecs + ": " + dt.Description+";";
             }
-            txtDescription.Text = description;
+            //txtDescription.Text = description;
         }
         #endregion
 
