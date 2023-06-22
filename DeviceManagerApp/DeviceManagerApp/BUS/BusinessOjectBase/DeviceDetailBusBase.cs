@@ -129,38 +129,6 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
             return DeviceDetailDataLayer.SelectSpecsDropDownListData();
         }
 
-        private string generated_BillCode()
-        {
-            string mahd = "B";
-            for (int i = 0; i < 4; i++)
-            {
-                Random a = new Random();
-                mahd += (char)(a.Next(65, 90));
-
-            }
-            for (int j = 0; j < 4; j++)
-            {
-                int numBill = GetRecordCount();
-                if (numBill < 10)
-                {
-                    mahd += "000" + numBill;
-                    break;
-                }
-                if (numBill < 100)
-                {
-                    mahd += "00" + numBill;
-                    break;
-                }
-                if (numBill < 100)
-                {
-                    mahd += "0" + numBill;
-                    break;
-                }
-                else mahd += numBill;
-                break;
-            }
-            return "hd";
-        }
         /// <summary>
         /// Inserts a record
         /// </summary>

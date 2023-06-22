@@ -103,14 +103,15 @@ Create table [D_Brand]
 )
 
 --alter table [D_Device]
---add [Faculty_Id] int null
+--add [FacultyId] int null
+--exec sp_rename 'D_Device.Faculty_Id', 'FacultyId', 'COLUMN';
 create table [D_Device]
 (
 	[Id] int not null IDENTITY(1,1),
 	[Name] nvarchar(50) null,
 	[DeviceTypeId] int not null,
 	[ShipmentId] int null,
-	[Faculty_Id] int null,
+	[FacultyId] int null,
 	[BrandId] int null,
 	[QR_Code] varchar(100) null,
 	[Description] nvarchar(100) null,

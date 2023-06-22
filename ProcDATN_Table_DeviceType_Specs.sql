@@ -125,7 +125,7 @@ as
 		Insert into [dbo].[D_DeviceType_Specs]
 		([DeviceTypeId],[DeviceSpecsId],[Description],[CreatedDate],[CreatedUserId],[IsDeleted]/*,[Status]*/) 
 		Values(@deviceTypeId,@deviceSpecsId,@description,@createdDate,@createdUserId,@isDeleted/*,@status*/)
-		select SCOPE_IDENTITY() as Id
+		select Max([Id]  as Id from [dbo].[D_DeviceType_Specs]
 	end
 	go
 

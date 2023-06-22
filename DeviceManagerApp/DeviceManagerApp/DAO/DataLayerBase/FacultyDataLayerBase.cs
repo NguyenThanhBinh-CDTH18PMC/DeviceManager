@@ -16,23 +16,23 @@ using DeviceManagerApp.DTO.Model;
 namespace DeviceManagerApp.DAO.DataLayerBase
 {
     /// <summary>
-    /// Base class for SpecsDataLayer.  Do not make changes to this class,
-    /// instead, put additional code in the SpecsDataLayer class
+    /// Base class for FacultyDataLayer.  Do not make changes to this class,
+    /// instead, put additional code in the FacultyDataLayer class
     /// </summary>
-    public class SpecsDataLayerBase
+    public class FacultyDataLayerBase
     {
         // constructor
-        public SpecsDataLayerBase()
+        public FacultyDataLayerBase()
         {
         }
 
         /// <summary>
         /// Selects a record by primary key(s)
         /// </summary>
-        public static SpecsModel SelectByPrimaryKey(int id)
+        public static FacultyModel SelectByPrimaryKey(int id)
         {
-            SpecsModel objSpecs = null;
-            string storedProcName = "[dbo].[Specs_SelectByPrimaryKey]";
+            FacultyModel objFaculty = null;
+            string storedProcName = "[dbo].[Faculty_SelectByPrimaryKey]";
 
             using (SqlConnection connection = new SqlConnection(PathString.ConnectionString))
             {
@@ -54,22 +54,22 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                         {
                             if (dt.Rows.Count > 0)
                             {
-                                objSpecs = CreateSpecsFromDataRowShared(dt.Rows[0]);
+                                objFaculty = CreateFacultyFromDataRowShared(dt.Rows[0]);
                             }
                         }
                     }
                 }
             }
 
-            return objSpecs;
+            return objFaculty;
         }
 
         /// <summary>
-        /// Gets the total number of records in the Specs table
+        /// Gets the total number of records in the Faculty table
         /// </summary>
         public static int GetRecordCount()
         {
-            return GetRecordCountShared("[dbo].[Specs_GetRecordCount]", null, null, true, null);
+            return GetRecordCountShared("[dbo].[Faculty_GetRecordCount]", null, null, true, null);
         }
 
         public static int GetRecordCountShared(string storedProcName = null, string param = null, object paramValue = null, bool isUseStoredProc = true, string dynamicSqlScript = null)
@@ -104,12 +104,12 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         }
 
         /// <summary>
-        /// Gets the total number of records in the Specs table based on search parameters
+        /// Gets the total number of records in the Faculty table based on search parameters
         /// </summary>
-        public static int GetRecordCountDynamicWhere(int? id, string name, string datatype, int? ordinal, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
+        public static int GetRecordCountDynamicWhere(int? id, string name, string image, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted )
         {
             int recordCount = 0;
-            string storedProcName = "[dbo].[Specs_GetRecordCountWhereDynamic]";
+            string storedProcName = "[dbo].[Faculty_GetRecordCountWhereDynamic]";
 
             using (SqlConnection connection = new SqlConnection(PathString.ConnectionString))
             {
@@ -120,7 +120,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                     command.CommandType = CommandType.StoredProcedure;
 
                     // search parameters
-                    AddSearchCommandParamsShared(command, id, name, datatype, ordinal, description, createdDate, createdUserId, isDeleted, status);
+                    AddSearchCommandParamsShared(command, id, name, image, description, createdDate, createdUserId, isDeleted );
 
                     using (SqlDataAdapter da = new SqlDataAdapter(command))
                     {
@@ -142,20 +142,20 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         }
 
         /// <summary>
-        /// Selects Specs records sorted by the sortByExpression and returns records from the startRowIndex with rows (# of rows)
+        /// Selects Faculty records sorted by the sortByExpression and returns records from the startRowIndex with rows (# of rows)
         /// </summary>
-        public static List<SpecsModel> SelectSkipAndTake(string sortByExpression, int startRowIndex, int rows)
+        public static List<FacultyModel> SelectSkipAndTake(string sortByExpression, int startRowIndex, int rows)
         {
-            return SelectShared("[dbo].[Specs_SelectSkipAndTake]", null, null, true, null, sortByExpression, startRowIndex, rows);
+            return SelectShared("[dbo].[Faculty_SelectSkipAndTake]", null, null, true, null, sortByExpression, startRowIndex, rows);
         }
 
         /// <summary>
-        /// Selects Specs records sorted by the sortByExpression and returns records from the startRowIndex with rows (# of records) based on search parameters
+        /// Selects Faculty records sorted by the sortByExpression and returns records from the startRowIndex with rows (# of records) based on search parameters
         /// </summary>
-        public static List<SpecsModel> SelectSkipAndTakeDynamicWhere(int? id, string name, string datatype, int? ordinal, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status, string sortByExpression, int startRowIndex, int rows)
+        public static List<FacultyModel> SelectSkipAndTakeDynamicWhere(int? id, string name, string image, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, string sortByExpression, int startRowIndex, int rows)
         {
-            List<SpecsModel> objSpecsCol = null;
-            string storedProcName = "[dbo].[Specs_SelectSkipAndTakeWhereDynamic]";
+            List<FacultyModel> objFacultyCol = null;
+            string storedProcName = "[dbo].[Faculty_SelectSkipAndTakeWhereDynamic]";
 
             using (SqlConnection connection = new SqlConnection(PathString.ConnectionString))
             {
@@ -171,7 +171,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                     command.Parameters.AddWithValue("@sort", sortByExpression);
 
                     // search parameters
-                    AddSearchCommandParamsShared(command, id, name, datatype, ordinal, description, createdDate, createdUserId, isDeleted, status);
+                    AddSearchCommandParamsShared(command, id, name, image, description, createdDate, createdUserId, isDeleted );
 
                     using (SqlDataAdapter da = new SqlDataAdapter(command))
                     {
@@ -182,12 +182,12 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                         {
                             if (dt.Rows.Count > 0)
                             {
-                                objSpecsCol = new List<SpecsModel>();
+                                objFacultyCol = new List<FacultyModel>();
 
                                 foreach (DataRow dr in dt.Rows)
                                 {
-                                    SpecsModel objSpecs = CreateSpecsFromDataRowShared(dr);
-                                    objSpecsCol.Add(objSpecs);
+                                    FacultyModel objFaculty = CreateFacultyFromDataRowShared(dr);
+                                    objFacultyCol.Add(objFaculty);
                                 }
                             }
                         }
@@ -195,24 +195,24 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                 }
             }
 
-            return objSpecsCol;
+            return objFacultyCol;
         }
 
         /// <summary>
-        /// Selects all Specs
+        /// Selects all Faculty
         /// </summary>
-        public static List<SpecsModel> SelectAll()
+        public static List<FacultyModel> SelectAll()
         {
-            return SelectShared("[dbo].[Specs_SelectAll]", String.Empty, null);
+            return SelectShared("[dbo].[Faculty_SelectAll]", String.Empty, null);
         }
 
         /// <summary>
-        /// Selects records based on the passed filters as a collection (List) of Specs.
+        /// Selects records based on the passed filters as a collection (List) of Faculty.
         /// </summary>
-        public static List<SpecsModel> SelectAllDynamicWhere(int? id, string name, string datatype, int? ordinal, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
+        public static List<FacultyModel> SelectAllDynamicWhere(int? id, string name, string image, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted)
         {
-            List<SpecsModel> objSpecsCol = null;
-            string storedProcName = "[dbo].[Specs_SelectAllWhereDynamic]";
+            List<FacultyModel> objFacultyCol = null;
+            string storedProcName = "[dbo].[Faculty_SelectAllWhereDynamic]";
 
             using (SqlConnection connection = new SqlConnection(PathString.ConnectionString))
             {
@@ -223,7 +223,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                     command.CommandType = CommandType.StoredProcedure;
 
                     // search parameters
-                    AddSearchCommandParamsShared(command, id, name, datatype, ordinal, description, createdDate, createdUserId, isDeleted, status);
+                    AddSearchCommandParamsShared(command, id, name, image, description, createdDate, createdUserId, isDeleted );
 
                     using (SqlDataAdapter da = new SqlDataAdapter(command))
                     {
@@ -234,30 +234,30 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                         {
                             if (dt.Rows.Count > 0)
                             {
-                                objSpecsCol = new List<SpecsModel>();
+                                objFacultyCol = new List<FacultyModel>();
 
                                 foreach (DataRow dr in dt.Rows)
                                 {
-                                    SpecsModel objSpecs = CreateSpecsFromDataRowShared(dr);
-                                    objSpecsCol.Add(objSpecs);
+                                    FacultyModel objFaculty = CreateFacultyFromDataRowShared(dr);
+                                    objFacultyCol.Add(objFaculty);
                                 }
                             }
                         }
                     }
                 }
             }
-            if (objSpecsCol != null)
-                return objSpecsCol;
-            else return new List<SpecsModel>();
+            if (objFacultyCol != null)
+                return objFacultyCol;
+            else return new List<FacultyModel>();
         }
 
         /// <summary>
         /// Selects Id and Name columns for use with a DropDownList web control
         /// </summary>
-        public static List<SpecsModel> SelectSpecsDropDownListData()
+        public static List<FacultyModel> SelectFacultyDropDownListData()
         {
-            List<SpecsModel> objSpecsCol = null;
-            string storedProcName = "[dbo].[Specs_SelectDropDownListData]";
+            List<FacultyModel> objFacultyCol = null;
+            string storedProcName = "[dbo].[Faculty_SelectDropDownListData]";
 
             using (SqlConnection connection = new SqlConnection(PathString.ConnectionString))
             {
@@ -276,19 +276,19 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                         {
                             if (dt.Rows.Count > 0)
                             {
-                                objSpecsCol = new List<SpecsModel>();
+                                objFacultyCol = new List<FacultyModel>();
 
                                 foreach (DataRow dr in dt.Rows)
                                 {
-                                    SpecsModel objSpecs = new SpecsModel();
-                                    objSpecs.Id = (int)dr["Id"];
+                                    FacultyModel objFaculty = new FacultyModel();
+                                    objFaculty.Id = (int)dr["Id"];
 
                                     if (dr["Name"] != System.DBNull.Value)
-                                        objSpecs.Name = (string)(dr["Name"]);
+                                        objFaculty.Name = (string)(dr["Name"]);
                                     else
-                                        objSpecs.Name = null;
+                                        objFaculty.Name = null;
 
-                                    objSpecsCol.Add(objSpecs);
+                                    objFacultyCol.Add(objFaculty);
                                 }
                             }
                         }
@@ -296,12 +296,12 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                 }
             }
 
-            return objSpecsCol;
+            return objFacultyCol;
         }
 
-        public static List<SpecsModel> SelectShared(string storedProcName, string param, object paramValue, bool isUseStoredProc = true, string dynamicSqlScript = null, string sortByExpression = null, int? startRowIndex = null, int? rows = null)
+        public static List<FacultyModel> SelectShared(string storedProcName, string param, object paramValue, bool isUseStoredProc = true, string dynamicSqlScript = null, string sortByExpression = null, int? startRowIndex = null, int? rows = null)
         {
-            List<SpecsModel> objSpecsCol = null;
+            List<FacultyModel> objFacultyCol = null;
 
             using (SqlConnection connection = new SqlConnection(PathString.ConnectionString))
             {
@@ -328,12 +328,12 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                         {
                             if (dt.Rows.Count > 0)
                             {
-                                objSpecsCol = new List<SpecsModel>();
+                                objFacultyCol = new List<FacultyModel>();
 
                                 foreach (DataRow dr in dt.Rows)
                                 {
-                                    SpecsModel objSpecs = CreateSpecsFromDataRowShared(dr);
-                                    objSpecsCol.Add(objSpecs);
+                                    FacultyModel objFaculty = CreateFacultyFromDataRowShared(dr);
+                                    objFacultyCol.Add(objFaculty);
                                 }
                             }
                         }
@@ -341,47 +341,47 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                 }
             }
 
-            return objSpecsCol;
+            return objFacultyCol;
         }
 
         /// <summary>
         /// Inserts a record
         /// </summary>
-        public static int Insert(SpecsModel objSpecs)
+        public static int Insert(FacultyModel objFaculty)
         {
-            string storedProcName = "[dbo].[Specs_Insert]";
-            return InsertUpdate(objSpecs, false, storedProcName);
+            string storedProcName = "[dbo].[Faculty_Insert]";
+            return InsertUpdate(objFaculty, false, storedProcName);
         }
 
         /// <summary>
         /// Updates a record
         /// </summary>
-        public static void Update(SpecsModel objSpecs)
+        public static void Update(FacultyModel objFaculty)
         {
-            string storedProcName = "[dbo].[Specs_Update]";
-            InsertUpdate(objSpecs, true, storedProcName);
+            string storedProcName = "[dbo].[Faculty_Update]";
+            InsertUpdate(objFaculty, true, storedProcName);
         }
 
-        private static int InsertUpdate(SpecsModel objSpecs, bool isUpdate, string storedProcName)
+        private static int InsertUpdate(FacultyModel objFaculty, bool isUpdate, string storedProcName)
         {
-            int newlyCreatedId = objSpecs.Id;
+            int newlyCreatedId = objFaculty.Id;
 
-            object name = objSpecs.Name;
-            object createdDate = objSpecs.CreatedDate;
-            object createdUserId = objSpecs.CreatedUserId;
-            object status = objSpecs.Status;
+            object name = objFaculty.Name;
+            object createdDate = objFaculty.CreatedDate;
+            object createdUserId = objFaculty.CreatedUserId;
+            object image = objFaculty.Image;
 
-            if (String.IsNullOrEmpty(objSpecs.Name))
+            if (String.IsNullOrEmpty(objFaculty.Name))
                 name = System.DBNull.Value;
 
-            if (objSpecs.CreatedDate == null)
+            if (objFaculty.CreatedDate == null)
                 createdDate = System.DBNull.Value;
 
-            if (objSpecs.CreatedUserId == null)
+            if (objFaculty.CreatedUserId == null)
                 createdUserId = System.DBNull.Value;
 
-            if (objSpecs.Status == null)
-                status = System.DBNull.Value;
+            if (objFaculty.Image == null)
+                image = System.DBNull.Value;
 
             using (SqlConnection connection = new SqlConnection(PathString.ConnectionString))
             {
@@ -395,14 +395,14 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                     if (isUpdate)
                     {
                         // for update only
-                        command.Parameters.AddWithValue("@id", objSpecs.Id);
+                        command.Parameters.AddWithValue("@id", objFaculty.Id);
                     }
 
                     command.Parameters.AddWithValue("@name", name);
                     command.Parameters.AddWithValue("@createdDate", createdDate);
                     command.Parameters.AddWithValue("@createdUserId", createdUserId);
-                    command.Parameters.AddWithValue("@isDeleted", objSpecs.IsDeleted);
-                    command.Parameters.AddWithValue("@status", status);
+                    command.Parameters.AddWithValue("@isDeleted", objFaculty.IsDeleted);
+                    command.Parameters.AddWithValue("@image",objFaculty.Image);
 
                     if (isUpdate)
                         command.ExecuteNonQuery();
@@ -419,7 +419,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         /// </summary>
         public static void Delete(int id)
         {
-            string storedProcName = "[dbo].[Specs_Hide]";
+            string storedProcName = "[dbo].[Faculty_Hide]";
 
             using (SqlConnection connection = new SqlConnection(PathString.ConnectionString))
             {
@@ -441,27 +441,17 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         /// <summary>
         /// Adds search parameters to the Command object
         /// </summary>
-        private static void AddSearchCommandParamsShared(SqlCommand command, int? id, string name, string datatype, int? ordinal, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
+        private static void AddSearchCommandParamsShared(SqlCommand command, int? id, string name, string image, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted )
         {
             if (id != null)
                 command.Parameters.AddWithValue("@id", id);
             else
                 command.Parameters.AddWithValue("@id", System.DBNull.Value);
 
-            if (id != null)
-                command.Parameters.AddWithValue("@ordinal", ordinal);
-            else
-                command.Parameters.AddWithValue("@ordinal", System.DBNull.Value);
-
             if (!String.IsNullOrEmpty(name))
                 command.Parameters.AddWithValue("@name", name);
             else
                 command.Parameters.AddWithValue("@name", System.DBNull.Value);
-
-            if (!String.IsNullOrEmpty(datatype))
-                command.Parameters.AddWithValue("@dataType", datatype);
-            else
-                command.Parameters.AddWithValue("@DataType", System.DBNull.Value);
 
             if (!String.IsNullOrEmpty(description))
                 command.Parameters.AddWithValue("@description", description);
@@ -483,63 +473,53 @@ namespace DeviceManagerApp.DAO.DataLayerBase
             else
                 command.Parameters.AddWithValue("@isDeleted", System.DBNull.Value);
 
-            if (status != null)
-                command.Parameters.AddWithValue("@status", status);
+            if (image != null)
+                command.Parameters.AddWithValue("@image", image);
             else
-                command.Parameters.AddWithValue("@status", System.DBNull.Value);
+                command.Parameters.AddWithValue("@image", System.DBNull.Value);
 
         }
 
         /// <summary>
-        /// Creates a Specs object from the passed data row
+        /// Creates a Faculty object from the passed data row
         /// </summary>
-        protected static SpecsModel CreateSpecsFromDataRowShared(DataRow dr)
+        protected static FacultyModel CreateFacultyFromDataRowShared(DataRow dr)
         {
-            SpecsModel objSpecs = new SpecsModel();
+            FacultyModel objFaculty = new FacultyModel();
 
-            objSpecs.Id = (int)dr["Id"];
+            objFaculty.Id = (int)dr["Id"];
 
             if (dr["Name"] != System.DBNull.Value)
-                objSpecs.Name = dr["Name"].ToString();
+                objFaculty.Name = dr["Name"].ToString();
             else
-                objSpecs.Name = null;
-
-            if (dr["DataType"] != System.DBNull.Value)
-                objSpecs.DataType = dr["DataType"].ToString();
-            else
-                objSpecs.DataType = null;
+                objFaculty.Name = null;
 
             if (dr["Description"] != System.DBNull.Value)
-                objSpecs.Description = dr["Description"].ToString();
+                objFaculty.Description = dr["Description"].ToString();
             else
-                objSpecs.Description = null;
+                objFaculty.Description = null;
 
             if (dr["CreatedDate"] != System.DBNull.Value)
-                objSpecs.CreatedDate = (DateTime)dr["CreatedDate"];
+                objFaculty.CreatedDate = (DateTime)dr["CreatedDate"];
             else
-                objSpecs.CreatedDate = null;
+                objFaculty.CreatedDate = null;
 
             if (dr["CreatedUserId"] != System.DBNull.Value)
-                objSpecs.CreatedUserId = (int)dr["CreatedUserId"];
+                objFaculty.CreatedUserId = (int)dr["CreatedUserId"];
             else
-                objSpecs.CreatedUserId = null;
+                objFaculty.CreatedUserId = null;
 
             if (dr["IsDeleted"] != System.DBNull.Value)
-                objSpecs.IsDeleted = (bool)dr["IsDeleted"];
+                objFaculty.IsDeleted = (bool)dr["IsDeleted"];
             else
-                objSpecs.IsDeleted = false;
+                objFaculty.IsDeleted = false;
 
-            if (dr["Status"] != System.DBNull.Value)
-                objSpecs.Status = (int)dr["Status"];
+            if (dr["image"] != System.DBNull.Value)
+                objFaculty.Image = dr["image"].ToString();
             else
-                objSpecs.Status = null;
+                objFaculty.Image = null;
 
-            if (dr["Ordinal"] != System.DBNull.Value)
-                objSpecs.Ordinal = (int)dr["Ordinal"];
-            else
-                objSpecs.Ordinal = 0;
-
-            return objSpecs;
+            return objFaculty;
         }
     }
 }
