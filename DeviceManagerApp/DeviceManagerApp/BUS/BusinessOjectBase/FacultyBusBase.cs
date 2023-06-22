@@ -159,6 +159,7 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
                 sortByExpression = sortByExpression.Replace(" asc", "");
 
             return sortByExpression;
+        }
 
         public static DataTable GetAllFaculty()
         {
@@ -166,7 +167,7 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         }
         public static void InsertFaculty(FacultyModel faculty)
         {
-            if(FacultyDAO.CheckNameFaculty(faculty.Name))
+            if (FacultyDAO.CheckNameFaculty(faculty.Name))
             {
                 throw new Exception("Tên Khoa Đã Tồn Tại");
             }
@@ -194,3 +195,4 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         }
     }
 }
+

@@ -369,7 +369,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
             object name = objFaculty.Name;
             object createdDate = objFaculty.CreatedDate;
             object createdUserId = objFaculty.CreatedUserId;
-            object image = objFaculty.Image;
+            //object image = objFaculty.Image;
 
             if (String.IsNullOrEmpty(objFaculty.Name))
                 name = System.DBNull.Value;
@@ -380,8 +380,8 @@ namespace DeviceManagerApp.DAO.DataLayerBase
             if (objFaculty.CreatedUserId == null)
                 createdUserId = System.DBNull.Value;
 
-            if (objFaculty.Image == null)
-                image = System.DBNull.Value;
+            //if (objFaculty.Image == null)
+               // image = System.DBNull.Value;
 
             using (SqlConnection connection = new SqlConnection(PathString.ConnectionString))
             {
@@ -402,7 +402,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                     command.Parameters.AddWithValue("@createdDate", createdDate);
                     command.Parameters.AddWithValue("@createdUserId", createdUserId);
                     command.Parameters.AddWithValue("@isDeleted", objFaculty.IsDeleted);
-                    command.Parameters.AddWithValue("@image",objFaculty.Image);
+                    //command.Parameters.AddWithValue("@image",objFaculty.Image);
 
                     if (isUpdate)
                         command.ExecuteNonQuery();
@@ -514,10 +514,10 @@ namespace DeviceManagerApp.DAO.DataLayerBase
             else
                 objFaculty.IsDeleted = false;
 
-            if (dr["image"] != System.DBNull.Value)
-                objFaculty.Image = dr["image"].ToString();
-            else
-                objFaculty.Image = null;
+            //if (dr["image"] != System.DBNull.Value)
+               // objFaculty.Image = dr["image"].ToString();
+            //else
+               // objFaculty.Image = null;
 
             return objFaculty;
         }
