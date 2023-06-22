@@ -68,7 +68,6 @@ as
 select Id,Name,Address from D_Brand
 go
 Create proc InsertBrand
-
 @Name nvarchar(50),
 @Address nvarchar(100),
 @CreatedDate datetime null,
