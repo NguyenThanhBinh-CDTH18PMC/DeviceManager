@@ -11,5 +11,6 @@ namespace DeviceManagerApp.DTO.Model
         {
 
         }
+
     }
 }

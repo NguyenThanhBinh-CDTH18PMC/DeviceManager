@@ -77,15 +77,15 @@
             // 
             // lblQLTbi
             // 
-            this.lblQLTbi.AutoSize = true;
-            this.lblQLTbi.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblQLTbi.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblQLTbi.Location = new System.Drawing.Point(0, 0);
-            this.lblQLTbi.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblQLTbi.Name = "lblQLTbi";
-            this.lblQLTbi.Size = new System.Drawing.Size(306, 50);
-            this.lblQLTbi.TabIndex = 0;
-            this.lblQLTbi.Text = "Quản Lý Thiết Bị";
+            lblQLTbi.AutoSize = true;
+            lblQLTbi.Dock = System.Windows.Forms.DockStyle.Top;
+            lblQLTbi.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblQLTbi.Location = new System.Drawing.Point(0, 0);
+            lblQLTbi.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            lblQLTbi.Name = "lblQLTbi";
+            lblQLTbi.Size = new System.Drawing.Size(248, 41);
+            lblQLTbi.TabIndex = 0;
+            lblQLTbi.Text = "Quản Lý Thiết Bị";
             // 
             // gbThongtinTB
             // 
@@ -124,6 +124,7 @@
             this.gbThongtinTB.TabIndex = 1;
             this.gbThongtinTB.TabStop = false;
             this.gbThongtinTB.Text = "Thông tin thiết bị";
+
             // 
             // cbPhong
             // 
@@ -202,6 +203,7 @@
             // 
             // txtPrice
             // 
+
             this.txtPrice.Location = new System.Drawing.Point(1033, 171);
             this.txtPrice.Margin = new System.Windows.Forms.Padding(2);
             this.txtPrice.Name = "txtPrice";
@@ -418,126 +420,116 @@
             // 
             // DeviceId
             // 
-            this.DeviceId.DataPropertyName = "Id";
-            this.DeviceId.HeaderText = "Id";
-            this.DeviceId.MinimumWidth = 6;
-            this.DeviceId.Name = "DeviceId";
-            this.DeviceId.ReadOnly = true;
-            this.DeviceId.Visible = false;
+            DeviceId.DataPropertyName = "Id";
+            DeviceId.HeaderText = "Id";
+            DeviceId.MinimumWidth = 6;
+            DeviceId.Name = "DeviceId";
+            DeviceId.ReadOnly = true;
+            DeviceId.Visible = false;
             // 
             // Brand
             // 
-            this.Brand.HeaderText = "Thương hiệu";
-            this.Brand.MinimumWidth = 6;
-            this.Brand.Name = "Brand";
-            this.Brand.ReadOnly = true;
+            Brand.HeaderText = "Thương hiệu";
+            Brand.MinimumWidth = 6;
+            Brand.Name = "Brand";
+            Brand.ReadOnly = true;
             // 
             // DeviceDetail
             // 
-            this.DeviceDetail.FillWeight = 79.3672F;
-            this.DeviceDetail.HeaderText = "Thông số chi tiết";
-            this.DeviceDetail.MinimumWidth = 6;
-            this.DeviceDetail.Name = "DeviceDetail";
+            DeviceDetail.FillWeight = 79.3672F;
+            DeviceDetail.HeaderText = "Thông số chi tiết";
+            DeviceDetail.MinimumWidth = 6;
+            DeviceDetail.Name = "DeviceDetail";
             // 
             // SpecsId
             // 
-            this.SpecsId.HeaderText = "Thông số";
-            this.SpecsId.MinimumWidth = 6;
-            this.SpecsId.Name = "SpecsId";
-            this.SpecsId.Visible = false;
+            SpecsId.HeaderText = "Thông số";
+            SpecsId.MinimumWidth = 6;
+            SpecsId.Name = "SpecsId";
+            SpecsId.Visible = false;
             // 
             // WarrantyPeriob
             // 
-            this.WarrantyPeriob.DataPropertyName = "WarrantyPeriod";
-            this.WarrantyPeriob.FillWeight = 79.3672F;
-            this.WarrantyPeriob.HeaderText = "Hạn bảo hành";
-            this.WarrantyPeriob.MinimumWidth = 6;
-            this.WarrantyPeriob.Name = "WarrantyPeriob";
-            this.WarrantyPeriob.ReadOnly = true;
+            WarrantyPeriob.DataPropertyName = "WarrantyPeriod";
+            WarrantyPeriob.FillWeight = 79.3672F;
+            WarrantyPeriob.HeaderText = "Hạn bảo hành";
+            WarrantyPeriob.MinimumWidth = 6;
+            WarrantyPeriob.Name = "WarrantyPeriob";
+            WarrantyPeriob.ReadOnly = true;
             // 
             // CreatedDate
             // 
-            this.CreatedDate.DataPropertyName = "CreatedDate";
-            this.CreatedDate.FillWeight = 79.3672F;
-            this.CreatedDate.HeaderText = "Ngày mua";
-            this.CreatedDate.MinimumWidth = 6;
-            this.CreatedDate.Name = "CreatedDate";
-            this.CreatedDate.ReadOnly = true;
+            CreatedDate.DataPropertyName = "CreatedDate";
+            CreatedDate.FillWeight = 79.3672F;
+            CreatedDate.HeaderText = "Ngày mua";
+            CreatedDate.MinimumWidth = 6;
+            CreatedDate.Name = "CreatedDate";
+            CreatedDate.ReadOnly = true;
             // 
             // Note
             // 
-            this.Note.DataPropertyName = "Note";
-            this.Note.FillWeight = 79.3672F;
-            this.Note.HeaderText = "Mô tả";
-            this.Note.MinimumWidth = 6;
-            this.Note.Name = "Note";
-            this.Note.ReadOnly = true;
+            Note.DataPropertyName = "Note";
+            Note.FillWeight = 79.3672F;
+            Note.HeaderText = "Mô tả";
+            Note.MinimumWidth = 6;
+            Note.Name = "Note";
+            Note.ReadOnly = true;
             // 
             // DeviceName
             // 
-            this.DeviceName.DataPropertyName = "Name";
-            this.DeviceName.FillWeight = 79.3672F;
-            this.DeviceName.HeaderText = "Tên thiết bị";
-            this.DeviceName.MinimumWidth = 6;
-            this.DeviceName.Name = "DeviceName";
-            this.DeviceName.ReadOnly = true;
+            DeviceName.DataPropertyName = "Name";
+            DeviceName.FillWeight = 79.3672F;
+            DeviceName.HeaderText = "Tên thiết bị";
+            DeviceName.MinimumWidth = 6;
+            DeviceName.Name = "DeviceName";
+            DeviceName.ReadOnly = true;
             // 
             // DeviceImage
             // 
-            this.DeviceImage.DataPropertyName = "Image";
-            this.DeviceImage.FillWeight = 79.3672F;
-            this.DeviceImage.HeaderText = "Thiết bị";
-            this.DeviceImage.MinimumWidth = 6;
-            this.DeviceImage.Name = "DeviceImage";
-            this.DeviceImage.ReadOnly = true;
-            this.DeviceImage.Visible = false;
+            DeviceImage.DataPropertyName = "Image";
+            DeviceImage.FillWeight = 79.3672F;
+            DeviceImage.HeaderText = "Thiết bị";
+            DeviceImage.MinimumWidth = 6;
+            DeviceImage.Name = "DeviceImage";
+            DeviceImage.ReadOnly = true;
+            DeviceImage.Visible = false;
             // 
             // dtgvQlThietBi
             // 
-            this.dtgvQlThietBi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgvQlThietBi.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dtgvQlThietBi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvQlThietBi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DeviceImage,
-            this.DeviceName,
-            this.Note,
-            this.CreatedDate,
-            this.WarrantyPeriob,
-            this.SpecsId,
-            this.DeviceDetail,
-            this.Brand,
-            this.DeviceId});
-            this.dtgvQlThietBi.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dtgvQlThietBi.Location = new System.Drawing.Point(0, 434);
-            this.dtgvQlThietBi.Margin = new System.Windows.Forms.Padding(2);
-            this.dtgvQlThietBi.Name = "dtgvQlThietBi";
-            this.dtgvQlThietBi.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dtgvQlThietBi.RowTemplate.Height = 33;
-            this.dtgvQlThietBi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvQlThietBi.Size = new System.Drawing.Size(1257, 303);
-            this.dtgvQlThietBi.TabIndex = 2;
-            this.dtgvQlThietBi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvQlThietBi_CellClick);
+            dtgvQlThietBi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dtgvQlThietBi.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            dtgvQlThietBi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgvQlThietBi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { DeviceImage, DeviceName, Note, CreatedDate, WarrantyPeriob, SpecsId, DeviceDetail, Brand, DeviceId });
+            dtgvQlThietBi.Dock = System.Windows.Forms.DockStyle.Top;
+            dtgvQlThietBi.Location = new System.Drawing.Point(0, 329);
+            dtgvQlThietBi.Margin = new System.Windows.Forms.Padding(1);
+            dtgvQlThietBi.Name = "dtgvQlThietBi";
+            dtgvQlThietBi.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dtgvQlThietBi.RowTemplate.Height = 33;
+            dtgvQlThietBi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            dtgvQlThietBi.Size = new System.Drawing.Size(899, 227);
+            dtgvQlThietBi.TabIndex = 2;
+            dtgvQlThietBi.CellClick += dtgvQlThietBi_CellClick;
             // 
             // frmQuanLyThietBi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1257, 739);
-            this.Controls.Add(this.dtgvQlThietBi);
-            this.Controls.Add(this.gbThongtinTB);
-            this.Controls.Add(this.lblQLTbi);
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "frmQuanLyThietBi";
-            this.Text = "QuanLyThietBi";
-            this.gbThongtinTB.ResumeLayout(false);
-            this.gbThongtinTB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_Device)).EndInit();
-            this.gbTimKiemTbi.ResumeLayout(false);
-            this.gbTimKiemTbi.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvQlThietBi)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(899, 421);
+            Controls.Add(dtgvQlThietBi);
+            Controls.Add(gbThongtinTB);
+            Controls.Add(lblQLTbi);
+            Margin = new System.Windows.Forms.Padding(1);
+            Name = "frmQuanLyThietBi";
+            Text = "QuanLyThietBi";
+            gbThongtinTB.ResumeLayout(false);
+            gbThongtinTB.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)ptb_Device).EndInit();
+            gbTimKiemTbi.ResumeLayout(false);
+            gbTimKiemTbi.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dtgvQlThietBi).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

@@ -363,6 +363,16 @@ Create table [System_Borrow_Device_Detail]
 	--constraint fk_BorrowDetail_Device foreign key(DeviceId) references [D_Device](Id),
 	--constraint fk_BorrowDetail_User foreign key(CreatedUserId) references [System_User](Id),
 )
+Create table [D_Position]
+(
+	[Id] int not null IDENTITY(1,1),
+	[Name] nvarchar(50) null,
+	[CreatedDate] DateTime null,
+	[CreatedUserId] int null,
+	--[SalaryPerHour] decimal(18,0) null,
+	[IsDeleted] bit,
+	constraint pk_Position primary key(Id)
+)
 
 /*Create table [System_AccessRightsGroup]
 (
@@ -393,18 +403,7 @@ Create table [System_AccessRightsGroupdetail]
 
 
 
-Create table [System_Position]
-(
-	[Id] int not null IDENTITY(1,1),
-	[Name] nvarchar(50) null,
-	[CreatedDate] DateTime null,
-	[ModifiedDate] DateTime null,
-	[CreatedUserId] int null,
-	[ModifiedUserId] int null,
-	[SalaryPerHour] decimal(18,0) null,
-	[IsDeleted] bit,
-	--constraint pk_Position primary key(Id)
-)
+
 
 Create table [System_PositionLog]
 (

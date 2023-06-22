@@ -88,6 +88,10 @@ namespace DeviceManagerApp
 
             cbNhaCungCap.DisplayMember = "Name";
             cbNhaCungCap.ValueMember = "Id";
+
+            cbKhoa.DataSource = FacultyBus.GetFacultyAfterDelete();
+            cbKhoa.DisplayMember = "Name";
+            cbKhoa.ValueMember = "Id";
         }
 
         private void LoadDataGridView()
