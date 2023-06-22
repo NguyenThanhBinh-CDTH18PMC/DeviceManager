@@ -32,7 +32,7 @@
             panel_Left = new System.Windows.Forms.Panel();
             btnQlLoaiThietBi = new System.Windows.Forms.Button();
             btnQR = new System.Windows.Forms.Button();
-            btnDevice = new System.Windows.Forms.Button();
+            btnQlGiaoVien = new System.Windows.Forms.Button();
             btnQlThanhLy = new System.Windows.Forms.Button();
             btnQlThuongHieu = new System.Windows.Forms.Button();
             btnQlKhoa = new System.Windows.Forms.Button();
@@ -56,7 +56,7 @@
             panel_Left.BackColor = System.Drawing.Color.Blue;
             panel_Left.Controls.Add(btnQlLoaiThietBi);
             panel_Left.Controls.Add(btnQR);
-            panel_Left.Controls.Add(btnDevice);
+            panel_Left.Controls.Add(btnQlGiaoVien);
             panel_Left.Controls.Add(btnQlThanhLy);
             panel_Left.Controls.Add(btnQlThuongHieu);
             panel_Left.Controls.Add(btnQlKhoa);
@@ -100,18 +100,19 @@
             btnQR.Text = "QR";
             btnQR.UseVisualStyleBackColor = false;
             // 
-            // btnDevice
+            // btnQlGiaoVien
             // 
-            btnDevice.BackColor = System.Drawing.Color.Blue;
-            btnDevice.Dock = System.Windows.Forms.DockStyle.Top;
-            btnDevice.ForeColor = System.Drawing.Color.White;
-            btnDevice.Location = new System.Drawing.Point(0, 633);
-            btnDevice.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            btnDevice.Name = "btnDevice";
-            btnDevice.Size = new System.Drawing.Size(349, 60);
-            btnDevice.TabIndex = 7;
-            btnDevice.Text = "Device";
-            btnDevice.UseVisualStyleBackColor = false;
+            btnQlGiaoVien.BackColor = System.Drawing.Color.Blue;
+            btnQlGiaoVien.Dock = System.Windows.Forms.DockStyle.Top;
+            btnQlGiaoVien.ForeColor = System.Drawing.Color.White;
+            btnQlGiaoVien.Location = new System.Drawing.Point(0, 633);
+            btnQlGiaoVien.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
+            btnQlGiaoVien.Name = "btnQlGiaoVien";
+            btnQlGiaoVien.Size = new System.Drawing.Size(349, 60);
+            btnQlGiaoVien.TabIndex = 7;
+            btnQlGiaoVien.Text = "Quản Lý Giáo Viên";
+            btnQlGiaoVien.UseVisualStyleBackColor = false;
+            btnQlGiaoVien.Click += btnQlGiaoVien_Click;
             // 
             // btnQlThanhLy
             // 
@@ -289,7 +290,7 @@
         private System.Windows.Forms.Button btnQlKhoa;
         private System.Windows.Forms.Button btnQlThuongHieu;
         private System.Windows.Forms.Button btnQlThanhLy;
-        private System.Windows.Forms.Button btnDevice;
+        private System.Windows.Forms.Button btnQlGiaoVien;
         private System.Windows.Forms.Button btnQR;
         private System.Windows.Forms.Button btnQlLoaiThietBi;
     }

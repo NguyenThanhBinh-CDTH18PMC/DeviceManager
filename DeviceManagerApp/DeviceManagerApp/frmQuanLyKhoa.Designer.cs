@@ -30,6 +30,8 @@
         {
             lblQlKhoa = new System.Windows.Forms.Label();
             gbTTKhoa = new System.Windows.Forms.GroupBox();
+            rtbKhoa = new System.Windows.Forms.RichTextBox();
+            lblMota = new System.Windows.Forms.Label();
             gbTimKiemKhoa = new System.Windows.Forms.GroupBox();
             btnTimKiemKhoa = new System.Windows.Forms.Button();
             txtTimKiemKhoa = new System.Windows.Forms.TextBox();
@@ -38,9 +40,10 @@
             btnThemKhoa = new System.Windows.Forms.Button();
             txtTenKhoa = new System.Windows.Forms.TextBox();
             lblTenKhoa = new System.Windows.Forms.Label();
-            txtMaKhoa = new System.Windows.Forms.TextBox();
-            lblMaKhoa = new System.Windows.Forms.Label();
             dgvQlKhoa = new System.Windows.Forms.DataGridView();
+            FacultyID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             gbTTKhoa.SuspendLayout();
             gbTimKiemKhoa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvQlKhoa).BeginInit();
@@ -59,14 +62,14 @@
             // 
             // gbTTKhoa
             // 
+            gbTTKhoa.Controls.Add(rtbKhoa);
+            gbTTKhoa.Controls.Add(lblMota);
             gbTTKhoa.Controls.Add(gbTimKiemKhoa);
             gbTTKhoa.Controls.Add(btnXoaKhoa);
             gbTTKhoa.Controls.Add(btnSuaKhoa);
             gbTTKhoa.Controls.Add(btnThemKhoa);
             gbTTKhoa.Controls.Add(txtTenKhoa);
             gbTTKhoa.Controls.Add(lblTenKhoa);
-            gbTTKhoa.Controls.Add(txtMaKhoa);
-            gbTTKhoa.Controls.Add(lblMaKhoa);
             gbTTKhoa.Dock = System.Windows.Forms.DockStyle.Top;
             gbTTKhoa.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             gbTTKhoa.Location = new System.Drawing.Point(0, 60);
@@ -75,6 +78,23 @@
             gbTTKhoa.TabIndex = 1;
             gbTTKhoa.TabStop = false;
             gbTTKhoa.Text = "Thông tin khoa";
+            // 
+            // rtbKhoa
+            // 
+            rtbKhoa.Location = new System.Drawing.Point(172, 115);
+            rtbKhoa.Name = "rtbKhoa";
+            rtbKhoa.Size = new System.Drawing.Size(226, 92);
+            rtbKhoa.TabIndex = 2;
+            rtbKhoa.Text = "";
+            // 
+            // lblMota
+            // 
+            lblMota.AutoSize = true;
+            lblMota.Location = new System.Drawing.Point(22, 115);
+            lblMota.Name = "lblMota";
+            lblMota.Size = new System.Drawing.Size(76, 25);
+            lblMota.TabIndex = 7;
+            lblMota.Text = "Mô Tả :";
             // 
             // gbTimKiemKhoa
             // 
@@ -105,7 +125,7 @@
             txtTimKiemKhoa.Location = new System.Drawing.Point(58, 59);
             txtTimKiemKhoa.Name = "txtTimKiemKhoa";
             txtTimKiemKhoa.Size = new System.Drawing.Size(273, 31);
-            txtTimKiemKhoa.TabIndex = 0;
+            txtTimKiemKhoa.TabIndex = 6;
             // 
             // btnXoaKhoa
             // 
@@ -118,6 +138,7 @@
             btnXoaKhoa.TabIndex = 5;
             btnXoaKhoa.Text = "Xóa";
             btnXoaKhoa.UseVisualStyleBackColor = false;
+            btnXoaKhoa.Click += btnXoaKhoa_Click;
             // 
             // btnSuaKhoa
             // 
@@ -130,6 +151,7 @@
             btnSuaKhoa.TabIndex = 4;
             btnSuaKhoa.Text = "Cập Nhật";
             btnSuaKhoa.UseVisualStyleBackColor = false;
+            btnSuaKhoa.Click += btnSuaKhoa_Click;
             // 
             // btnThemKhoa
             // 
@@ -142,50 +164,60 @@
             btnThemKhoa.TabIndex = 3;
             btnThemKhoa.Text = "Thêm Mới";
             btnThemKhoa.UseVisualStyleBackColor = false;
+            btnThemKhoa.Click += btnThemKhoa_Click;
             // 
             // txtTenKhoa
             // 
-            txtTenKhoa.Location = new System.Drawing.Point(162, 100);
+            txtTenKhoa.Location = new System.Drawing.Point(172, 42);
             txtTenKhoa.Name = "txtTenKhoa";
             txtTenKhoa.Size = new System.Drawing.Size(226, 31);
-            txtTenKhoa.TabIndex = 2;
+            txtTenKhoa.TabIndex = 1;
             // 
             // lblTenKhoa
             // 
             lblTenKhoa.AutoSize = true;
-            lblTenKhoa.Location = new System.Drawing.Point(12, 106);
+            lblTenKhoa.Location = new System.Drawing.Point(22, 48);
             lblTenKhoa.Name = "lblTenKhoa";
             lblTenKhoa.Size = new System.Drawing.Size(101, 25);
             lblTenKhoa.TabIndex = 2;
             lblTenKhoa.Text = "Tên Khoa :";
-            lblTenKhoa.Click += label1_Click;
-            // 
-            // txtMaKhoa
-            // 
-            txtMaKhoa.Location = new System.Drawing.Point(162, 42);
-            txtMaKhoa.Name = "txtMaKhoa";
-            txtMaKhoa.Size = new System.Drawing.Size(226, 31);
-            txtMaKhoa.TabIndex = 1;
-            // 
-            // lblMaKhoa
-            // 
-            lblMaKhoa.AutoSize = true;
-            lblMaKhoa.Location = new System.Drawing.Point(12, 48);
-            lblMaKhoa.Name = "lblMaKhoa";
-            lblMaKhoa.Size = new System.Drawing.Size(98, 25);
-            lblMaKhoa.TabIndex = 0;
-            lblMaKhoa.Text = "Mã Khoa :";
             // 
             // dgvQlKhoa
             // 
             dgvQlKhoa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvQlKhoa.Dock = System.Windows.Forms.DockStyle.Top;
+            dgvQlKhoa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { FacultyID, Column2, Column3 });
             dgvQlKhoa.Location = new System.Drawing.Point(0, 314);
             dgvQlKhoa.Name = "dgvQlKhoa";
             dgvQlKhoa.RowHeadersWidth = 62;
             dgvQlKhoa.RowTemplate.Height = 33;
-            dgvQlKhoa.Size = new System.Drawing.Size(1496, 283);
+            dgvQlKhoa.Size = new System.Drawing.Size(515, 283);
             dgvQlKhoa.TabIndex = 2;
+            dgvQlKhoa.CellClick += dgvQlKhoa_CellClick;
+            // 
+            // FacultyID
+            // 
+            FacultyID.DataPropertyName = "Id";
+            FacultyID.HeaderText = "Mã Khoa";
+            FacultyID.MinimumWidth = 8;
+            FacultyID.Name = "FacultyID";
+            FacultyID.Visible = false;
+            FacultyID.Width = 150;
+            // 
+            // Column2
+            // 
+            Column2.DataPropertyName = "Name";
+            Column2.HeaderText = "Tên Khoa";
+            Column2.MinimumWidth = 8;
+            Column2.Name = "Column2";
+            Column2.Width = 250;
+            // 
+            // Column3
+            // 
+            Column3.DataPropertyName = "Description";
+            Column3.HeaderText = "Mô Tả";
+            Column3.MinimumWidth = 8;
+            Column3.Name = "Column3";
+            Column3.Width = 200;
             // 
             // frmQuanLyKhoa
             // 
@@ -197,6 +229,7 @@
             Controls.Add(lblQlKhoa);
             Name = "frmQuanLyKhoa";
             Text = "QuanLyKhoa";
+            Load += frmQuanLyKhoa_Load;
             gbTTKhoa.ResumeLayout(false);
             gbTTKhoa.PerformLayout();
             gbTimKiemKhoa.ResumeLayout(false);
@@ -212,8 +245,6 @@
         private System.Windows.Forms.GroupBox gbTTKhoa;
         private System.Windows.Forms.TextBox txtTenKhoa;
         private System.Windows.Forms.Label lblTenKhoa;
-        private System.Windows.Forms.TextBox txtMaKhoa;
-        private System.Windows.Forms.Label lblMaKhoa;
         private System.Windows.Forms.GroupBox gbTimKiemKhoa;
         private System.Windows.Forms.Button btnTimKiemKhoa;
         private System.Windows.Forms.TextBox txtTimKiemKhoa;
@@ -221,5 +252,10 @@
         private System.Windows.Forms.Button btnSuaKhoa;
         private System.Windows.Forms.Button btnThemKhoa;
         private System.Windows.Forms.DataGridView dgvQlKhoa;
+        private System.Windows.Forms.RichTextBox rtbKhoa;
+        private System.Windows.Forms.Label lblMota;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FacultyID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }

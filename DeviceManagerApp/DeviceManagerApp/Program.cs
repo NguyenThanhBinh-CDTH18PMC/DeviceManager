@@ -17,8 +17,9 @@ namespace DeviceManagerApp
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new frmTrangChu());
-            Application.Run(new QR_Code());
+            Application.Run(new frmTrangChu());
+            //Application.Run(new frmQuanLyChucVu());
+            //Application.Run(new QR_Code());
             //Application.Run(new frmQuanLyLoaiThietBi());
             //Application.Run(new frmQuanLyThietBi());
         }

@@ -92,5 +92,11 @@ namespace DeviceManagerApp
             OpenChildForm(new frmQuanLyLoaiThietBi());
             lbl_text.Text = btnQlLoaiThietBi.Text;
         }
+
+        private void btnQlGiaoVien_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmQuanLyGiaoVien());
+            lbl_text.Text=btnQlGiaoVien.Text;
+        }
     }
 }
