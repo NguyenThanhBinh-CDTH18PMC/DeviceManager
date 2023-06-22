@@ -85,11 +85,11 @@ namespace DeviceManagerApp
                 teacher.Status = 0;
 
                 TeacherBus.InsertTeacher(teacher);
-                txtHoGV.Text = "";
-                txtTenGV.Text = "";
-                txtEmail.Text = "";
-                txtSdtGV.Text = "";
-                rtbDiaChiGv.Text = "";
+                //txtHoGV.Text = "";
+                //txtTenGV.Text = "";
+                //txtEmail.Text = "";
+                //txtSdtGV.Text = "";
+                //rtbDiaChiGv.Text = "";
                 dtNgaySinhGV.Value = DateTime.Now;
                 cbChucVu.SelectedIndex = 0;
                 rdNam.Checked = true;
