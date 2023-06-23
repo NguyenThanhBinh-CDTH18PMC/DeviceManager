@@ -79,7 +79,11 @@ create table [D_Device_Specs]
 create table [D_Shipment]
 (
 	[Id] int not null IDENTITY(1,1),
+	[BrandId] int not null,
+	[ApproverId] int not null,
 	[Name] nvarchar(50) null,
+	[ImportDate] DateTime null,
+	[Invoice] nvarchar(50) null,
 	[Description] nvarchar(100) null,
 	[CreatedDate] DateTime null,
 	[CreatedUserId] int null,
@@ -87,7 +91,10 @@ create table [D_Shipment]
 	[Status] int null,
 	constraint pk_Shipment primary key(Id),
 	--constraint fk_Shipment_User foreign key(CreatedUserId) references [System_User](Id),
+	--constraint fk_Shipment_User foreign key(ApproverId) references [System_User](Id),
+	--constraint fk_Shipment_Brand foreign key(BrandId) references [D_Brand](Id),
 )
+--drop table D_Shipment
 
 Create table [D_Brand]
 (
@@ -197,12 +204,24 @@ Create table [D_Room]
 	--constraint fk_Room_User foreign key(CreatedUserId) references [System_User](Id),
 )
 
+Create table [D_Location]
+(
+	[Id] int not null IDENTITY(1,1),
+	[Name] nvarchar(50) null,
+	[Note] nvarchar(100) null,
+	[CreatedDate] DateTime null,
+	[CreatedUserId] int null,
+	[IsDeleted] bit,
+	[Status] int null,
+	constraint pk_Locaton primary key(Id)
+)
+
 Create table D_DeviceRegistration
 (
 	[Id] int not null IDENTITY(1,1),
 	[DeviceId] int not null,
 	[RoomId] int not null,
-	[Quantity] int null,
+	[LocationId] int null,
 	[CreatedDate] DateTime null,
 	[CreatedUserId] int null,
 	[IsDeleted] bit,
@@ -210,8 +229,10 @@ Create table D_DeviceRegistration
 	constraint pk_DeviceRegis primary key(Id),
 	--constraint fk_DeviceRegis_Device foreign key(DeviceId) references [D_Device](Id),
 	--constraint fk_DeviceRegis_Room foreign key(RoomId) references [D_Room](Id),
+	--constraint fk_DeviceRegis_Location foreign key(LocationId) references [D_Location](Id),
 	--constraint fk_DeviceRegis_User foreign key(CreatedUserId) references [System_User](Id),
 )
+--drop table D_DeviceRegistration
 
 Create table D_Malfunction
 (
