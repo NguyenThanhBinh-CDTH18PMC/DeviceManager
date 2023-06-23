@@ -171,7 +171,6 @@ C:\Users\This PC\OneDrive\Máy tính\DeviceManager\DeviceManager\DeviceManagerAp
 C:\Users\This PC\OneDrive\Máy tính\DeviceManager\DeviceManager\DeviceManagerApp\DeviceManagerApp\obj\Debug\netcoreapp3.1\DeviceManagerApp.frmQuanLyThuongHieu.resources
 C:\Users\This PC\OneDrive\Máy tính\DeviceManager\DeviceManager\DeviceManagerApp\DeviceManagerApp\obj\Debug\netcoreapp3.1\DeviceManagerApp.frmTrangChu.resources
 C:\Users\This PC\OneDrive\Máy tính\DeviceManager\DeviceManager\DeviceManagerApp\DeviceManagerApp\obj\Debug\netcoreapp3.1\DeviceManagerApp.Properties.Resources.resources
-C:\Users\This PC\OneDrive\Máy tính\DeviceManager\DeviceManager\DeviceManagerApp\DeviceManagerApp\obj\Debug\netcoreapp3.1\DeviceManagerApp.QR_Code.resources
 C:\Users\This PC\OneDrive\Máy tính\DeviceManager\DeviceManager\DeviceManagerApp\DeviceManagerApp\obj\Debug\netcoreapp3.1\DeviceManagerApp.csproj.GenerateResource.cache
 C:\Users\This PC\OneDrive\Máy tính\DeviceManager\DeviceManager\DeviceManagerApp\DeviceManagerApp\obj\Debug\netcoreapp3.1\DeviceManagerApp.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\This PC\OneDrive\Máy tính\DeviceManager\DeviceManager\DeviceManagerApp\DeviceManagerApp\obj\Debug\netcoreapp3.1\DeviceManagerApp.AssemblyInfoInputs.cache
@@ -196,3 +195,4 @@ D:\Thanh Binh\DeviceManager\DeviceManagerApp\DeviceManagerApp\obj\Debug\netcorea
 D:\Thanh Binh\DeviceManager\DeviceManagerApp\DeviceManagerApp\obj\Debug\netcoreapp3.1\DeviceManagerApp.frmQuanLyGiaoVien.resources
 C:\Users\This PC\OneDrive\Máy tính\DeviceManager\DeviceManager\DeviceManagerApp\DeviceManagerApp\obj\Debug\netcoreapp3.1\DeviceManagerApp.frmQuanLyChucVu.resources
 C:\Users\This PC\OneDrive\Máy tính\DeviceManager\DeviceManager\DeviceManagerApp\DeviceManagerApp\obj\Debug\netcoreapp3.1\DeviceManagerApp.frmQuanLyGiaoVien.resources
+C:\Users\This PC\OneDrive\Máy tính\DeviceManager\DeviceManager\DeviceManagerApp\DeviceManagerApp\obj\Debug\netcoreapp3.1\DeviceManagerApp.frmQR_Code.resources

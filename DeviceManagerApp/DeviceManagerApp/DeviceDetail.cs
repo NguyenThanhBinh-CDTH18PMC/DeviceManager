@@ -25,7 +25,7 @@ namespace DeviceManagerApp
             Setting();
             //AddSpecsByType(de.DeviceTypeId, de.Id);
             lb_DeviceName.Text = de.Name;
-            ptb_Device.Image = de.Image != null ? Image.FromFile(SettingClass.path_Folder_Image_Device + de.Image) : Image.FromFile(SettingClass.path_NoImage_Default);
+            ptb_Device.Image = !String.IsNullOrEmpty(de.Image) ? Image.FromFile(SettingClass.path_Folder_Image_Device + de.Image) : Image.FromFile(SettingClass.path_NoImage_Default);
             LoadListDetail();
             Load_Form();
             
