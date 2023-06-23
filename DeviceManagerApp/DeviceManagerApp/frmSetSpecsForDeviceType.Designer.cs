@@ -34,15 +34,14 @@ namespace DeviceManagerApp
             this.label2 = new System.Windows.Forms.Label();
             this.btn_Add = new System.Windows.Forms.Button();
             this.dtgvListSpecs = new System.Windows.Forms.DataGridView();
-            this.btn_Create = new System.Windows.Forms.Button();
-            this.txtNewSpecs = new System.Windows.Forms.TextBox();
-            this.ckb_AddOther = new System.Windows.Forms.CheckBox();
-            this.txt_TypeTitle = new System.Windows.Forms.Label();
-            this.btn_Remove = new System.Windows.Forms.Button();
             this.SpecsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameDeviceType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DataType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Action = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.txtNewSpecs = new System.Windows.Forms.TextBox();
+            this.ckb_AddOther = new System.Windows.Forms.CheckBox();
+            this.txt_TypeTitle = new System.Windows.Forms.Label();
+            this.btn_Remove = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvListSpecs)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,59 +104,6 @@ namespace DeviceManagerApp
             this.dtgvListSpecs.TabIndex = 4;
             this.dtgvListSpecs.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvListSpecs_CellClick);
             // 
-            // btn_Create
-            // 
-            this.btn_Create.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_Create.Location = new System.Drawing.Point(305, 237);
-            this.btn_Create.Name = "btn_Create";
-            this.btn_Create.Size = new System.Drawing.Size(95, 42);
-            this.btn_Create.TabIndex = 6;
-            this.btn_Create.Text = "TẠO";
-            this.btn_Create.UseVisualStyleBackColor = true;
-            this.btn_Create.Click += new System.EventHandler(this.btn_Create_Click);
-            // 
-            // txtNewSpecs
-            // 
-            this.txtNewSpecs.Location = new System.Drawing.Point(195, 171);
-            this.txtNewSpecs.Name = "txtNewSpecs";
-            this.txtNewSpecs.ReadOnly = true;
-            this.txtNewSpecs.Size = new System.Drawing.Size(205, 27);
-            this.txtNewSpecs.TabIndex = 9;
-            // 
-            // ckb_AddOther
-            // 
-            this.ckb_AddOther.AutoSize = true;
-            this.ckb_AddOther.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.ckb_AddOther.Location = new System.Drawing.Point(29, 174);
-            this.ckb_AddOther.Name = "ckb_AddOther";
-            this.ckb_AddOther.Size = new System.Drawing.Size(153, 23);
-            this.ckb_AddOther.TabIndex = 10;
-            this.ckb_AddOther.Text = "Thông số khác:";
-            this.ckb_AddOther.UseVisualStyleBackColor = true;
-            this.ckb_AddOther.CheckedChanged += new System.EventHandler(this.ckb_AddOther_CheckedChanged);
-            // 
-            // txt_TypeTitle
-            // 
-            this.txt_TypeTitle.AutoSize = true;
-            this.txt_TypeTitle.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txt_TypeTitle.Location = new System.Drawing.Point(29, 71);
-            this.txt_TypeTitle.Name = "txt_TypeTitle";
-            this.txt_TypeTitle.Size = new System.Drawing.Size(81, 24);
-            this.txt_TypeTitle.TabIndex = 11;
-            this.txt_TypeTitle.Text = "Thiết bị";
-            // 
-            // btn_Remove
-            // 
-            this.btn_Remove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btn_Remove.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_Remove.Location = new System.Drawing.Point(164, 237);
-            this.btn_Remove.Name = "btn_Remove";
-            this.btn_Remove.Size = new System.Drawing.Size(106, 42);
-            this.btn_Remove.TabIndex = 12;
-            this.btn_Remove.Text = "LOẠI BỎ";
-            this.btn_Remove.UseVisualStyleBackColor = false;
-            this.btn_Remove.Click += new System.EventHandler(this.btn_Remove_Click);
-            // 
             // SpecsId
             // 
             this.SpecsId.DataPropertyName = "Id";
@@ -190,6 +136,48 @@ namespace DeviceManagerApp
             this.Action.MinimumWidth = 6;
             this.Action.Name = "Action";
             // 
+            // txtNewSpecs
+            // 
+            this.txtNewSpecs.Location = new System.Drawing.Point(195, 171);
+            this.txtNewSpecs.Name = "txtNewSpecs";
+            this.txtNewSpecs.ReadOnly = true;
+            this.txtNewSpecs.Size = new System.Drawing.Size(205, 27);
+            this.txtNewSpecs.TabIndex = 9;
+            // 
+            // ckb_AddOther
+            // 
+            this.ckb_AddOther.AutoSize = true;
+            this.ckb_AddOther.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ckb_AddOther.Location = new System.Drawing.Point(29, 174);
+            this.ckb_AddOther.Name = "ckb_AddOther";
+            this.ckb_AddOther.Size = new System.Drawing.Size(153, 23);
+            this.ckb_AddOther.TabIndex = 10;
+            this.ckb_AddOther.Text = "Thông số khác:";
+            this.ckb_AddOther.UseVisualStyleBackColor = true;
+            this.ckb_AddOther.CheckedChanged += new System.EventHandler(this.ckb_AddOther_CheckedChanged);
+            // 
+            // txt_TypeTitle
+            // 
+            this.txt_TypeTitle.AutoSize = true;
+            this.txt_TypeTitle.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txt_TypeTitle.Location = new System.Drawing.Point(29, 71);
+            this.txt_TypeTitle.Name = "txt_TypeTitle";
+            this.txt_TypeTitle.Size = new System.Drawing.Size(88, 24);
+            this.txt_TypeTitle.TabIndex = 11;
+            this.txt_TypeTitle.Text = "Thiết bị:";
+            // 
+            // btn_Remove
+            // 
+            this.btn_Remove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_Remove.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_Remove.Location = new System.Drawing.Point(294, 237);
+            this.btn_Remove.Name = "btn_Remove";
+            this.btn_Remove.Size = new System.Drawing.Size(106, 42);
+            this.btn_Remove.TabIndex = 12;
+            this.btn_Remove.Text = "LOẠI BỎ";
+            this.btn_Remove.UseVisualStyleBackColor = false;
+            this.btn_Remove.Click += new System.EventHandler(this.btn_Remove_Click);
+            // 
             // frmSetSpecsForDeviceType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -199,7 +187,6 @@ namespace DeviceManagerApp
             this.Controls.Add(this.txt_TypeTitle);
             this.Controls.Add(this.ckb_AddOther);
             this.Controls.Add(this.txtNewSpecs);
-            this.Controls.Add(this.btn_Create);
             this.Controls.Add(this.dtgvListSpecs);
             this.Controls.Add(this.btn_Add);
             this.Controls.Add(this.label2);
@@ -222,7 +209,6 @@ namespace DeviceManagerApp
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_Add;
         private System.Windows.Forms.DataGridView dtgvListSpecs;
-        private System.Windows.Forms.Button btn_Create;
         private System.Windows.Forms.TextBox txtNewSpecs;
         private System.Windows.Forms.CheckBox ckb_AddOther;
         private System.Windows.Forms.Label txt_TypeTitle;

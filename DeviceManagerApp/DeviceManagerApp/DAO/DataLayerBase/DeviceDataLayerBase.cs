@@ -211,7 +211,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         /// </summary>
         public static List<DeviceModel> SelectAllDynamicWhere(int? id, int? deviceTypeId, int? brandId, int? facultyId, int? shipmentId, string name, string image, string qr_code, decimal? price, string note, string description, DateTime? warrantyPeriod, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
         {
-            List<DeviceModel> objDeviceCol = null;
+            List<DeviceModel> objDeviceCol = new List<DeviceModel>();
             string storedProcName = "[dbo].[Device_SelectAllWhereDynamic]";
 
             using (SqlConnection connection = new SqlConnection(PathString.ConnectionString))
@@ -234,8 +234,6 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                         {
                             if (dt.Rows.Count > 0)
                             {
-                                objDeviceCol = new List<DeviceModel>();
-
                                 foreach (DataRow dr in dt.Rows)
                                 {
                                     DeviceModel objDevice = CreateDeviceFromDataRowShared(dr);

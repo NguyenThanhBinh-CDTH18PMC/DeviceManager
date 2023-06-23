@@ -50,7 +50,7 @@ namespace DeviceManagerApp.BUS.BusinessObject
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("Lỗi Insert/n" + ex.Message);
+                MessageBox.Show("Thất bại! Lỗi " + ex.Message, "Thông Báo", MessageBoxButtons.OK);
                 return false;
             }
             
@@ -60,7 +60,7 @@ namespace DeviceManagerApp.BUS.BusinessObject
         public static void AddDetail(int deviceTypeId, int DeviceType_SpecsId, string specsName)
         {
             List<DeviceModel> deviceChange = DeviceBus.SelectAllDynamicWhere(null, deviceTypeId,null,null, null, null, null, null, null, null, null, null, null, null, false, null);
-            if (deviceChange != null)
+            if (deviceChange.Count > 0)
             {
                 foreach (DeviceModel de in deviceChange)
                 {
@@ -70,11 +70,10 @@ namespace DeviceManagerApp.BUS.BusinessObject
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("That Bai, Loi " + ex.Message);
+                        MessageBox.Show("Thất bại! Lỗi " + ex.Message, "Thông Báo", MessageBoxButtons.OK);
                     }
                 }
-                MessageBox.Show("Thanh cong");
-
+                MessageBox.Show("Thành công", "Thông Báo", MessageBoxButtons.OK);
 
             }
         }

@@ -35,4 +35,12 @@ namespace DeviceManagerApp
     {
     }
 
+    #region Manage Specs
+    public delegate void FireEventFor_Action_AddSpecsForDeviceTypeEventArgs(object sender, Action_AddSpecsForDeviceTypeEventArgs e);
+    public class Action_AddSpecsForDeviceTypeEventArgs : EventArgs
+    {
+
+    }
+
+    #endregion
 }
