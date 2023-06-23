@@ -43,7 +43,7 @@
     <Compile Update="frmTrangChu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="QR_Code.cs">
+    <Compile Update="frmQR_Code.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

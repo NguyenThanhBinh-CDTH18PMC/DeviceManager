@@ -468,7 +468,6 @@ Create table [System_Decentralization]
 	[UserId] int null,
 	[StaffId] int null,
 	[CreatedDate] DateTime null,
-	[ModifiedDate] DateTime null,
 	[CreatedUserId] int null,
 	[ModifiedUserId] int null,
 	[IsDeleted] bit null,

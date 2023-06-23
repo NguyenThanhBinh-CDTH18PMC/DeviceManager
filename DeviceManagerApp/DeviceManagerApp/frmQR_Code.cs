@@ -14,27 +14,23 @@ using System.Drawing.Imaging;
 
 namespace DeviceManagerApp
 {
-    public partial class QR_Code : Form
+    public partial class frmQR_Code : Form
     {
-        public QR_Code()
+        public string info; 
+        public frmQR_Code(string info)
         {
             InitializeComponent();
+            this.info = info;
             ptb_show.SizeMode = PictureBoxSizeMode.Zoom;
+            show_QR();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void show_QR()
         {
-            string detail = "\n ";
-            List<DeviceDetailModel> d = DeviceDetailBus.SelectAllDynamicWhere(null, 1, null, null, null, null, null, null, null, null, null);
-            foreach (DeviceDetailModel a in d)
-            {
-                detail += a.NameSpecs + ": " + a.Description + "\n";
-            }
-            
-            Random R = new Random();
-            int QR = R.Next(100, 1000);
+            //Random R = new Random();
+            //int QR = R.Next(100, 1000);
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
-            QRCodeData qrCodeData = qrGenerator.CreateQrCode("Thiet bi: " + QR + detail, QRCodeGenerator.ECCLevel.Q);
+            QRCodeData qrCodeData = qrGenerator.CreateQrCode(info, QRCodeGenerator.ECCLevel.Q);
             QRCode qrCode = new QRCode(qrCodeData);
             Bitmap qrCodeImage = qrCode.GetGraphic(4);
 

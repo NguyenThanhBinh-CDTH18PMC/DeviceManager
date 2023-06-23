@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.lblQLTbi = new System.Windows.Forms.Label();
             this.gbThongtinTB = new System.Windows.Forms.GroupBox();
+            this.cb_ListImg = new System.Windows.Forms.ComboBox();
+            this.btn_Make_QR = new System.Windows.Forms.Button();
             this.cbPhong = new System.Windows.Forms.ComboBox();
             this.lblPhong = new System.Windows.Forms.Label();
             this.cbNhaCungCap = new System.Windows.Forms.ComboBox();
@@ -90,6 +92,8 @@
             // gbThongtinTB
             // 
             this.gbThongtinTB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.gbThongtinTB.Controls.Add(this.cb_ListImg);
+            this.gbThongtinTB.Controls.Add(this.btn_Make_QR);
             this.gbThongtinTB.Controls.Add(this.cbPhong);
             this.gbThongtinTB.Controls.Add(this.lblPhong);
             this.gbThongtinTB.Controls.Add(this.cbNhaCungCap);
@@ -124,6 +128,32 @@
             this.gbThongtinTB.TabIndex = 1;
             this.gbThongtinTB.TabStop = false;
             this.gbThongtinTB.Text = "Thông tin thiết bị";
+            // 
+            // cb_ListImg
+            // 
+            this.cb_ListImg.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_ListImg.FormattingEnabled = true;
+            this.cb_ListImg.Location = new System.Drawing.Point(13, 85);
+            this.cb_ListImg.Name = "cb_ListImg";
+            this.cb_ListImg.Size = new System.Drawing.Size(229, 28);
+            this.cb_ListImg.TabIndex = 26;
+            this.cb_ListImg.SelectedIndexChanged += new System.EventHandler(this.cb_ListImg_SelectedIndexChanged);
+            // 
+            // btn_Make_QR
+            // 
+            this.btn_Make_QR.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Make_QR.BackgroundImage = global::DeviceManagerApp.Properties.Resources.QR2;
+            this.btn_Make_QR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_Make_QR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Make_QR.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_Make_QR.Location = new System.Drawing.Point(921, 298);
+            this.btn_Make_QR.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btn_Make_QR.Name = "btn_Make_QR";
+            this.btn_Make_QR.Size = new System.Drawing.Size(82, 76);
+            this.btn_Make_QR.TabIndex = 25;
+            this.toolTip1.SetToolTip(this.btn_Make_QR, "Tạo mã quét");
+            this.btn_Make_QR.UseVisualStyleBackColor = false;
+            this.btn_Make_QR.Click += new System.EventHandler(this.btn_Make_QR_Click);
             // 
             // cbPhong
             // 
@@ -586,5 +616,7 @@
         private System.Windows.Forms.Label lblNhaCungCap;
         private System.Windows.Forms.Label lblLoaiTbi;
         private System.Windows.Forms.Label lblTenTBi;
+        private System.Windows.Forms.Button btn_Make_QR;
+        private System.Windows.Forms.ComboBox cb_ListImg;
     }
 }

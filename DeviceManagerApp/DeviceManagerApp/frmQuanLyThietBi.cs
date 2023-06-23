@@ -29,7 +29,7 @@ namespace DeviceManagerApp
             Load_Form();
         }
 
-        private UserModel tkql;
+        //private UserModel tkql;
         //Các cài đặt mặt định của form
 
 
@@ -50,6 +50,35 @@ namespace DeviceManagerApp
             txtPrice.Text = "0.0";
         }
 
+        private void LoadListImg()
+        {
+            List<DeviceModel> l = new List<DeviceModel>();
+            if(listDevice != null && listDevice.Count > 0)
+            {
+                foreach(DeviceModel d in listDevice)
+                {
+                    if(!String.IsNullOrEmpty(d.Image))
+                    {
+                        bool f = true;
+                        foreach(DeviceModel dd in l)
+                        {
+                            if(dd.Image == d.Image)
+                            {
+                                f = false;
+                            }
+                        }
+                        if (f) 
+                        {
+                            l.Add(d);
+                        }
+                    }
+                }
+                cb_ListImg.DisplayMember = "Image";
+                cb_ListImg.ValueMember = "Image";
+                cb_ListImg.DataSource = l.ToList();
+
+            }
+        }
 
         public void ActionReset(int req)
         {
@@ -66,32 +95,39 @@ namespace DeviceManagerApp
         private void Load_Form()
         {
             LoadDataGridView();
+            dtgvQlThietBi.ClearSelection();
             Load_Source();
+            LoadListImg();
         }
 
         private void Load_Source()
         {
-            cbLoaiTbi.DataSource = Device_TypeBus.GetDevice_TypeAfterDelete();
+            
             cbLoaiTbi.DisplayMember = "Name";
             cbLoaiTbi.ValueMember = "Id";
+            cbLoaiTbi.DataSource = Device_TypeBus.GetDevice_TypeAfterDelete();
 
-            cbKhoa.DataSource = FacultyBus.SelectAllDynamicWhere(null, null, null, null, null, null,false);
+
             cbKhoa.DisplayMember = "Name";
             cbKhoa.ValueMember = "Id";
+            cbKhoa.DataSource = FacultyBus.SelectAllDynamicWhere(null, null, null, null, null, null, false);
 
-            cbPhong.DataSource = RoomBus.GetRoomAfterDelete();
+
             cbPhong.DisplayMember = "Name";
             cbPhong.ValueMember = "Id";
+            cbPhong.DataSource = RoomBus.GetRoomAfterDelete();
 
             //cbNhaCungCap.DataSource = BrandBus.GetAllBrand();
-            cbNhaCungCap.DataSource = BrandBus.GetBrandAfterDelete();
+            
 
             cbNhaCungCap.DisplayMember = "Name";
             cbNhaCungCap.ValueMember = "Id";
+            cbNhaCungCap.DataSource = BrandBus.GetBrandAfterDelete();
 
-            cbKhoa.DataSource = FacultyBus.GetFacultyAfterDelete();
-            cbKhoa.DisplayMember = "Name";
-            cbKhoa.ValueMember = "Id";
+            
+            //cbKhoa.DisplayMember = "Name";
+            //cbKhoa.ValueMember = "Id";
+            //cbKhoa.DataSource = FacultyBus.GetFacultyAfterDelete();
         }
 
         private void LoadDataGridView()
@@ -113,6 +149,7 @@ namespace DeviceManagerApp
             else
                 listDevice = new List<DeviceModel>();
             ReLoadDataGridView(listDevice);
+            
         }
 
         private void ReLoadDataGridView(List<DeviceModel> listData)
@@ -219,7 +256,7 @@ namespace DeviceManagerApp
                         txtPrice.Text = de.Price.ToString();
                         txtTenTbi.Text = de.Name;
                         rtbGhiChuTbi.Text = de.Note;
-                        if(de.Image == null)
+                        if(String.IsNullOrEmpty(de.Image))
                         {
                             ptb_Device.Image = Image.FromFile(SettingClass.path_NoImage_Default);
                         }
@@ -262,6 +299,7 @@ namespace DeviceManagerApp
                 MessageBox.Show("Thành công! Vui lòng cập nhật thông số chi tiết thiết bị sớm!", "Thông Báo", MessageBoxButtons.OK);
                 listDevice.Add(DeviceBus.SelectByPrimaryKey(device.Id));
                 ReLoadDataGridView(listDevice);
+                currentDevice = null;
             }
             catch (Exception ex)
             {
@@ -273,12 +311,12 @@ namespace DeviceManagerApp
         private DeviceModel GetDeviceInfo()
         {
             DeviceModel device = new DeviceModel();
-            device.Id = currentDevice.Id;
+            device.Id = currentDevice != null ? currentDevice.Id : 1;
             device.Name = txtTenTbi.Text;
             device.DeviceTypeId = (int)cbLoaiTbi.SelectedValue;
             device.BrandId = (int)cbNhaCungCap.SelectedValue;
             device.ShipmentId = 1; // test
-            device.Image = ptb_Device.Tag.ToString();
+            device.Image = ptb_Device.Tag!= null ? ptb_Device.Tag.ToString() : null;
             device.FacultyId = (int)cbKhoa.SelectedValue;
             device.Note = rtbGhiChuTbi.Text;
             device.IsDeleted = false;
@@ -391,8 +429,8 @@ namespace DeviceManagerApp
                 return true;
             if (cbNhaCungCap.SelectedItem == null)
                 return true;
-            //if (cbKhoa.SelectedItem == null)
-            //    return true;
+            if (cbKhoa.SelectedItem == null)
+               return true;
 
             return false;
         }
@@ -446,6 +484,26 @@ namespace DeviceManagerApp
         private void btnXoaTbi_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_Make_QR_Click(object sender, EventArgs e)
+        {
+            if(currentDevice!= null)
+            {
+                string info = DeviceInfo(currentDevice);
+                Form qr = new frmQR_Code(info);
+                qr.Show();
+                
+            }
+            
+        }
+
+        private void cb_ListImg_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string img = cb_ListImg.SelectedValue.ToString();
+            ptb_Device.Tag = img;
+            Image i = Image.FromFile(SettingClass.path_Folder_Image_Device + img);
+            ptb_Device.Image = i;
         }
     }
 }
