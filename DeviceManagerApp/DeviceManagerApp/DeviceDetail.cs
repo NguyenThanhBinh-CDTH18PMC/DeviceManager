@@ -32,7 +32,10 @@ namespace DeviceManagerApp
         }
 
         #region Load
-
+        private void EventChangeData(object Sender, Action_AddSpecsForDeviceTypeEventArgs eventArgs)
+        {
+            MessageBox.Show("Có cập nhật", "Thông Báo", MessageBoxButtons.OK);
+        }
         public void Load_Form()
         {
             lb_DeviceName.Text = device.Name;

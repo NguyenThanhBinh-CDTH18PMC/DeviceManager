@@ -14,6 +14,9 @@ namespace DeviceManagerApp
     public partial class frmSetSpecsForDeviceType : Form
     {
         #region  model
+        //Event throw
+        public event FireEventFor_Action_AddSpecsForDeviceTypeEventArgs actionAddSpecs = null;
+
         List<SpecsModel> listSpecs = null;
         Device_TypeModel currentType = null;
         int currentLenght = 0;
@@ -38,7 +41,7 @@ namespace DeviceManagerApp
             InitializeComponent();
             Setting();
             currentType = deviceType;
-            btn_Create.Text = "Cập nhật";
+            txt_TypeTitle.Text += " " + currentType.Name;
             isUpdate = true;
             listSpecs = SpecsBus.SelectAllSpecs_By_DeviceTypeId(currentType.Id, false);
             currentLenght = listSpecs.Count;
@@ -77,6 +80,7 @@ namespace DeviceManagerApp
         #endregion
 
         #region Event Change form
+        
         #endregion
 
         #region Add or Update Device Type Specs
@@ -112,8 +116,13 @@ namespace DeviceManagerApp
                 newSpecs.Name = txtNewSpecs.Text.Trim();
                 newSpecs.CreatedDate = DateTime.Now;
                 newSpecs.CreatedUserId = 1;
-                int newSpecsId = SpecsBus.Insert(newSpecs);
+                newSpecs.Id = SpecsBus.Insert(newSpecs);
                 DeviceType_SpecsBus.EventInsert(getDeviceTypeSpecs(newSpecs, false),currentType.Id,newSpecs.Name);
+                //throw event
+                if(actionAddSpecs!=null)
+                {
+                    actionAddSpecs(this, new Action_AddSpecsForDeviceTypeEventArgs { });
+                }
                 add = newSpecs;
                 LoadListSpecs();
                 listSpecs.Add(newSpecs);
@@ -125,7 +134,7 @@ namespace DeviceManagerApp
                 SpecsModel objSpecs = ((SpecsModel)cb_Specs.SelectedItem);
                 add = objSpecs;
                 listSpecs.Add(objSpecs);
-                DeviceType_SpecsBus.Insert(getDeviceTypeSpecs(objSpecs, false));
+                DeviceType_SpecsBus.EventInsert(getDeviceTypeSpecs(objSpecs, false),currentType.Id,objSpecs.Name);
                 LoadDataSource(listSpecs);
             }
         }
@@ -167,7 +176,7 @@ namespace DeviceManagerApp
 
         private void btn_Remove_Click(object sender, EventArgs e)
         {
-            if(listSpecs.Count > 0)
+            if (listSpecs.Count > 0 && currentSpecsId != 0)
             {
                 foreach(SpecsModel spe in listSpecs)
                 {
@@ -175,7 +184,19 @@ namespace DeviceManagerApp
                     {
                         listSpecs.Remove(spe);
                         DeviceType_SpecsBus.Update(getDeviceTypeSpecs(spe, true));
+                        List<DeviceDetailModel> list = DeviceDetailBus.SelectAllDynamicWhere(null, null, spe.Id, null, null, null, null, null, null, false, null);
+                        if(list.Count > 0)
+                        {
+                            foreach(DeviceDetailModel deviceDetailModel in list)
+                            {
+                                deviceDetailModel.IsDeleted = true;
+                                DeviceDetailBus.Update(deviceDetailModel);
+                            }
+                        }
+
                         LoadDataSource(listSpecs);
+                        currentSpecsId = 0;
+                        dtgvListSpecs.ClearSelection();
                         return;
                     }
                 }

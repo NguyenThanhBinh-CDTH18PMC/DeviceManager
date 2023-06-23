@@ -318,6 +318,7 @@
             this.btnXoaTbi.TabIndex = 11;
             this.toolTip1.SetToolTip(this.btnXoaTbi, "Xóa");
             this.btnXoaTbi.UseVisualStyleBackColor = false;
+            this.btnXoaTbi.Click += new System.EventHandler(this.btnXoaTbi_Click);
             // 
             // btnSuaTbi
             // 

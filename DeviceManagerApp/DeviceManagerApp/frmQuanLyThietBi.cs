@@ -156,12 +156,7 @@ namespace DeviceManagerApp
             //od.ShowDialog();
         }
 
-        //private void Od_actiondevices(object sender, ActiondevicesSuccessEventArgs e)
-        //{
-        //    //throw new NotImplementedException();
-        //    Load_Source();
-        //    Load_Form();
-        //}
+        
 
         //Xử lý trong form - tab Quản lý bàn
         //BanBUS tables = new BanBUS();
@@ -374,6 +369,7 @@ namespace DeviceManagerApp
         {
             if (currentDevice != null)
             {
+
                 Form f = new DeviceDetail(currentDevice);
                 f.Show();
             }
@@ -445,6 +441,11 @@ namespace DeviceManagerApp
                 MessageBox.Show("Thất bại! Lỗi " + ex.Message, "Thông Báo", MessageBoxButtons.OK);
                 return;
             }
+        }
+
+        private void btnXoaTbi_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
