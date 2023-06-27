@@ -106,7 +106,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         /// <summary>
         /// Gets the total number of records in the Location table based on search parameters
         /// </summary>
-        public static int GetRecordCountDynamicWhere(int? id, string name, string image, string note, DateTime? createdDate, int? createdUserId, bool? isDeleted)
+        public static int GetRecordCountDynamicWhere(int? id, string name, DateTime? createdDate, int? createdUserId, bool? isDeleted)
         {
             int recordCount = 0;
             string storedProcName = "[dbo].[Location_GetRecordCountWhereDynamic]";
@@ -120,7 +120,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                     command.CommandType = CommandType.StoredProcedure;
 
                     // search parameters
-                    AddSearchCommandParamsShared(command, id, name, image, note, createdDate, createdUserId, isDeleted);
+                    AddSearchCommandParamsShared(command, id, name, createdDate, createdUserId, isDeleted);
 
                     using (SqlDataAdapter da = new SqlDataAdapter(command))
                     {
@@ -152,7 +152,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         /// <summary>
         /// Selects Location records sorted by the sortByExpression and returns records from the startRowIndex with rows (# of records) based on search parameters
         /// </summary>
-        public static List<LocationModel> SelectSkipAndTakeDynamicWhere(int? id, string name, string image, string note, DateTime? createdDate, int? createdUserId, bool? isDeleted, string sortByExpression, int startRowIndex, int rows)
+        public static List<LocationModel> SelectSkipAndTakeDynamicWhere(int? id, string name, DateTime? createdDate, int? createdUserId, bool? isDeleted, string sortByExpression, int startRowIndex, int rows)
         {
             List<LocationModel> objLocationCol = null;
             string storedProcName = "[dbo].[Location_SelectSkipAndTakeWhereDynamic]";
@@ -171,7 +171,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                     command.Parameters.AddWithValue("@sort", sortByExpression);
 
                     // search parameters
-                    AddSearchCommandParamsShared(command, id, name, image, note, createdDate, createdUserId, isDeleted);
+                    AddSearchCommandParamsShared(command, id, name, createdDate, createdUserId, isDeleted);
 
                     using (SqlDataAdapter da = new SqlDataAdapter(command))
                     {
@@ -209,7 +209,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         /// <summary>
         /// Selects records based on the passed filters as a collection (List) of Location.
         /// </summary>
-        public static List<LocationModel> SelectAllDynamicWhere(int? id, string name, string image, string note, DateTime? createdDate, int? createdUserId, bool? isDeleted)
+        public static List<LocationModel> SelectAllDynamicWhere(int? id, string name, DateTime? createdDate, int? createdUserId, bool? isDeleted)
         {
             List<LocationModel> objLocationCol = null;
             string storedProcName = "[dbo].[Location_SelectAllWhereDynamic]";
@@ -223,7 +223,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                     command.CommandType = CommandType.StoredProcedure;
 
                     // search parameters
-                    AddSearchCommandParamsShared(command, id, name, image, note, createdDate, createdUserId, isDeleted);
+                    AddSearchCommandParamsShared(command, id, name, createdDate, createdUserId, isDeleted);
 
                     using (SqlDataAdapter da = new SqlDataAdapter(command))
                     {
@@ -369,7 +369,6 @@ namespace DeviceManagerApp.DAO.DataLayerBase
             object name = objLocation.Name;
             object createdDate = objLocation.CreatedDate;
             object createdUserId = objLocation.CreatedUserId;
-            //object image = objLocation.Image;
 
             if (String.IsNullOrEmpty(objLocation.Name))
                 name = System.DBNull.Value;
@@ -402,7 +401,6 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                     command.Parameters.AddWithValue("@createdDate", createdDate);
                     command.Parameters.AddWithValue("@createdUserId", createdUserId);
                     command.Parameters.AddWithValue("@isDeleted", objLocation.IsDeleted);
-                    //command.Parameters.AddWithValue("@image",objLocation.Image);
 
                     if (isUpdate)
                         command.ExecuteNonQuery();
@@ -441,7 +439,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         /// <summary>
         /// Adds search parameters to the Command object
         /// </summary>
-        private static void AddSearchCommandParamsShared(SqlCommand command, int? id, string name, string image, string note, DateTime? createdDate, int? createdUserId, bool? isDeleted)
+        private static void AddSearchCommandParamsShared(SqlCommand command, int? id, string name, DateTime? createdDate, int? createdUserId, bool? isDeleted)
         {
             if (id != null)
                 command.Parameters.AddWithValue("@id", id);
@@ -452,11 +450,6 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                 command.Parameters.AddWithValue("@name", name);
             else
                 command.Parameters.AddWithValue("@name", System.DBNull.Value);
-
-            if (!String.IsNullOrEmpty(note))
-                command.Parameters.AddWithValue("@note", note);
-            else
-                command.Parameters.AddWithValue("@note", System.DBNull.Value);
 
             if (createdDate != null)
                 command.Parameters.AddWithValue("@createdDate", createdDate);
@@ -472,11 +465,6 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                 command.Parameters.AddWithValue("@isDeleted", isDeleted);
             else
                 command.Parameters.AddWithValue("@isDeleted", System.DBNull.Value);
-
-            if (image != null)
-                command.Parameters.AddWithValue("@image", image);
-            else
-                command.Parameters.AddWithValue("@image", System.DBNull.Value);
 
         }
 
@@ -494,10 +482,10 @@ namespace DeviceManagerApp.DAO.DataLayerBase
             else
                 objLocation.Name = null;
 
-            if (dr["note"] != System.DBNull.Value)
-                objLocation.Note = dr["note"].ToString();
-            else
-                objLocation.Note = null;
+            //if (dr["note"] != System.DBNull.Value)
+                //objLocation.Note = dr["note"].ToString();
+            //else
+               // objLocation.Note = null;
 
             if (dr["CreatedDate"] != System.DBNull.Value)
                 objLocation.CreatedDate = (DateTime)dr["CreatedDate"];
@@ -513,11 +501,6 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                 objLocation.IsDeleted = (bool)dr["IsDeleted"];
             else
                 objLocation.IsDeleted = false;
-
-            //if (dr["image"] != System.DBNull.Value)
-            // objLocation.Image = dr["image"].ToString();
-            //else
-            // objLocation.Image = null;
 
             return objLocation;
         }

@@ -369,10 +369,14 @@ namespace DeviceManagerApp.DAO.DataLayerBase
             object name = objShipment.Name;
             object createdDate = objShipment.CreatedDate;
             object createdUserId = objShipment.CreatedUserId;
-            //object image = objShipment.Image;
+            object invoice = objShipment.Invoice;
+            object description = objShipment.Description;
 
             if (String.IsNullOrEmpty(objShipment.Name))
                 name = System.DBNull.Value;
+
+            if (String.IsNullOrEmpty(objShipment.Description))
+                description = System.DBNull.Value;
 
             if (objShipment.CreatedDate == null)
                 createdDate = System.DBNull.Value;
@@ -380,8 +384,8 @@ namespace DeviceManagerApp.DAO.DataLayerBase
             if (objShipment.CreatedUserId == null)
                 createdUserId = System.DBNull.Value;
 
-            //if (objShipment.Image == null)
-            // image = System.DBNull.Value;
+            if (objShipment.Invoice == null)
+             invoice = System.DBNull.Value;
 
             using (SqlConnection connection = new SqlConnection(PathString.ConnectionString))
             {
@@ -399,10 +403,15 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                     }
 
                     command.Parameters.AddWithValue("@name", name);
+                    command.Parameters.AddWithValue("@brandId", objShipment.BrandId);
+                    command.Parameters.AddWithValue("@invoice", invoice);
+                    command.Parameters.AddWithValue("@approverId", objShipment.ApproverId);
+                    command.Parameters.AddWithValue("@description", description);
                     command.Parameters.AddWithValue("@createdDate", createdDate);
+                    command.Parameters.AddWithValue("@importDate", objShipment.ImportDate);
                     command.Parameters.AddWithValue("@createdUserId", createdUserId);
                     command.Parameters.AddWithValue("@isDeleted", objShipment.IsDeleted);
-                    //command.Parameters.AddWithValue("@image",objShipment.Image);
+                    command.Parameters.AddWithValue("@status", objShipment.Status);
 
                     if (isUpdate)
                         command.ExecuteNonQuery();
@@ -448,15 +457,35 @@ namespace DeviceManagerApp.DAO.DataLayerBase
             else
                 command.Parameters.AddWithValue("@id", System.DBNull.Value);
 
+            if (brandId != null)
+                command.Parameters.AddWithValue("@brandId", brandId);
+            else
+                command.Parameters.AddWithValue("@brandId", System.DBNull.Value);
+
+            if (approverId != null)
+                command.Parameters.AddWithValue("@approverId", approverId);
+            else
+                command.Parameters.AddWithValue("@approverId", System.DBNull.Value);
+
             if (!String.IsNullOrEmpty(name))
                 command.Parameters.AddWithValue("@name", name);
             else
                 command.Parameters.AddWithValue("@name", System.DBNull.Value);
 
+            if (invoice != null)
+                command.Parameters.AddWithValue("@invoice", invoice);
+            else
+                command.Parameters.AddWithValue("@invoice", System.DBNull.Value);
+
             if (!String.IsNullOrEmpty(description))
                 command.Parameters.AddWithValue("@description", description);
             else
                 command.Parameters.AddWithValue("@description", System.DBNull.Value);
+
+            if (importDate != null)
+                command.Parameters.AddWithValue("@importDate", importDate);
+            else
+                command.Parameters.AddWithValue("@importDate", System.DBNull.Value);
 
             if (createdDate != null)
                 command.Parameters.AddWithValue("@createdDate", createdDate);
@@ -473,6 +502,11 @@ namespace DeviceManagerApp.DAO.DataLayerBase
             else
                 command.Parameters.AddWithValue("@isDeleted", System.DBNull.Value);
 
+            if (status != null)
+                command.Parameters.AddWithValue("@status", status);
+            else
+                command.Parameters.AddWithValue("@status", System.DBNull.Value);
+
         }
 
         /// <summary>
@@ -483,11 +517,18 @@ namespace DeviceManagerApp.DAO.DataLayerBase
             ShipmentModel objShipment = new ShipmentModel();
 
             objShipment.Id = (int)dr["Id"];
+            objShipment.BrandId = (int)dr["BrandId"];
+            objShipment.ApproverId = (int)dr["ApproverId"];
 
             if (dr["Name"] != System.DBNull.Value)
                 objShipment.Name = dr["Name"].ToString();
             else
                 objShipment.Name = null;
+
+            if (dr["Invoice"] != System.DBNull.Value)
+                objShipment.Invoice = dr["Invoice"].ToString();
+            else
+                objShipment.Invoice = null;
 
             if (dr["Description"] != System.DBNull.Value)
                 objShipment.Description = dr["Description"].ToString();
@@ -499,6 +540,11 @@ namespace DeviceManagerApp.DAO.DataLayerBase
             else
                 objShipment.CreatedDate = null;
 
+            if (dr["ImportDate"] != System.DBNull.Value)
+                objShipment.ImportDate = (DateTime)dr["ImportDate"];
+            else
+                objShipment.ImportDate = null;
+
             if (dr["CreatedUserId"] != System.DBNull.Value)
                 objShipment.CreatedUserId = (int)dr["CreatedUserId"];
             else
@@ -508,6 +554,11 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                 objShipment.IsDeleted = (bool)dr["IsDeleted"];
             else
                 objShipment.IsDeleted = false;
+
+            if (dr["Status"] != System.DBNull.Value)
+                objShipment.Status = (int)dr["Status"];
+            else
+                objShipment.Status = null;
 
             return objShipment;
         }
