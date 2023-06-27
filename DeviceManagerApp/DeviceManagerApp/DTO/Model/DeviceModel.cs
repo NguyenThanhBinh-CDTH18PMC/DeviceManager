@@ -16,6 +16,8 @@ namespace DeviceManagerApp.DTO.Model
         public string UserName { get; set; }
         public string ShipmentName { get; set; }
         public int? RoomId { get; set; }
+        public int? LocationId { get; set; }
+        public string LocationName { get; set; }
 
         public List<DeviceDetailModel> deviceDetail { get; set; }
         public DeviceModel() { }

@@ -16,9 +16,14 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
     public class RoomBusBase
     {
         RoomDAO roomDAO = new RoomDAO();
+
         public static DataTable GetAllRoom()
         {
             return RoomDAO.getData();
+        }
+        public static DataTable SelectByPrimaryKey(int id)
+        {
+            return RoomDAO.SelectByPrimaryKey(id);
         }
         public static void InSertRoom(RoomModel room)
         {

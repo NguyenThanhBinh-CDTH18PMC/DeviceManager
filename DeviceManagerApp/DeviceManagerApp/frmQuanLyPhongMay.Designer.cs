@@ -28,281 +28,323 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblQlPhong = new System.Windows.Forms.Label();
-            qbPhongMay = new System.Windows.Forms.GroupBox();
-            txtSoLuongTB = new System.Windows.Forms.TextBox();
-            lblSoLuongTb = new System.Windows.Forms.Label();
-            rtbGhiChuPhong = new System.Windows.Forms.RichTextBox();
-            lblGhiChuPhong = new System.Windows.Forms.Label();
-            gbTimKiemPhong = new System.Windows.Forms.GroupBox();
-            btnTimKiemPhong = new System.Windows.Forms.Button();
-            txtTiemKiemPhong = new System.Windows.Forms.TextBox();
-            btnXoaPhong = new System.Windows.Forms.Button();
-            btnSuaPhong = new System.Windows.Forms.Button();
-            btnThemPhong = new System.Windows.Forms.Button();
-            txtTenPhong = new System.Windows.Forms.TextBox();
-            txtMaPhong = new System.Windows.Forms.TextBox();
-            lblTenPhong = new System.Windows.Forms.Label();
-            lblMaPhong = new System.Windows.Forms.Label();
-            dgvPhongMay = new System.Windows.Forms.DataGridView();
-            ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            qbPhongMay.SuspendLayout();
-            gbTimKiemPhong.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvPhongMay).BeginInit();
-            SuspendLayout();
+            this.lblQlPhong = new System.Windows.Forms.Label();
+            this.qbPhongMay = new System.Windows.Forms.GroupBox();
+            this.lblSoLuongTb = new System.Windows.Forms.Label();
+            this.gbTimKiemPhong = new System.Windows.Forms.GroupBox();
+            this.btnTimKiemPhong = new System.Windows.Forms.Button();
+            this.txtTiemKiemPhong = new System.Windows.Forms.TextBox();
+            this.btnXoaPhong = new System.Windows.Forms.Button();
+            this.btnSuaPhong = new System.Windows.Forms.Button();
+            this.btnThemPhong = new System.Windows.Forms.Button();
+            this.txtTenPhong = new System.Windows.Forms.TextBox();
+            this.lblTenPhong = new System.Windows.Forms.Label();
+            this.lblMaPhong = new System.Windows.Forms.Label();
+            this.dgvPhongMay = new System.Windows.Forms.DataGridView();
+            this.RoomId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UsingStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.num_RoomQuantity = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txt_NumberDeviceInRoom = new System.Windows.Forms.TextBox();
+            this.num_AddDevice = new System.Windows.Forms.NumericUpDown();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cb_Room = new System.Windows.Forms.ComboBox();
+            this.qbPhongMay.SuspendLayout();
+            this.gbTimKiemPhong.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPhongMay)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_RoomQuantity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_AddDevice)).BeginInit();
+            this.SuspendLayout();
             // 
             // lblQlPhong
             // 
-            lblQlPhong.AutoSize = true;
-            lblQlPhong.Dock = System.Windows.Forms.DockStyle.Top;
-            lblQlPhong.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblQlPhong.Location = new System.Drawing.Point(0, 0);
-            lblQlPhong.Name = "lblQlPhong";
-            lblQlPhong.Size = new System.Drawing.Size(442, 60);
-            lblQlPhong.TabIndex = 0;
-            lblQlPhong.Text = "Quản Lý Phòng Máy";
+            this.lblQlPhong.AutoSize = true;
+            this.lblQlPhong.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblQlPhong.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblQlPhong.Location = new System.Drawing.Point(0, 0);
+            this.lblQlPhong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblQlPhong.Name = "lblQlPhong";
+            this.lblQlPhong.Size = new System.Drawing.Size(370, 50);
+            this.lblQlPhong.TabIndex = 0;
+            this.lblQlPhong.Text = "Quản Lý Phòng Máy";
             // 
             // qbPhongMay
             // 
-            qbPhongMay.Controls.Add(txtSoLuongTB);
-            qbPhongMay.Controls.Add(lblSoLuongTb);
-            qbPhongMay.Controls.Add(rtbGhiChuPhong);
-            qbPhongMay.Controls.Add(lblGhiChuPhong);
-            qbPhongMay.Controls.Add(gbTimKiemPhong);
-            qbPhongMay.Controls.Add(btnXoaPhong);
-            qbPhongMay.Controls.Add(btnSuaPhong);
-            qbPhongMay.Controls.Add(btnThemPhong);
-            qbPhongMay.Controls.Add(txtTenPhong);
-            qbPhongMay.Controls.Add(txtMaPhong);
-            qbPhongMay.Controls.Add(lblTenPhong);
-            qbPhongMay.Controls.Add(lblMaPhong);
-            qbPhongMay.Dock = System.Windows.Forms.DockStyle.Top;
-            qbPhongMay.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            qbPhongMay.Location = new System.Drawing.Point(0, 60);
-            qbPhongMay.Name = "qbPhongMay";
-            qbPhongMay.Size = new System.Drawing.Size(1284, 313);
-            qbPhongMay.TabIndex = 0;
-            qbPhongMay.TabStop = false;
-            qbPhongMay.Text = "Thông tin phòng máy";
-            // 
-            // txtSoLuongTB
-            // 
-            txtSoLuongTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            txtSoLuongTB.Location = new System.Drawing.Point(241, 155);
-            txtSoLuongTB.Name = "txtSoLuongTB";
-            txtSoLuongTB.Size = new System.Drawing.Size(252, 31);
-            txtSoLuongTB.TabIndex = 3;
+            this.qbPhongMay.Controls.Add(this.cb_Room);
+            this.qbPhongMay.Controls.Add(this.checkBox1);
+            this.qbPhongMay.Controls.Add(this.num_AddDevice);
+            this.qbPhongMay.Controls.Add(this.txt_NumberDeviceInRoom);
+            this.qbPhongMay.Controls.Add(this.label2);
+            this.qbPhongMay.Controls.Add(this.label1);
+            this.qbPhongMay.Controls.Add(this.num_RoomQuantity);
+            this.qbPhongMay.Controls.Add(this.lblSoLuongTb);
+            this.qbPhongMay.Controls.Add(this.gbTimKiemPhong);
+            this.qbPhongMay.Controls.Add(this.btnXoaPhong);
+            this.qbPhongMay.Controls.Add(this.btnSuaPhong);
+            this.qbPhongMay.Controls.Add(this.btnThemPhong);
+            this.qbPhongMay.Controls.Add(this.txtTenPhong);
+            this.qbPhongMay.Controls.Add(this.lblTenPhong);
+            this.qbPhongMay.Controls.Add(this.lblMaPhong);
+            this.qbPhongMay.Dock = System.Windows.Forms.DockStyle.Top;
+            this.qbPhongMay.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.qbPhongMay.Location = new System.Drawing.Point(0, 50);
+            this.qbPhongMay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.qbPhongMay.Name = "qbPhongMay";
+            this.qbPhongMay.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.qbPhongMay.Size = new System.Drawing.Size(1118, 250);
+            this.qbPhongMay.TabIndex = 0;
+            this.qbPhongMay.TabStop = false;
+            this.qbPhongMay.Text = "Thông tin phòng máy";
             // 
             // lblSoLuongTb
             // 
-            lblSoLuongTb.AutoSize = true;
-            lblSoLuongTb.Location = new System.Drawing.Point(54, 162);
-            lblSoLuongTb.Name = "lblSoLuongTb";
-            lblSoLuongTb.Size = new System.Drawing.Size(173, 25);
-            lblSoLuongTb.TabIndex = 19;
-            lblSoLuongTb.Text = "Số Lượng Thiết Bị :";
-            // 
-            // rtbGhiChuPhong
-            // 
-            rtbGhiChuPhong.Location = new System.Drawing.Point(241, 203);
-            rtbGhiChuPhong.Name = "rtbGhiChuPhong";
-            rtbGhiChuPhong.Size = new System.Drawing.Size(253, 96);
-            rtbGhiChuPhong.TabIndex = 4;
-            rtbGhiChuPhong.Text = "";
-            // 
-            // lblGhiChuPhong
-            // 
-            lblGhiChuPhong.AutoSize = true;
-            lblGhiChuPhong.Location = new System.Drawing.Point(54, 218);
-            lblGhiChuPhong.Name = "lblGhiChuPhong";
-            lblGhiChuPhong.Size = new System.Drawing.Size(89, 25);
-            lblGhiChuPhong.TabIndex = 18;
-            lblGhiChuPhong.Text = "Ghi Chú :";
+            this.lblSoLuongTb.AutoSize = true;
+            this.lblSoLuongTb.Location = new System.Drawing.Point(43, 152);
+            this.lblSoLuongTb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSoLuongTb.Name = "lblSoLuongTb";
+            this.lblSoLuongTb.Size = new System.Drawing.Size(141, 20);
+            this.lblSoLuongTb.TabIndex = 19;
+            this.lblSoLuongTb.Text = "Số Lượng Thiết Bị :";
             // 
             // gbTimKiemPhong
             // 
-            gbTimKiemPhong.Controls.Add(btnTimKiemPhong);
-            gbTimKiemPhong.Controls.Add(txtTiemKiemPhong);
-            gbTimKiemPhong.Location = new System.Drawing.Point(819, 23);
-            gbTimKiemPhong.Name = "gbTimKiemPhong";
-            gbTimKiemPhong.Size = new System.Drawing.Size(564, 202);
-            gbTimKiemPhong.TabIndex = 17;
-            gbTimKiemPhong.TabStop = false;
-            gbTimKiemPhong.Text = "Tìm Kiếm";
+            this.gbTimKiemPhong.Controls.Add(this.btnTimKiemPhong);
+            this.gbTimKiemPhong.Controls.Add(this.txtTiemKiemPhong);
+            this.gbTimKiemPhong.Location = new System.Drawing.Point(655, 18);
+            this.gbTimKiemPhong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbTimKiemPhong.Name = "gbTimKiemPhong";
+            this.gbTimKiemPhong.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbTimKiemPhong.Size = new System.Drawing.Size(451, 109);
+            this.gbTimKiemPhong.TabIndex = 17;
+            this.gbTimKiemPhong.TabStop = false;
+            this.gbTimKiemPhong.Text = "Tìm Kiếm";
             // 
             // btnTimKiemPhong
             // 
-            btnTimKiemPhong.BackColor = System.Drawing.Color.Lime;
-            btnTimKiemPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnTimKiemPhong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            btnTimKiemPhong.Location = new System.Drawing.Point(396, 42);
-            btnTimKiemPhong.Name = "btnTimKiemPhong";
-            btnTimKiemPhong.Size = new System.Drawing.Size(134, 50);
-            btnTimKiemPhong.TabIndex = 9;
-            btnTimKiemPhong.Text = "Tìm kiếm";
-            btnTimKiemPhong.UseVisualStyleBackColor = false;
+            this.btnTimKiemPhong.BackColor = System.Drawing.Color.Lime;
+            this.btnTimKiemPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTimKiemPhong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnTimKiemPhong.Location = new System.Drawing.Point(317, 34);
+            this.btnTimKiemPhong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTimKiemPhong.Name = "btnTimKiemPhong";
+            this.btnTimKiemPhong.Size = new System.Drawing.Size(107, 40);
+            this.btnTimKiemPhong.TabIndex = 9;
+            this.btnTimKiemPhong.Text = "Tìm kiếm";
+            this.btnTimKiemPhong.UseVisualStyleBackColor = false;
             // 
             // txtTiemKiemPhong
             // 
-            txtTiemKiemPhong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            txtTiemKiemPhong.Location = new System.Drawing.Point(33, 53);
-            txtTiemKiemPhong.Name = "txtTiemKiemPhong";
-            txtTiemKiemPhong.Size = new System.Drawing.Size(252, 31);
-            txtTiemKiemPhong.TabIndex = 8;
+            this.txtTiemKiemPhong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTiemKiemPhong.Location = new System.Drawing.Point(26, 42);
+            this.txtTiemKiemPhong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTiemKiemPhong.Name = "txtTiemKiemPhong";
+            this.txtTiemKiemPhong.Size = new System.Drawing.Size(202, 27);
+            this.txtTiemKiemPhong.TabIndex = 8;
             // 
             // btnXoaPhong
             // 
-            btnXoaPhong.BackColor = System.Drawing.Color.Lime;
-            btnXoaPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnXoaPhong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            btnXoaPhong.Location = new System.Drawing.Point(663, 175);
-            btnXoaPhong.Name = "btnXoaPhong";
-            btnXoaPhong.Size = new System.Drawing.Size(134, 50);
-            btnXoaPhong.TabIndex = 7;
-            btnXoaPhong.Text = "Xóa";
-            btnXoaPhong.UseVisualStyleBackColor = false;
-            btnXoaPhong.Click += btnXoaPhong_Click;
+            this.btnXoaPhong.BackColor = System.Drawing.Color.Lime;
+            this.btnXoaPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnXoaPhong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnXoaPhong.Location = new System.Drawing.Point(530, 87);
+            this.btnXoaPhong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnXoaPhong.Name = "btnXoaPhong";
+            this.btnXoaPhong.Size = new System.Drawing.Size(107, 40);
+            this.btnXoaPhong.TabIndex = 7;
+            this.btnXoaPhong.Text = "Xóa";
+            this.btnXoaPhong.UseVisualStyleBackColor = false;
             // 
             // btnSuaPhong
             // 
-            btnSuaPhong.BackColor = System.Drawing.Color.Lime;
-            btnSuaPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnSuaPhong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            btnSuaPhong.Location = new System.Drawing.Point(663, 102);
-            btnSuaPhong.Name = "btnSuaPhong";
-            btnSuaPhong.Size = new System.Drawing.Size(134, 50);
-            btnSuaPhong.TabIndex = 6;
-            btnSuaPhong.Text = "Cập nhật";
-            btnSuaPhong.UseVisualStyleBackColor = false;
-            btnSuaPhong.Click += btnSuaPhong_Click;
+            this.btnSuaPhong.BackColor = System.Drawing.Color.Lime;
+            this.btnSuaPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSuaPhong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSuaPhong.Location = new System.Drawing.Point(530, 26);
+            this.btnSuaPhong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSuaPhong.Name = "btnSuaPhong";
+            this.btnSuaPhong.Size = new System.Drawing.Size(107, 40);
+            this.btnSuaPhong.TabIndex = 6;
+            this.btnSuaPhong.Text = "Cập nhật";
+            this.btnSuaPhong.UseVisualStyleBackColor = false;
             // 
             // btnThemPhong
             // 
-            btnThemPhong.BackColor = System.Drawing.Color.Lime;
-            btnThemPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnThemPhong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            btnThemPhong.Location = new System.Drawing.Point(663, 23);
-            btnThemPhong.Name = "btnThemPhong";
-            btnThemPhong.Size = new System.Drawing.Size(134, 50);
-            btnThemPhong.TabIndex = 5;
-            btnThemPhong.Text = "Thêm Mới";
-            btnThemPhong.UseVisualStyleBackColor = false;
-            btnThemPhong.Click += btnThemPhong_Click;
+            this.btnThemPhong.BackColor = System.Drawing.Color.Lime;
+            this.btnThemPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThemPhong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnThemPhong.Location = new System.Drawing.Point(972, 200);
+            this.btnThemPhong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnThemPhong.Name = "btnThemPhong";
+            this.btnThemPhong.Size = new System.Drawing.Size(107, 40);
+            this.btnThemPhong.TabIndex = 5;
+            this.btnThemPhong.Text = "Thêm Mới";
+            this.btnThemPhong.UseVisualStyleBackColor = false;
             // 
             // txtTenPhong
             // 
-            txtTenPhong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            txtTenPhong.Location = new System.Drawing.Point(241, 95);
-            txtTenPhong.Name = "txtTenPhong";
-            txtTenPhong.Size = new System.Drawing.Size(252, 31);
-            txtTenPhong.TabIndex = 2;
-            // 
-            // txtMaPhong
-            // 
-            txtMaPhong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            txtMaPhong.Location = new System.Drawing.Point(241, 33);
-            txtMaPhong.Name = "txtMaPhong";
-            txtMaPhong.Size = new System.Drawing.Size(252, 31);
-            txtMaPhong.TabIndex = 1;
+            this.txtTenPhong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTenPhong.Location = new System.Drawing.Point(208, 75);
+            this.txtTenPhong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTenPhong.Name = "txtTenPhong";
+            this.txtTenPhong.Size = new System.Drawing.Size(202, 27);
+            this.txtTenPhong.TabIndex = 2;
             // 
             // lblTenPhong
             // 
-            lblTenPhong.AutoSize = true;
-            lblTenPhong.Location = new System.Drawing.Point(54, 102);
-            lblTenPhong.Name = "lblTenPhong";
-            lblTenPhong.Size = new System.Drawing.Size(112, 25);
-            lblTenPhong.TabIndex = 1;
-            lblTenPhong.Text = "Tên Phòng :";
+            this.lblTenPhong.AutoSize = true;
+            this.lblTenPhong.Location = new System.Drawing.Point(43, 82);
+            this.lblTenPhong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTenPhong.Name = "lblTenPhong";
+            this.lblTenPhong.Size = new System.Drawing.Size(91, 20);
+            this.lblTenPhong.TabIndex = 1;
+            this.lblTenPhong.Text = "Tên Phòng :";
             // 
             // lblMaPhong
             // 
-            lblMaPhong.AutoSize = true;
-            lblMaPhong.Location = new System.Drawing.Point(54, 40);
-            lblMaPhong.Name = "lblMaPhong";
-            lblMaPhong.Size = new System.Drawing.Size(109, 25);
-            lblMaPhong.TabIndex = 0;
-            lblMaPhong.Text = "Mã Phòng :";
+            this.lblMaPhong.AutoSize = true;
+            this.lblMaPhong.Location = new System.Drawing.Point(43, 32);
+            this.lblMaPhong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMaPhong.Name = "lblMaPhong";
+            this.lblMaPhong.Size = new System.Drawing.Size(88, 20);
+            this.lblMaPhong.TabIndex = 0;
+            this.lblMaPhong.Text = "Mã Phòng :";
             // 
             // dgvPhongMay
             // 
-            dgvPhongMay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPhongMay.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { ID, Column2, Column3, Column4, Column5 });
-            dgvPhongMay.Location = new System.Drawing.Point(0, 382);
-            dgvPhongMay.Name = "dgvPhongMay";
-            dgvPhongMay.ReadOnly = true;
-            dgvPhongMay.RowHeadersWidth = 62;
-            dgvPhongMay.RowTemplate.Height = 33;
-            dgvPhongMay.Size = new System.Drawing.Size(627, 250);
-            dgvPhongMay.TabIndex = 2;
-            dgvPhongMay.CellClick += dgvPhongMay_CellClick;
+            this.dgvPhongMay.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPhongMay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPhongMay.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.RoomId,
+            this.Location,
+            this.Status,
+            this.UsingStatus});
+            this.dgvPhongMay.Location = new System.Drawing.Point(0, 306);
+            this.dgvPhongMay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvPhongMay.Name = "dgvPhongMay";
+            this.dgvPhongMay.ReadOnly = true;
+            this.dgvPhongMay.RowHeadersWidth = 62;
+            this.dgvPhongMay.RowTemplate.Height = 33;
+            this.dgvPhongMay.Size = new System.Drawing.Size(1106, 200);
+            this.dgvPhongMay.TabIndex = 2;
             // 
-            // ID
+            // RoomId
             // 
-            ID.DataPropertyName = "Id";
-            ID.HeaderText = "ID";
-            ID.MinimumWidth = 8;
-            ID.Name = "ID";
-            ID.ReadOnly = true;
-            ID.Width = 150;
+            this.RoomId.DataPropertyName = "Name";
+            this.RoomId.HeaderText = "Thiết bị";
+            this.RoomId.MinimumWidth = 6;
+            this.RoomId.Name = "RoomId";
+            this.RoomId.ReadOnly = true;
             // 
-            // Column2
+            // Location
             // 
-            Column2.DataPropertyName = "Code";
-            Column2.HeaderText = "Mã Phòng";
-            Column2.MinimumWidth = 8;
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
-            Column2.Width = 150;
+            this.Location.DataPropertyName = "LocationName";
+            this.Location.FillWeight = 50F;
+            this.Location.HeaderText = "Số máy";
+            this.Location.MinimumWidth = 6;
+            this.Location.Name = "Location";
+            this.Location.ReadOnly = true;
             // 
-            // Column3
+            // Status
             // 
-            Column3.DataPropertyName = "Name";
-            Column3.HeaderText = "Tên Phòng";
-            Column3.MinimumWidth = 8;
-            Column3.Name = "Column3";
-            Column3.ReadOnly = true;
-            Column3.Width = 150;
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Tình trạng thiết bị";
+            this.Status.MinimumWidth = 6;
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
             // 
-            // Column4
+            // UsingStatus
             // 
-            Column4.DataPropertyName = "Description";
-            Column4.HeaderText = "Ghi Chú";
-            Column4.MinimumWidth = 8;
-            Column4.Name = "Column4";
-            Column4.ReadOnly = true;
-            Column4.Width = 150;
+            this.UsingStatus.HeaderText = "Hoạt động";
+            this.UsingStatus.MinimumWidth = 6;
+            this.UsingStatus.Name = "UsingStatus";
+            this.UsingStatus.ReadOnly = true;
             // 
-            // Column5
+            // num_RoomQuantity
             // 
-            Column5.DataPropertyName = "DeviceQuantity";
-            Column5.HeaderText = "Số Lượng";
-            Column5.MinimumWidth = 8;
-            Column5.Name = "Column5";
-            Column5.ReadOnly = true;
-            Column5.Width = 150;
+            this.num_RoomQuantity.Location = new System.Drawing.Point(43, 200);
+            this.num_RoomQuantity.Name = "num_RoomQuantity";
+            this.num_RoomQuantity.Size = new System.Drawing.Size(108, 27);
+            this.num_RoomQuantity.TabIndex = 20;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(247, 152);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 20);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Hiện có :";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(530, 152);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(113, 20);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Thêm tự động:";
+            // 
+            // txt_NumberDeviceInRoom
+            // 
+            this.txt_NumberDeviceInRoom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_NumberDeviceInRoom.Location = new System.Drawing.Point(247, 200);
+            this.txt_NumberDeviceInRoom.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_NumberDeviceInRoom.Name = "txt_NumberDeviceInRoom";
+            this.txt_NumberDeviceInRoom.ReadOnly = true;
+            this.txt_NumberDeviceInRoom.Size = new System.Drawing.Size(95, 27);
+            this.txt_NumberDeviceInRoom.TabIndex = 23;
+            // 
+            // num_AddDevice
+            // 
+            this.num_AddDevice.Location = new System.Drawing.Point(530, 200);
+            this.num_AddDevice.Name = "num_AddDevice";
+            this.num_AddDevice.Size = new System.Drawing.Size(108, 27);
+            this.num_AddDevice.TabIndex = 24;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(725, 201);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(90, 24);
+            this.checkBox1.TabIndex = 25;
+            this.checkBox1.Text = "Làm đầy";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // cb_Room
+            // 
+            this.cb_Room.FormattingEnabled = true;
+            this.cb_Room.Location = new System.Drawing.Point(208, 32);
+            this.cb_Room.Name = "cb_Room";
+            this.cb_Room.Size = new System.Drawing.Size(202, 28);
+            this.cb_Room.TabIndex = 26;
             // 
             // frmQuanLyPhongMay
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1284, 702);
-            Controls.Add(dgvPhongMay);
-            Controls.Add(qbPhongMay);
-            Controls.Add(lblQlPhong);
-            Name = "frmQuanLyPhongMay";
-            Text = "QuanLyPhongMay";
-            Load += frmQuanLyPhongMay_Load;
-            qbPhongMay.ResumeLayout(false);
-            qbPhongMay.PerformLayout();
-            gbTimKiemPhong.ResumeLayout(false);
-            gbTimKiemPhong.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvPhongMay).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1118, 562);
+            this.Controls.Add(this.dgvPhongMay);
+            this.Controls.Add(this.qbPhongMay);
+            this.Controls.Add(this.lblQlPhong);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Name = "frmQuanLyPhongMay";
+            this.Text = "QuanLyPhongMay";
+            this.qbPhongMay.ResumeLayout(false);
+            this.qbPhongMay.PerformLayout();
+            this.gbTimKiemPhong.ResumeLayout(false);
+            this.gbTimKiemPhong.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPhongMay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_RoomQuantity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_AddDevice)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
@@ -311,7 +353,6 @@
         private System.Windows.Forms.GroupBox qbPhongMay;
         private System.Windows.Forms.DataGridView dgvPhongMay;
         private System.Windows.Forms.TextBox txtTenPhong;
-        private System.Windows.Forms.TextBox txtMaPhong;
         private System.Windows.Forms.Label lblTenPhong;
         private System.Windows.Forms.Label lblMaPhong;
         private System.Windows.Forms.Button btnXoaPhong;
@@ -320,14 +361,17 @@
         private System.Windows.Forms.GroupBox gbTimKiemPhong;
         private System.Windows.Forms.Button btnTimKiemPhong;
         private System.Windows.Forms.TextBox txtTiemKiemPhong;
-        private System.Windows.Forms.RichTextBox rtbGhiChuPhong;
-        private System.Windows.Forms.Label lblGhiChuPhong;
-        private System.Windows.Forms.TextBox txtSoLuongTB;
         private System.Windows.Forms.Label lblSoLuongTb;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoomId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Location;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UsingStatus;
+        private System.Windows.Forms.ComboBox cb_Room;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.NumericUpDown num_AddDevice;
+        private System.Windows.Forms.TextBox txt_NumberDeviceInRoom;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown num_RoomQuantity;
     }
 }

@@ -40,9 +40,9 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         /// <summary>
         /// Gets the total number of records in the DeviceRegistration table based on search parameters
         /// </summary>
-        public static int GetRecordCountDynamicWhere(int? id, int? deviceId, int? roomId, int? locationId, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
+        public static int GetRecordCountDynamicWhere(int? id, int? deviceId, int? roomId, int? locationId, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
         {
-            return DeviceRegistrationDataLayer.GetRecordCountDynamicWhere(id, deviceId, roomId, locationId, description, createdDate, createdUserId, isDeleted, status);
+            return DeviceRegistrationDataLayer.GetRecordCountDynamicWhere(id, deviceId, roomId, locationId, createdDate, createdUserId, isDeleted, status);
         }
 
         /// <summary>
@@ -68,20 +68,20 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         /// <summary>
         /// Selects records as a collection (List) of DeviceRegistration sorted by the sortByExpression and returns the rows (# of records) starting from the startRowIndex, based on the search parameters
         /// </summary>
-        public static List<DeviceRegistrationModel> SelectSkipAndTakeDynamicWhere(int? id, int? deviceId, int? roomId, int? locationId, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status, int rows, int startRowIndex, out int totalRowCount, string sortByExpression)
+        public static List<DeviceRegistrationModel> SelectSkipAndTakeDynamicWhere(int? id, int? deviceId, int? roomId, int? locationId, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status, int rows, int startRowIndex, out int totalRowCount, string sortByExpression)
         {
-            totalRowCount = GetRecordCountDynamicWhere(id, deviceId, roomId, locationId, description, createdDate, createdUserId, isDeleted, status);
+            totalRowCount = GetRecordCountDynamicWhere(id, deviceId, roomId, locationId, createdDate, createdUserId, isDeleted, status);
             sortByExpression = GetSortExpression(sortByExpression);
-            return DeviceRegistrationDataLayer.SelectSkipAndTakeDynamicWhere(id, deviceId, roomId, locationId, description, createdDate, createdUserId, isDeleted, status, sortByExpression, startRowIndex, rows);
+            return DeviceRegistrationDataLayer.SelectSkipAndTakeDynamicWhere(id, deviceId, roomId, locationId, createdDate, createdUserId, isDeleted, status, sortByExpression, startRowIndex, rows);
         }
 
         /// <summary>
         /// Selects records as a collection (List) of DeviceRegistration sorted by the sortByExpression starting from the startRowIndex, based on the search parameters
         /// </summary>
-        public static List<DeviceRegistrationModel> SelectSkipAndTakeDynamicWhere(int? id, int? deviceId, int? roomId, int? locationId, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status, int rows, int startRowIndex, string sortByExpression)
+        public static List<DeviceRegistrationModel> SelectSkipAndTakeDynamicWhere(int? id, int? deviceId, int? roomId, int? locationId, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status, int rows, int startRowIndex, string sortByExpression)
         {
             sortByExpression = GetSortExpression(sortByExpression);
-            return DeviceRegistrationDataLayer.SelectSkipAndTakeDynamicWhere(id, deviceId, roomId, locationId, description, createdDate, createdUserId, isDeleted, status, sortByExpression, startRowIndex, rows);
+            return DeviceRegistrationDataLayer.SelectSkipAndTakeDynamicWhere(id, deviceId, roomId, locationId, createdDate, createdUserId, isDeleted, status, sortByExpression, startRowIndex, rows);
         }
 
         /// <summary>
@@ -104,17 +104,17 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         /// <summary>
         /// Selects records based on the passed filters as a collection (List) of DeviceRegistration.
         /// </summary>
-        public static List<DeviceRegistrationModel> SelectAllDynamicWhere(int? id, int? deviceId, int? roomId, int? locationId, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
+        public static List<DeviceRegistrationModel> SelectAllDynamicWhere(int? id, int? deviceId, int? roomId, int? locationId, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
         {
-            return DeviceRegistrationDataLayer.SelectAllDynamicWhere(id, deviceId, roomId, locationId, description, createdDate, createdUserId, isDeleted, status);
+            return DeviceRegistrationDataLayer.SelectAllDynamicWhere(id, deviceId, roomId, locationId, createdDate, createdUserId, isDeleted, status);
         }
 
         /// <summary>
         /// Selects records based on the passed filters as a collection (List) of DeviceRegistration sorted by the sort expression.
         /// </summary>
-        public static List<DeviceRegistrationModel> SelectAllDynamicWhere(int? id, int? deviceId, int? roomId, int? locationId, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status, string sortExpression)
+        public static List<DeviceRegistrationModel> SelectAllDynamicWhere(int? id, int? deviceId, int? roomId, int? locationId, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status, string sortExpression)
         {
-            List<DeviceRegistrationModel> objDeviceRegistrationCol = DeviceRegistrationDataLayer.SelectAllDynamicWhere(id, deviceId, roomId, locationId, description, createdDate, createdUserId, isDeleted, status);
+            List<DeviceRegistrationModel> objDeviceRegistrationCol = DeviceRegistrationDataLayer.SelectAllDynamicWhere(id, deviceId, roomId, locationId, createdDate, createdUserId, isDeleted, status);
             return objDeviceRegistrationCol;
         }
 

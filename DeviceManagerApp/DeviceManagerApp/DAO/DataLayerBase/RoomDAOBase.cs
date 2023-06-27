@@ -30,6 +30,22 @@ namespace DeviceManagerApp.DAO.DataLayerBase
             conn.Close();
             return dt;
         }
+
+        public static DataTable SelectByPrimaryKey(int id)
+        {
+            SqlConnection conn = new SqlConnection(PathString.ConnectionString);
+            SqlCommand cmd = new SqlCommand("[dbo].[Room_SelectByPrimaryKey]", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@id", id);
+            conn.Open();
+            SqlDataAdapter da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            conn.Close();
+            return dt;
+        }
+
         public static void InsertRoom(RoomModel room)
         {
                 SqlConnection conn = new SqlConnection(PathString.ConnectionString);

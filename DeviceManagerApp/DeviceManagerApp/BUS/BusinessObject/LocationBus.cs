@@ -9,5 +9,9 @@ namespace DeviceManagerApp.BUS.BusinessObject
 {
     public class LocationBus : LocationBusBase
     {
+         public static List<LocationModel> GetAllLocationUnUsing(int roomId)
+        {
+            return LocationDataLayer.GetAllLocationUnUsing(roomId);
+        }
     }
 }

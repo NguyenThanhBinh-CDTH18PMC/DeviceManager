@@ -28,7 +28,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
 
         /// <summary>
         /// Selects a record by primary key(s)
-        /// </summary>
+        /// </summary> 
         public static DeviceModel SelectByPrimaryKey(int id)
         {
             DeviceModel objDevice = null;
@@ -470,7 +470,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         /// <summary>
         /// Adds search parameters to the Command object
         /// </summary>
-        private static void AddSearchCommandParamsShared(SqlCommand command, int? id, int? deviceTypeId, int? brandId, int? facultyId, int? shipmentId, string name, string image, string qr_code, decimal? price, string note, string description, DateTime? warrantyPeriod, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
+        protected static void AddSearchCommandParamsShared(SqlCommand command, int? id, int? deviceTypeId, int? brandId, int? facultyId, int? shipmentId, string name, string image, string qr_code, decimal? price, string note, string description, DateTime? warrantyPeriod, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
         {
             if (id != null)
                 command.Parameters.AddWithValue("@id", id);
@@ -557,7 +557,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         /// <summary>
         /// Creates a Specs object from the passed data row
         /// </summary>
-        private static DeviceModel CreateDeviceFromDataRowShared(DataRow dr)
+        protected static DeviceModel CreateDeviceFromDataRowShared(DataRow dr)
         {
             DeviceModel objDevice = new DeviceModel();
 

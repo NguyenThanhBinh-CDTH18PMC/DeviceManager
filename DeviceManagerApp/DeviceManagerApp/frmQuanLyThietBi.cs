@@ -118,7 +118,7 @@ namespace DeviceManagerApp
             cbPhong.DataSource = RoomBus.GetRoomAfterDelete();
 
             //cbNhaCungCap.DataSource = BrandBus.GetAllBrand();
-            
+
 
             cbNhaCungCap.DisplayMember = "Name";
             cbNhaCungCap.ValueMember = "Id";
@@ -293,6 +293,27 @@ namespace DeviceManagerApp
                     device.Image = SaveImage(device.Name, SettingClass.path_Folder_Image_Device, device.CreatedDate.Value);
                 }
                 device.Id = DeviceBus.Insert(device);
+                if(ckb_isAddIntoRoom.Checked)
+                {
+                    int roomId = (int)cbPhong.SelectedValue;
+                    List<LocationModel> ll = LocationBus.GetAllLocationUnUsing(roomId);
+                    if (ll.Count>0)
+                    {
+                        DeviceRegistrationModel dr = new DeviceRegistrationModel();
+                        dr.CreatedDate = device.CreatedDate;
+                        dr.CreatedUserId = device.CreatedUserId;
+                        dr.DeviceId = device.Id;
+                        dr.RoomId = roomId;
+                        dr.LocationId = ll[0].Id;
+                        dr.Status = 0;
+                        dr.IsDeleted = false;
+                        DeviceRegistrationBus.Insert(dr);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Hết chỗ trống!", "Thông Báo", MessageBoxButtons.OK);
+                    }
+                }
                 //device.QR_Code = SaveQR_Code(SettingClass.path_Folder_QR_Image, device);
                 //DeviceBus.Update(device);
                 AddSpecsByType(device.DeviceTypeId, device.Id);
@@ -470,6 +491,37 @@ namespace DeviceManagerApp
             {
                 
                 DeviceBus.Update(device);
+                if(ckb_isAddIntoRoom.Checked)
+                {
+                    int roomId = (int)cbPhong.SelectedValue;
+                    List<DeviceRegistrationModel> dsr = DeviceRegistrationBus.SelectAllDynamicWhere(null, device.Id, null, null, null, null, false, null);
+                    if(dsr.Count>0)
+                    {
+                        dsr[0].RoomId = roomId;
+                        DeviceRegistrationBus.Update(dsr[0]);
+                    }
+                    else
+                    {
+                        List<LocationModel> ll = LocationBus.GetAllLocationUnUsing(roomId);
+                        if (ll.Count > 0)
+                        {
+                            DeviceRegistrationModel dr = new DeviceRegistrationModel();
+                            dr.CreatedDate = device.CreatedDate;
+                            dr.CreatedUserId = device.CreatedUserId;
+                            dr.DeviceId = device.Id;
+                            dr.RoomId = roomId;
+                            dr.LocationId = ll[0].Id;
+                            dr.Status = 0;
+                            dr.IsDeleted = false;
+                            DeviceRegistrationBus.Insert(dr);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Hết chỗ trống!", "Thông Báo", MessageBoxButtons.OK);
+                        }
+                    }
+                    
+                }
                 MessageBox.Show("Thành công", "Thông Báo", MessageBoxButtons.OK);
                 LoadDataGridView();
 
@@ -502,8 +554,28 @@ namespace DeviceManagerApp
         {
             string img = cb_ListImg.SelectedValue.ToString();
             ptb_Device.Tag = img;
-            Image i = Image.FromFile(SettingClass.path_Folder_Image_Device + img);
-            ptb_Device.Image = i;
+            try
+            {
+                Image i = Image.FromFile(SettingClass.path_Folder_Image_Device + img);
+                ptb_Device.Image = i;
+            }
+            catch(Exception ex)
+            {
+                ptb_Device.Image = Image.FromFile(SettingClass.path_NoImage_Default);
+            }
+            
+        }
+
+        private void ckb_isAddIntoRoom_CheckedChanged(object sender, EventArgs e)
+        {
+            if(ckb_isAddIntoRoom.Checked)
+            {
+                cbPhong.Enabled = true;
+            }
+            else
+            {
+                cbPhong.Enabled = false;
+            }
         }
     }
 }
