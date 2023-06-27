@@ -31,10 +31,11 @@
             this.components = new System.ComponentModel.Container();
             this.lblQLTbi = new System.Windows.Forms.Label();
             this.gbThongtinTB = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbPhong = new System.Windows.Forms.ComboBox();
+            this.ckb_isAddIntoRoom = new System.Windows.Forms.CheckBox();
             this.cb_ListImg = new System.Windows.Forms.ComboBox();
             this.btn_Make_QR = new System.Windows.Forms.Button();
-            this.cbPhong = new System.Windows.Forms.ComboBox();
-            this.lblPhong = new System.Windows.Forms.Label();
             this.cbNhaCungCap = new System.Windows.Forms.ComboBox();
             this.cbLoaiTbi = new System.Windows.Forms.ComboBox();
             this.txtTenTbi = new System.Windows.Forms.TextBox();
@@ -92,10 +93,11 @@
             // gbThongtinTB
             // 
             this.gbThongtinTB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.gbThongtinTB.Controls.Add(this.label4);
+            this.gbThongtinTB.Controls.Add(this.cbPhong);
+            this.gbThongtinTB.Controls.Add(this.ckb_isAddIntoRoom);
             this.gbThongtinTB.Controls.Add(this.cb_ListImg);
             this.gbThongtinTB.Controls.Add(this.btn_Make_QR);
-            this.gbThongtinTB.Controls.Add(this.cbPhong);
-            this.gbThongtinTB.Controls.Add(this.lblPhong);
             this.gbThongtinTB.Controls.Add(this.cbNhaCungCap);
             this.gbThongtinTB.Controls.Add(this.cbLoaiTbi);
             this.gbThongtinTB.Controls.Add(this.txtTenTbi);
@@ -129,6 +131,35 @@
             this.gbThongtinTB.TabStop = false;
             this.gbThongtinTB.Text = "Thông tin thiết bị";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(1065, 240);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(62, 20);
+            this.label4.TabIndex = 29;
+            this.label4.Text = "Phòng :";
+            // 
+            // cbPhong
+            // 
+            this.cbPhong.FormattingEnabled = true;
+            this.cbPhong.Location = new System.Drawing.Point(1181, 240);
+            this.cbPhong.Name = "cbPhong";
+            this.cbPhong.Size = new System.Drawing.Size(243, 28);
+            this.cbPhong.TabIndex = 28;
+            // 
+            // ckb_isAddIntoRoom
+            // 
+            this.ckb_isAddIntoRoom.AutoSize = true;
+            this.ckb_isAddIntoRoom.Location = new System.Drawing.Point(1066, 186);
+            this.ckb_isAddIntoRoom.Name = "ckb_isAddIntoRoom";
+            this.ckb_isAddIntoRoom.Size = new System.Drawing.Size(156, 24);
+            this.ckb_isAddIntoRoom.TabIndex = 27;
+            this.ckb_isAddIntoRoom.Text = "Thêm vào phòng?";
+            this.ckb_isAddIntoRoom.UseVisualStyleBackColor = true;
+            this.ckb_isAddIntoRoom.CheckedChanged += new System.EventHandler(this.ckb_isAddIntoRoom_CheckedChanged);
+            // 
             // cb_ListImg
             // 
             this.cb_ListImg.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -155,29 +186,10 @@
             this.btn_Make_QR.UseVisualStyleBackColor = false;
             this.btn_Make_QR.Click += new System.EventHandler(this.btn_Make_QR_Click);
             // 
-            // cbPhong
-            // 
-            this.cbPhong.FormattingEnabled = true;
-            this.cbPhong.Location = new System.Drawing.Point(1199, 133);
-            this.cbPhong.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.cbPhong.Name = "cbPhong";
-            this.cbPhong.Size = new System.Drawing.Size(225, 28);
-            this.cbPhong.TabIndex = 23;
-            // 
-            // lblPhong
-            // 
-            this.lblPhong.AutoSize = true;
-            this.lblPhong.Location = new System.Drawing.Point(1066, 137);
-            this.lblPhong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblPhong.Name = "lblPhong";
-            this.lblPhong.Size = new System.Drawing.Size(62, 20);
-            this.lblPhong.TabIndex = 24;
-            this.lblPhong.Text = "Phòng :";
-            // 
             // cbNhaCungCap
             // 
             this.cbNhaCungCap.FormattingEnabled = true;
-            this.cbNhaCungCap.Location = new System.Drawing.Point(406, 228);
+            this.cbNhaCungCap.Location = new System.Drawing.Point(406, 236);
             this.cbNhaCungCap.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cbNhaCungCap.Name = "cbNhaCungCap";
             this.cbNhaCungCap.Size = new System.Drawing.Size(198, 28);
@@ -203,7 +215,7 @@
             // lblNhaCungCap
             // 
             this.lblNhaCungCap.AutoSize = true;
-            this.lblNhaCungCap.Location = new System.Drawing.Point(273, 232);
+            this.lblNhaCungCap.Location = new System.Drawing.Point(273, 240);
             this.lblNhaCungCap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNhaCungCap.Name = "lblNhaCungCap";
             this.lblNhaCungCap.Size = new System.Drawing.Size(106, 20);
@@ -232,7 +244,7 @@
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(1181, 228);
+            this.txtPrice.Location = new System.Drawing.Point(1180, 134);
             this.txtPrice.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(243, 27);
@@ -242,7 +254,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1066, 232);
+            this.label3.Location = new System.Drawing.Point(1065, 138);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 20);
@@ -608,8 +620,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DeviceName;
         private System.Windows.Forms.DataGridViewImageColumn DeviceImage;
         private System.Windows.Forms.DataGridView dtgvQlThietBi;
-        private System.Windows.Forms.ComboBox cbPhong;
-        private System.Windows.Forms.Label lblPhong;
         private System.Windows.Forms.ComboBox cbNhaCungCap;
         private System.Windows.Forms.ComboBox cbLoaiTbi;
         private System.Windows.Forms.TextBox txtTenTbi;
@@ -618,5 +628,8 @@
         private System.Windows.Forms.Label lblTenTBi;
         private System.Windows.Forms.Button btn_Make_QR;
         private System.Windows.Forms.ComboBox cb_ListImg;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbPhong;
+        private System.Windows.Forms.CheckBox ckb_isAddIntoRoom;
     }
 }

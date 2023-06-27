@@ -1,4 +1,4 @@
-Use Devicement
+﻿Use Devicement
 go
 
 SET ANSI_NULLS ON
@@ -236,6 +236,48 @@ as
 		Where [Id] = @id
 	end
 	go
+
+/*Bảng kết hợp */
+ create proc [dbo].[Device_GetAllDeviceUnUsing](@quantity int)
+ as
+	begin
+		SET NOCOUNT ON;
+		Select Top (@quantity) * from [dbo].[D_Device]		
+		Where [Id] not in (
+		Select Distinct [DeviceId] from [dbo].[D_DeviceRegistration]		
+		where ISNULL([IsDeleted],0) = 0
+		)
+	end
+	go
+
+create proc [dbo].[Device_GetAllDeviceInRoom](@roomId int)
+ as
+	begin
+		SET NOCOUNT ON;
+		Select d.[Id]
+      ,[Name]
+      ,[DeviceTypeId]
+      ,[ShipmentId]
+      ,[BrandId]
+      ,[QR_Code]
+      ,[Description]
+      ,[Note]
+      ,[Image]
+      ,[WarrantyPeriod]
+      ,[Price]
+      ,d.[CreatedDate]
+      ,d.[CreatedUserId]
+      ,d.[IsDeleted]
+      ,d.[Status]
+      ,[FacultyId]
+	  , dr.[LocationId] as [LocationId]
+	  from [dbo].[D_Device] d, [dbo].[D_DeviceRegistration] dr	
+	  where d.[Id] = dr.DeviceId and dr.[RoomId] = @roomId and ISNULL(dr.[IsDeleted],0) = 0 and ISNULL(d.[IsDeleted],0) = 0
+		
+	end
+	go
+ 
+/*Bảng kết hợp */
 
 --end Device
 

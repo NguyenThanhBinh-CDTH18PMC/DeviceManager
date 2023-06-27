@@ -106,7 +106,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         /// <summary>
         /// Gets the total number of records in the DeviceRegistration table based on search parameters
         /// </summary>
-        public static int GetRecordCountDynamicWhere(int? id, int? deviceId, int? roomId, int? locationId, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
+        public static int GetRecordCountDynamicWhere(int? id, int? deviceId, int? roomId, int? locationId, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
         {
             int recordCount = 0;
             string storedProcName = "[dbo].[DeviceRegistration_GetRecordCountWhereDynamic]";
@@ -120,7 +120,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                     command.CommandType = CommandType.StoredProcedure;
 
                     // search parameters
-                    AddSearchCommandParamsShared(command, id, deviceId, roomId, locationId, description, createdDate, createdUserId, isDeleted, status);
+                    AddSearchCommandParamsShared(command, id, deviceId, roomId, locationId, createdDate, createdUserId, isDeleted, status);
 
                     using (SqlDataAdapter da = new SqlDataAdapter(command))
                     {
@@ -152,7 +152,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         /// <summary>
         /// Selects DeviceRegistration records sorted by the sortByExpression and returns records from the startRowIndex with rows (# of records) based on search parameters
         /// </summary>
-        public static List<DeviceRegistrationModel> SelectSkipAndTakeDynamicWhere(int? id, int? deviceId, int? roomId, int? locationId, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status, string sortByExpression, int startRowIndex, int rows)
+        public static List<DeviceRegistrationModel> SelectSkipAndTakeDynamicWhere(int? id, int? deviceId, int? roomId, int? locationId, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status, string sortByExpression, int startRowIndex, int rows)
         {
             List<DeviceRegistrationModel> objDeviceRegistrationCol = null;
             string storedProcName = "[dbo].[DeviceRegistration_SelectSkipAndTakeWhereDynamic]";
@@ -171,7 +171,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                     command.Parameters.AddWithValue("@sort", sortByExpression);
 
                     // search parameters
-                    AddSearchCommandParamsShared(command, id, deviceId, roomId, locationId, description, createdDate, createdUserId, isDeleted, status);
+                    AddSearchCommandParamsShared(command, id, deviceId, roomId, locationId, createdDate, createdUserId, isDeleted, status);
 
                     using (SqlDataAdapter da = new SqlDataAdapter(command))
                     {
@@ -209,7 +209,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         /// <summary>
         /// Selects records based on the passed filters as a collection (List) of DeviceRegistration.
         /// </summary>
-        public static List<DeviceRegistrationModel> SelectAllDynamicWhere(int? id, int? deviceId, int? roomId, int? locationId, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
+        public static List<DeviceRegistrationModel> SelectAllDynamicWhere(int? id, int? deviceId, int? roomId, int? locationId, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
         {
             List<DeviceRegistrationModel> objDeviceRegistrationCol = null;
             string storedProcName = "[dbo].[DeviceRegistration_SelectAllWhereDynamic]";
@@ -223,7 +223,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                     command.CommandType = CommandType.StoredProcedure;
 
                     // search parameters
-                    AddSearchCommandParamsShared(command, id, deviceId, roomId, locationId, description, createdDate, createdUserId, isDeleted, status);
+                    AddSearchCommandParamsShared(command, id, deviceId, roomId, locationId, createdDate, createdUserId, isDeleted, status);
 
                     using (SqlDataAdapter da = new SqlDataAdapter(command))
                     {
@@ -393,7 +393,6 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                     command.Parameters.AddWithValue("@locationId", objDeviceRegistration.LocationId);
                     command.Parameters.AddWithValue("@roomId", objDeviceRegistration.RoomId);
                     command.Parameters.AddWithValue("@deviceId", objDeviceRegistration.DeviceId);
-                    command.Parameters.AddWithValue("@description", objDeviceRegistration.Description);
                     command.Parameters.AddWithValue("@createdDate", createdDate);
                     command.Parameters.AddWithValue("@createdUserId", createdUserId);
                     command.Parameters.AddWithValue("@isDeleted", objDeviceRegistration.IsDeleted);
@@ -436,7 +435,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         /// <summary>
         /// Adds search parameters to the Command object
         /// </summary>
-        private static void AddSearchCommandParamsShared(SqlCommand command, int? id, int? deviceId, int? roomId, int? locationId, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
+        private static void AddSearchCommandParamsShared(SqlCommand command, int? id, int? deviceId, int? roomId, int? locationId, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
         {
             if (id != null)
                 command.Parameters.AddWithValue("@id", id);
@@ -457,11 +456,6 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                 command.Parameters.AddWithValue("@locationId", locationId);
             else
                 command.Parameters.AddWithValue("@locationId", System.DBNull.Value);
-
-            if (!String.IsNullOrEmpty(description))
-                command.Parameters.AddWithValue("@description", description);
-            else
-                command.Parameters.AddWithValue("@description", System.DBNull.Value);
 
             if (createdDate != null)
                 command.Parameters.AddWithValue("@createdDate", createdDate);
@@ -497,11 +491,6 @@ namespace DeviceManagerApp.DAO.DataLayerBase
             objDeviceRegistration.RoomId = (int)dr["RoomId"];
             objDeviceRegistration.LocationId = (int)dr["LocationId"];
 
-
-            if (dr["Description"] != System.DBNull.Value)
-                objDeviceRegistration.Description = dr["Description"].ToString();
-            else
-                objDeviceRegistration.Description = null;
 
             if (dr["CreatedDate"] != System.DBNull.Value)
                 objDeviceRegistration.CreatedDate = (DateTime)dr["CreatedDate"];

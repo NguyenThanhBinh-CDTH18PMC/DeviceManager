@@ -211,7 +211,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         /// </summary>
         public static List<LocationModel> SelectAllDynamicWhere(int? id, string name, DateTime? createdDate, int? createdUserId, bool? isDeleted)
         {
-            List<LocationModel> objLocationCol = null;
+            List<LocationModel> objLocationCol = new List<LocationModel>();
             string storedProcName = "[dbo].[Location_SelectAllWhereDynamic]";
 
             using (SqlConnection connection = new SqlConnection(PathString.ConnectionString))
@@ -246,9 +246,8 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                     }
                 }
             }
-            if (objLocationCol != null)
-                return objLocationCol;
-            else return new List<LocationModel>();
+            
+            return objLocationCol;
         }
 
         /// <summary>
@@ -439,7 +438,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         /// <summary>
         /// Adds search parameters to the Command object
         /// </summary>
-        private static void AddSearchCommandParamsShared(SqlCommand command, int? id, string name, DateTime? createdDate, int? createdUserId, bool? isDeleted)
+        protected static void AddSearchCommandParamsShared(SqlCommand command, int? id, string name, DateTime? createdDate, int? createdUserId, bool? isDeleted)
         {
             if (id != null)
                 command.Parameters.AddWithValue("@id", id);
