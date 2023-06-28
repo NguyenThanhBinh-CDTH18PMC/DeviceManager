@@ -18,13 +18,15 @@ namespace DeviceManagerApp
         public frmQuanLyPhongMay()
         {
             InitializeComponent();
+            dgvPhongMay.AutoGenerateColumns = false;
         }
 
         private void frmQuanLyPhongMay_Load(object sender, EventArgs e)
         {
             //dgvPhongMay.DataSource = RoomBus.GetAllRoom();
             dgvPhongMay.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgvPhongMay.DataSource = RoomBus.GetRoomAfterDelete();
+            cb_Room.DataSource = RoomBus.GetRoomAfterDelete();
+            //dgvPhongMay.DataSource = RoomBus.GetRoomAfterDelete();
         }
 
         private void btnThemPhong_Click(object sender, EventArgs e)

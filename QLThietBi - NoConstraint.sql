@@ -19,17 +19,17 @@ Create table [System_User]
 	--constraint fk_User_User foreign key(CreatedUserId) references [System_User](Id),
 )
 --Các log sẽ lưu lịch sử các thao tác của người dùng
-Create table [S_UserLog]
-(
-	[Id] int not null IDENTITY(1,1),
-	[UserId] int null,
-	[Action] int null,
-	[ModifiedDate] DateTime null,
-	[ModifiedUserId] int null,
-	[IsDeleted] bit null,
-	constraint pk_UserLog primary key(Id),
-	--constraint fk_UserLog_User foreign key(UserId) references [System_User](Id),
-)
+--Create table [S_UserLog]
+--(
+--	[Id] int not null IDENTITY(1,1),
+--	[UserId] int null,
+--	[Action] int null,
+--	[ModifiedDate] DateTime null,
+--	[ModifiedUserId] int null,
+--	[IsDeleted] bit null,
+--	constraint pk_UserLog primary key(Id),
+--	--constraint fk_UserLog_User foreign key(UserId) references [System_User](Id),
+--)
  
  --alter table [dbo].[D_Device_Type]
 --add [Image] nvarchar(100) null
@@ -65,9 +65,8 @@ create table [D_Device_Specs]
 (
 	[Id] int not null IDENTITY(1,1),
 	[Name] nvarchar(50) null,
-	[DataType] varchar(500) null,
 	[Ordinal] int null,
-	[Description] nvarchar(100) null,
+	[Description] nvarchar(100) null,-- "Note"
 	[CreatedDate] DateTime null,
 	[CreatedUserId] int null,
 	[IsDeleted] bit,
@@ -81,7 +80,7 @@ create table [D_Shipment]
 	[Id] int not null IDENTITY(1,1),
 	[BrandId] int not null,
 	[ApproverId] int not null,
-	[Name] nvarchar(50) null,
+	[Name] nvarchar(50) null,--Lượt bớt
 	[ImportDate] DateTime null,
 	[Invoice] nvarchar(50) null,
 	[Description] nvarchar(100) null,
@@ -142,7 +141,6 @@ create table [D_Shipment_Detail]
 	[Id] int not null IDENTITY(1,1),
 	[ShipmentId] int not null,
 	[DeviceId] int not null,
-	[Name] nvarchar(50) null,
 	[Description] nvarchar(100) null,
 	[CreatedDate] DateTime null,
 	[CreatedUserId] int null,
@@ -175,7 +173,6 @@ create table [D_DeviceDetail]
 	[DeviceId] int not null,
 	[DeviceTypeSpecsId] int not null,
 	[NameSpecs] nvarchar(50) null,
-	[Values] decimal(18,0) null,
 	[BrandId] int null,
 	[Description] nvarchar(100) null,
 	[CreatedDate] DateTime null,

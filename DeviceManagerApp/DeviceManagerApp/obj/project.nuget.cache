@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "ftArIa44qFF0ShyxVl5kQzeAb69P1pmx8VkFthpB6IP0WujS9SpZOTj8p3ma9CltM04HhzLXfhUwU/EN3luiGg==",
+  "dgSpecHash": "h5YF4yiqm6dt8QvHeJ0PmJ66+PiMxmnrg3cw7Ft0OMJhRft5NIR5UV8K9lY8EgprTpJUO1Buv0xut8iMl59Usw==",
   "success": true,
   "projectFilePath": "C:\\Users\\This PC\\OneDrive\\Máy tính\\DeviceManager\\DeviceManager\\DeviceManagerApp\\DeviceManagerApp\\DeviceManagerApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\This PC\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\This PC\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
+    "C:\\Users\\This PC\\.nuget\\packages\\documentformat.openxml\\2.20.0\\documentformat.openxml.2.20.0.nupkg.sha512",
     "C:\\Users\\This PC\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\This PC\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\This PC\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.1\\microsoft.data.sqlclient.5.1.1.nupkg.sha512",
@@ -35,6 +36,7 @@
     "C:\\Users\\This PC\\.nuget\\packages\\system.formats.asn1\\5.0.0\\system.formats.asn1.5.0.0.nupkg.sha512",
     "C:\\Users\\This PC\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.24.0\\system.identitymodel.tokens.jwt.6.24.0.nupkg.sha512",
     "C:\\Users\\This PC\\.nuget\\packages\\system.io\\4.3.0\\system.io.4.3.0.nupkg.sha512",
+    "C:\\Users\\This PC\\.nuget\\packages\\system.io.packaging\\4.7.0\\system.io.packaging.4.7.0.nupkg.sha512",
     "C:\\Users\\This PC\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
     "C:\\Users\\This PC\\.nuget\\packages\\system.memory.data\\1.0.2\\system.memory.data.1.0.2.nupkg.sha512",
     "C:\\Users\\This PC\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",

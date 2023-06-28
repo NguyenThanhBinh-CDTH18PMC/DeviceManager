@@ -194,5 +194,52 @@ namespace DeviceManagerApp.DAO.DataLayerBase
             }
         }
 
+        /// <summary>
+        /// Creates a Room object from the passed data row
+        /// </summary>
+        protected static RoomModel CreateRoomFromDataRowShared(DataRow dr)
+        {
+            RoomModel objRoom = new RoomModel();
+
+            objRoom.Id = (int)dr["Id"];
+
+            if (dr["Name"] != System.DBNull.Value)
+                objRoom.Name = dr["Name"].ToString();
+            else
+                objRoom.Name = null;
+
+            if (dr["Code"] != System.DBNull.Value)
+                objRoom.Code = dr["Code"].ToString();
+            else
+                objRoom.Code = null;
+
+            if (dr["DeviceQuantity"] != System.DBNull.Value)
+                objRoom.DeviceQuantity = (int)dr["DeviceQuantity"];
+            else
+                objRoom.DeviceQuantity = 0; 
+
+            if (dr["Description"] != System.DBNull.Value)
+                objRoom.Description = dr["Description"].ToString();
+            else
+                objRoom.Description = null;
+
+            if (dr["CreatedDate"] != System.DBNull.Value)
+                objRoom.CreatedDate = (DateTime)dr["CreatedDate"];
+            else
+                objRoom.CreatedDate = null;
+
+            if (dr["CreatedUserId"] != System.DBNull.Value)
+                objRoom.CreatedUserId = (int)dr["CreatedUserId"];
+            else
+                objRoom.CreatedUserId = null;
+
+            if (dr["IsDeleted"] != System.DBNull.Value)
+                objRoom.IsDeleted = (bool)dr["IsDeleted"];
+            else
+                objRoom.IsDeleted = false;
+
+            return objRoom;
+        }
+
     }
 }
