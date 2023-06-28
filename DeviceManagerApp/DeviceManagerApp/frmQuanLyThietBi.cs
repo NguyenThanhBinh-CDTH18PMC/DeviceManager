@@ -48,6 +48,7 @@ namespace DeviceManagerApp
             dtgvQlThietBi.AutoGenerateColumns = false;
             dtgvQlThietBi.AllowUserToAddRows = false;
             txtPrice.Text = "0.0";
+            ckb_isAddIntoRoom.Checked = true;
         }
 
         private void LoadListImg()
