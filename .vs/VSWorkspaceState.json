@@ -3,8 +3,10 @@
     "",
     "\\DeviceManagerApp",
     "\\DeviceManagerApp\\DeviceManagerApp",
+    "\\DeviceManagerApp\\DeviceManagerApp\\DAO",
+    "\\DeviceManagerApp\\DeviceManagerApp\\DAO\\DataLayerBase",
     "\\image"
   ],
-  "SelectedNode": "\\DeviceManagerApp\\DeviceManagerApp\\frmTaoTaiKhoan.cs",
+  "SelectedNode": "\\DeviceManagerApp\\DeviceManagerApp\\DAO\\DataLayerBase\\UserDataLayerBase.cs",
   "PreviewInSolutionExplorer": false
 }
