@@ -30,6 +30,13 @@
         {
             this.lblQlPhong = new System.Windows.Forms.Label();
             this.qbPhongMay = new System.Windows.Forms.GroupBox();
+            this.cb_Room = new System.Windows.Forms.ComboBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.num_AddDevice = new System.Windows.Forms.NumericUpDown();
+            this.txt_RoomQuantityUsing = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.num_RoomQuantity = new System.Windows.Forms.NumericUpDown();
             this.lblSoLuongTb = new System.Windows.Forms.Label();
             this.gbTimKiemPhong = new System.Windows.Forms.GroupBox();
             this.btnTimKiemPhong = new System.Windows.Forms.Button();
@@ -45,18 +52,11 @@
             this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UsingStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.num_RoomQuantity = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txt_NumberDeviceInRoom = new System.Windows.Forms.TextBox();
-            this.num_AddDevice = new System.Windows.Forms.NumericUpDown();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.cb_Room = new System.Windows.Forms.ComboBox();
             this.qbPhongMay.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.num_AddDevice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_RoomQuantity)).BeginInit();
             this.gbTimKiemPhong.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhongMay)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_RoomQuantity)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_AddDevice)).BeginInit();
             this.SuspendLayout();
             // 
             // lblQlPhong
@@ -76,7 +76,7 @@
             this.qbPhongMay.Controls.Add(this.cb_Room);
             this.qbPhongMay.Controls.Add(this.checkBox1);
             this.qbPhongMay.Controls.Add(this.num_AddDevice);
-            this.qbPhongMay.Controls.Add(this.txt_NumberDeviceInRoom);
+            this.qbPhongMay.Controls.Add(this.txt_RoomQuantityUsing);
             this.qbPhongMay.Controls.Add(this.label2);
             this.qbPhongMay.Controls.Add(this.label1);
             this.qbPhongMay.Controls.Add(this.num_RoomQuantity);
@@ -91,13 +91,75 @@
             this.qbPhongMay.Dock = System.Windows.Forms.DockStyle.Top;
             this.qbPhongMay.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.qbPhongMay.Location = new System.Drawing.Point(0, 50);
-            this.qbPhongMay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.qbPhongMay.Margin = new System.Windows.Forms.Padding(2);
             this.qbPhongMay.Name = "qbPhongMay";
-            this.qbPhongMay.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.qbPhongMay.Padding = new System.Windows.Forms.Padding(2);
             this.qbPhongMay.Size = new System.Drawing.Size(1118, 250);
             this.qbPhongMay.TabIndex = 0;
             this.qbPhongMay.TabStop = false;
             this.qbPhongMay.Text = "Thông tin phòng máy";
+            // 
+            // cb_Room
+            // 
+            this.cb_Room.FormattingEnabled = true;
+            this.cb_Room.Location = new System.Drawing.Point(208, 32);
+            this.cb_Room.Name = "cb_Room";
+            this.cb_Room.Size = new System.Drawing.Size(202, 28);
+            this.cb_Room.TabIndex = 26;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(725, 201);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(90, 24);
+            this.checkBox1.TabIndex = 25;
+            this.checkBox1.Text = "Làm đầy";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // num_AddDevice
+            // 
+            this.num_AddDevice.Location = new System.Drawing.Point(530, 200);
+            this.num_AddDevice.Name = "num_AddDevice";
+            this.num_AddDevice.Size = new System.Drawing.Size(108, 27);
+            this.num_AddDevice.TabIndex = 24;
+            // 
+            // txt_RoomQuantityUsing
+            // 
+            this.txt_RoomQuantityUsing.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_RoomQuantityUsing.Location = new System.Drawing.Point(247, 200);
+            this.txt_RoomQuantityUsing.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_RoomQuantityUsing.Name = "txt_RoomQuantityUsing";
+            this.txt_RoomQuantityUsing.ReadOnly = true;
+            this.txt_RoomQuantityUsing.Size = new System.Drawing.Size(95, 27);
+            this.txt_RoomQuantityUsing.TabIndex = 23;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(530, 152);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(113, 20);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Thêm tự động:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(247, 152);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 20);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Hiện có :";
+            // 
+            // num_RoomQuantity
+            // 
+            this.num_RoomQuantity.Location = new System.Drawing.Point(43, 200);
+            this.num_RoomQuantity.Name = "num_RoomQuantity";
+            this.num_RoomQuantity.Size = new System.Drawing.Size(108, 27);
+            this.num_RoomQuantity.TabIndex = 20;
             // 
             // lblSoLuongTb
             // 
@@ -105,18 +167,18 @@
             this.lblSoLuongTb.Location = new System.Drawing.Point(43, 152);
             this.lblSoLuongTb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSoLuongTb.Name = "lblSoLuongTb";
-            this.lblSoLuongTb.Size = new System.Drawing.Size(141, 20);
+            this.lblSoLuongTb.Size = new System.Drawing.Size(80, 20);
             this.lblSoLuongTb.TabIndex = 19;
-            this.lblSoLuongTb.Text = "Số Lượng Thiết Bị :";
+            this.lblSoLuongTb.Text = "Sức chứa :";
             // 
             // gbTimKiemPhong
             // 
             this.gbTimKiemPhong.Controls.Add(this.btnTimKiemPhong);
             this.gbTimKiemPhong.Controls.Add(this.txtTiemKiemPhong);
             this.gbTimKiemPhong.Location = new System.Drawing.Point(655, 18);
-            this.gbTimKiemPhong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbTimKiemPhong.Margin = new System.Windows.Forms.Padding(2);
             this.gbTimKiemPhong.Name = "gbTimKiemPhong";
-            this.gbTimKiemPhong.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbTimKiemPhong.Padding = new System.Windows.Forms.Padding(2);
             this.gbTimKiemPhong.Size = new System.Drawing.Size(451, 109);
             this.gbTimKiemPhong.TabIndex = 17;
             this.gbTimKiemPhong.TabStop = false;
@@ -128,7 +190,7 @@
             this.btnTimKiemPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTimKiemPhong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnTimKiemPhong.Location = new System.Drawing.Point(317, 34);
-            this.btnTimKiemPhong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTimKiemPhong.Margin = new System.Windows.Forms.Padding(2);
             this.btnTimKiemPhong.Name = "btnTimKiemPhong";
             this.btnTimKiemPhong.Size = new System.Drawing.Size(107, 40);
             this.btnTimKiemPhong.TabIndex = 9;
@@ -139,7 +201,7 @@
             // 
             this.txtTiemKiemPhong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTiemKiemPhong.Location = new System.Drawing.Point(26, 42);
-            this.txtTiemKiemPhong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTiemKiemPhong.Margin = new System.Windows.Forms.Padding(2);
             this.txtTiemKiemPhong.Name = "txtTiemKiemPhong";
             this.txtTiemKiemPhong.Size = new System.Drawing.Size(202, 27);
             this.txtTiemKiemPhong.TabIndex = 8;
@@ -150,7 +212,7 @@
             this.btnXoaPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoaPhong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnXoaPhong.Location = new System.Drawing.Point(530, 87);
-            this.btnXoaPhong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnXoaPhong.Margin = new System.Windows.Forms.Padding(2);
             this.btnXoaPhong.Name = "btnXoaPhong";
             this.btnXoaPhong.Size = new System.Drawing.Size(107, 40);
             this.btnXoaPhong.TabIndex = 7;
@@ -163,7 +225,7 @@
             this.btnSuaPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSuaPhong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSuaPhong.Location = new System.Drawing.Point(530, 26);
-            this.btnSuaPhong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSuaPhong.Margin = new System.Windows.Forms.Padding(2);
             this.btnSuaPhong.Name = "btnSuaPhong";
             this.btnSuaPhong.Size = new System.Drawing.Size(107, 40);
             this.btnSuaPhong.TabIndex = 6;
@@ -176,7 +238,7 @@
             this.btnThemPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThemPhong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnThemPhong.Location = new System.Drawing.Point(972, 200);
-            this.btnThemPhong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnThemPhong.Margin = new System.Windows.Forms.Padding(2);
             this.btnThemPhong.Name = "btnThemPhong";
             this.btnThemPhong.Size = new System.Drawing.Size(107, 40);
             this.btnThemPhong.TabIndex = 5;
@@ -187,7 +249,7 @@
             // 
             this.txtTenPhong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTenPhong.Location = new System.Drawing.Point(208, 75);
-            this.txtTenPhong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTenPhong.Margin = new System.Windows.Forms.Padding(2);
             this.txtTenPhong.Name = "txtTenPhong";
             this.txtTenPhong.Size = new System.Drawing.Size(202, 27);
             this.txtTenPhong.TabIndex = 2;
@@ -222,7 +284,7 @@
             this.Status,
             this.UsingStatus});
             this.dgvPhongMay.Location = new System.Drawing.Point(0, 306);
-            this.dgvPhongMay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvPhongMay.Margin = new System.Windows.Forms.Padding(2);
             this.dgvPhongMay.Name = "dgvPhongMay";
             this.dgvPhongMay.ReadOnly = true;
             this.dgvPhongMay.RowHeadersWidth = 62;
@@ -262,68 +324,6 @@
             this.UsingStatus.Name = "UsingStatus";
             this.UsingStatus.ReadOnly = true;
             // 
-            // num_RoomQuantity
-            // 
-            this.num_RoomQuantity.Location = new System.Drawing.Point(43, 200);
-            this.num_RoomQuantity.Name = "num_RoomQuantity";
-            this.num_RoomQuantity.Size = new System.Drawing.Size(108, 27);
-            this.num_RoomQuantity.TabIndex = 20;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(247, 152);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 20);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Hiện có :";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(530, 152);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 20);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Thêm tự động:";
-            // 
-            // txt_NumberDeviceInRoom
-            // 
-            this.txt_NumberDeviceInRoom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_NumberDeviceInRoom.Location = new System.Drawing.Point(247, 200);
-            this.txt_NumberDeviceInRoom.Margin = new System.Windows.Forms.Padding(2);
-            this.txt_NumberDeviceInRoom.Name = "txt_NumberDeviceInRoom";
-            this.txt_NumberDeviceInRoom.ReadOnly = true;
-            this.txt_NumberDeviceInRoom.Size = new System.Drawing.Size(95, 27);
-            this.txt_NumberDeviceInRoom.TabIndex = 23;
-            // 
-            // num_AddDevice
-            // 
-            this.num_AddDevice.Location = new System.Drawing.Point(530, 200);
-            this.num_AddDevice.Name = "num_AddDevice";
-            this.num_AddDevice.Size = new System.Drawing.Size(108, 27);
-            this.num_AddDevice.TabIndex = 24;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(725, 201);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(90, 24);
-            this.checkBox1.TabIndex = 25;
-            this.checkBox1.Text = "Làm đầy";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // cb_Room
-            // 
-            this.cb_Room.FormattingEnabled = true;
-            this.cb_Room.Location = new System.Drawing.Point(208, 32);
-            this.cb_Room.Name = "cb_Room";
-            this.cb_Room.Size = new System.Drawing.Size(202, 28);
-            this.cb_Room.TabIndex = 26;
-            // 
             // frmQuanLyPhongMay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -332,16 +332,16 @@
             this.Controls.Add(this.dgvPhongMay);
             this.Controls.Add(this.qbPhongMay);
             this.Controls.Add(this.lblQlPhong);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmQuanLyPhongMay";
             this.Text = "QuanLyPhongMay";
             this.qbPhongMay.ResumeLayout(false);
             this.qbPhongMay.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.num_AddDevice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_RoomQuantity)).EndInit();
             this.gbTimKiemPhong.ResumeLayout(false);
             this.gbTimKiemPhong.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhongMay)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_RoomQuantity)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_AddDevice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -369,7 +369,7 @@
         private System.Windows.Forms.ComboBox cb_Room;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.NumericUpDown num_AddDevice;
-        private System.Windows.Forms.TextBox txt_NumberDeviceInRoom;
+        private System.Windows.Forms.TextBox txt_RoomQuantityUsing;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown num_RoomQuantity;

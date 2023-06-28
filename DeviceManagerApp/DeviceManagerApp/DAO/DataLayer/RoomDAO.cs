@@ -13,6 +13,6 @@ namespace DeviceManagerApp.DAO.DataLayer
 {
     public class RoomDAO:RoomDAOBase
     {
-        //[dbo].[Room_SelectRoomToAddDevice](@quantity int)
+        //[dbo].[Room_SelectRoomToAddDevice](@quantity int) 
     }
 }
