@@ -43,5 +43,10 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         public static void DeleteBrand(int id) { 
             BrandDAO.DeleteBrand(id);
         }
+
+        public static DataTable SearchBrandByName(string Name)
+        {
+            return BrandDAO.SearchBrandByName(Name);
+        }
     }
 }

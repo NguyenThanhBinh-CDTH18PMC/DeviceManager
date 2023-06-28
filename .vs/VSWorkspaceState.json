@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\DeviceManagerApp",
-    "\\DeviceManagerApp\\DeviceManagerApp"
+    "\\DeviceManagerApp\\DeviceManagerApp",
+    "\\image"
   ],
-  "SelectedNode": "\\DeviceManagerApp\\DeviceManagerApp.sln",
+  "SelectedNode": "\\DeviceManagerApp\\DeviceManagerApp\\frmTaoTaiKhoan.cs",
   "PreviewInSolutionExplorer": false
 }

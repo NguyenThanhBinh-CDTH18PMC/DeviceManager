@@ -118,6 +118,7 @@
             btnTimKiemKhoa.TabIndex = 7;
             btnTimKiemKhoa.Text = "Tìm Kiếm";
             btnTimKiemKhoa.UseVisualStyleBackColor = false;
+            btnTimKiemKhoa.Click += btnTimKiemKhoa_Click;
             // 
             // txtTimKiemKhoa
             // 

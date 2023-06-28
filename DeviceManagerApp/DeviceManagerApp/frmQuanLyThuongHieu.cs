@@ -136,5 +136,20 @@ namespace DeviceManagerApp
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnTimKiemThuongHieu_Click(object sender, EventArgs e)
+        {
+            string Name = txtTiemKiemThuongHieu.Text;
+            if (txtTiemKiemThuongHieu.Text == "")
+            {
+                MessageBox.Show("Nhập Thông Tin Cần Tìm", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                DataTable result = BrandBus.SearchBrandByName(Name);
+                dgvThuongHieu.DataSource = result;
+
+            }
+        }
     }
 }

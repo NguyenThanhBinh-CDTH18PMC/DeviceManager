@@ -47,5 +47,10 @@ namespace BUS.BusinessObjectBase
             string info = ktkq.CheckLogin(taikhoan);
             return info;
         }
+
+        public static void InsertUser(UserModel user)
+        {
+            UserDataLayer.InsertUser(user);
+        }
     }
 }

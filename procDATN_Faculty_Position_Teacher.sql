@@ -171,3 +171,37 @@ begin
 	inner join D_Position p on Gv.PositionId= p.Id
 	where Gv.IsDeleted=0
 end
+
+go 
+Create proc GetAllUser
+as 
+begin
+	select d.Id ,u.Id ,u.[Name] ,t.Id ,t.FullName 
+	from System_Decentralization d ,S_Teacher t,[System_User] u
+	where d.TeacherId=t.Id and d.UserId=u.Id
+end
+	
+go 
+create proc InsertUser
+@UserName varchar(50) null,
+@Pass varchar(100) null,
+@Name nvarchar(100) null,
+--Image nvarchar(200) null,
+--AccessRightsGroup int null,
+@CreatedDate DateTime null,
+@CreatedUserId int null,
+@IsDeleted bit null,
+@Status int null
+as
+begin
+	SET NOCOUNT ON;
+	declare @Id int;
+	insert into [System_User](UserName,Pass,Name,CreatedDate,CreatedUserId,IsDeleted,Status)
+	values(@UserName,@Pass,@Name,@CreatedDate,@CreatedUserId,@IsDeleted,@Status)
+	set @Id = SCOPE_IDENTITY()
+	return @Id
+end
+	
+	
+	
+

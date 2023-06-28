@@ -123,6 +123,7 @@
             btnTimKiemChucVu.TabIndex = 6;
             btnTimKiemChucVu.Text = "Tìm kiếm";
             btnTimKiemChucVu.UseVisualStyleBackColor = false;
+            btnTimKiemChucVu.Click += btnTimKiemChucVu_Click;
             // 
             // txtTiemKiemChucVu
             // 

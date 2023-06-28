@@ -169,5 +169,20 @@ namespace DeviceManagerApp
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnTimKiemPhong_Click(object sender, EventArgs e)
+        {
+            string Name = txtTiemKiemPhong.Text;
+            if (txtTiemKiemPhong.Text == "")
+            {
+                MessageBox.Show("Nhập Thông Tin Cần Tìm", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                DataTable result = RoomBus.SearchRoomByName(Name);
+                dgvPhongMay.DataSource = result;
+                //txtTiemKiemPhong.Text = "";
+            }
+        }
     }
 }

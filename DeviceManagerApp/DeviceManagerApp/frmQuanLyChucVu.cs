@@ -126,5 +126,20 @@ namespace DeviceManagerApp
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnTimKiemChucVu_Click(object sender, EventArgs e)
+        {
+            string Name = txtTiemKiemChucVu.Text;
+            if (txtTiemKiemChucVu.Text == "")
+            {
+                MessageBox.Show("Nhập Thông Tin Cần Tìm", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                DataTable result = PositionBus.SearchPositionByName(Name);
+                dgvChucVu.DataSource = result;
+
+            }
+        }
     }
 }

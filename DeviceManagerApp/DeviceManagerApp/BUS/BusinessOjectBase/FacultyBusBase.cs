@@ -46,5 +46,9 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         {
             FacultyDAO.DeleteFaculty(Id);
         }
+        public static DataTable SearchFacultyByName(string Name)
+        {
+            return FacultyDAO.SearchFacultyByName(Name);
+        }
     }
 }

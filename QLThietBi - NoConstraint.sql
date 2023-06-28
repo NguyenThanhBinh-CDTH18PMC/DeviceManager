@@ -439,20 +439,18 @@ Create table [S_Teacher]
 	--constraint fk_Staff_User foreign key(CreatedUserId) references [System_User](Id),
 )
 
-/*
+
 Create table [System_Decentralization]
 (
 	[Id] int not null IDENTITY(1,1),
 	[UserId] int null,
-	[StaffId] int null,
+	[TeacherId] int null, 
 	[CreatedDate] DateTime null,
-	[ModifiedDate] DateTime null,
 	[CreatedUserId] int null,
-	[ModifiedUserId] int null,
 	[IsDeleted] bit null,
 	--constraint pk_Decentralization primary key(Id),
 )
-*/
+
 Create table [S_StaffLog]
 (
 	[Id] int not null IDENTITY(1,1),

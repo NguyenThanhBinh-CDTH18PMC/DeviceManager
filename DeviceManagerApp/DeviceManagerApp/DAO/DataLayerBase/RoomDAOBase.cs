@@ -178,5 +178,21 @@ namespace DeviceManagerApp.DAO.DataLayerBase
             }
         }
 
+        public static DataTable SearchRoomByName(string Name)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection connection = new SqlConnection(PathString.ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("SearchRoomByName", connection);
+                cmd.CommandType= CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue ("@Name", Name);
+                connection.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+               
+                da.Fill (dt);
+            }
+            return dt;
+        }
+
     }
 }

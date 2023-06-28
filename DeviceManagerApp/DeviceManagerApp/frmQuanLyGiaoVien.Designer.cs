@@ -32,6 +32,9 @@
             cbChucVu = new System.Windows.Forms.ComboBox();
             groupBox1 = new System.Windows.Forms.GroupBox();
             groupBox2 = new System.Windows.Forms.GroupBox();
+            rdbPhone = new System.Windows.Forms.RadioButton();
+            rdbLastName = new System.Windows.Forms.RadioButton();
+            rdbFirstName = new System.Windows.Forms.RadioButton();
             btnTimKiemGV = new System.Windows.Forms.Button();
             txtTimKiemGV = new System.Windows.Forms.TextBox();
             btnXoaGV = new System.Windows.Forms.Button();
@@ -64,6 +67,7 @@
             Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            PositionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvGiaoVien).BeginInit();
@@ -74,11 +78,11 @@
             btnQlChucVu.BackColor = System.Drawing.Color.Lime;
             btnQlChucVu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnQlChucVu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            btnQlChucVu.Location = new System.Drawing.Point(1050, 273);
+            btnQlChucVu.Location = new System.Drawing.Point(1104, 142);
             btnQlChucVu.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             btnQlChucVu.Name = "btnQlChucVu";
             btnQlChucVu.Size = new System.Drawing.Size(194, 50);
-            btnQlChucVu.TabIndex = 10;
+            btnQlChucVu.TabIndex = 18;
             btnQlChucVu.Text = "Quản lý Chức Vụ";
             btnQlChucVu.UseVisualStyleBackColor = false;
             btnQlChucVu.Click += btnQlChucVu_Click;
@@ -87,6 +91,7 @@
             // 
             cbChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cbChucVu.FormattingEnabled = true;
+            cbChucVu.ItemHeight = 25;
             cbChucVu.Location = new System.Drawing.Point(680, 182);
             cbChucVu.Name = "cbChucVu";
             cbChucVu.Size = new System.Drawing.Size(197, 33);
@@ -127,46 +132,83 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(rdbPhone);
+            groupBox2.Controls.Add(rdbLastName);
+            groupBox2.Controls.Add(rdbFirstName);
             groupBox2.Controls.Add(btnTimKiemGV);
             groupBox2.Controls.Add(txtTimKiemGV);
             groupBox2.Location = new System.Drawing.Point(477, 248);
             groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            groupBox2.Size = new System.Drawing.Size(534, 210);
+            groupBox2.Size = new System.Drawing.Size(970, 210);
             groupBox2.TabIndex = 31;
             groupBox2.TabStop = false;
             groupBox2.Text = "Tìm Kiếm";
+            // 
+            // rdbPhone
+            // 
+            rdbPhone.AutoSize = true;
+            rdbPhone.Location = new System.Drawing.Point(329, 151);
+            rdbPhone.Name = "rdbPhone";
+            rdbPhone.Size = new System.Drawing.Size(203, 29);
+            rdbPhone.TabIndex = 13;
+            rdbPhone.TabStop = true;
+            rdbPhone.Text = "Theo Số Điện Thoại";
+            rdbPhone.UseVisualStyleBackColor = true;
+            // 
+            // rdbLastName
+            // 
+            rdbLastName.AutoSize = true;
+            rdbLastName.Location = new System.Drawing.Point(171, 151);
+            rdbLastName.Name = "rdbLastName";
+            rdbLastName.Size = new System.Drawing.Size(115, 29);
+            rdbLastName.TabIndex = 12;
+            rdbLastName.TabStop = true;
+            rdbLastName.Text = "Theo Tên";
+            rdbLastName.UseVisualStyleBackColor = true;
+            // 
+            // rdbFirstName
+            // 
+            rdbFirstName.AutoSize = true;
+            rdbFirstName.Location = new System.Drawing.Point(26, 151);
+            rdbFirstName.Name = "rdbFirstName";
+            rdbFirstName.Size = new System.Drawing.Size(110, 29);
+            rdbFirstName.TabIndex = 11;
+            rdbFirstName.TabStop = true;
+            rdbFirstName.Text = "Theo Họ";
+            rdbFirstName.UseVisualStyleBackColor = true;
             // 
             // btnTimKiemGV
             // 
             btnTimKiemGV.BackColor = System.Drawing.Color.Lime;
             btnTimKiemGV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnTimKiemGV.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            btnTimKiemGV.Location = new System.Drawing.Point(330, 73);
+            btnTimKiemGV.Location = new System.Drawing.Point(787, 75);
             btnTimKiemGV.Name = "btnTimKiemGV";
             btnTimKiemGV.Size = new System.Drawing.Size(134, 50);
-            btnTimKiemGV.TabIndex = 32;
+            btnTimKiemGV.TabIndex = 14;
             btnTimKiemGV.Text = "Tìm Kiếm";
             btnTimKiemGV.UseVisualStyleBackColor = false;
+            btnTimKiemGV.Click += btnTimKiemGV_Click;
             // 
             // txtTimKiemGV
             // 
             txtTimKiemGV.Location = new System.Drawing.Point(47, 85);
             txtTimKiemGV.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             txtTimKiemGV.Name = "txtTimKiemGV";
-            txtTimKiemGV.Size = new System.Drawing.Size(197, 31);
-            txtTimKiemGV.TabIndex = 32;
+            txtTimKiemGV.Size = new System.Drawing.Size(513, 31);
+            txtTimKiemGV.TabIndex = 10;
             // 
             // btnXoaGV
             // 
             btnXoaGV.BackColor = System.Drawing.Color.Lime;
             btnXoaGV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnXoaGV.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            btnXoaGV.Location = new System.Drawing.Point(1050, 183);
+            btnXoaGV.Location = new System.Drawing.Point(1313, 30);
             btnXoaGV.Name = "btnXoaGV";
             btnXoaGV.Size = new System.Drawing.Size(134, 50);
-            btnXoaGV.TabIndex = 30;
+            btnXoaGV.TabIndex = 17;
             btnXoaGV.Text = "Xóa";
             btnXoaGV.UseVisualStyleBackColor = false;
             btnXoaGV.Click += btnXoaGV_Click;
@@ -176,10 +218,10 @@
             btnSuaGv.BackColor = System.Drawing.Color.Lime;
             btnSuaGv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnSuaGv.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            btnSuaGv.Location = new System.Drawing.Point(1050, 110);
+            btnSuaGv.Location = new System.Drawing.Point(1137, 30);
             btnSuaGv.Name = "btnSuaGv";
             btnSuaGv.Size = new System.Drawing.Size(134, 50);
-            btnSuaGv.TabIndex = 29;
+            btnSuaGv.TabIndex = 16;
             btnSuaGv.Text = "Cập nhật";
             btnSuaGv.UseVisualStyleBackColor = false;
             btnSuaGv.Click += btnSuaGv_Click;
@@ -189,10 +231,10 @@
             btnThemGv.BackColor = System.Drawing.Color.Lime;
             btnThemGv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnThemGv.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            btnThemGv.Location = new System.Drawing.Point(1050, 32);
+            btnThemGv.Location = new System.Drawing.Point(954, 28);
             btnThemGv.Name = "btnThemGv";
             btnThemGv.Size = new System.Drawing.Size(134, 50);
-            btnThemGv.TabIndex = 28;
+            btnThemGv.TabIndex = 15;
             btnThemGv.Text = "Thêm Mới";
             btnThemGv.UseVisualStyleBackColor = false;
             btnThemGv.Click += btnThemGv_Click;
@@ -214,7 +256,7 @@
             rdbNu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             rdbNu.Name = "rdbNu";
             rdbNu.Size = new System.Drawing.Size(63, 29);
-            rdbNu.TabIndex = 26;
+            rdbNu.TabIndex = 5;
             rdbNu.TabStop = true;
             rdbNu.Text = "Nữ";
             rdbNu.UseVisualStyleBackColor = true;
@@ -226,7 +268,7 @@
             rdNam.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             rdNam.Name = "rdNam";
             rdNam.Size = new System.Drawing.Size(77, 29);
-            rdNam.TabIndex = 25;
+            rdNam.TabIndex = 4;
             rdNam.TabStop = true;
             rdNam.Text = "Nam";
             rdNam.UseVisualStyleBackColor = true;
@@ -247,7 +289,7 @@
             txtEmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new System.Drawing.Size(197, 31);
-            txtEmail.TabIndex = 23;
+            txtEmail.TabIndex = 8;
             // 
             // label5
             // 
@@ -265,7 +307,7 @@
             txtSdtGV.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             txtSdtGV.Name = "txtSdtGV";
             txtSdtGV.Size = new System.Drawing.Size(197, 31);
-            txtSdtGV.TabIndex = 21;
+            txtSdtGV.TabIndex = 7;
             // 
             // label4
             // 
@@ -283,17 +325,17 @@
             rtbDiaChiGv.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             rtbDiaChiGv.Name = "rtbDiaChiGv";
             rtbDiaChiGv.Size = new System.Drawing.Size(197, 121);
-            rtbDiaChiGv.TabIndex = 19;
+            rtbDiaChiGv.TabIndex = 6;
             rtbDiaChiGv.Text = "";
             // 
             // dtNgaySinhGV
             // 
-            dtNgaySinhGV.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            dtNgaySinhGV.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             dtNgaySinhGV.Location = new System.Drawing.Point(169, 173);
             dtNgaySinhGV.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             dtNgaySinhGV.Name = "dtNgaySinhGV";
             dtNgaySinhGV.Size = new System.Drawing.Size(197, 31);
-            dtNgaySinhGV.TabIndex = 18;
+            dtNgaySinhGV.TabIndex = 3;
             // 
             // txtTenGV
             // 
@@ -301,7 +343,7 @@
             txtTenGV.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             txtTenGV.Name = "txtTenGV";
             txtTenGV.Size = new System.Drawing.Size(197, 31);
-            txtTenGV.TabIndex = 17;
+            txtTenGV.TabIndex = 2;
             // 
             // txtHoGV
             // 
@@ -309,7 +351,7 @@
             txtHoGV.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             txtHoGV.Name = "txtHoGV";
             txtHoGV.Size = new System.Drawing.Size(197, 31);
-            txtHoGV.TabIndex = 16;
+            txtHoGV.TabIndex = 1;
             // 
             // label3
             // 
@@ -354,7 +396,7 @@
             // dgvGiaoVien
             // 
             dgvGiaoVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvGiaoVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { TeacherId, Column2, Column3, Column4, Column5, Gender, Column7, Column8, Column9, Column10 });
+            dgvGiaoVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { TeacherId, Column2, Column3, Column4, Column5, Gender, Column7, Column8, Column9, Column10, PositionName });
             dgvGiaoVien.Dock = System.Windows.Forms.DockStyle.Top;
             dgvGiaoVien.Location = new System.Drawing.Point(0, 492);
             dgvGiaoVien.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -451,12 +493,22 @@
             // 
             // Column10
             // 
-            Column10.DataPropertyName = "Name";
+            Column10.DataPropertyName = "PositionId";
             Column10.HeaderText = "Chức Vụ";
             Column10.MinimumWidth = 8;
             Column10.Name = "Column10";
             Column10.ReadOnly = true;
+            Column10.Visible = false;
             Column10.Width = 150;
+            // 
+            // PositionName
+            // 
+            PositionName.DataPropertyName = "PositionName";
+            PositionName.HeaderText = "Chức Vụ";
+            PositionName.MinimumWidth = 8;
+            PositionName.Name = "PositionName";
+            PositionName.ReadOnly = true;
+            PositionName.Width = 150;
             // 
             // frmQuanLyGiaoVien
             // 
@@ -514,5 +566,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PositionName;
+        private System.Windows.Forms.RadioButton rdbPhone;
+        private System.Windows.Forms.RadioButton rdbLastName;
+        private System.Windows.Forms.RadioButton rdbFirstName;
     }
 }

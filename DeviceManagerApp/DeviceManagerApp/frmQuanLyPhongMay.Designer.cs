@@ -145,6 +145,7 @@
             btnTimKiemPhong.TabIndex = 9;
             btnTimKiemPhong.Text = "Tìm kiếm";
             btnTimKiemPhong.UseVisualStyleBackColor = false;
+            btnTimKiemPhong.Click += btnTimKiemPhong_Click;
             // 
             // txtTiemKiemPhong
             // 
@@ -231,7 +232,7 @@
             // 
             dgvPhongMay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPhongMay.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { ID, Column2, Column3, Column4, Column5 });
-            dgvPhongMay.Location = new System.Drawing.Point(0, 382);
+            dgvPhongMay.Location = new System.Drawing.Point(12, 379);
             dgvPhongMay.Name = "dgvPhongMay";
             dgvPhongMay.ReadOnly = true;
             dgvPhongMay.RowHeadersWidth = 62;
@@ -247,6 +248,7 @@
             ID.MinimumWidth = 8;
             ID.Name = "ID";
             ID.ReadOnly = true;
+            ID.Visible = false;
             ID.Width = 150;
             // 
             // Column2
