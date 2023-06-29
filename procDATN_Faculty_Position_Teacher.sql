@@ -6,10 +6,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 --thêm xóa sửa Khoa
-go
-create proc GetAllFaculty
-as
-select Id,Name,Description from D_Faculty
+
 go
 Create proc InsertFaculty
 @Name nvarchar(50),
@@ -47,11 +44,7 @@ begin
 	return @Id
 	
 end
-go
-create proc GetFacultyAfterDelete
-as
-select Id,Name,Description from D_Faculty
-where IsDeleted=0
+
 go 
 --thêm xóa sửa chức vụ
 go
@@ -100,14 +93,7 @@ where IsDeleted=0
 go 
 
 --thêm xóa sửa Giáo viên
-go
-create proc GetAllTeachers
-as 
-begin
-	select Gv.Id,Gv.FirstName,Gv.LastName,Gv.FullName,Gv.Birth,Gv.Gender,Gv.Address,Gv.Phone,Gv.Email,p.Name
-	from S_Teacher Gv
-	inner join D_Position p on Gv.PositionId= p.Id
-end
+
 
 go
 create proc InsertTeacher
@@ -273,4 +259,40 @@ begin
 	select Gv.Id,Gv.FirstName,Gv.LastName,Gv.FullName,Gv.Birth,Gv.Gender,Gv.Address,Gv.Phone,Gv.Email,Gv.CreatedDate,Gv.CreatedUserId,Gv.IsDeleted,Gv.PositionId,Gv.PositionId,Gv.IsDeleted,Gv.Status,p.Name as'PositionName'
 	from S_Teacher Gv ,D_Position p  
 	Where Gv.[Phone] LIKE '%' + @Phone + '%' and Gv.[IsDeleted] = 0 and Gv.PositionId= p.Id
+end
+
+
+----------------------------sửa proc------------------------------------
+
+go
+create proc GetAllFaculty
+as
+select * from D_Faculty
+
+
+go
+create proc GetFacultyAfterDelete
+as
+select * from D_Faculty
+where IsDeleted=0
+
+go
+create proc GetAllTeachers
+as 
+begin
+	select Gv.Id,Gv.FirstName,Gv.LastName,Gv.FullName,Gv.Birth,Gv.Gender,Gv.Address,Gv.Phone,Gv.Email,Gv.CreatedDate,Gv.CreatedUserId,Gv.IsDeleted,Gv.PositionId,Gv.PositionId,Gv.IsDeleted,Gv.Status,p.Name as'PositionName'
+	from S_Teacher Gv 
+	inner join D_Position p on Gv.PositionId= p.Id
+	where Gv.IsDeleted=0
+end
+
+go 
+create proc Teacher_SelectById(@Id int)
+as
+begin
+	SET NOCOUNT ON;
+	select Gv.Id,Gv.FirstName,Gv.LastName,Gv.FullName,Gv.Birth,Gv.Gender,Gv.Address,Gv.Phone,Gv.Email,Gv.CreatedDate,Gv.CreatedUserId,Gv.IsDeleted,Gv.PositionId,Gv.PositionId,Gv.IsDeleted,Gv.Status,p.Name as'PositionName'
+	from S_Teacher Gv 
+	inner join D_Position p on Gv.PositionId= p.Id
+	where Gv.Id=@Id
 end

@@ -17,7 +17,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
 {
     public class Device_TypeDAOBase
     {
-        public static DataTable getData()
+        public static List<Device_TypeModel> getData()
         {
             SqlConnection conn = new SqlConnection(PathString.ConnectionString);
             SqlCommand cmd = new SqlCommand("GetAllDevice_Type", conn);
@@ -28,7 +28,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
             DataTable dt = new DataTable();
             da.Fill(dt);
             conn.Close();
-            return dt;
+            return CreateDevice_TypefromDataTable(dt);
         }
         public static void InsertDevice_Type(Device_TypeModel device_Type)
         {
@@ -116,7 +116,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         }
 
         //Lấy danh sách Sau khi xóa
-        public static DataTable GetDevice_TypeAfterDelete()
+        public static List<Device_TypeModel> GetDevice_TypeAfterDelete()
         {
             DataTable brand = new DataTable();
             using (SqlConnection conn = new SqlConnection(PathString.ConnectionString))
@@ -128,8 +128,9 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                 da.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 da.Fill(dt);
-                return dt;
+                
                 conn.Close();
+                return CreateDevice_TypefromDataTable(dt);
             }
         }
         public static void DeleteDevice_Type(int Id)
@@ -639,6 +640,56 @@ namespace DeviceManagerApp.DAO.DataLayerBase
             //    objDeviceType.Status = null;
 
             return objDeviceType;
+        }
+
+        ///tạo model từ datatable
+        public static List<Device_TypeModel> CreateDevice_TypefromDataTable(DataTable dt)
+        {
+            List<Device_TypeModel> device_Types = new List<Device_TypeModel>();
+            if(dt != null)
+            {
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        Device_TypeModel typeModel = new Device_TypeModel();
+                        typeModel.Id = (int)dr["Id"];
+                        if (dr["Name"] != System.DBNull.Value)
+                            typeModel.Name = dr["Name"].ToString();
+                        else
+                            typeModel.Name = null;
+
+                        if (dr["Description"] != System.DBNull.Value)
+                            typeModel.Description = dr["Description"].ToString();
+                        else
+                            typeModel.Description = null;
+
+                        if (dr["CreatedDate"] != System.DBNull.Value)
+                            typeModel.CreatedDate = (DateTime)dr["CreatedDate"];
+                        else
+                            typeModel.CreatedDate = null;
+
+                        if (dr["CreatedUserId"] != System.DBNull.Value)
+                            typeModel.CreatedUserId = (int)dr["CreatedUserId"];
+                        else
+                            typeModel.CreatedUserId = null;
+
+                        if (dr["IsDeleted"] != System.DBNull.Value)
+                            typeModel.IsDeleted = (bool)dr["IsDeleted"];
+                        else
+                            typeModel.IsDeleted = false;
+
+                        if (dr["Status"] != System.DBNull.Value)
+                            typeModel.Status = (int)dr["Status"];
+                        else
+                            typeModel.Status = null;
+
+                        device_Types.Add(typeModel);
+                    }
+                }
+                
+            }
+            return device_Types;
         }
     }
 }

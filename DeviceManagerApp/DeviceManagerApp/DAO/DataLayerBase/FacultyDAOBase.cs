@@ -17,7 +17,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
 {
     public class FacultyDAOBase
     {
-        public static DataTable getData()
+        public static List<FacultyModel> getData()
         {
             SqlConnection conn = new SqlConnection(PathString.ConnectionString);
             SqlCommand cmd = new SqlCommand("GetAllFaculty", conn);
@@ -28,7 +28,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
             DataTable dt = new DataTable();
             da.Fill(dt);
             conn.Close();
-            return dt;
+            return CreateFacultyModelfromDataTable(dt);
         }
         public static void InsertFaculty(FacultyModel faculty)
         {
@@ -117,7 +117,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
             }
         }
         //lấy danh sách sau khi xóa
-        public static DataTable GetFacultyAfterDelete()
+        public static List<FacultyModel> GetFacultyAfterDelete()
         {
             DataTable faculty = new DataTable();
             using (SqlConnection conn = new SqlConnection(PathString.ConnectionString))
@@ -129,8 +129,9 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                 da.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 da.Fill(dt);
-                return dt;
+                
                 conn.Close();
+                return CreateFacultyModelfromDataTable(dt);
             }
         }
         public static void DeleteFaculty(int Id)
@@ -162,6 +163,48 @@ namespace DeviceManagerApp.DAO.DataLayerBase
             }
             return dt;
         }
+        //tạo model từ datatable
 
+        public static List<FacultyModel> CreateFacultyModelfromDataTable(DataTable dt)
+        {
+            List<FacultyModel> faculty= new List<FacultyModel>();
+            if (dt != null)
+            {
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        FacultyModel facultyModel = new FacultyModel();
+                        facultyModel.Id = (int)dr["Id"];
+                        if (dr["Name"] != System.DBNull.Value)
+                            facultyModel.Name = dr["Name"].ToString();
+                        else
+                            facultyModel.Name = null;
+
+                        if (dr["Description"] != System.DBNull.Value)
+                            facultyModel.Description = dr["Description"].ToString();
+                        else
+                            facultyModel.Description = null;
+
+                        if (dr["CreatedDate"] != System.DBNull.Value)
+                            facultyModel.CreatedDate = (DateTime)dr["CreatedDate"];
+                        else
+                            facultyModel.CreatedDate = null;
+
+                        if (dr["CreatedUserId"] != System.DBNull.Value)
+                            facultyModel.CreatedUserId = (int)dr["CreatedUserId"];
+                        else
+                            facultyModel.CreatedUserId = null;
+
+                        if (dr["IsDeleted"] != System.DBNull.Value)
+                            facultyModel.IsDeleted = (bool)dr["IsDeleted"];
+                        else
+                            facultyModel.IsDeleted = false;
+                        faculty.Add(facultyModel);
+
+                    }
+                }
+            }return faculty;
+        }
     }
 }

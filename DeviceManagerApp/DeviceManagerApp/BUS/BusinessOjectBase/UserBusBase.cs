@@ -1,4 +1,5 @@
 ﻿using DAO.DataLayer;
+using DocumentFormat.OpenXml.Drawing.Charts;
 using DTO.Model;
 using DTO.ModelBase;
 using System;
@@ -50,7 +51,19 @@ namespace BUS.BusinessObjectBase
 
         public static void InsertUser(UserModel user)
         {
-            UserDataLayer.InsertUser(user);
+            if (UserDataLayer.CheckUserName(user.UserName))
+            {
+                throw new Exception("Tên Tài Khoản Đã Tồn Tại");
+            }
+            else if(UserDataLayer.CheckName(user.Name)) 
+            { 
+                throw new Exception("Tên Hiển Thị Đã Tồn Tại");
+            }
+            else
+            {
+                UserDataLayer.InsertUser(user);
+            } 
         }
+        
     }
 }
