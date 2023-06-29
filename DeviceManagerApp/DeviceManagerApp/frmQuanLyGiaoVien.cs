@@ -16,6 +16,8 @@ namespace DeviceManagerApp
         {
             InitializeComponent();
             dgvGiaoVien.CellFormatting += dgvGiaoVien_CellFormatting;
+            dgvGiaoVien.AutoGenerateColumns = false;
+            dtNgaySinhGV.CustomFormat = "dd/MM/yyyy";
         }
 
         private void btnQlChucVu_Click(object sender, EventArgs e)
@@ -32,6 +34,8 @@ namespace DeviceManagerApp
 
             //dgvGiaoVien.DataSource = TeacherBus.GetAllTeachers();
             dgvGiaoVien.DataSource = TeacherBus.GetTeachersAfterDelete();
+
+
         }
 
         private void dgvGiaoVien_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -47,7 +51,7 @@ namespace DeviceManagerApp
                 rtbDiaChiGv.Text = row.Cells[6].Value.ToString();
                 txtSdtGV.Text = row.Cells[7].Value.ToString();
                 txtEmail.Text = row.Cells[8].Value.ToString();
-                cbChucVu.Text = row.Cells[9].Value.ToString();
+                cbChucVu.Text = row.Cells[10].Value.ToString();
                 bool currentGender = (bool)dgvGiaoVien.Rows[e.RowIndex].Cells["Gender"].Value;
 
                 // Hiển thị RadioButton tương ứng với giới tính hiện tại
@@ -73,6 +77,7 @@ namespace DeviceManagerApp
                 TeacherModel teacher = new TeacherModel();
                 teacher.FirstName = txtHoGV.Text;
                 teacher.LastName = txtTenGV.Text;
+                teacher.FullName = teacher.FirstName + " " + teacher.LastName;
                 teacher.Birth = dtNgaySinhGV.Value.Date;
                 teacher.Email = txtEmail.Text;
                 teacher.Address = rtbDiaChiGv.Text;
@@ -131,6 +136,7 @@ namespace DeviceManagerApp
                 teacher.Id = Id;
                 teacher.FirstName = txtHoGV.Text;
                 teacher.LastName = txtTenGV.Text;
+                teacher.FullName = teacher.FirstName + " " + teacher.LastName;
                 teacher.Birth = dtNgaySinhGV.Value.Date;
                 teacher.Email = txtEmail.Text;
                 teacher.Address = rtbDiaChiGv.Text;
@@ -197,6 +203,40 @@ namespace DeviceManagerApp
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnTimKiemGV_Click(object sender, EventArgs e)
+        {
+            if (txtTimKiemGV.Text == "")
+            {
+                MessageBox.Show("Nhập Thông Tin Cần Tìm", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (rdbFirstName.Checked)
+                {
+                    string FirstName = txtTimKiemGV.Text;
+                    DataTable result = TeacherBus.SearchTeacherByFirstName(FirstName);
+                    dgvGiaoVien.DataSource = result;
+                }
+                else if (rdbLastName.Checked)
+                {
+                    string LastName = txtTimKiemGV.Text;
+                    DataTable result = TeacherBus.SearchTeacherByLastName(LastName);
+                    dgvGiaoVien.DataSource = result;
+                }
+                else if (rdbPhone.Checked)
+                {
+                    string Phone = txtTimKiemGV.Text;
+                    DataTable result = TeacherBus.SearchTeacherByPhone(Phone);
+                    dgvGiaoVien.DataSource = result;
+                }
+                else
+                {
+                    MessageBox.Show("Vui Lòng Chọn 1 Phương Thức Tìm Kiếm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            
         }
     }
 }

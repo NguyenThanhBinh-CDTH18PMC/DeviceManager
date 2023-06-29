@@ -45,5 +45,9 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         {
             PositionDao.DeletePosition(Id);
         }
+        public static DataTable SearchPositionByName(string Name)
+        {
+            return PositionDao.SearchPositionByName(Name);
+        }
     }
 }

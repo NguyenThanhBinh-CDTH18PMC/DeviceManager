@@ -40,6 +40,9 @@
     <Compile Update="frmSetSpecsForDeviceType.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="frmTaoTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="frmTrangChu.cs">
       <SubType>Form</SubType>
     </Compile>

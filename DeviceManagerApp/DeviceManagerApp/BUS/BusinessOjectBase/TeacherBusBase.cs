@@ -15,7 +15,7 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
 {
     public class TeacherBusBase
     {
-        public static DataTable GetAllTeachers()
+        public static List<TeacherModel> GetAllTeachers()
         {
             return TeacherDAO.GetData();
         }
@@ -85,13 +85,26 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
                 MessageBox.Show("Cập Nhật Thành Công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-        public static DataTable GetTeachersAfterDelete()
+        public static List<TeacherModel> GetTeachersAfterDelete()
         {
             return TeacherDAO.GetTeachersAfterDelete();
         }
         public static void DeleteTeacher(int Id)
         {
             TeacherDAO.DeleteTeacher(Id);
+        }
+
+        public static DataTable SearchTeacherByFirstName(string FirstName)
+        {
+            return TeacherDAO.SearchTeacherByFirstName(FirstName);
+        }
+        public static DataTable SearchTeacherByLastName(string LastName)
+        {
+            return TeacherDAO.SearchTeacherByLastName(LastName);
+        }
+        public static DataTable SearchTeacherByPhone(string Phone)
+        {
+            return TeacherDAO.SearchTeacherByPhone(Phone);
         }
     }
 }

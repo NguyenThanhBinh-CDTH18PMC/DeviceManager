@@ -135,5 +135,20 @@ namespace DeviceManagerApp
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnTimKiemKhoa_Click(object sender, EventArgs e)
+        {
+            string Name = txtTimKiemKhoa.Text;
+            if (txtTimKiemKhoa.Text == "")
+            {
+                MessageBox.Show("Nhập Thông Tin Cần Tìm", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                DataTable result = FacultyBus.SearchFacultyByName(Name);
+                dgvQlKhoa.DataSource = result;
+                //txtTiemKiemPhong.Text = "";
+            }
+        }
     }
 }

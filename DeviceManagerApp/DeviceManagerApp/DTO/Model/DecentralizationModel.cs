@@ -5,9 +5,8 @@ using System.Text;
 
 namespace DeviceManagerApp.DTO.Model
 {
-    public class TeacherModel:TeacherModelBase
-    {   
-        public string PositionName { get; set; }
-        public TeacherModel() { }
+    public class DecentralizationModel:DecentralizationModelBase
+    {
+        public DecentralizationModel() { }
     }
 }

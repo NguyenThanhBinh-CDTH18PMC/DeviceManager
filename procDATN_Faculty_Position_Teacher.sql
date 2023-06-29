@@ -166,8 +166,111 @@ go
 create proc GetTeachersAfterDelete
 as 
 begin
-	select Gv.Id,Gv.FirstName,Gv.LastName,Gv.FullName,Gv.Birth,Gv.Gender,Gv.Address,Gv.Phone,Gv.Email,p.Name
+	select Gv.Id,Gv.FirstName,Gv.LastName,Gv.FullName,Gv.Birth,Gv.Gender,Gv.Address,Gv.Phone,Gv.Email,Gv.CreatedDate,Gv.CreatedUserId,Gv.IsDeleted,Gv.PositionId,Gv.PositionId,Gv.IsDeleted,Gv.Status,p.Name as'PositionName'
 	from S_Teacher Gv 
 	inner join D_Position p on Gv.PositionId= p.Id
 	where Gv.IsDeleted=0
+end
+
+go 
+Create proc GetAllDecentralization
+as 
+begin
+	select d.Id ,u.Id ,u.[Name] ,t.Id ,t.FullName 
+	from System_Decentralization d ,S_Teacher t,[System_User] u
+	where d.TeacherId=t.Id and d.UserId=u.Id
+end
+	
+go 
+create proc InsertUser
+@UserName varchar(50) null,
+@Pass varchar(100) null,
+@Name nvarchar(100) null,
+--Image nvarchar(200) null,
+--AccessRightsGroup int null,
+@CreatedDate DateTime null,
+@CreatedUserId int null,
+@IsDeleted bit null,
+@Status int null
+as
+begin
+	SET NOCOUNT ON;
+	declare @Id int;
+	insert into [System_User](UserName,Pass,Name,CreatedDate,CreatedUserId,IsDeleted,Status)
+	values(@UserName,@Pass,@Name,@CreatedDate,@CreatedUserId,@IsDeleted,@Status)
+	set @Id = SCOPE_IDENTITY()
+	return @Id
+end
+	
+	--tìm kiếm phòng theo tên
+go
+create proc SearchRoomByName
+@Name nvarchar(100)
+as
+begin
+	select Id,Code,Name,Description,DeviceQuantity
+	from D_Room
+	Where [Name] LIKE '%' + @Name + '%' and IsDeleted = 0
+end
+	--tìm kiếm khoa theo tên
+go
+create proc SearchFacultyByName
+@Name nvarchar(100)
+as
+begin
+	select Id,Name,Description
+	from D_Faculty
+	Where [Name] LIKE '%' + @Name + '%' and IsDeleted = 0
+end
+	--tìm kím thương hiệu theo tên
+go
+create proc SearchBrandByName
+@Name nvarchar(100)
+as
+begin
+	select Id,Name,Address
+	from D_Brand
+	Where [Name] LIKE '%' + @Name + '%' and IsDeleted = 0
+end
+	--tìm kím chức vụ theo tên
+go
+create proc SearchPositionByName
+@Name nvarchar(100)
+as
+begin
+	select Id,Name
+	from D_Position
+	Where [Name] LIKE '%' + @Name + '%' and IsDeleted = 0
+end
+
+	--tìm kím giáo viên theo họ
+go
+create proc SearchTeacherByFirstName
+@FirstName nvarchar(100)
+as
+begin
+	select Gv.Id,Gv.FirstName,Gv.LastName,Gv.FullName,Gv.Birth,Gv.Gender,Gv.Address,Gv.Phone,Gv.Email,Gv.CreatedDate,Gv.CreatedUserId,Gv.IsDeleted,Gv.PositionId,Gv.PositionId,Gv.IsDeleted,Gv.Status,p.Name as'PositionName'
+	from S_Teacher Gv ,D_Position p  
+	Where Gv.[FirstName] LIKE '%' + @FirstName + '%' and Gv.[IsDeleted] = 0 and Gv.PositionId= p.Id
+end
+	--tìm kím giáo viên theo Tên
+go
+create proc SearchTeacherByLastName
+@LastName nvarchar(100)
+as
+begin
+	select Gv.Id,Gv.FirstName,Gv.LastName,Gv.FullName,Gv.Birth,Gv.Gender,Gv.Address,Gv.Phone,Gv.Email,Gv.CreatedDate,Gv.CreatedUserId,Gv.IsDeleted,Gv.PositionId,Gv.PositionId,Gv.IsDeleted,Gv.Status,p.Name as'PositionName'
+	from S_Teacher Gv ,D_Position p  
+	Where Gv.[LastName] LIKE '%' + @LastName + '%' and Gv.[IsDeleted] = 0 and Gv.PositionId= p.Id
+end
+
+--tìm kím giáo viên theo sdt
+go
+create proc SearchTeacherByPhone
+@Phone nvarchar(10)
+as
+begin
+	select Gv.Id,Gv.FirstName,Gv.LastName,Gv.FullName,Gv.Birth,Gv.Gender,Gv.Address,Gv.Phone,Gv.Email,Gv.CreatedDate,Gv.CreatedUserId,Gv.IsDeleted,Gv.PositionId,Gv.PositionId,Gv.IsDeleted,Gv.Status,p.Name as'PositionName'
+	from S_Teacher Gv ,D_Position p  
+	Where Gv.[Phone] LIKE '%' + @Phone + '%' and Gv.[IsDeleted] = 0 and Gv.PositionId= p.Id
 end

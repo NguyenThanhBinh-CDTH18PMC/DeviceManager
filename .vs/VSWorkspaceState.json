@@ -2,8 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\DeviceManagerApp",
-    "\\DeviceManagerApp\\DeviceManagerApp"
+    "\\DeviceManagerApp\\DeviceManagerApp",
+    "\\DeviceManagerApp\\DeviceManagerApp\\DAO",
+    "\\DeviceManagerApp\\DeviceManagerApp\\DAO\\DataLayerBase",
+    "\\image"
   ],
-  "SelectedNode": "\\DeviceManagerApp\\DeviceManagerApp.sln",
+  "SelectedNode": "\\DeviceManagerApp\\DeviceManagerApp\\DAO\\DataLayerBase\\UserDataLayerBase.cs",
   "PreviewInSolutionExplorer": false
 }

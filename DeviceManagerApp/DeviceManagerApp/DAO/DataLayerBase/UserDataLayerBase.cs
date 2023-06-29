@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DTO.ModelBase;
 using System.Data.SqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace DAO.DataLayerBase
 {
@@ -450,106 +451,128 @@ namespace DAO.DataLayerBase
         /// <summary>
         /// Inserts a record
         /// </summary>
-        public static int Insert(UserModel objSystemUser)
-        {
-            string storedProcName = "[dbo].[SystemUser_Insert]";
-            return InsertUpdate(objSystemUser, false, storedProcName);
-        }
+        //public static int Insert(UserModel objSystemUser)
+        //{
+        //    string storedProcName = "InsertUser";
+        //    return InsertUpdate(objSystemUser, false, storedProcName);
+        //}
 
-        /// <summary>
-        /// Updates a record
-        /// </summary>
-        public static void Update(UserModel objSystemUser)
-        {
-            string storedProcName = "[dbo].[SystemUser_Update]";
-            InsertUpdate(objSystemUser, true, storedProcName);
-        }
+        ///// <summary>
+        ///// Updates a record
+        ///// </summary>
+        //public static void Update(UserModel objSystemUser)
+        //{
+        //    string storedProcName = "[dbo].[SystemUser_Update]";
+        //    InsertUpdate(objSystemUser, true, storedProcName);
+        //}
 
-        private static int InsertUpdate(UserModel objSystemUser, bool isUpdate, string storedProcName)
-        {
-            int newlyCreatedId = objSystemUser.Id;
+        //private static int InsertUpdate(UserModel objSystemUser, bool isUpdate, string storedProcName)
+        //{
+        //    int newlyCreatedId = objSystemUser.Id;
 
-            object userName = objSystemUser.UserName;
-            object pass = objSystemUser.Pass;
-            object name = objSystemUser.Name;
-            object image = objSystemUser.Image;
-            object accessRightsGroup = objSystemUser.AccessRightsGroup;
-            object createdDate = objSystemUser.CreatedDate;
-            object modifiedDate = objSystemUser.ModifiedDate;
-            object createdUserId = objSystemUser.CreatedUserId;
-            object modifiedUserId = objSystemUser.ModifiedUserId;
-            object status = objSystemUser.Status;
+        //    object userName = objSystemUser.UserName;
+        //    object pass = objSystemUser.Pass;
+        //    object name = objSystemUser.Name;
+        //    object image = objSystemUser.Image;
+        //    object accessRightsGroup = objSystemUser.AccessRightsGroup;
+        //    object createdDate = objSystemUser.CreatedDate;
+        //    object modifiedDate = objSystemUser.ModifiedDate;
+        //    object createdUserId = objSystemUser.CreatedUserId;
+        //    object modifiedUserId = objSystemUser.ModifiedUserId;
+        //    object status = objSystemUser.Status;
 
-            if (String.IsNullOrEmpty(objSystemUser.UserName))
-                userName = System.DBNull.Value;
+        //    if (String.IsNullOrEmpty(objSystemUser.UserName))
+        //        userName = System.DBNull.Value;
 
-            if (String.IsNullOrEmpty(objSystemUser.Pass))
-                pass = System.DBNull.Value;
+        //    if (String.IsNullOrEmpty(objSystemUser.Pass))
+        //        pass = System.DBNull.Value;
 
-            if (String.IsNullOrEmpty(objSystemUser.Name))
-                name = System.DBNull.Value;
+        //    if (String.IsNullOrEmpty(objSystemUser.Name))
+        //        name = System.DBNull.Value;
 
-            if (String.IsNullOrEmpty(objSystemUser.Image))
-                image = System.DBNull.Value;
+        //    if (String.IsNullOrEmpty(objSystemUser.Image))
+        //        image = System.DBNull.Value;
 
-            if (objSystemUser.AccessRightsGroup == null)
-                accessRightsGroup = System.DBNull.Value;
+        //    if (objSystemUser.AccessRightsGroup == null)
+        //        accessRightsGroup = System.DBNull.Value;
 
-            if (objSystemUser.CreatedDate == null)
-                createdDate = System.DBNull.Value;
+        //    if (objSystemUser.CreatedDate == null)
+        //        createdDate = System.DBNull.Value;
 
-            if (objSystemUser.ModifiedDate == null)
-                modifiedDate = System.DBNull.Value;
+        //    if (objSystemUser.ModifiedDate == null)
+        //        modifiedDate = System.DBNull.Value;
 
-            if (objSystemUser.CreatedUserId == null)
-                createdUserId = System.DBNull.Value;
+        //    if (objSystemUser.CreatedUserId == null)
+        //        createdUserId = System.DBNull.Value;
 
-            if (objSystemUser.ModifiedUserId == null)
-                modifiedUserId = System.DBNull.Value;
+        //    if (objSystemUser.ModifiedUserId == null)
+        //        modifiedUserId = System.DBNull.Value;
 
-            if (objSystemUser.Status == null)
-                status = System.DBNull.Value;
+        //    if (objSystemUser.Status == null)
+        //        status = System.DBNull.Value;
 
-            using (SqlConnection connection = new SqlConnection(PathString.ConnectionString))
-            {
-                connection.Open();
+        //    using (SqlConnection connection = new SqlConnection(PathString.ConnectionString))
+        //    {
+        //        connection.Open();
 
-                using (SqlCommand command = new SqlCommand(storedProcName, connection))
-                {
-                    command.CommandType = CommandType.StoredProcedure;
+        //        using (SqlCommand command = new SqlCommand(storedProcName, connection))
+        //        {
+        //            command.CommandType = CommandType.StoredProcedure;
 
-                    // parameters
-                    if (isUpdate)
-                    {
-                        // for update only
-                        command.Parameters.AddWithValue("@id", objSystemUser.Id);
-                    }
+        //            // parameters
+        //            if (isUpdate)
+        //            {
+        //                // for update only
+        //                command.Parameters.AddWithValue("@id", objSystemUser.Id);
+        //            }
 
-                    command.Parameters.AddWithValue("@userName", userName);
-                    command.Parameters.AddWithValue("@pass", pass);
-                    command.Parameters.AddWithValue("@name", name);
-                    command.Parameters.AddWithValue("@image", image);
-                    command.Parameters.AddWithValue("@accessRightsGroup", accessRightsGroup);
-                    command.Parameters.AddWithValue("@createdDate", createdDate);
-                    command.Parameters.AddWithValue("@modifiedDate", modifiedDate);
-                    command.Parameters.AddWithValue("@createdUserId", createdUserId);
-                    command.Parameters.AddWithValue("@modifiedUserId", modifiedUserId);
-                    command.Parameters.AddWithValue("@isDeleted", objSystemUser.IsDeleted);
-                    command.Parameters.AddWithValue("@status", status);
+        //            command.Parameters.AddWithValue("@userName", userName);
+        //            command.Parameters.AddWithValue("@pass", pass);
+        //            command.Parameters.AddWithValue("@name", name);
+        //            command.Parameters.AddWithValue("@image", image);
+        //            command.Parameters.AddWithValue("@accessRightsGroup", accessRightsGroup);
+        //            command.Parameters.AddWithValue("@createdDate", createdDate);
+        //            command.Parameters.AddWithValue("@modifiedDate", modifiedDate);
+        //            command.Parameters.AddWithValue("@createdUserId", createdUserId);
+        //            command.Parameters.AddWithValue("@modifiedUserId", modifiedUserId);
+        //            command.Parameters.AddWithValue("@isDeleted", objSystemUser.IsDeleted);
+        //            command.Parameters.AddWithValue("@status", status);
 
-                    if (isUpdate)
-                        command.ExecuteNonQuery();
-                    else
-                        newlyCreatedId = (int)command.ExecuteScalar();
-                }
-            }
+        //            if (isUpdate)
+        //                command.ExecuteNonQuery();
+        //            else
+        //                newlyCreatedId = (int)command.ExecuteScalar();
+        //        }
+        //    }
 
-            return newlyCreatedId;
-        }
+        //    return newlyCreatedId;
+        //}
 
         /// <summary>
         /// Deletes a record based on primary key(s)
         /// </summary>
+        
+        public static void InsertUser(UserModel user)
+        {
+            SqlConnection conn = new SqlConnection(PathString.ConnectionString);
+            SqlCommand cmd = new SqlCommand("InsertUser", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@UserName", user.UserName);
+            cmd.Parameters.AddWithValue("@Pass", user.Pass);
+            cmd.Parameters.AddWithValue("@Name", user.Name);
+            //cmd.Parameters.AddWithValue("@image", image);
+            //cmd.Parameters.AddWithValue("@accessRightsGroup", accessRightsGroup);
+            cmd.Parameters.AddWithValue("@CreatedDate", user.CreatedDate);
+            //cmd.Parameters.AddWithValue("@modifiedDate", modifiedDate);
+            cmd.Parameters.AddWithValue("@CreatedUserId", user.CreatedUserId);
+            //cmd.Parameters.AddWithValue("@modifiedUserId", modifiedUserId);
+            cmd.Parameters.AddWithValue("@IsDeleted", user.IsDeleted);
+            cmd.Parameters.AddWithValue("@Status", user.Status);
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+
+        }
         public static void Delete(int id)
         {
             string storedProcName = "[dbo].[SystemUser_Delete]";

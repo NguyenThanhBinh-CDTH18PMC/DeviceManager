@@ -146,5 +146,22 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                 conn.Close();
             }
         }
+
+        public static DataTable SearchFacultyByName(string Name)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection connection = new SqlConnection(PathString.ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("SearchFacultyByName", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Name", Name);
+                connection.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+                da.Fill(dt);
+            }
+            return dt;
+        }
+
     }
 }

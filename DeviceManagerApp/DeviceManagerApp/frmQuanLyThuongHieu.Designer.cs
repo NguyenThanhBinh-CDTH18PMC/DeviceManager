@@ -55,9 +55,8 @@
             label1.Dock = System.Windows.Forms.DockStyle.Top;
             label1.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             label1.Location = new System.Drawing.Point(0, 0);
-            label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(333, 41);
+            label1.Size = new System.Drawing.Size(491, 60);
             label1.TabIndex = 0;
             label1.Text = "Quản Lý Thương Hiệu ";
             // 
@@ -73,31 +72,27 @@
             qbThuongHieu.Controls.Add(lblTenThuongHieu);
             qbThuongHieu.Dock = System.Windows.Forms.DockStyle.Top;
             qbThuongHieu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            qbThuongHieu.Location = new System.Drawing.Point(0, 41);
-            qbThuongHieu.Margin = new System.Windows.Forms.Padding(2);
+            qbThuongHieu.Location = new System.Drawing.Point(0, 60);
             qbThuongHieu.Name = "qbThuongHieu";
-            qbThuongHieu.Padding = new System.Windows.Forms.Padding(2);
-            qbThuongHieu.Size = new System.Drawing.Size(817, 188);
+            qbThuongHieu.Size = new System.Drawing.Size(1263, 313);
             qbThuongHieu.TabIndex = 1;
             qbThuongHieu.TabStop = false;
             qbThuongHieu.Text = "Thông tin thương hiệu";
             // 
             // rtbDiaChi
             // 
-            rtbDiaChi.Location = new System.Drawing.Point(155, 76);
-            rtbDiaChi.Margin = new System.Windows.Forms.Padding(2);
+            rtbDiaChi.Location = new System.Drawing.Point(221, 127);
             rtbDiaChi.Name = "rtbDiaChi";
-            rtbDiaChi.Size = new System.Drawing.Size(178, 59);
+            rtbDiaChi.Size = new System.Drawing.Size(253, 96);
             rtbDiaChi.TabIndex = 3;
             rtbDiaChi.Text = "";
             // 
             // lblDiaChi
             // 
             lblDiaChi.AutoSize = true;
-            lblDiaChi.Location = new System.Drawing.Point(35, 86);
-            lblDiaChi.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblDiaChi.Location = new System.Drawing.Point(50, 143);
             lblDiaChi.Name = "lblDiaChi";
-            lblDiaChi.Size = new System.Drawing.Size(51, 15);
+            lblDiaChi.Size = new System.Drawing.Size(82, 25);
             lblDiaChi.TabIndex = 18;
             lblDiaChi.Text = "Địa Chỉ :";
             // 
@@ -105,11 +100,9 @@
             // 
             gbTimKiemThuongHieu.Controls.Add(btnTimKiemThuongHieu);
             gbTimKiemThuongHieu.Controls.Add(txtTiemKiemThuongHieu);
-            gbTimKiemThuongHieu.Location = new System.Drawing.Point(573, 14);
-            gbTimKiemThuongHieu.Margin = new System.Windows.Forms.Padding(2);
+            gbTimKiemThuongHieu.Location = new System.Drawing.Point(819, 23);
             gbTimKiemThuongHieu.Name = "gbTimKiemThuongHieu";
-            gbTimKiemThuongHieu.Padding = new System.Windows.Forms.Padding(2);
-            gbTimKiemThuongHieu.Size = new System.Drawing.Size(395, 121);
+            gbTimKiemThuongHieu.Size = new System.Drawing.Size(564, 202);
             gbTimKiemThuongHieu.TabIndex = 17;
             gbTimKiemThuongHieu.TabStop = false;
             gbTimKiemThuongHieu.Text = "Tìm Kiếm";
@@ -119,21 +112,20 @@
             btnTimKiemThuongHieu.BackColor = System.Drawing.Color.Lime;
             btnTimKiemThuongHieu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnTimKiemThuongHieu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            btnTimKiemThuongHieu.Location = new System.Drawing.Point(277, 25);
-            btnTimKiemThuongHieu.Margin = new System.Windows.Forms.Padding(2);
+            btnTimKiemThuongHieu.Location = new System.Drawing.Point(396, 42);
             btnTimKiemThuongHieu.Name = "btnTimKiemThuongHieu";
-            btnTimKiemThuongHieu.Size = new System.Drawing.Size(94, 30);
+            btnTimKiemThuongHieu.Size = new System.Drawing.Size(134, 50);
             btnTimKiemThuongHieu.TabIndex = 8;
             btnTimKiemThuongHieu.Text = "Tìm kiếm";
             btnTimKiemThuongHieu.UseVisualStyleBackColor = false;
+            btnTimKiemThuongHieu.Click += btnTimKiemThuongHieu_Click;
             // 
             // txtTiemKiemThuongHieu
             // 
             txtTiemKiemThuongHieu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            txtTiemKiemThuongHieu.Location = new System.Drawing.Point(23, 32);
-            txtTiemKiemThuongHieu.Margin = new System.Windows.Forms.Padding(2);
+            txtTiemKiemThuongHieu.Location = new System.Drawing.Point(33, 53);
             txtTiemKiemThuongHieu.Name = "txtTiemKiemThuongHieu";
-            txtTiemKiemThuongHieu.Size = new System.Drawing.Size(177, 23);
+            txtTiemKiemThuongHieu.Size = new System.Drawing.Size(252, 31);
             txtTiemKiemThuongHieu.TabIndex = 7;
             // 
             // btnXoaThuongHieu
@@ -141,10 +133,9 @@
             btnXoaThuongHieu.BackColor = System.Drawing.Color.Lime;
             btnXoaThuongHieu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnXoaThuongHieu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            btnXoaThuongHieu.Location = new System.Drawing.Point(464, 105);
-            btnXoaThuongHieu.Margin = new System.Windows.Forms.Padding(2);
+            btnXoaThuongHieu.Location = new System.Drawing.Point(663, 175);
             btnXoaThuongHieu.Name = "btnXoaThuongHieu";
-            btnXoaThuongHieu.Size = new System.Drawing.Size(94, 30);
+            btnXoaThuongHieu.Size = new System.Drawing.Size(134, 50);
             btnXoaThuongHieu.TabIndex = 6;
             btnXoaThuongHieu.Text = "Xóa";
             btnXoaThuongHieu.UseVisualStyleBackColor = false;
@@ -155,10 +146,9 @@
             btnSuaThuongHieu.BackColor = System.Drawing.Color.Lime;
             btnSuaThuongHieu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnSuaThuongHieu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            btnSuaThuongHieu.Location = new System.Drawing.Point(464, 61);
-            btnSuaThuongHieu.Margin = new System.Windows.Forms.Padding(2);
+            btnSuaThuongHieu.Location = new System.Drawing.Point(663, 102);
             btnSuaThuongHieu.Name = "btnSuaThuongHieu";
-            btnSuaThuongHieu.Size = new System.Drawing.Size(94, 30);
+            btnSuaThuongHieu.Size = new System.Drawing.Size(134, 50);
             btnSuaThuongHieu.TabIndex = 5;
             btnSuaThuongHieu.Text = "Cập nhật";
             btnSuaThuongHieu.UseVisualStyleBackColor = false;
@@ -169,10 +159,9 @@
             btnThemThuongHieu.BackColor = System.Drawing.Color.Lime;
             btnThemThuongHieu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnThemThuongHieu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            btnThemThuongHieu.Location = new System.Drawing.Point(464, 14);
-            btnThemThuongHieu.Margin = new System.Windows.Forms.Padding(2);
+            btnThemThuongHieu.Location = new System.Drawing.Point(663, 23);
             btnThemThuongHieu.Name = "btnThemThuongHieu";
-            btnThemThuongHieu.Size = new System.Drawing.Size(94, 30);
+            btnThemThuongHieu.Size = new System.Drawing.Size(134, 50);
             btnThemThuongHieu.TabIndex = 4;
             btnThemThuongHieu.Text = "Thêm Mới";
             btnThemThuongHieu.UseVisualStyleBackColor = false;
@@ -181,19 +170,17 @@
             // txtTenThuongHieu
             // 
             txtTenThuongHieu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            txtTenThuongHieu.Location = new System.Drawing.Point(155, 38);
-            txtTenThuongHieu.Margin = new System.Windows.Forms.Padding(2);
+            txtTenThuongHieu.Location = new System.Drawing.Point(221, 63);
             txtTenThuongHieu.Name = "txtTenThuongHieu";
-            txtTenThuongHieu.Size = new System.Drawing.Size(177, 23);
+            txtTenThuongHieu.Size = new System.Drawing.Size(252, 31);
             txtTenThuongHieu.TabIndex = 2;
             // 
             // lblTenThuongHieu
             // 
             lblTenThuongHieu.AutoSize = true;
-            lblTenThuongHieu.Location = new System.Drawing.Point(35, 42);
-            lblTenThuongHieu.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblTenThuongHieu.Location = new System.Drawing.Point(50, 70);
             lblTenThuongHieu.Name = "lblTenThuongHieu";
-            lblTenThuongHieu.Size = new System.Drawing.Size(109, 15);
+            lblTenThuongHieu.Size = new System.Drawing.Size(169, 25);
             lblTenThuongHieu.TabIndex = 1;
             lblTenThuongHieu.Text = "Tên Thương Hiệu :";
             // 
@@ -201,13 +188,12 @@
             // 
             dgvThuongHieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvThuongHieu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { ID, Column2, Column3 });
-            dgvThuongHieu.Location = new System.Drawing.Point(0, 233);
-            dgvThuongHieu.Margin = new System.Windows.Forms.Padding(2);
+            dgvThuongHieu.Location = new System.Drawing.Point(0, 388);
             dgvThuongHieu.Name = "dgvThuongHieu";
             dgvThuongHieu.ReadOnly = true;
             dgvThuongHieu.RowHeadersWidth = 62;
             dgvThuongHieu.RowTemplate.Height = 33;
-            dgvThuongHieu.Size = new System.Drawing.Size(331, 187);
+            dgvThuongHieu.Size = new System.Drawing.Size(473, 312);
             dgvThuongHieu.TabIndex = 3;
             dgvThuongHieu.CellClick += dgvThuongHieu_CellClick;
             // 
@@ -241,13 +227,12 @@
             // 
             // frmQuanLyThuongHieu
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(817, 414);
+            ClientSize = new System.Drawing.Size(1263, 690);
             Controls.Add(dgvThuongHieu);
             Controls.Add(qbThuongHieu);
             Controls.Add(label1);
-            Margin = new System.Windows.Forms.Padding(2);
             Name = "frmQuanLyThuongHieu";
             Text = "frmQuanLyThuongHieu";
             Load += frmQuanLyThuongHieu_Load;

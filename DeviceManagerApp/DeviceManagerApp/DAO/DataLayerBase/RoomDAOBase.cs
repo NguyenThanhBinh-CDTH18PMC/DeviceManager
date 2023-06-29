@@ -216,7 +216,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
             if (dr["DeviceQuantity"] != System.DBNull.Value)
                 objRoom.DeviceQuantity = (int)dr["DeviceQuantity"];
             else
-                objRoom.DeviceQuantity = 0; 
+                objRoom.DeviceQuantity = 0;
 
             if (dr["Description"] != System.DBNull.Value)
                 objRoom.Description = dr["Description"].ToString();
@@ -239,6 +239,21 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                 objRoom.IsDeleted = false;
 
             return objRoom;
+        }
+        public static DataTable SearchRoomByName(string Name)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection connection = new SqlConnection(PathString.ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("SearchRoomByName", connection);
+                cmd.CommandType= CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue ("@Name", Name);
+                connection.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+               
+                da.Fill (dt);
+            }
+            return dt;
         }
 
     }

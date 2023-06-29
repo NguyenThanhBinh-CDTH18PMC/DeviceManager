@@ -59,5 +59,10 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         {
             RoomDAO.DeleteRoom(Id);
         }
+
+        public static DataTable SearchRoomByName(string Name)
+        {
+            return RoomDAO.SearchRoomByName(Name);
+        }
     }
 }

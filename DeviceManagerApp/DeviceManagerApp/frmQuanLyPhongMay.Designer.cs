@@ -291,6 +291,7 @@
             this.dgvPhongMay.RowTemplate.Height = 33;
             this.dgvPhongMay.Size = new System.Drawing.Size(1106, 200);
             this.dgvPhongMay.TabIndex = 2;
+
             // 
             // RoomId
             // 
@@ -299,6 +300,7 @@
             this.RoomId.MinimumWidth = 6;
             this.RoomId.Name = "RoomId";
             this.RoomId.ReadOnly = true;
+
             // 
             // Location
             // 
