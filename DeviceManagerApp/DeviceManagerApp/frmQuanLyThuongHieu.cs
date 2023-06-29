@@ -16,6 +16,7 @@ namespace DeviceManagerApp
         public frmQuanLyThuongHieu()
         {
             InitializeComponent();
+            dgvThuongHieu.AutoGenerateColumns = false;
         }
 
         private void frmQuanLyThuongHieu_Load(object sender, EventArgs e)
@@ -44,6 +45,8 @@ namespace DeviceManagerApp
                     BrandBus.InsertBrand(brandModel);
                     MessageBox.Show("Thêm Thành Công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     //dgvThuongHieu.DataSource = BrandBus.GetAllBrand();
+                    txtTenThuongHieu.Text = "";
+                    rtbDiaChi.Text = "";
                     dgvThuongHieu.DataSource = BrandBus.GetBrandAfterDelete();
                 }
 

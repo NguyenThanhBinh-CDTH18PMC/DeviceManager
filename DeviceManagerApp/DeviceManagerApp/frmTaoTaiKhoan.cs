@@ -22,23 +22,30 @@ namespace DeviceManagerApp
 
         private void btnThemTaiKhoan_Click(object sender, EventArgs e)
         {
-            if (Check())
+            UserModel user = new UserModel();
+            user.CreatedDate = DateTime.Now;
+            user.CreatedUserId = 1;
+            user.IsDeleted = false;
+            user.Status = 0;
+            user.UserName = txtTenDangNhap.Text;
+            user.Pass = GetMD5(txtMatKhau.Text);
+            user.Name = txtTenHienThi.Text;
+            try
             {
-                UserModel user = new UserModel();
-                user.CreatedDate = DateTime.Now;
-                user.CreatedUserId = 1;
-                user.IsDeleted = false;
-                user.Status = 0;
-                user.UserName = txtTenDangNhap.Text;
-                user.Pass = GetMD5(txtMatKhau.Text);
-                user.Name = txtTenHienThi.Text;
-                UserBus.InsertUser(user);
-                MessageBox.Show("Thành Công");
-            }
-            else MessageBox.Show("Không hợp lệ");
-            
+                if (!Check())
+                {
 
-            
+                    MessageBox.Show("Thông Tin Không Được Trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else {
+                    UserBus.InsertUser(user);
+                    MessageBox.Show("Tạo Thành Công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private static string GetMD5(string chuoi)
         {

@@ -17,7 +17,9 @@ namespace DeviceManagerApp
         public frmQuanLyLoaiThietBi()
         {
             InitializeComponent();
+            dgvLoaiTb.AutoGenerateColumns = false;
             QuanLyLoaiThietBi_Load();
+
         }
 
         private void QuanLyLoaiThietBi_Load()
@@ -71,7 +73,7 @@ namespace DeviceManagerApp
             {
                 DataGridViewRow row = new DataGridViewRow();
                 row = dgvLoaiTb.Rows[e.RowIndex];
-                currentDeviceType = (int) row.Cells[0].Value;
+                currentDeviceType = (int)row.Cells[0].Value;
                 txtTenLoaiTB.Text = row.Cells[1].Value.ToString();
                 rtbMotaLoaiTB.Text = row.Cells[2].Value.ToString();
             }

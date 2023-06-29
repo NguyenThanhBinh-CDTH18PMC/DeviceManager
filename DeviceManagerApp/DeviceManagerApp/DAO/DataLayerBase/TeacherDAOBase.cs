@@ -260,5 +260,94 @@ namespace DeviceManagerApp.DAO.DataLayerBase
             }
             return dt;
         }
+
+        //lấy 1 dòng theo id
+        public static TeacherModel SelectTeacherById(int Id)
+        {
+            TeacherModel ojbTeacher = null;
+            using (SqlConnection conn = new SqlConnection(PathString.ConnectionString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand("Teacher_SelectById", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@Id", Id);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        if (dt != null)
+                        {
+                            if (dt.Rows.Count > 0)
+                            {
+                               ojbTeacher = CreateTeacherfromDataRow(dt.Rows[0]);
+                            }
+                        }
+                    }
+                }
+            }
+            return ojbTeacher;
+        }
+
+        protected static TeacherModel CreateTeacherfromDataRow(DataRow dr)
+        {
+            TeacherModel teacherModel = new TeacherModel();
+            teacherModel.Id = (int)dr["Id"];
+            if (dr["FirstName"] != System.DBNull.Value)
+                teacherModel.FirstName = dr["FirstName"].ToString();
+            else teacherModel.FirstName = null;
+
+            if (dr["LastName"] != System.DBNull.Value)
+                teacherModel.LastName = dr["LastName"].ToString();
+            else teacherModel.LastName = null;
+            if (dr["FullName"] != System.DBNull.Value)
+                teacherModel.FullName = dr["FullName"].ToString();
+            else teacherModel.FullName = null;
+            if (dr["Birth"] != System.DBNull.Value)
+                teacherModel.Birth = (DateTime)dr["Birth"];
+            if (dr["Gender"] != System.DBNull.Value)
+                teacherModel.Gender = (bool)dr["Gender"];
+            else teacherModel.Gender = false;
+            if (dr["Address"] != System.DBNull.Value)
+                teacherModel.Address = dr["Address"].ToString();
+            else teacherModel.Address = null;
+            //if (dr["Image"] != System.DBNull.Value)
+            //    teacherModel.Image = dr["Image"].ToString();
+            //else teacherModel.Image = null;
+            if (dr["Phone"] != System.DBNull.Value)
+                teacherModel.Phone = dr["Phone"].ToString();
+            else teacherModel.Phone = null;
+
+            if (dr["Email"] != System.DBNull.Value)
+                teacherModel.Email = dr["Email"].ToString();
+            else teacherModel.Email = null;
+
+            if (dr["CreatedDate"] != System.DBNull.Value)
+                teacherModel.CreatedDate = (DateTime)dr["CreatedDate"];
+            else teacherModel.CreatedDate = null;
+
+            if (dr["CreatedUserId"] != System.DBNull.Value)
+                teacherModel.CreatedUserId = (int)dr["CreatedUserId"];
+            else teacherModel.CreatedUserId = null;
+
+            if (dr["PositionId"] != System.DBNull.Value)
+                teacherModel.PositionId = (int)dr["PositionId"];
+
+            if (dr["PositionName"] != System.DBNull.Value)
+                teacherModel.PositionName = dr["PositionName"].ToString();
+            else teacherModel.PositionName = null;
+
+            if (dr["IsDeleted"] != System.DBNull.Value)
+                teacherModel.IsDeleted = (bool)dr["IsDeleted"];
+            else teacherModel.IsDeleted = false;
+
+            if (dr["Status"] != System.DBNull.Value)
+                teacherModel.Status = (int)dr["Status"];
+            else teacherModel.Status = null;
+            
+            return teacherModel;
+
+        }
     }
 }

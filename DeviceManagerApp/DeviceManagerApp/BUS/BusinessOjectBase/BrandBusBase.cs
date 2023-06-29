@@ -13,7 +13,7 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
 {
     public class BrandBusBase
     {
-        public static DataTable GetAllBrand()
+        public static List<BrandModel> GetAllBrand()
         {
             return BrandDAO.getData();
         }
@@ -36,7 +36,7 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
             }
             BrandDAO.UpdateBrand(brand);
         }
-        public static DataTable GetBrandAfterDelete()
+        public static List<BrandModel> GetBrandAfterDelete()
         {
             return BrandDAO.GetBrandAfterDelete();
         }
@@ -47,6 +47,11 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         public static DataTable SearchBrandByName(string Name)
         {
             return BrandDAO.SearchBrandByName(Name);
+        }
+
+        public static BrandModel SelectById(int Id)
+        {
+            return BrandDAO.SelectById(Id);
         }
     }
 }

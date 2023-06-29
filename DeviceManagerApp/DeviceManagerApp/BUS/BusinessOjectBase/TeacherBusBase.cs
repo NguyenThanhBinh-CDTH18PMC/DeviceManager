@@ -106,5 +106,9 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         {
             return TeacherDAO.SearchTeacherByPhone(Phone);
         }
+        public static TeacherModel SelectTeacherById(int Id)
+        {
+            return TeacherDAO.SelectTeacherById(Id);
+        }
     }
 }
