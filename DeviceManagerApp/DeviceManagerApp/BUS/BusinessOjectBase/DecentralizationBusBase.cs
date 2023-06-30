@@ -18,5 +18,35 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         {
             return DecentralizationDAO.GetData();
         }
+
+        public static UserModel GetUserByUserName_Pass(string UserName,string Pass)
+        {
+            DataTable user=DecentralizationDAO.GetUserByUserName_Pass(UserName, Pass);
+            if(user.Rows.Count > 0)
+            {
+                DataRow userRow = user.Rows[0];
+                UserModel userModel = new UserModel
+                {
+                    Id = Convert.ToInt32(userRow["Id"]),
+                    UserName = userRow["UserName"].ToString(),
+                    Pass = userRow["Pass"].ToString(),
+                    Name = userRow["Name"].ToString(),
+                };
+                return userModel;
+            }return null;
+        }
+        public static bool CheckUserId(int UserId)
+        {
+            DataTable userTable=DecentralizationDAO.CheckUserId(UserId);
+            return userTable.Rows.Count > 0;
+        }
+        public static int GetStatusByUserId(int UserId)
+        {
+            return DecentralizationDAO.GetStatusByUserId(UserId);
+        }
+        public static UserModel GetInfoById(int UserId)
+        {
+            return DecentralizationDAO.GetInfoById(UserId);
+        }
     }
 }

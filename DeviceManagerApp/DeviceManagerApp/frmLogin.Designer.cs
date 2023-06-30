@@ -46,8 +46,8 @@
             picLogo.Image = Properties.Resources.Logo;
             picLogo.Location = new System.Drawing.Point(0, 0);
             picLogo.Name = "picLogo";
-            picLogo.Size = new System.Drawing.Size(301, 436);
-            picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            picLogo.Size = new System.Drawing.Size(299, 436);
+            picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             picLogo.TabIndex = 0;
             picLogo.TabStop = false;
             // 
@@ -116,6 +116,7 @@
             btbDangNhap.TabIndex = 7;
             btbDangNhap.Text = "Đăng Nhập";
             btbDangNhap.UseVisualStyleBackColor = true;
+            btbDangNhap.Click += btbDangNhap_Click;
             // 
             // btnThoat
             // 
@@ -126,7 +127,7 @@
             btnThoat.Text = "Thoát";
             btnThoat.UseVisualStyleBackColor = true;
             // 
-            // Login
+            // frmLogin
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -141,7 +142,7 @@
             Controls.Add(lblDangNhap);
             Controls.Add(lblTen);
             Controls.Add(picLogo);
-            Name = "Login";
+            Name = "frmLogin";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "Login";
             ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,9 +11,11 @@ namespace DeviceManagerApp
 {
     public partial class frmTrangChu : Form
     {
-        public frmTrangChu()
+        public UserModel LoginInUser;
+        public frmTrangChu(UserModel user)
         {
             InitializeComponent();
+            LoginInUser = user;
         }
 
         private Form currentFormChild;
@@ -85,7 +88,7 @@ namespace DeviceManagerApp
 
         private void btbQlLoaiThietBi_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new frmQuanLyLoaiThietBi());
+            OpenChildForm(new frmQuanLyLoaiThietBi(LoginInUser));
             lbl_text.Text = btnQlLoaiThietBi.Text;
         }
 
@@ -99,6 +102,11 @@ namespace DeviceManagerApp
         {
             OpenChildForm(new frmQuanLyTaiKhoan());
             lbl_text.Text = btnQLTaiKhoan.Text;
+        }
+
+        private void frmTrangChu_Load(object sender, EventArgs e)
+        {
+            lbltest.Text = LoginInUser.Name;
         }
     }
 }

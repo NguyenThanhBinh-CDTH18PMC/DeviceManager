@@ -8,18 +8,20 @@ using System.Drawing;
 using System.Text;
 using System.Linq;
 using System.Windows.Forms;
+using DTO.Model;
 
 namespace DeviceManagerApp
 {
     public partial class frmQuanLyLoaiThietBi : Form
     {
         int currentDeviceType = 0;
-        public frmQuanLyLoaiThietBi()
+        public UserModel LoginInUser;
+        public frmQuanLyLoaiThietBi(UserModel user)
         {
             InitializeComponent();
             dgvLoaiTb.AutoGenerateColumns = false;
             QuanLyLoaiThietBi_Load();
-
+            LoginInUser = user;
         }
 
         private void QuanLyLoaiThietBi_Load()
@@ -42,7 +44,7 @@ namespace DeviceManagerApp
 
                 _TypeModel.Name = txtTenLoaiTB.Text;
                 _TypeModel.Description = rtbMotaLoaiTB.Text;
-                _TypeModel.CreatedUserId = 1;
+                _TypeModel.CreatedUserId = LoginInUser.Id;
                 _TypeModel.CreatedDate = DateTime.Now;
                 _TypeModel.IsDeleted = false;
                 _TypeModel.Status = 0;

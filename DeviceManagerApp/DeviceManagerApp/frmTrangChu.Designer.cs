@@ -44,6 +44,7 @@
             lbl_text = new System.Windows.Forms.Label();
             panel_Body = new System.Windows.Forms.Panel();
             pictureBox1 = new System.Windows.Forms.PictureBox();
+            lbltest = new System.Windows.Forms.Label();
             panel_Left.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1_Logo).BeginInit();
             panel_Top.SuspendLayout();
@@ -213,6 +214,7 @@
             // panel_Top
             // 
             panel_Top.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            panel_Top.Controls.Add(lbltest);
             panel_Top.Controls.Add(lbl_text);
             panel_Top.Dock = System.Windows.Forms.DockStyle.Top;
             panel_Top.Location = new System.Drawing.Point(349, 0);
@@ -255,6 +257,15 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
+            // lbltest
+            // 
+            lbltest.AutoSize = true;
+            lbltest.Location = new System.Drawing.Point(544, 32);
+            lbltest.Name = "lbltest";
+            lbltest.Size = new System.Drawing.Size(59, 25);
+            lbltest.TabIndex = 1;
+            lbltest.Text = "label1";
+            // 
             // frmTrangChu
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
@@ -267,6 +278,7 @@
             Name = "frmTrangChu";
             Text = "Trang Chủ";
             WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            Load += frmTrangChu_Load;
             panel_Left.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1_Logo).EndInit();
             panel_Top.ResumeLayout(false);
@@ -293,5 +305,6 @@
         private System.Windows.Forms.Button btnQlGiaoVien;
         private System.Windows.Forms.Button btnQR;
         private System.Windows.Forms.Button btnQlLoaiThietBi;
+        private System.Windows.Forms.Label lbltest;
     }
 }
