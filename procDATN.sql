@@ -62,10 +62,7 @@ Where Id =@Id
 end
 
 ---Thêm xóa Sửa Thương Hiệu
-go
-create proc GetAllBrand
-as
-select Id,Name,Address from D_Brand
+
 go
 Create proc InsertBrand
 @Name nvarchar(50),
@@ -105,11 +102,7 @@ begin
 	
 end
 go
-create proc GetBrandAfterDelete
-as
-select Id,Name,Address from D_Brand
-where IsDeleted=0
-go 
+
 create proc DeleteBrand
 (@Id int)
 as 
@@ -121,10 +114,7 @@ Where Id =@Id
 end
 --Thêm xóa sửa Loại thiết bị
 
-go
-create proc GetAllDevice_Type
-as
-select Id,Name,Description from D_Device_Type
+
 
 go
 Create proc InsertDevice_type
@@ -168,11 +158,7 @@ end
 go 
 
 
-create proc GetDevice_TypeAfterDelete
-as
-select Id,Name,Description from D_Device_Type
-where IsDeleted=0
-go 
+
 
 create proc DeleteDevice_Type
 @Id int
@@ -180,3 +166,38 @@ as
 delete from D_Device_Type
 Where Id=@Id
 go
+
+
+-----------------------------------sửa proc-------------------------------
+go
+create proc GetAllBrand
+as
+select * from D_Brand
+
+go
+create proc GetBrandAfterDelete
+as
+select * from D_Brand
+where IsDeleted=0 
+
+
+go 
+create proc Brand_SelectById(@Id int)
+as
+begin
+	SET NOCOUNT ON;
+	select * from D_Brand
+	where Id=@Id 
+end
+
+go
+create proc GetAllDevice_Type
+as
+select * from D_Device_Type
+
+go
+create proc GetDevice_TypeAfterDelete
+as
+select * from D_Device_Type
+where IsDeleted=0
+go 

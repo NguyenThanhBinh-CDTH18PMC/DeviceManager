@@ -551,7 +551,7 @@ namespace DAO.DataLayerBase
         /// <summary>
         /// Deletes a record based on primary key(s)
         /// </summary>
-        
+
         public static void InsertUser(UserModel user)
         {
             SqlConnection conn = new SqlConnection(PathString.ConnectionString);
@@ -571,8 +571,52 @@ namespace DAO.DataLayerBase
             conn.Open();
             cmd.ExecuteNonQuery();
             conn.Close();
-
         }
+        //kiểm tra trùng tên user
+        public static bool CheckUserName(string UserName) {
+            using (SqlConnection conn = new SqlConnection(PathString.ConnectionString))
+            {
+                string sql = "select COUNT(*) from [System_User] where UserName =@UserName and IsDeleted=0";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@UserName", UserName);
+                conn.Open();
+                int count = (int)cmd.ExecuteScalar();
+                conn.Close();
+                //kiểm tra
+                if (count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+        public static bool CheckName(string Name)
+        {
+            using (SqlConnection conn = new SqlConnection(PathString.ConnectionString))
+            {
+                string sql = "select COUNT(*) from [System_User] where Name =@Name and IsDeleted=0";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@Name", Name);
+                conn.Open();
+                int count = (int)cmd.ExecuteScalar();
+                conn.Close();
+                //kiểm tra
+                if (count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
         public static void Delete(int id)
         {
             string storedProcName = "[dbo].[SystemUser_Delete]";

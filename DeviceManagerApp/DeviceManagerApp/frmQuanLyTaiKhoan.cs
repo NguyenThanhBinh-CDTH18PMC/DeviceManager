@@ -15,7 +15,7 @@ namespace DeviceManagerApp
         {
             InitializeComponent();
             CkbMatKhau.Checked = false;
-            txtMatKhauCu.Enabled = false;
+            txtTenDangNhap.Enabled = false;
             txtMatKhauMoi.Enabled = false;
             lblMatKhauCu.Enabled = false;
             lblMatKhauMoi.Enabled = false;
@@ -29,13 +29,13 @@ namespace DeviceManagerApp
             {
                 txtMatKhauMoi.Enabled
                     = true;
-                txtMatKhauCu.Enabled = true;
+                txtTenDangNhap.Enabled = true;
                 lblMatKhauCu.Enabled = true;
                 lblMatKhauMoi.Enabled = true;
             }
             else
             {
-                txtMatKhauCu.Enabled = false;
+                txtTenDangNhap.Enabled = false;
                 txtMatKhauMoi.Enabled = false;
                 lblMatKhauCu.Enabled = false;
                 lblMatKhauMoi.Enabled = false;
@@ -48,8 +48,16 @@ namespace DeviceManagerApp
             cbTeacher.DisplayMember = "FullName";
             cbTeacher.ValueMember = "Id";
 
-            
+
             dgvTaiKhoan.DataSource = DecentralizationBus.GetAllDecentralization();
         }
+
+        private void btnTaoTk_Click(object sender, EventArgs e)
+        {
+            frmTaoTaiKhoan frmTaoTaiKhoan = new frmTaoTaiKhoan();
+            frmTaoTaiKhoan.Show();
+        }
+
+
     }
 }

@@ -17,7 +17,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
 {
     public class BrandDAOBase
     {
-        public static DataTable getData()
+        public static List<BrandModel> getData()
         {
             SqlConnection conn = new SqlConnection(PathString.ConnectionString);
             SqlCommand cmd = new SqlCommand("GetAllBrand", conn);
@@ -28,7 +28,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
             DataTable dt = new DataTable();
             da.Fill(dt);
             conn.Close();
-            return dt;
+            return CreateBrandModelfromDataTable(dt);
         }
 
         public static void InsertBrand(BrandModel brand)
@@ -118,7 +118,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
             }
         }
         //lấy danh sách thương hiệu sau khi xóa
-        public static DataTable GetBrandAfterDelete()
+        public static List<BrandModel> GetBrandAfterDelete()
         {
             DataTable brand = new DataTable();
             using (SqlConnection conn = new SqlConnection(PathString.ConnectionString))
@@ -130,8 +130,9 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                 da.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 da.Fill(dt);
-                return dt;
+                
                 conn.Close();
+                return CreateBrandModelfromDataTable(dt);
             }
         }
         public static void DeleteBrand(int Id)
@@ -161,6 +162,93 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                 da.Fill(dt);
             }
             return dt;
+        }
+        //Tạo model từ datatable
+        public static List<BrandModel> CreateBrandModelfromDataTable(DataTable dt) {
+            List<BrandModel> brands = new List<BrandModel>();
+            if (dt != null)
+            {
+                if(dt.Rows.Count > 0)
+                {
+                    foreach(DataRow dr in dt.Rows)
+                    {
+                        BrandModel brandModel = new BrandModel();
+                        brandModel.Id = (int)dr["Id"];
+                        if (dr["Name"] != System.DBNull.Value)
+                            brandModel.Name = dr["Name"].ToString();
+                        else brandModel.Name = null;
+                        if (dr["Address"] != System.DBNull.Value)
+                            brandModel.Address = dr["Address"].ToString();
+                        else brandModel.Address = null;
+                        if (dr["CreatedDate"] != System.DBNull.Value)
+                            brandModel.CreatedDate = (DateTime)dr["CreatedDate"];
+                        else brandModel.CreatedDate = null;
+                        if (dr["CreatedUserId"] != System.DBNull.Value)
+                            brandModel.CreatedUserId = (int)dr["CreatedUserId"];
+                        else brandModel.CreatedUserId = null;
+                        if (dr["IsDeleted"] != System.DBNull.Value)
+                            brandModel.IsDeleted = (bool)dr["IsDeleted"];
+                        else brandModel.IsDeleted = false;
+                        if (dr["Status"] != System.DBNull.Value)
+                            brandModel.Status = (int)dr["Status"];
+                        else brandModel.Status = null;
+
+                        brands.Add(brandModel);
+                    }
+                }
+            }return brands;
+        }
+        protected static BrandModel CreateBrandfromDataRow(DataRow dr)
+        {
+            BrandModel objBrand = new BrandModel();
+
+            objBrand.Id = (int)dr["Id"];
+            if (dr["Name"] != System.DBNull.Value)
+                objBrand.Name = dr["Name"].ToString();
+            else objBrand.Name = null;
+            if (dr["Address"] != System.DBNull.Value)
+                objBrand.Address = dr["Address"].ToString();
+            else objBrand.Address = null;
+            if (dr["CreatedDate"] != System.DBNull.Value)
+                objBrand.CreatedDate = (DateTime)dr["CreatedDate"];
+            else objBrand.CreatedDate = null;
+            if (dr["CreatedUserId"] != System.DBNull.Value)
+                objBrand.CreatedUserId = (int)dr["CreatedUserId"];
+            else objBrand.CreatedUserId = null;
+            if (dr["IsDeleted"] != System.DBNull.Value)
+                objBrand.IsDeleted = (bool)dr["IsDeleted"];
+            else objBrand.IsDeleted = false;
+            if (dr["Status"] != System.DBNull.Value)
+                objBrand.Status = (int)dr["Status"];
+            else objBrand.Status = null;
+            return objBrand;
+        }
+        //lấy theo id
+        public static BrandModel SelectById(int Id)
+        {
+            BrandModel ojbBrand = null;
+            using(SqlConnection conn=new SqlConnection(PathString.ConnectionString))
+            {
+                conn.Open();
+                using(SqlCommand cmd=new SqlCommand("Brand_SelectById", conn))
+                {
+                    cmd.CommandType= CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@Id", Id);
+                    using(SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        if (dt!=null)
+                        {
+                            if (dt.Rows.Count > 0)
+                            {
+                                ojbBrand = CreateBrandfromDataRow(dt.Rows[0]);
+                            }
+                        }
+                    }
+                }
+            }return ojbBrand;
         }
     }
 }

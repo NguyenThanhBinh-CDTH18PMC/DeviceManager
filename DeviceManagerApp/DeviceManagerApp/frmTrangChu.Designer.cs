@@ -78,21 +78,20 @@
             this.btnQlLoaiThietBi.BackColor = System.Drawing.Color.Blue;
             this.btnQlLoaiThietBi.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnQlLoaiThietBi.ForeColor = System.Drawing.Color.White;
-            this.btnQlLoaiThietBi.Location = new System.Drawing.Point(0, 602);
+            this.btnQlLoaiThietBi.Location = new System.Drawing.Point(0, 592);
             this.btnQlLoaiThietBi.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.btnQlLoaiThietBi.Name = "btnQlLoaiThietBi";
             this.btnQlLoaiThietBi.Size = new System.Drawing.Size(279, 48);
             this.btnQlLoaiThietBi.TabIndex = 9;
             this.btnQlLoaiThietBi.Text = "Quản Lý Loại Thiết Bị";
             this.btnQlLoaiThietBi.UseVisualStyleBackColor = false;
-            this.btnQlLoaiThietBi.Click += new System.EventHandler(this.btbQlLoaiThietBi_Click);
             // 
             // btnQR
             // 
             this.btnQR.BackColor = System.Drawing.Color.Blue;
             this.btnQR.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnQR.ForeColor = System.Drawing.Color.White;
-            this.btnQR.Location = new System.Drawing.Point(0, 554);
+            this.btnQR.Location = new System.Drawing.Point(0, 544);
             this.btnQR.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.btnQR.Name = "btnQR";
             this.btnQR.Size = new System.Drawing.Size(279, 48);
@@ -105,84 +104,78 @@
             this.btnQlGiaoVien.BackColor = System.Drawing.Color.Blue;
             this.btnQlGiaoVien.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnQlGiaoVien.ForeColor = System.Drawing.Color.White;
-            this.btnQlGiaoVien.Location = new System.Drawing.Point(0, 506);
+            this.btnQlGiaoVien.Location = new System.Drawing.Point(0, 496);
             this.btnQlGiaoVien.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.btnQlGiaoVien.Name = "btnQlGiaoVien";
             this.btnQlGiaoVien.Size = new System.Drawing.Size(279, 48);
             this.btnQlGiaoVien.TabIndex = 7;
             this.btnQlGiaoVien.Text = "Quản Lý Giáo Viên";
             this.btnQlGiaoVien.UseVisualStyleBackColor = false;
-            this.btnQlGiaoVien.Click += new System.EventHandler(this.btnQlGiaoVien_Click);
             // 
             // btnQlThanhLy
             // 
             this.btnQlThanhLy.BackColor = System.Drawing.Color.Blue;
             this.btnQlThanhLy.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnQlThanhLy.ForeColor = System.Drawing.Color.White;
-            this.btnQlThanhLy.Location = new System.Drawing.Point(0, 458);
+            this.btnQlThanhLy.Location = new System.Drawing.Point(0, 448);
             this.btnQlThanhLy.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.btnQlThanhLy.Name = "btnQlThanhLy";
             this.btnQlThanhLy.Size = new System.Drawing.Size(279, 48);
             this.btnQlThanhLy.TabIndex = 6;
             this.btnQlThanhLy.Text = "Quản Lý Thanh Lý";
             this.btnQlThanhLy.UseVisualStyleBackColor = false;
-            this.btnQlThanhLy.Click += new System.EventHandler(this.btnQlThanhLy_Click);
             // 
             // btnQlThuongHieu
             // 
             this.btnQlThuongHieu.BackColor = System.Drawing.Color.Blue;
             this.btnQlThuongHieu.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnQlThuongHieu.ForeColor = System.Drawing.Color.White;
-            this.btnQlThuongHieu.Location = new System.Drawing.Point(0, 410);
+            this.btnQlThuongHieu.Location = new System.Drawing.Point(0, 400);
             this.btnQlThuongHieu.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.btnQlThuongHieu.Name = "btnQlThuongHieu";
             this.btnQlThuongHieu.Size = new System.Drawing.Size(279, 48);
             this.btnQlThuongHieu.TabIndex = 5;
             this.btnQlThuongHieu.Text = "Quản Lý Thương Hiệu";
             this.btnQlThuongHieu.UseVisualStyleBackColor = false;
-            this.btnQlThuongHieu.Click += new System.EventHandler(this.btnQlThuongHieu_Click);
             // 
             // btnQlKhoa
             // 
             this.btnQlKhoa.BackColor = System.Drawing.Color.Blue;
             this.btnQlKhoa.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnQlKhoa.ForeColor = System.Drawing.Color.White;
-            this.btnQlKhoa.Location = new System.Drawing.Point(0, 362);
+            this.btnQlKhoa.Location = new System.Drawing.Point(0, 352);
             this.btnQlKhoa.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.btnQlKhoa.Name = "btnQlKhoa";
             this.btnQlKhoa.Size = new System.Drawing.Size(279, 48);
             this.btnQlKhoa.TabIndex = 4;
             this.btnQlKhoa.Text = "Quản Lý Khoa";
             this.btnQlKhoa.UseVisualStyleBackColor = false;
-            this.btnQlKhoa.Click += new System.EventHandler(this.btnQlKhoa_Click);
             // 
             // btnQlThietBi
             // 
             this.btnQlThietBi.BackColor = System.Drawing.Color.Blue;
             this.btnQlThietBi.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnQlThietBi.ForeColor = System.Drawing.Color.White;
-            this.btnQlThietBi.Location = new System.Drawing.Point(0, 314);
+            this.btnQlThietBi.Location = new System.Drawing.Point(0, 304);
             this.btnQlThietBi.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.btnQlThietBi.Name = "btnQlThietBi";
             this.btnQlThietBi.Size = new System.Drawing.Size(279, 48);
             this.btnQlThietBi.TabIndex = 3;
             this.btnQlThietBi.Text = "Quản Lý Thiết Bị";
             this.btnQlThietBi.UseVisualStyleBackColor = false;
-            this.btnQlThietBi.Click += new System.EventHandler(this.btnQlThietBi_Click);
             // 
             // btnQLPhongMay
             // 
             this.btnQLPhongMay.BackColor = System.Drawing.Color.Blue;
             this.btnQLPhongMay.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnQLPhongMay.ForeColor = System.Drawing.Color.White;
-            this.btnQLPhongMay.Location = new System.Drawing.Point(0, 266);
+            this.btnQLPhongMay.Location = new System.Drawing.Point(0, 256);
             this.btnQLPhongMay.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.btnQLPhongMay.Name = "btnQLPhongMay";
             this.btnQLPhongMay.Size = new System.Drawing.Size(279, 48);
             this.btnQLPhongMay.TabIndex = 2;
             this.btnQLPhongMay.Text = "Quản lý Phòng Máy";
             this.btnQLPhongMay.UseVisualStyleBackColor = false;
-            this.btnQLPhongMay.Click += new System.EventHandler(this.btnQLPhongMay_Click);
             // 
             // btnQLTaiKhoan
             // 
@@ -192,7 +185,7 @@
             this.btnQLTaiKhoan.Location = new System.Drawing.Point(0, 218);
             this.btnQLTaiKhoan.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.btnQLTaiKhoan.Name = "btnQLTaiKhoan";
-            this.btnQLTaiKhoan.Size = new System.Drawing.Size(279, 48);
+            this.btnQLTaiKhoan.Size = new System.Drawing.Size(279, 38);
             this.btnQLTaiKhoan.TabIndex = 1;
             this.btnQLTaiKhoan.Text = "Quản lý Tài Khoản";
             this.btnQLTaiKhoan.UseVisualStyleBackColor = false;

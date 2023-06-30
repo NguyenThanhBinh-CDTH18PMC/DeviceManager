@@ -41,9 +41,9 @@
             txtTenThuongHieu = new System.Windows.Forms.TextBox();
             lblTenThuongHieu = new System.Windows.Forms.Label();
             dgvThuongHieu = new System.Windows.Forms.DataGridView();
-            ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            BrandName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             qbThuongHieu.SuspendLayout();
             gbTimKiemThuongHieu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvThuongHieu).BeginInit();
@@ -187,7 +187,7 @@
             // dgvThuongHieu
             // 
             dgvThuongHieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvThuongHieu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { ID, Column2, Column3 });
+            dgvThuongHieu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Id, BrandName, Address });
             dgvThuongHieu.Location = new System.Drawing.Point(0, 388);
             dgvThuongHieu.Name = "dgvThuongHieu";
             dgvThuongHieu.ReadOnly = true;
@@ -197,33 +197,33 @@
             dgvThuongHieu.TabIndex = 3;
             dgvThuongHieu.CellClick += dgvThuongHieu_CellClick;
             // 
-            // ID
+            // Id
             // 
-            ID.DataPropertyName = "Id";
-            ID.HeaderText = "Mã Thương Hiệu";
-            ID.MinimumWidth = 8;
-            ID.Name = "ID";
-            ID.ReadOnly = true;
-            ID.Visible = false;
-            ID.Width = 150;
+            Id.DataPropertyName = "Id";
+            Id.HeaderText = "Id";
+            Id.MinimumWidth = 8;
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            Id.Visible = false;
+            Id.Width = 150;
             // 
-            // Column2
+            // BrandName
             // 
-            Column2.DataPropertyName = "Name";
-            Column2.HeaderText = "Tên Thương Hiệu";
-            Column2.MinimumWidth = 8;
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
-            Column2.Width = 150;
+            BrandName.DataPropertyName = "Name";
+            BrandName.HeaderText = "Tên Thương Hiệu";
+            BrandName.MinimumWidth = 8;
+            BrandName.Name = "BrandName";
+            BrandName.ReadOnly = true;
+            BrandName.Width = 150;
             // 
-            // Column3
+            // Address
             // 
-            Column3.DataPropertyName = "Address";
-            Column3.HeaderText = "Địa Chỉ";
-            Column3.MinimumWidth = 8;
-            Column3.Name = "Column3";
-            Column3.ReadOnly = true;
-            Column3.Width = 250;
+            Address.DataPropertyName = "Address";
+            Address.HeaderText = "Địa Chỉ";
+            Address.MinimumWidth = 8;
+            Address.Name = "Address";
+            Address.ReadOnly = true;
+            Address.Width = 150;
             // 
             // frmQuanLyThuongHieu
             // 
@@ -260,8 +260,8 @@
         private System.Windows.Forms.TextBox txtTenThuongHieu;
         private System.Windows.Forms.Label lblTenThuongHieu;
         private System.Windows.Forms.DataGridView dgvThuongHieu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BrandName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
     }
 }

@@ -161,7 +161,7 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
             return sortByExpression;
         }
 
-        public static DataTable GetAllFaculty()
+        public static List<FacultyModel> GetAllFaculty()
         {
             return FacultyDAO.getData();
         }
@@ -185,7 +185,7 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
             FacultyDAO.UpdateFaculty(facultyModel);
         }
 
-        public static DataTable GetFacultyAfterDelete()
+        public static List<FacultyModel> GetFacultyAfterDelete()
         {
             return FacultyDAO.GetFacultyAfterDelete();
         }

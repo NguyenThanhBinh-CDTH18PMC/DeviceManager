@@ -15,6 +15,7 @@ namespace DeviceManagerApp
         public frmQuanLyKhoa()
         {
             InitializeComponent();
+            dgvQlKhoa.AutoGenerateColumns = false;
         }
 
         private void frmQuanLyKhoa_Load(object sender, EventArgs e)

@@ -30,9 +30,18 @@
         {
             components = new System.ComponentModel.Container();
             gbTaiKhoan = new System.Windows.Forms.GroupBox();
+            groupBox1 = new System.Windows.Forms.GroupBox();
+            cbTeacher = new System.Windows.Forms.ComboBox();
+            lblTenTaiKhoan = new System.Windows.Forms.Label();
+            lblGioitinh = new System.Windows.Forms.Label();
+            rdNam = new System.Windows.Forms.RadioButton();
+            lblSdt = new System.Windows.Forms.Label();
+            txtSDT = new System.Windows.Forms.TextBox();
+            lblNgaysinh = new System.Windows.Forms.Label();
+            dtNgaySinh = new System.Windows.Forms.DateTimePicker();
+            btnTaoTk = new System.Windows.Forms.Button();
             cbTenTaiKhoan = new System.Windows.Forms.ComboBox();
             btnThuHoiTK = new System.Windows.Forms.Button();
-            cbTeacher = new System.Windows.Forms.ComboBox();
             CkbMatKhau = new System.Windows.Forms.CheckBox();
             txtMatKhauMoi = new System.Windows.Forms.TextBox();
             lblMatKhauMoi = new System.Windows.Forms.Label();
@@ -42,57 +51,37 @@
             btnXoaTk = new System.Windows.Forms.Button();
             btnSuaTk = new System.Windows.Forms.Button();
             btnThemTk = new System.Windows.Forms.Button();
-            txtMatKhauCu = new System.Windows.Forms.TextBox();
+            txtTenDangNhap = new System.Windows.Forms.TextBox();
             lblMatKhauCu = new System.Windows.Forms.Label();
             lblTenTK = new System.Windows.Forms.Label();
-            txtDiaChi = new System.Windows.Forms.TextBox();
-            label1 = new System.Windows.Forms.Label();
-            dtNgaySinh = new System.Windows.Forms.DateTimePicker();
-            lblNgaysinh = new System.Windows.Forms.Label();
-            txtSDT = new System.Windows.Forms.TextBox();
-            lblSdt = new System.Windows.Forms.Label();
             rdNu = new System.Windows.Forms.RadioButton();
-            rdNam = new System.Windows.Forms.RadioButton();
-            lblGioitinh = new System.Windows.Forms.Label();
-            lblTenTaiKhoan = new System.Windows.Forms.Label();
             dgvTaiKhoan = new System.Windows.Forms.DataGridView();
-            toolTip1 = new System.Windows.Forms.ToolTip(components);
             Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             UserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             TeacherId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             TeacherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            toolTip1 = new System.Windows.Forms.ToolTip(components);
+            groupBox2 = new System.Windows.Forms.GroupBox();
+            btnCapNhatUser = new System.Windows.Forms.Button();
             gbTaiKhoan.SuspendLayout();
+            groupBox1.SuspendLayout();
             gbTiemKim.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvTaiKhoan).BeginInit();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // gbTaiKhoan
             // 
             gbTaiKhoan.BackColor = System.Drawing.Color.Transparent;
-            gbTaiKhoan.Controls.Add(cbTenTaiKhoan);
+            gbTaiKhoan.Controls.Add(groupBox2);
+            gbTaiKhoan.Controls.Add(groupBox1);
+            gbTaiKhoan.Controls.Add(btnTaoTk);
             gbTaiKhoan.Controls.Add(btnThuHoiTK);
-            gbTaiKhoan.Controls.Add(cbTeacher);
-            gbTaiKhoan.Controls.Add(CkbMatKhau);
-            gbTaiKhoan.Controls.Add(txtMatKhauMoi);
-            gbTaiKhoan.Controls.Add(lblMatKhauMoi);
             gbTaiKhoan.Controls.Add(gbTiemKim);
             gbTaiKhoan.Controls.Add(btnXoaTk);
             gbTaiKhoan.Controls.Add(btnSuaTk);
             gbTaiKhoan.Controls.Add(btnThemTk);
-            gbTaiKhoan.Controls.Add(txtMatKhauCu);
-            gbTaiKhoan.Controls.Add(lblMatKhauCu);
-            gbTaiKhoan.Controls.Add(lblTenTK);
-            gbTaiKhoan.Controls.Add(txtDiaChi);
-            gbTaiKhoan.Controls.Add(label1);
-            gbTaiKhoan.Controls.Add(dtNgaySinh);
-            gbTaiKhoan.Controls.Add(lblNgaysinh);
-            gbTaiKhoan.Controls.Add(txtSDT);
-            gbTaiKhoan.Controls.Add(lblSdt);
-            gbTaiKhoan.Controls.Add(rdNu);
-            gbTaiKhoan.Controls.Add(rdNam);
-            gbTaiKhoan.Controls.Add(lblGioitinh);
-            gbTaiKhoan.Controls.Add(lblTenTaiKhoan);
             gbTaiKhoan.Dock = System.Windows.Forms.DockStyle.Top;
             gbTaiKhoan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             gbTaiKhoan.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -101,12 +90,115 @@
             gbTaiKhoan.Size = new System.Drawing.Size(1234, 495);
             gbTaiKhoan.TabIndex = 0;
             gbTaiKhoan.TabStop = false;
-            gbTaiKhoan.Text = "Thông tin tài khoản";
+            gbTaiKhoan.Text = "Quản Lý Tài Khoản";
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(cbTeacher);
+            groupBox1.Controls.Add(lblTenTaiKhoan);
+            groupBox1.Controls.Add(lblGioitinh);
+            groupBox1.Controls.Add(rdNam);
+            groupBox1.Controls.Add(lblSdt);
+            groupBox1.Controls.Add(txtSDT);
+            groupBox1.Controls.Add(lblNgaysinh);
+            groupBox1.Controls.Add(dtNgaySinh);
+            groupBox1.Controls.Add(rdNu);
+            groupBox1.Location = new System.Drawing.Point(14, 37);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new System.Drawing.Size(515, 308);
+            groupBox1.TabIndex = 24;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Thông Tin Giáo Viên";
+            // 
+            // cbTeacher
+            // 
+            cbTeacher.FormattingEnabled = true;
+            cbTeacher.Location = new System.Drawing.Point(159, 30);
+            cbTeacher.Name = "cbTeacher";
+            cbTeacher.Size = new System.Drawing.Size(216, 33);
+            cbTeacher.TabIndex = 20;
+            // 
+            // lblTenTaiKhoan
+            // 
+            lblTenTaiKhoan.AutoSize = true;
+            lblTenTaiKhoan.Location = new System.Drawing.Point(11, 38);
+            lblTenTaiKhoan.Name = "lblTenTaiKhoan";
+            lblTenTaiKhoan.Size = new System.Drawing.Size(142, 25);
+            lblTenTaiKhoan.TabIndex = 0;
+            lblTenTaiKhoan.Text = "Tên Nhân Viên :";
+            // 
+            // lblGioitinh
+            // 
+            lblGioitinh.AutoSize = true;
+            lblGioitinh.Location = new System.Drawing.Point(11, 86);
+            lblGioitinh.Name = "lblGioitinh";
+            lblGioitinh.Size = new System.Drawing.Size(93, 25);
+            lblGioitinh.TabIndex = 2;
+            lblGioitinh.Text = "Giới tính :";
+            // 
+            // rdNam
+            // 
+            rdNam.AutoSize = true;
+            rdNam.Location = new System.Drawing.Point(159, 86);
+            rdNam.Name = "rdNam";
+            rdNam.Size = new System.Drawing.Size(76, 29);
+            rdNam.TabIndex = 2;
+            rdNam.TabStop = true;
+            rdNam.Text = "Nam";
+            rdNam.UseVisualStyleBackColor = true;
+            // 
+            // lblSdt
+            // 
+            lblSdt.AutoSize = true;
+            lblSdt.Location = new System.Drawing.Point(11, 139);
+            lblSdt.Name = "lblSdt";
+            lblSdt.Size = new System.Drawing.Size(131, 25);
+            lblSdt.TabIndex = 5;
+            lblSdt.Text = "Số điện thoại :";
+            // 
+            // txtSDT
+            // 
+            txtSDT.Location = new System.Drawing.Point(159, 133);
+            txtSDT.Name = "txtSDT";
+            txtSDT.Size = new System.Drawing.Size(216, 31);
+            txtSDT.TabIndex = 4;
+            // 
+            // lblNgaysinh
+            // 
+            lblNgaysinh.AutoSize = true;
+            lblNgaysinh.Location = new System.Drawing.Point(11, 203);
+            lblNgaysinh.Name = "lblNgaysinh";
+            lblNgaysinh.Size = new System.Drawing.Size(105, 25);
+            lblNgaysinh.TabIndex = 7;
+            lblNgaysinh.Text = "Ngày Sinh :";
+            // 
+            // dtNgaySinh
+            // 
+            dtNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            dtNgaySinh.Location = new System.Drawing.Point(159, 198);
+            dtNgaySinh.Name = "dtNgaySinh";
+            dtNgaySinh.Size = new System.Drawing.Size(216, 31);
+            dtNgaySinh.TabIndex = 5;
+            // 
+            // btnTaoTk
+            // 
+            btnTaoTk.BackColor = System.Drawing.Color.Transparent;
+            btnTaoTk.BackgroundImage = Properties.Resources.add_user2;
+            btnTaoTk.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            btnTaoTk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnTaoTk.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            btnTaoTk.Location = new System.Drawing.Point(1088, 381);
+            btnTaoTk.Name = "btnTaoTk";
+            btnTaoTk.Size = new System.Drawing.Size(134, 50);
+            btnTaoTk.TabIndex = 23;
+            toolTip1.SetToolTip(btnTaoTk, "Tạo Tài Khoản Mới");
+            btnTaoTk.UseVisualStyleBackColor = false;
+            btnTaoTk.Click += btnTaoTk_Click;
             // 
             // cbTenTaiKhoan
             // 
             cbTenTaiKhoan.FormattingEnabled = true;
-            cbTenTaiKhoan.Location = new System.Drawing.Point(721, 145);
+            cbTenTaiKhoan.Location = new System.Drawing.Point(211, 30);
             cbTenTaiKhoan.Name = "cbTenTaiKhoan";
             cbTenTaiKhoan.Size = new System.Drawing.Size(216, 33);
             cbTenTaiKhoan.TabIndex = 22;
@@ -125,18 +217,10 @@
             toolTip1.SetToolTip(btnThuHoiTK, "Thu Hồi Tài Khoản");
             btnThuHoiTK.UseVisualStyleBackColor = false;
             // 
-            // cbTeacher
-            // 
-            cbTeacher.FormattingEnabled = true;
-            cbTeacher.Location = new System.Drawing.Point(160, 42);
-            cbTeacher.Name = "cbTeacher";
-            cbTeacher.Size = new System.Drawing.Size(207, 33);
-            cbTeacher.TabIndex = 20;
-            // 
             // CkbMatKhau
             // 
             CkbMatKhau.AutoSize = true;
-            CkbMatKhau.Location = new System.Drawing.Point(589, 202);
+            CkbMatKhau.Location = new System.Drawing.Point(27, 89);
             CkbMatKhau.Name = "CkbMatKhau";
             CkbMatKhau.Size = new System.Drawing.Size(164, 29);
             CkbMatKhau.TabIndex = 19;
@@ -146,7 +230,7 @@
             // 
             // txtMatKhauMoi
             // 
-            txtMatKhauMoi.Location = new System.Drawing.Point(721, 298);
+            txtMatKhauMoi.Location = new System.Drawing.Point(211, 192);
             txtMatKhauMoi.Name = "txtMatKhauMoi";
             txtMatKhauMoi.Size = new System.Drawing.Size(216, 31);
             txtMatKhauMoi.TabIndex = 18;
@@ -155,7 +239,7 @@
             // lblMatKhauMoi
             // 
             lblMatKhauMoi.AutoSize = true;
-            lblMatKhauMoi.Location = new System.Drawing.Point(589, 301);
+            lblMatKhauMoi.Location = new System.Drawing.Point(27, 198);
             lblMatKhauMoi.Name = "lblMatKhauMoi";
             lblMatKhauMoi.Size = new System.Drawing.Size(138, 25);
             lblMatKhauMoi.TabIndex = 17;
@@ -166,11 +250,10 @@
             gbTiemKim.BackColor = System.Drawing.Color.Transparent;
             gbTiemKim.Controls.Add(btnTimKiemTk);
             gbTiemKim.Controls.Add(txtTimKiem);
-            gbTiemKim.Dock = System.Windows.Forms.DockStyle.Bottom;
             gbTiemKim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             gbTiemKim.Location = new System.Drawing.Point(3, 341);
             gbTiemKim.Name = "gbTiemKim";
-            gbTiemKim.Size = new System.Drawing.Size(1228, 151);
+            gbTiemKim.Size = new System.Drawing.Size(999, 151);
             gbTiemKim.TabIndex = 16;
             gbTiemKim.TabStop = false;
             gbTiemKim.Text = "Tìm Kiếm";
@@ -180,7 +263,7 @@
             btnTimKiemTk.BackColor = System.Drawing.Color.Lime;
             btnTimKiemTk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnTimKiemTk.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            btnTimKiemTk.Location = new System.Drawing.Point(1085, 30);
+            btnTimKiemTk.Location = new System.Drawing.Point(673, 45);
             btnTimKiemTk.Name = "btnTimKiemTk";
             btnTimKiemTk.Size = new System.Drawing.Size(134, 50);
             btnTimKiemTk.TabIndex = 17;
@@ -231,85 +314,36 @@
             btnThemTk.Text = "Thêm Mới";
             btnThemTk.UseVisualStyleBackColor = false;
             // 
-            // txtMatKhauCu
+            // txtTenDangNhap
             // 
-            txtMatKhauCu.Location = new System.Drawing.Point(721, 245);
-            txtMatKhauCu.Name = "txtMatKhauCu";
-            txtMatKhauCu.Size = new System.Drawing.Size(216, 31);
-            txtMatKhauCu.TabIndex = 12;
-            txtMatKhauCu.UseSystemPasswordChar = true;
+            txtTenDangNhap.Location = new System.Drawing.Point(211, 133);
+            txtTenDangNhap.Name = "txtTenDangNhap";
+            txtTenDangNhap.Size = new System.Drawing.Size(216, 31);
+            txtTenDangNhap.TabIndex = 12;
+            txtTenDangNhap.UseSystemPasswordChar = true;
             // 
             // lblMatKhauCu
             // 
             lblMatKhauCu.AutoSize = true;
-            lblMatKhauCu.Location = new System.Drawing.Point(589, 251);
+            lblMatKhauCu.Location = new System.Drawing.Point(27, 139);
             lblMatKhauCu.Name = "lblMatKhauCu";
-            lblMatKhauCu.Size = new System.Drawing.Size(127, 25);
+            lblMatKhauCu.Size = new System.Drawing.Size(148, 25);
             lblMatKhauCu.TabIndex = 11;
-            lblMatKhauCu.Text = "Mật Khẩu Cũ :";
+            lblMatKhauCu.Text = "Tên Đăng Nhập :";
             // 
             // lblTenTK
             // 
             lblTenTK.AutoSize = true;
-            lblTenTK.Location = new System.Drawing.Point(589, 151);
+            lblTenTK.Location = new System.Drawing.Point(27, 38);
             lblTenTK.Name = "lblTenTK";
             lblTenTK.Size = new System.Drawing.Size(134, 25);
             lblTenTK.TabIndex = 9;
             lblTenTK.Text = "Tên Tài Khoản :";
             // 
-            // txtDiaChi
-            // 
-            txtDiaChi.Location = new System.Drawing.Point(721, 92);
-            txtDiaChi.Name = "txtDiaChi";
-            txtDiaChi.Size = new System.Drawing.Size(216, 31);
-            txtDiaChi.TabIndex = 6;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(589, 100);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(76, 25);
-            label1.TabIndex = 8;
-            label1.Text = "Địa chỉ :";
-            // 
-            // dtNgaySinh
-            // 
-            dtNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            dtNgaySinh.Location = new System.Drawing.Point(721, 45);
-            dtNgaySinh.Name = "dtNgaySinh";
-            dtNgaySinh.Size = new System.Drawing.Size(216, 31);
-            dtNgaySinh.TabIndex = 5;
-            // 
-            // lblNgaysinh
-            // 
-            lblNgaysinh.AutoSize = true;
-            lblNgaysinh.Location = new System.Drawing.Point(589, 51);
-            lblNgaysinh.Name = "lblNgaysinh";
-            lblNgaysinh.Size = new System.Drawing.Size(105, 25);
-            lblNgaysinh.TabIndex = 7;
-            lblNgaysinh.Text = "Ngày Sinh :";
-            // 
-            // txtSDT
-            // 
-            txtSDT.Location = new System.Drawing.Point(151, 145);
-            txtSDT.Name = "txtSDT";
-            txtSDT.Size = new System.Drawing.Size(216, 31);
-            txtSDT.TabIndex = 4;
-            // 
-            // lblSdt
-            // 
-            lblSdt.AutoSize = true;
-            lblSdt.Location = new System.Drawing.Point(12, 151);
-            lblSdt.Name = "lblSdt";
-            lblSdt.Size = new System.Drawing.Size(131, 25);
-            lblSdt.TabIndex = 5;
-            lblSdt.Text = "Số điện thoại :";
-            // 
             // rdNu
             // 
             rdNu.AutoSize = true;
-            rdNu.Location = new System.Drawing.Point(274, 98);
+            rdNu.Location = new System.Drawing.Point(313, 84);
             rdNu.Name = "rdNu";
             rdNu.Size = new System.Drawing.Size(62, 29);
             rdNu.TabIndex = 3;
@@ -317,37 +351,9 @@
             rdNu.Text = "Nữ";
             rdNu.UseVisualStyleBackColor = true;
             // 
-            // rdNam
-            // 
-            rdNam.AutoSize = true;
-            rdNam.Location = new System.Drawing.Point(151, 98);
-            rdNam.Name = "rdNam";
-            rdNam.Size = new System.Drawing.Size(76, 29);
-            rdNam.TabIndex = 2;
-            rdNam.TabStop = true;
-            rdNam.Text = "Nam";
-            rdNam.UseVisualStyleBackColor = true;
-            // 
-            // lblGioitinh
-            // 
-            lblGioitinh.AutoSize = true;
-            lblGioitinh.Location = new System.Drawing.Point(12, 98);
-            lblGioitinh.Name = "lblGioitinh";
-            lblGioitinh.Size = new System.Drawing.Size(93, 25);
-            lblGioitinh.TabIndex = 2;
-            lblGioitinh.Text = "Giới tính :";
-            // 
-            // lblTenTaiKhoan
-            // 
-            lblTenTaiKhoan.AutoSize = true;
-            lblTenTaiKhoan.Location = new System.Drawing.Point(12, 50);
-            lblTenTaiKhoan.Name = "lblTenTaiKhoan";
-            lblTenTaiKhoan.Size = new System.Drawing.Size(142, 25);
-            lblTenTaiKhoan.TabIndex = 0;
-            lblTenTaiKhoan.Text = "Tên Nhân Viên :";
-            // 
             // dgvTaiKhoan
             // 
+            dgvTaiKhoan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dgvTaiKhoan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvTaiKhoan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Id, UserId, UserName, TeacherId, TeacherName });
             dgvTaiKhoan.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -364,7 +370,6 @@
             Id.HeaderText = "Id";
             Id.MinimumWidth = 8;
             Id.Name = "Id";
-            Id.Width = 150;
             // 
             // UserId
             // 
@@ -372,7 +377,6 @@
             UserId.HeaderText = "UserId";
             UserId.MinimumWidth = 8;
             UserId.Name = "UserId";
-            UserId.Width = 150;
             // 
             // UserName
             // 
@@ -380,7 +384,6 @@
             UserName.HeaderText = "Tên Tài Khoản";
             UserName.MinimumWidth = 8;
             UserName.Name = "UserName";
-            UserName.Width = 150;
             // 
             // TeacherId
             // 
@@ -388,7 +391,6 @@
             TeacherId.HeaderText = "Mã Giáo VIên";
             TeacherId.MinimumWidth = 8;
             TeacherId.Name = "TeacherId";
-            TeacherId.Width = 150;
             // 
             // TeacherName
             // 
@@ -396,7 +398,35 @@
             TeacherName.HeaderText = "Tên Giáo Viên";
             TeacherName.MinimumWidth = 8;
             TeacherName.Name = "TeacherName";
-            TeacherName.Width = 150;
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(btnCapNhatUser);
+            groupBox2.Controls.Add(cbTenTaiKhoan);
+            groupBox2.Controls.Add(lblTenTK);
+            groupBox2.Controls.Add(CkbMatKhau);
+            groupBox2.Controls.Add(lblMatKhauCu);
+            groupBox2.Controls.Add(txtMatKhauMoi);
+            groupBox2.Controls.Add(lblMatKhauMoi);
+            groupBox2.Controls.Add(txtTenDangNhap);
+            groupBox2.Location = new System.Drawing.Point(535, 37);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new System.Drawing.Size(467, 308);
+            groupBox2.TabIndex = 25;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Thông Tin Tài Khoản";
+            // 
+            // btnCapNhatUser
+            // 
+            btnCapNhatUser.BackColor = System.Drawing.Color.Lime;
+            btnCapNhatUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnCapNhatUser.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            btnCapNhatUser.Location = new System.Drawing.Point(141, 248);
+            btnCapNhatUser.Name = "btnCapNhatUser";
+            btnCapNhatUser.Size = new System.Drawing.Size(134, 50);
+            btnCapNhatUser.TabIndex = 26;
+            btnCapNhatUser.Text = "Sửa";
+            btnCapNhatUser.UseVisualStyleBackColor = false;
             // 
             // frmQuanLyTaiKhoan
             // 
@@ -409,10 +439,13 @@
             Text = "QuanLyTaiKhoan";
             Load += frmQuanLyTaiKhoan_Load;
             gbTaiKhoan.ResumeLayout(false);
-            gbTaiKhoan.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             gbTiemKim.ResumeLayout(false);
             gbTiemKim.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvTaiKhoan).EndInit();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -427,11 +460,9 @@
         private System.Windows.Forms.Label lblNgaysinh;
         private System.Windows.Forms.TextBox txtSDT;
         private System.Windows.Forms.Label lblSdt;
-        private System.Windows.Forms.TextBox txtMatKhauCu;
+        private System.Windows.Forms.TextBox txtTenDangNhap;
         private System.Windows.Forms.Label lblMatKhauCu;
         private System.Windows.Forms.Label lblTenTK;
-        private System.Windows.Forms.TextBox txtDiaChi;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnThemTk;
         private System.Windows.Forms.Button btnXoaTk;
         private System.Windows.Forms.Button btnSuaTk;
@@ -451,5 +482,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UserName;
         private System.Windows.Forms.DataGridViewTextBoxColumn TeacherId;
         private System.Windows.Forms.DataGridViewTextBoxColumn TeacherName;
+        private System.Windows.Forms.Button btnTaoTk;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnCapNhatUser;
     }
 }

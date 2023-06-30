@@ -14,7 +14,7 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
 {
     public class Device_TypeBusBase
     {
-        public static DataTable getAllDevice_Type()
+        public static List<Device_TypeModel> getAllDevice_Type()
         {
             return Device_TypeDao.getData();
         }
@@ -53,7 +53,7 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
             }
             
         }
-        public static DataTable GetDevice_TypeAfterDelete()
+        public static List<Device_TypeModel> GetDevice_TypeAfterDelete()
         {
             return Device_TypeDao.GetDevice_TypeAfterDelete();
         }

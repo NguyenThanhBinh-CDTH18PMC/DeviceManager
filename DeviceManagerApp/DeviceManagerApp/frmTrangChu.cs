@@ -51,11 +51,7 @@ namespace DeviceManagerApp
             lbl_text.Text = "QUẢN LÝ THIẾT BỊ PHÒNG MÁY";
         }
 
-        private void btnQLTaiKhoan_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new frmQuanLyTaiKhoan());
-            lbl_text.Text = btnQLTaiKhoan.Text;
-        }
+
 
         private void btnQLPhongMay_Click(object sender, EventArgs e)
         {
@@ -96,7 +92,12 @@ namespace DeviceManagerApp
         private void btnQlGiaoVien_Click(object sender, EventArgs e)
         {
             OpenChildForm(new frmQuanLyGiaoVien());
-            lbl_text.Text=btnQlGiaoVien.Text;
+            lbl_text.Text = btnQlGiaoVien.Text;
+        }
+        private void btnQLTaiKhoan_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmQuanLyTaiKhoan());
+            lbl_text.Text = btnQLTaiKhoan.Text;
         }
     }
 }
