@@ -173,7 +173,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                         {
                             if (dt.Rows.Count > 0)
                             {
-                                objDeviceType = CreateSpecsFromDataRowShared(dt.Rows[0]);
+                                objDeviceType = CreateDeviceTypeFromDataRowShared(dt.Rows[0]);
                             }
                         }
                     }
@@ -184,7 +184,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         }
 
         /// <summary>
-        /// Gets the total number of records in the Specs table
+        /// Gets the total number of records in the DeviceType table
         /// </summary>
         public static int GetRecordCount()
         {
@@ -223,7 +223,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         }
 
         /// <summary>
-        /// Gets the total number of records in the Specs table based on search parameters
+        /// Gets the total number of records in the DeviceType table based on search parameters
         /// </summary>
         public static int GetRecordCountDynamicWhere(int? id, string name, string datatype, int? ordinal, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
         {
@@ -261,7 +261,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         }
 
         /// <summary>
-        /// Selects Specs records sorted by the sortByExpression and returns records from the startRowIndex with rows (# of rows)
+        /// Selects DeviceType records sorted by the sortByExpression and returns records from the startRowIndex with rows (# of rows)
         /// </summary>
         public static List<Device_TypeModel> SelectSkipAndTake(string sortByExpression, int startRowIndex, int rows)
         {
@@ -269,7 +269,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         }
 
         /// <summary>
-        /// Selects Specs records sorted by the sortByExpression and returns records from the startRowIndex with rows (# of records) based on search parameters
+        /// Selects DeviceType records sorted by the sortByExpression and returns records from the startRowIndex with rows (# of records) based on search parameters
         /// </summary>
         public static List<Device_TypeModel> SelectSkipAndTakeDynamicWhere(int? id, string name, string datatype, int? ordinal, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status, string sortByExpression, int startRowIndex, int rows)
         {
@@ -305,7 +305,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
 
                                 foreach (DataRow dr in dt.Rows)
                                 {
-                                    Device_TypeModel objDeviceType = CreateSpecsFromDataRowShared(dr);
+                                    Device_TypeModel objDeviceType = CreateDeviceTypeFromDataRowShared(dr);
                                     objDeviceTypeCol.Add(objDeviceType);
                                 }
                             }
@@ -318,7 +318,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         }
 
         /// <summary>
-        /// Selects all Specs
+        /// Selects all DeviceType
         /// </summary>
         public static List<Device_TypeModel> SelectAll()
         {
@@ -326,7 +326,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         }
 
         /// <summary>
-        /// Selects records based on the passed filters as a collection (List) of Specs.
+        /// Selects records based on the passed filters as a collection (List) of DeviceType.
         /// </summary>
         public static List<Device_TypeModel> SelectAllDynamicWhere(int? id, string name, string datatype, int? ordinal, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
         {
@@ -357,7 +357,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
 
                                 foreach (DataRow dr in dt.Rows)
                                 {
-                                    Device_TypeModel objDeviceType = CreateSpecsFromDataRowShared(dr);
+                                    Device_TypeModel objDeviceType = CreateDeviceTypeFromDataRowShared(dr);
                                     objDeviceTypeCol.Add(objDeviceType);
                                 }
                             }
@@ -451,7 +451,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
 
                                 foreach (DataRow dr in dt.Rows)
                                 {
-                                    Device_TypeModel objDeviceType = CreateSpecsFromDataRowShared(dr);
+                                    Device_TypeModel objDeviceType = CreateDeviceTypeFromDataRowShared(dr);
                                     objDeviceTypeCol.Add(objDeviceType);
                                 }
                             }
@@ -600,9 +600,9 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         }
 
         /// <summary>
-        /// Creates a Specs object from the passed data row
+        /// Creates a DeviceType object from the passed data row
         /// </summary>
-        protected static Device_TypeModel CreateSpecsFromDataRowShared(DataRow dr)
+        protected static Device_TypeModel CreateDeviceTypeFromDataRowShared(DataRow dr)
         {
             Device_TypeModel objDeviceType = new Device_TypeModel();
 

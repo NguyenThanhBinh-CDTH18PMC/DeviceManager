@@ -34,6 +34,7 @@
 
   <ItemGroup>
     <Folder Include="DTO\ModelForm\" />
+    <Folder Include="Resources\Document\" />
     <Folder Include="Resources\ImageDevice\" />
     <Folder Include="Resources\DefaultImage\" />
     <Folder Include="Resources\QR\" />

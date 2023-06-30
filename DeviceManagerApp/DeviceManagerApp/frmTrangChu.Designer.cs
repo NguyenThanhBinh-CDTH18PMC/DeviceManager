@@ -196,7 +196,7 @@
             this.btnQLTaiKhoan.TabIndex = 1;
             this.btnQLTaiKhoan.Text = "Quản lý Tài Khoản";
             this.btnQLTaiKhoan.UseVisualStyleBackColor = false;
-            this.btnQLTaiKhoan.Click += new System.EventHandler(this.btnQLTaiKhoan_Click_1);
+            this.btnQLTaiKhoan.Click += new System.EventHandler(this.btnQLTaiKhoan_Click);
             // 
             // pictureBox1_Logo
             // 

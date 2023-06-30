@@ -98,10 +98,5 @@ namespace DeviceManagerApp
             OpenChildForm(new frmQuanLyGiaoVien());
             lbl_text.Text=btnQlGiaoVien.Text;
         }
-
-        private void btnQLTaiKhoan_Click_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }
