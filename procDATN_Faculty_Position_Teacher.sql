@@ -149,6 +149,8 @@ begin
 	return @Id
 end
 go
+
+---------------------Sửa---------------------
 create proc GetTeachersAfterDelete
 as 
 begin
