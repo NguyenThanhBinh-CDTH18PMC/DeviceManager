@@ -154,7 +154,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         /// </summary>
         public static List<ShipmentModel> SelectSkipAndTakeDynamicWhere(int? id, int? brandId, int? approverId, string name, string invoice, string description, DateTime? importDate, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status, string sortByExpression, int startRowIndex, int rows)
         {
-            List<ShipmentModel> objShipmentCol = null;
+            List<ShipmentModel> objShipmentCol = new List<ShipmentModel>();
             string storedProcName = "[dbo].[Shipment_SelectSkipAndTakeWhereDynamic]";
 
             using (SqlConnection connection = new SqlConnection(PathString.ConnectionString))
@@ -182,8 +182,6 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                         {
                             if (dt.Rows.Count > 0)
                             {
-                                objShipmentCol = new List<ShipmentModel>();
-
                                 foreach (DataRow dr in dt.Rows)
                                 {
                                     ShipmentModel objShipment = CreateShipmentFromDataRowShared(dr);
@@ -211,7 +209,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         /// </summary>
         public static List<ShipmentModel> SelectAllDynamicWhere(int? id, int? brandId, int? approverId, string name, string invoice, string description, DateTime? importDate, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
         {
-            List<ShipmentModel> objShipmentCol = null;
+            List<ShipmentModel> objShipmentCol = new List<ShipmentModel>();
             string storedProcName = "[dbo].[Shipment_SelectAllWhereDynamic]";
 
             using (SqlConnection connection = new SqlConnection(PathString.ConnectionString))
@@ -234,8 +232,6 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                         {
                             if (dt.Rows.Count > 0)
                             {
-                                objShipmentCol = new List<ShipmentModel>();
-
                                 foreach (DataRow dr in dt.Rows)
                                 {
                                     ShipmentModel objShipment = CreateShipmentFromDataRowShared(dr);
@@ -246,9 +242,8 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                     }
                 }
             }
-            if (objShipmentCol != null)
-                return objShipmentCol;
-            else return new List<ShipmentModel>();
+               
+            return objShipmentCol;
         }
 
         /// <summary>
@@ -256,7 +251,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         /// </summary>
         public static List<ShipmentModel> SelectShipmentDropDownListData()
         {
-            List<ShipmentModel> objShipmentCol = null;
+            List<ShipmentModel> objShipmentCol = new List<ShipmentModel>();
             string storedProcName = "[dbo].[Shipment_SelectDropDownListData]";
 
             using (SqlConnection connection = new SqlConnection(PathString.ConnectionString))
@@ -276,7 +271,6 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                         {
                             if (dt.Rows.Count > 0)
                             {
-                                objShipmentCol = new List<ShipmentModel>();
 
                                 foreach (DataRow dr in dt.Rows)
                                 {
@@ -301,7 +295,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
 
         public static List<ShipmentModel> SelectShared(string storedProcName, string param, object paramValue, bool isUseStoredProc = true, string dynamicSqlScript = null, string sortByExpression = null, int? startRowIndex = null, int? rows = null)
         {
-            List<ShipmentModel> objShipmentCol = null;
+            List<ShipmentModel> objShipmentCol = new List<ShipmentModel>();
 
             using (SqlConnection connection = new SqlConnection(PathString.ConnectionString))
             {
@@ -328,7 +322,6 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                         {
                             if (dt.Rows.Count > 0)
                             {
-                                objShipmentCol = new List<ShipmentModel>();
 
                                 foreach (DataRow dr in dt.Rows)
                                 {

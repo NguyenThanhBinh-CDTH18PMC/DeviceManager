@@ -196,3 +196,6 @@ D:\Thanh Binh\DeviceManager\DeviceManagerApp\DeviceManagerApp\obj\Debug\netcorea
 C:\Users\This PC\OneDrive\Máy tính\DeviceManager\DeviceManager\DeviceManagerApp\DeviceManagerApp\obj\Debug\netcoreapp3.1\DeviceManagerApp.frmQuanLyChucVu.resources
 C:\Users\This PC\OneDrive\Máy tính\DeviceManager\DeviceManager\DeviceManagerApp\DeviceManagerApp\obj\Debug\netcoreapp3.1\DeviceManagerApp.frmQuanLyGiaoVien.resources
 C:\Users\This PC\OneDrive\Máy tính\DeviceManager\DeviceManager\DeviceManagerApp\DeviceManagerApp\obj\Debug\netcoreapp3.1\DeviceManagerApp.frmQR_Code.resources
+C:\Users\This PC\OneDrive\Máy tính\DeviceManager\DeviceManager\DeviceManagerApp\DeviceManagerApp\bin\Debug\netcoreapp3.1\DocumentFormat.OpenXml.dll
+C:\Users\This PC\OneDrive\Máy tính\DeviceManager\DeviceManager\DeviceManagerApp\DeviceManagerApp\obj\Debug\netcoreapp3.1\DeviceManagerApp.frmTaoTaiKhoan.resources
+C:\Users\This PC\OneDrive\Máy tính\DeviceManager\DeviceManager\DeviceManagerApp\DeviceManagerApp\obj\Debug\netcoreapp3.1\DeviceManagerApp.frmShipment.resources

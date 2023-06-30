@@ -578,5 +578,11 @@ namespace DeviceManagerApp
                 cbPhong.Enabled = false;
             }
         }
+
+        private void btn_Buy_Click(object sender, EventArgs e)
+        {
+            Form f = new frmShipment();
+            f.Show();
+        }
     }
 }
