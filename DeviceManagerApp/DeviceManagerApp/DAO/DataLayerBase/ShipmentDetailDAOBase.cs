@@ -106,7 +106,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         /// <summary>
         /// Gets the total number of records in the ShipmentDetail table based on search parameters
         /// </summary>
-        public static int GetRecordCountDynamicWhere(int? id, int? shipmentId, int? deviceId, string name, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
+        public static int GetRecordCountDynamicWhere(int? id, int? shipmentId, int? deviceId, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
         {
             int recordCount = 0;
             string storedProcName = "[dbo].[ShipmentDetail_GetRecordCountWhereDynamic]";
@@ -120,7 +120,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                     command.CommandType = CommandType.StoredProcedure;
 
                     // search parameters
-                    AddSearchCommandParamsShared(command, id, shipmentId, deviceId, name, description, createdDate, createdUserId, isDeleted, status);
+                    AddSearchCommandParamsShared(command, id, shipmentId, deviceId, description, createdDate, createdUserId, isDeleted, status);
 
                     using (SqlDataAdapter da = new SqlDataAdapter(command))
                     {
@@ -152,9 +152,9 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         /// <summary>
         /// Selects ShipmentDetail records sorted by the sortByExpression and returns records from the startRowIndex with rows (# of records) based on search parameters
         /// </summary>
-        public static List<ShipmentDetailModel> SelectSkipAndTakeDynamicWhere(int? id, int? shipmentId, int? deviceId, string name, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status, string sortByExpression, int startRowIndex, int rows)
+        public static List<ShipmentDetailModel> SelectSkipAndTakeDynamicWhere(int? id, int? shipmentId, int? deviceId, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status, string sortByExpression, int startRowIndex, int rows)
         {
-            List<ShipmentDetailModel> objShipmentDetailCol = null;
+            List<ShipmentDetailModel> objShipmentDetailCol = new List<ShipmentDetailModel>();
             string storedProcName = "[dbo].[ShipmentDetail_SelectSkipAndTakeWhereDynamic]";
 
             using (SqlConnection connection = new SqlConnection(PathString.ConnectionString))
@@ -171,7 +171,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                     command.Parameters.AddWithValue("@sort", sortByExpression);
 
                     // search parameters
-                    AddSearchCommandParamsShared(command, id, shipmentId, deviceId, name, description, createdDate, createdUserId, isDeleted, status);
+                    AddSearchCommandParamsShared(command, id, shipmentId, deviceId, description, createdDate, createdUserId, isDeleted, status);
 
                     using (SqlDataAdapter da = new SqlDataAdapter(command))
                     {
@@ -182,8 +182,6 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                         {
                             if (dt.Rows.Count > 0)
                             {
-                                objShipmentDetailCol = new List<ShipmentDetailModel>();
-
                                 foreach (DataRow dr in dt.Rows)
                                 {
                                     ShipmentDetailModel objShipmentDetail = CreateShipmentDetailFromDataRowShared(dr);
@@ -209,9 +207,9 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         /// <summary>
         /// Selects records based on the passed filters as a collection (List) of ShipmentDetail.
         /// </summary>
-        public static List<ShipmentDetailModel> SelectAllDynamicWhere(int? id, int? shipmentId, int? deviceId, string name, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
+        public static List<ShipmentDetailModel> SelectAllDynamicWhere(int? id, int? shipmentId, int? deviceId, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
         {
-            List<ShipmentDetailModel> objShipmentDetailCol = null;
+            List<ShipmentDetailModel> objShipmentDetailCol = new List<ShipmentDetailModel>();
             string storedProcName = "[dbo].[ShipmentDetail_SelectAllWhereDynamic]";
 
             using (SqlConnection connection = new SqlConnection(PathString.ConnectionString))
@@ -223,7 +221,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                     command.CommandType = CommandType.StoredProcedure;
 
                     // search parameters
-                    AddSearchCommandParamsShared(command, id, shipmentId, deviceId, name, description, createdDate, createdUserId, isDeleted, status);
+                    AddSearchCommandParamsShared(command, id, shipmentId, deviceId, description, createdDate, createdUserId, isDeleted, status);
 
                     using (SqlDataAdapter da = new SqlDataAdapter(command))
                     {
@@ -234,8 +232,6 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                         {
                             if (dt.Rows.Count > 0)
                             {
-                                objShipmentDetailCol = new List<ShipmentDetailModel>();
-
                                 foreach (DataRow dr in dt.Rows)
                                 {
                                     ShipmentDetailModel objShipmentDetail = CreateShipmentDetailFromDataRowShared(dr);
@@ -246,9 +242,8 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                     }
                 }
             }
-            if (objShipmentDetailCol != null)
-                return objShipmentDetailCol;
-            else return new List<ShipmentDetailModel>();
+
+            return objShipmentDetailCol;
         }
 
         /// <summary>
@@ -256,7 +251,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         /// </summary>
         public static List<ShipmentDetailModel> SelectShipmentDetailDropDownListData()
         {
-            List<ShipmentDetailModel> objShipmentDetailCol = null;
+            List<ShipmentDetailModel> objShipmentDetailCol = new List<ShipmentDetailModel>();
             string storedProcName = "[dbo].[ShipmentDetail_SelectDropDownListData]";
 
             using (SqlConnection connection = new SqlConnection(PathString.ConnectionString))
@@ -276,17 +271,10 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                         {
                             if (dt.Rows.Count > 0)
                             {
-                                objShipmentDetailCol = new List<ShipmentDetailModel>();
-
                                 foreach (DataRow dr in dt.Rows)
                                 {
                                     ShipmentDetailModel objShipmentDetail = new ShipmentDetailModel();
                                     objShipmentDetail.Id = (int)dr["Id"];
-
-                                    if (dr["Name"] != System.DBNull.Value)
-                                        objShipmentDetail.Name = (string)(dr["Name"]);
-                                    else
-                                        objShipmentDetail.Name = null;
 
                                     objShipmentDetailCol.Add(objShipmentDetail);
                                 }
@@ -301,7 +289,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
 
         public static List<ShipmentDetailModel> SelectShared(string storedProcName, string param, object paramValue, bool isUseStoredProc = true, string dynamicSqlScript = null, string sortByExpression = null, int? startRowIndex = null, int? rows = null)
         {
-            List<ShipmentDetailModel> objShipmentDetailCol = null;
+            List<ShipmentDetailModel> objShipmentDetailCol = new List<ShipmentDetailModel>();
 
             using (SqlConnection connection = new SqlConnection(PathString.ConnectionString))
             {
@@ -328,8 +316,6 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                         {
                             if (dt.Rows.Count > 0)
                             {
-                                objShipmentDetailCol = new List<ShipmentDetailModel>();
-
                                 foreach (DataRow dr in dt.Rows)
                                 {
                                     ShipmentDetailModel objShipmentDetail = CreateShipmentDetailFromDataRowShared(dr);
@@ -365,13 +351,9 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         private static int InsertUpdate(ShipmentDetailModel objShipmentDetail, bool isUpdate, string storedProcName)
         {
             int newlyCreatedId = objShipmentDetail.Id;
-
-            object name = objShipmentDetail.Name;
+            
             object status = objShipmentDetail.Status;
             object createdUserId = objShipmentDetail.CreatedUserId;
-
-            if (String.IsNullOrEmpty(objShipmentDetail.Name))
-                name = System.DBNull.Value;
 
             if (objShipmentDetail.CreatedUserId == null)
                 createdUserId = System.DBNull.Value;
@@ -394,7 +376,6 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                         command.Parameters.AddWithValue("@id", objShipmentDetail.Id);
                     }
 
-                    command.Parameters.AddWithValue("@name", name);
                     command.Parameters.AddWithValue("@deviceId", objShipmentDetail.DeviceId);
                     command.Parameters.AddWithValue("@shipmentId", objShipmentDetail.ShipmentId);
                     command.Parameters.AddWithValue("@createdDate", objShipmentDetail.CreatedDate);
@@ -439,7 +420,7 @@ namespace DeviceManagerApp.DAO.DataLayerBase
         /// <summary>
         /// Adds search parameters to the Command object
         /// </summary>
-        private static void AddSearchCommandParamsShared(SqlCommand command, int? id, int? shipmentId, int? deviceId, string name, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
+        private static void AddSearchCommandParamsShared(SqlCommand command, int? id, int? shipmentId, int? deviceId, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
         {
             if (id != null)
                 command.Parameters.AddWithValue("@id", id);
@@ -455,11 +436,6 @@ namespace DeviceManagerApp.DAO.DataLayerBase
                 command.Parameters.AddWithValue("@deviceId", deviceId);
             else
                 command.Parameters.AddWithValue("@deviceId", System.DBNull.Value);
-
-            if (!String.IsNullOrEmpty(name))
-                command.Parameters.AddWithValue("@name", name);
-            else
-                command.Parameters.AddWithValue("@name", System.DBNull.Value);
 
             if (!String.IsNullOrEmpty(description))
                 command.Parameters.AddWithValue("@description", description);
@@ -498,12 +474,6 @@ namespace DeviceManagerApp.DAO.DataLayerBase
             objShipmentDetail.Id = (int)dr["Id"];
             objShipmentDetail.DeviceId = (int)dr["DeviceId"];
             objShipmentDetail.ShipmentId = (int)dr["ShipmentId"];
-
-
-            if (dr["Name"] != System.DBNull.Value)
-                objShipmentDetail.Name = dr["Name"].ToString();
-            else
-                objShipmentDetail.Name = null;
 
             if (dr["Description"] != System.DBNull.Value)
                 objShipmentDetail.Description = dr["Description"].ToString();

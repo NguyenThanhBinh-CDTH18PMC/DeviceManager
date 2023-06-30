@@ -85,6 +85,7 @@
             this.btnQlLoaiThietBi.TabIndex = 9;
             this.btnQlLoaiThietBi.Text = "Quản Lý Loại Thiết Bị";
             this.btnQlLoaiThietBi.UseVisualStyleBackColor = false;
+            this.btnQlLoaiThietBi.Click += new System.EventHandler(this.btbQlLoaiThietBi_Click);
             // 
             // btnQR
             // 
@@ -111,6 +112,7 @@
             this.btnQlGiaoVien.TabIndex = 7;
             this.btnQlGiaoVien.Text = "Quản Lý Giáo Viên";
             this.btnQlGiaoVien.UseVisualStyleBackColor = false;
+            this.btnQlGiaoVien.Click += new System.EventHandler(this.btnQlGiaoVien_Click);
             // 
             // btnQlThanhLy
             // 
@@ -124,6 +126,7 @@
             this.btnQlThanhLy.TabIndex = 6;
             this.btnQlThanhLy.Text = "Quản Lý Thanh Lý";
             this.btnQlThanhLy.UseVisualStyleBackColor = false;
+            this.btnQlThanhLy.Click += new System.EventHandler(this.btnQlThanhLy_Click);
             // 
             // btnQlThuongHieu
             // 
@@ -137,6 +140,7 @@
             this.btnQlThuongHieu.TabIndex = 5;
             this.btnQlThuongHieu.Text = "Quản Lý Thương Hiệu";
             this.btnQlThuongHieu.UseVisualStyleBackColor = false;
+            this.btnQlThuongHieu.Click += new System.EventHandler(this.btnQlThuongHieu_Click);
             // 
             // btnQlKhoa
             // 
@@ -150,6 +154,7 @@
             this.btnQlKhoa.TabIndex = 4;
             this.btnQlKhoa.Text = "Quản Lý Khoa";
             this.btnQlKhoa.UseVisualStyleBackColor = false;
+            this.btnQlKhoa.Click += new System.EventHandler(this.btnQlKhoa_Click);
             // 
             // btnQlThietBi
             // 
@@ -163,6 +168,7 @@
             this.btnQlThietBi.TabIndex = 3;
             this.btnQlThietBi.Text = "Quản Lý Thiết Bị";
             this.btnQlThietBi.UseVisualStyleBackColor = false;
+            this.btnQlThietBi.Click += new System.EventHandler(this.btnQlThietBi_Click);
             // 
             // btnQLPhongMay
             // 
@@ -176,6 +182,7 @@
             this.btnQLPhongMay.TabIndex = 2;
             this.btnQLPhongMay.Text = "Quản lý Phòng Máy";
             this.btnQLPhongMay.UseVisualStyleBackColor = false;
+            this.btnQLPhongMay.Click += new System.EventHandler(this.btnQLPhongMay_Click);
             // 
             // btnQLTaiKhoan
             // 
