@@ -1,4 +1,4 @@
-Use Devicement
+﻿Use Devicement
 go
 
 SET ANSI_NULLS ON
@@ -24,6 +24,7 @@ GO
 	@createdDate datetime = null,
 	@createdUserId int = null,
 	@isDeleted bit = null,
+	@code varchar(50) = null,
 	@status int = null
 	)
 	as 
@@ -37,7 +38,9 @@ GO
 		(@createdDate is null or [CreatedDate] = @createdDate) and
 		(@createdUserId is null or [CreatedUserId] = @createdUserId) and
 		(@isDeleted is null or ISNULL([IsDeleted],0) = @isDeleted) and
+		(@code IS null or [Code] = @code) and
 		(@status IS null or [Status] = @status)
+		
 		order by [CreatedDate]
 		end
 	go
@@ -58,6 +61,7 @@ GO
 	@createdDate datetime = null,
 	@createdUserId int = null,
 	@isDeleted bit = null,
+	@code varchar(50) = null,
 	@status int = null,
 	@sort varchar(50) = null,
 	@numberOfRows int,
@@ -73,6 +77,7 @@ GO
 		(@createdDate is null or [CreatedDate] = @createdDate) and
 		(@createdUserId is null or [CreatedUserId] = @createdUserId) and
 		(@isDeleted is null or ISNULL([IsDeleted],0) = @isDeleted) and
+		(@code IS null or [Code] = @code) and
 		(@status IS null or [Status] = @status)
 		order by 
 		case when (@sort is null or @sort = 'Id') then [Id] end,
@@ -94,6 +99,7 @@ GO
 	@createdDate datetime = null,
 	@createdUserId int = null,
 	@isDeleted bit = null,
+	@code varchar(50) = null,
 	@status int = null
 	)
 as 
@@ -107,6 +113,7 @@ as
 		(@createdDate is null or [CreatedDate] = @createdDate) and
 		(@createdUserId is null or [CreatedUserId] = @createdUserId) and
 		(@isDeleted is null or ISNULL([IsDeleted],0) = @isDeleted) and
+		(@code IS null or [Code] = @code) and
 		(@status IS null or [Status] = @status)
 	end
 	go
@@ -118,14 +125,15 @@ as
 	@createdDate datetime = null,
 	@createdUserId int = null,
 	@isDeleted bit = null,
+	@code varchar(50) = null,
 	@status int = null
 	)
 	as
 	begin
 		SET NOCOUNT ON;
 		Insert into [dbo].[D_Shipment_Detail]
-		([ShipmentId], [DeviceId], [Description],[CreatedDate],[CreatedUserId],[IsDeleted],[Status]) 
-		Values(@shipmentId , @deviceId , @description,@createdDate,@createdUserId,@isDeleted,@status)
+		([ShipmentId], [DeviceId], [Description],[CreatedDate],[CreatedUserId],[IsDeleted],[Status],[Code]) 
+		Values(@shipmentId , @deviceId , @description,@createdDate,@createdUserId,@isDeleted,@status,@code)
 		select Max([Id])  as Id from [dbo].[D_Shipment_Detail]
 	end
 	go
@@ -138,13 +146,14 @@ as
 	@createdDate datetime = null,
 	@createdUserId int = null,
 	@isDeleted bit = null,
+	@code varchar(50) = null,
 	@status int = null
 	)
 	as
 	begin
 		SET NOCOUNT ON;
 		Update [dbo].[D_Shipment_Detail]
-		set ShipmentId = @shipmentId,[DeviceId] = @deviceId,[Description]=@description
+		set ShipmentId = @shipmentId,[DeviceId] = @deviceId,[Description]=@description,[Code] = @code
 		,[CreatedDate]=@createdDate,[CreatedUserId]=@createdUserId,[IsDeleted]=@isDeleted,[Status] = @status
 		where [Id] =@id
 	end
@@ -169,19 +178,50 @@ as
 	end
 	go
 
-	create proc [dbo].[ShipmentDetail_SelectAndCollectByShipment](@id int)
+	create proc [dbo].[ShipmentDetail_SelectDeviceInfoAndCollectByShipmentId](@id int)
 	as 
 	begin
 		SET NOCOUNT ON;
-		--Select * from D_Shipment_Detail sd
-		select [Name],[Mota] From D_Device d,
-		
+		----------------
+		Select sd.ShipmentId as 'Id', Detail.DeviceTypeId, Detail.DeviceName, Detail.[Info], Detail.Price as [Price]--Count(Detail.DeviceId) as 'SL', Sum(Detail.Price) as 'TotalPrice'
+		From
 		(
-		Select DeviceId as 'Id', CONCAT_WS(': ',ddt.NameSpecs,ddt.[Description]) as 'MoTa' from [dbo].[D_DeviceDetail] ddt
-		Group By DeviceId, CONCAT_WS(': ',ddt.NameSpecs,ddt.[Description])
-		) as Device
-		where d.Id = Device.Id
+			SELECT d.[Name] as DeviceName,
+			---Cột chứa Tất cả Thông tin Cấu hình Thiết bị---
+			(   
+				SELECT dt.[Info] +';' AS [text()]
+					FROM 
+					(
+					----Gom thông tin cấu hình thành 1 cột (tên cấu hỉnh + giá trị)----
+						Select ddt.DeviceId as 'Id', CONCAT_WS(': ',ddt.NameSpecs,ddt.[Description]) as 'Info'
+						from [dbo].[D_DeviceDetail] ddt
+						where Isnull(ddt.IsDeleted,0) = 0
+						Group By ddt.DeviceId, CONCAT_WS(': ',ddt.NameSpecs,ddt.[Description])
+					) as dt
+				WHERE dt.Id=d.ID
+				ORDER BY dt.Id
+				FOR XML PATH('')
+			) [Info], 
+			---End Thông tin Cấu hình Thiết bị---
+			d.DeviceTypeId,d.Id as DeviceId,d.Price
+			FROM D_Device d
+		) as Detail, [dbo].[D_Shipment_Detail] sd
+		where Detail.DeviceId = sd.DeviceId and sd.ShipmentId = @id and Isnull(sd.IsDeleted,0)=0
+		--group by sd.ShipmentId, Detail.DeviceTypeId, Detail.[Info], Detail.DeviceName
 	end
 	go
 --end Shipment
+
+--drop proc [dbo].[ShipmentDetail_Delete]
+--drop proc [dbo].[ShipmentDetail_GetRecordCount]
+--drop proc [dbo].[ShipmentDetail_GetRecordCountWhereDynamic]
+--drop proc [dbo].[ShipmentDetail_Hide]
+--drop proc [dbo].[ShipmentDetail_Insert]
+--drop proc [dbo].[ShipmentDetail_SelectAllWhereDynamic]
+--drop proc [dbo].[ShipmentDetail_SelectByPrimaryKey]
+--drop proc [dbo].[ShipmentDetail_SelectDeviceInfoAndCollectByShipmentId]
+--drop proc [dbo].[ShipmentDetail_SelectSkipAndTakeWhereDynamic]
+--drop proc [dbo].[ShipmentDetail_Update]
+
+
 

@@ -9,5 +9,10 @@ namespace DeviceManagerApp.BUS.BusinessObject
 {
     public class ShipmentDetailBus : ShipmentDetailBusBase
     {
+
+        public static List<ShipmentDetailModel> SelectDeviceInfoAndCollectByShipmentId(int shipmentId)
+        {
+            return ShipmentDetailDataLayer.SelectDeviceInfoAndCollectByShipmentId(shipmentId);
+        }
     }
 }

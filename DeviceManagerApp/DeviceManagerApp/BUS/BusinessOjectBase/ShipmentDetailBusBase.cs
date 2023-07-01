@@ -40,9 +40,9 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         /// <summary>
         /// Gets the total number of records in the ShipmentDetail table based on search parameters
         /// </summary>
-        public static int GetRecordCountDynamicWhere(int? id, int? shipmentId, int? deviceId, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
+        public static int GetRecordCountDynamicWhere(int? id, int? shipmentId, int? deviceId, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, string code, int? status)
         {
-            return ShipmentDetailDataLayer.GetRecordCountDynamicWhere(id, shipmentId, deviceId, description, createdDate, createdUserId, isDeleted, status);
+            return ShipmentDetailDataLayer.GetRecordCountDynamicWhere(id, shipmentId, deviceId, description, createdDate, createdUserId, isDeleted, code, status);
         }
 
         /// <summary>
@@ -68,20 +68,20 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         /// <summary>
         /// Selects records as a collection (List) of ShipmentDetail sorted by the sortByExpression and returns the rows (# of records) starting from the startRowIndex, based on the search parameters
         /// </summary>
-        public static List<ShipmentDetailModel> SelectSkipAndTakeDynamicWhere(int? id, int? shipmentId, int? deviceId, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status, int rows, int startRowIndex, out int totalRowCount, string sortByExpression)
+        public static List<ShipmentDetailModel> SelectSkipAndTakeDynamicWhere(int? id, int? shipmentId, int? deviceId, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, string code, int? status, int rows, int startRowIndex, out int totalRowCount, string sortByExpression)
         {
-            totalRowCount = GetRecordCountDynamicWhere(id, shipmentId, deviceId, description, createdDate, createdUserId, isDeleted, status);
+            totalRowCount = GetRecordCountDynamicWhere(id, shipmentId, deviceId, description, createdDate, createdUserId, isDeleted, code, status);
             sortByExpression = GetSortExpression(sortByExpression);
-            return ShipmentDetailDataLayer.SelectSkipAndTakeDynamicWhere(id, shipmentId, deviceId, description, createdDate, createdUserId, isDeleted, status, sortByExpression, startRowIndex, rows);
+            return ShipmentDetailDataLayer.SelectSkipAndTakeDynamicWhere(id, shipmentId, deviceId, description, createdDate, createdUserId, isDeleted, code, status, sortByExpression, startRowIndex, rows);
         }
 
         /// <summary>
         /// Selects records as a collection (List) of ShipmentDetail sorted by the sortByExpression starting from the startRowIndex, based on the search parameters
         /// </summary>
-        public static List<ShipmentDetailModel> SelectSkipAndTakeDynamicWhere(int? id, int? shipmentId, int? deviceId, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status, int rows, int startRowIndex, string sortByExpression)
+        public static List<ShipmentDetailModel> SelectSkipAndTakeDynamicWhere(int? id, int? shipmentId, int? deviceId, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, string code, int? status, int rows, int startRowIndex, string sortByExpression)
         {
             sortByExpression = GetSortExpression(sortByExpression);
-            return ShipmentDetailDataLayer.SelectSkipAndTakeDynamicWhere(id, shipmentId, deviceId, description, createdDate, createdUserId, isDeleted, status, sortByExpression, startRowIndex, rows);
+            return ShipmentDetailDataLayer.SelectSkipAndTakeDynamicWhere(id, shipmentId, deviceId, description, createdDate, createdUserId, isDeleted, code, status, sortByExpression, startRowIndex, rows);
         }
 
         /// <summary>
@@ -104,17 +104,17 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         /// <summary>
         /// Selects records based on the passed filters as a collection (List) of ShipmentDetail.
         /// </summary>
-        public static List<ShipmentDetailModel> SelectAllDynamicWhere(int? id, int? shipmentId, int? deviceId, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status)
+        public static List<ShipmentDetailModel> SelectAllDynamicWhere(int? id, int? shipmentId, int? deviceId, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, string code, int? status)
         {
-            return ShipmentDetailDataLayer.SelectAllDynamicWhere(id, shipmentId, deviceId, description, createdDate, createdUserId, isDeleted, status);
+            return ShipmentDetailDataLayer.SelectAllDynamicWhere(id, shipmentId, deviceId, description, createdDate, createdUserId, isDeleted, code, status);
         }
 
         /// <summary>
         /// Selects records based on the passed filters as a collection (List) of ShipmentDetail sorted by the sort expression.
         /// </summary>
-        public static List<ShipmentDetailModel> SelectAllDynamicWhere(int? id, int? shipmentId, int? deviceId, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, int? status, string sortExpression)
+        public static List<ShipmentDetailModel> SelectAllDynamicWhere(int? id, int? shipmentId, int? deviceId, string description, DateTime? createdDate, int? createdUserId, bool? isDeleted, string code, int? status, string sortExpression)
         {
-            List<ShipmentDetailModel> objShipmentDetailCol = ShipmentDetailDataLayer.SelectAllDynamicWhere(id, shipmentId, deviceId, description, createdDate, createdUserId, isDeleted, status);
+            List<ShipmentDetailModel> objShipmentDetailCol = ShipmentDetailDataLayer.SelectAllDynamicWhere(id, shipmentId, deviceId, description, createdDate, createdUserId, isDeleted, code, status);
             return objShipmentDetailCol;
         }
 
