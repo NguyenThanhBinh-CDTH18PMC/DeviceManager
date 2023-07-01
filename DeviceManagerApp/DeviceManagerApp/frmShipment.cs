@@ -91,7 +91,7 @@ namespace DeviceManagerApp
         {
             if (currentShipment != null)
             {
-                listShipmentDetails = ShipmentDetailBus.SelectAllDynamicWhere(null, currentShipment.Id, null, null, null, null, false, null);
+                listShipmentDetails = ShipmentDetailBus.SelectAllDynamicWhere(null, currentShipment.Id, null, null, null, null, false, null,null);
                 if(listShipmentDetails.Count>0)
                 {
                     foreach (ShipmentDetailModel sdtl in listShipmentDetails)

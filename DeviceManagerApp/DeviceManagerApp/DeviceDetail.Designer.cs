@@ -175,10 +175,9 @@ namespace DeviceManagerApp
             // Description
             // 
             this.Description.DataPropertyName = "Description";
-            this.Description.HeaderText = "Nội dung";
+            this.Description.HeaderText = "Giá trị";
             this.Description.MinimumWidth = 6;
             this.Description.Name = "Description";
-            this.Description.ReadOnly = true;
             // 
             // DeviceDetail
             // 
