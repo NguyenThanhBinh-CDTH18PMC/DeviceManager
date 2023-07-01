@@ -97,7 +97,7 @@ namespace DeviceManagerApp
             // 
             // tab_Shipment
             // 
-            this.tab_Shipment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.tab_Shipment.BackColor = System.Drawing.Color.CornflowerBlue;
             this.tab_Shipment.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tab_Shipment.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tab_Shipment.Controls.Add(this.btn_Update);
@@ -127,10 +127,12 @@ namespace DeviceManagerApp
             // 
             // btn_Update
             // 
-            this.btn_Update.BackColor = System.Drawing.Color.DimGray;
+            this.btn_Update.BackColor = System.Drawing.Color.Transparent;
             this.btn_Update.BackgroundImage = global::DeviceManagerApp.Properties.Resources.pen_189869;
             this.btn_Update.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Update.ForeColor = System.Drawing.Color.Aqua;
+            this.btn_Update.FlatAppearance.BorderSize = 0;
+            this.btn_Update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Update.ForeColor = System.Drawing.Color.Transparent;
             this.btn_Update.Location = new System.Drawing.Point(355, 375);
             this.btn_Update.Name = "btn_Update";
             this.btn_Update.Size = new System.Drawing.Size(55, 57);
@@ -141,10 +143,12 @@ namespace DeviceManagerApp
             // 
             // btn_Del
             // 
-            this.btn_Del.BackColor = System.Drawing.Color.DimGray;
+            this.btn_Del.BackColor = System.Drawing.Color.Transparent;
             this.btn_Del.BackgroundImage = global::DeviceManagerApp.Properties.Resources.delete_file;
             this.btn_Del.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Del.ForeColor = System.Drawing.Color.Aqua;
+            this.btn_Del.FlatAppearance.BorderSize = 0;
+            this.btn_Del.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Del.ForeColor = System.Drawing.Color.Transparent;
             this.btn_Del.Location = new System.Drawing.Point(424, 375);
             this.btn_Del.Name = "btn_Del";
             this.btn_Del.Size = new System.Drawing.Size(55, 57);
@@ -156,6 +160,7 @@ namespace DeviceManagerApp
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.label4.Location = new System.Drawing.Point(20, 249);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(156, 24);
@@ -174,6 +179,7 @@ namespace DeviceManagerApp
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.label3.Location = new System.Drawing.Point(20, 89);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(156, 24);
@@ -190,10 +196,12 @@ namespace DeviceManagerApp
             // 
             // btn_Create
             // 
-            this.btn_Create.BackColor = System.Drawing.Color.DimGray;
+            this.btn_Create.BackColor = System.Drawing.Color.Transparent;
             this.btn_Create.BackgroundImage = global::DeviceManagerApp.Properties.Resources.add_file;
             this.btn_Create.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_Create.ForeColor = System.Drawing.Color.Aqua;
+            this.btn_Create.FlatAppearance.BorderSize = 0;
+            this.btn_Create.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Create.ForeColor = System.Drawing.Color.Transparent;
             this.btn_Create.Location = new System.Drawing.Point(278, 375);
             this.btn_Create.Name = "btn_Create";
             this.btn_Create.Size = new System.Drawing.Size(61, 57);
@@ -213,6 +221,7 @@ namespace DeviceManagerApp
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.label2.Location = new System.Drawing.Point(20, 197);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(118, 24);
@@ -222,6 +231,7 @@ namespace DeviceManagerApp
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.label1.Location = new System.Drawing.Point(20, 142);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(153, 24);
@@ -231,6 +241,7 @@ namespace DeviceManagerApp
             // label
             // 
             this.label.AutoSize = true;
+            this.label.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.label.Location = new System.Drawing.Point(20, 39);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(111, 24);
@@ -256,9 +267,12 @@ namespace DeviceManagerApp
             // 
             // btn_AddDevice
             // 
-            this.btn_AddDevice.BackColor = System.Drawing.Color.DarkGray;
-            this.btn_AddDevice.BackgroundImage = global::DeviceManagerApp.Properties.Resources.buy;
+            this.btn_AddDevice.BackColor = System.Drawing.Color.Transparent;
+            this.btn_AddDevice.BackgroundImage = global::DeviceManagerApp.Properties.Resources.stock1;
             this.btn_AddDevice.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_AddDevice.FlatAppearance.BorderSize = 0;
+            this.btn_AddDevice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_AddDevice.ForeColor = System.Drawing.Color.Transparent;
             this.btn_AddDevice.Location = new System.Drawing.Point(203, 375);
             this.btn_AddDevice.Name = "btn_AddDevice";
             this.btn_AddDevice.Size = new System.Drawing.Size(61, 57);
@@ -326,6 +340,7 @@ namespace DeviceManagerApp
             // 
             // tab_ShipmentDetail
             // 
+            this.tab_ShipmentDetail.BackColor = System.Drawing.Color.DarkOrange;
             this.tab_ShipmentDetail.Controls.Add(this.label10);
             this.tab_ShipmentDetail.Controls.Add(this.textBox3);
             this.tab_ShipmentDetail.Controls.Add(this.button1);
@@ -348,7 +363,6 @@ namespace DeviceManagerApp
             this.tab_ShipmentDetail.Size = new System.Drawing.Size(1210, 482);
             this.tab_ShipmentDetail.TabIndex = 2;
             this.tab_ShipmentDetail.Text = "Chi tiết lô hàng";
-            this.tab_ShipmentDetail.UseVisualStyleBackColor = true;
             // 
             // label10
             // 

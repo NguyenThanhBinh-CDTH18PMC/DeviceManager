@@ -7,6 +7,7 @@ namespace DeviceManagerApp
 {
     public static class SettingClass
     {
+        public static string path_Folder_Resource= Path.GetFullPath("../../../resources/");
         public static string path_Folder_QR_Image = Path.GetFullPath("../../../resources/QR/");
         public static string path_Folder_Default_Image = Path.GetFullPath("../../../resources/DefaultImage/");
         public static string path_Folder_Image_Device = Path.GetFullPath("../../../resources/ImageDevice/");
