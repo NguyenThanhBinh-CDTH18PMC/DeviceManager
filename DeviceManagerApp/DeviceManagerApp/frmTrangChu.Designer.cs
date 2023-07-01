@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTrangChu));
+
             this.panel_Left = new System.Windows.Forms.Panel();
             this.btnQlLoaiThietBi = new System.Windows.Forms.Button();
             this.btnQR = new System.Windows.Forms.Button();
@@ -50,9 +51,7 @@
             this.panel_Body.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel_Left
-            // 
+
             this.panel_Left.BackColor = System.Drawing.Color.Blue;
             this.panel_Left.Controls.Add(this.btnQlLoaiThietBi);
             this.panel_Left.Controls.Add(this.btnQR);
@@ -209,9 +208,7 @@
             this.pictureBox1_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1_Logo.TabIndex = 0;
             this.pictureBox1_Logo.TabStop = false;
-            // 
-            // panel_Top
-            // 
+            
             this.panel_Top.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.panel_Top.Controls.Add(this.lbl_text);
             this.panel_Top.Dock = System.Windows.Forms.DockStyle.Top;
@@ -220,9 +217,7 @@
             this.panel_Top.Name = "panel_Top";
             this.panel_Top.Size = new System.Drawing.Size(676, 62);
             this.panel_Top.TabIndex = 1;
-            // 
-            // lbl_text
-            // 
+
             this.lbl_text.AutoSize = true;
             this.lbl_text.Font = new System.Drawing.Font("Segoe UI Black", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.lbl_text.Location = new System.Drawing.Point(15, 20);
@@ -255,8 +250,15 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // frmTrangChu
+            // lbltest
             // 
+            lbltest.AutoSize = true;
+            lbltest.Location = new System.Drawing.Point(544, 32);
+            lbltest.Name = "lbltest";
+            lbltest.Size = new System.Drawing.Size(59, 25);
+            lbltest.TabIndex = 1;
+            lbltest.Text = "label1";
+            
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(955, 697);
@@ -274,6 +276,7 @@
             this.panel_Body.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+
 
         }
 
@@ -294,5 +297,6 @@
         private System.Windows.Forms.Button btnQlGiaoVien;
         private System.Windows.Forms.Button btnQR;
         private System.Windows.Forms.Button btnQlLoaiThietBi;
+        private System.Windows.Forms.Label lbltest;
     }
 }
