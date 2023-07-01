@@ -331,7 +331,7 @@
             // dtNgaySinhGV
             // 
             dtNgaySinhGV.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            dtNgaySinhGV.Location = new System.Drawing.Point(169, 173);
+            dtNgaySinhGV.Location = new System.Drawing.Point(169, 180);
             dtNgaySinhGV.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             dtNgaySinhGV.Name = "dtNgaySinhGV";
             dtNgaySinhGV.Size = new System.Drawing.Size(197, 31);

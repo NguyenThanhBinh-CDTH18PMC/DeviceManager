@@ -160,14 +160,7 @@ begin
 	where Gv.IsDeleted=0
 end
 
-go 
-Create proc GetAllDecentralization
-as 
-begin
-	select d.Id ,u.Id ,u.[Name] ,t.Id ,t.FullName 
-	from System_Decentralization d ,S_Teacher t,[System_User] u
-	where d.TeacherId=t.Id and d.UserId=u.Id
-end
+
 	
 go 
 create proc InsertUser
@@ -264,7 +257,7 @@ begin
 end
 
 
-----------------------------sửa proc------------------------------------
+
 
 go
 create proc GetAllFaculty
@@ -297,4 +290,17 @@ begin
 	from S_Teacher Gv 
 	inner join D_Position p on Gv.PositionId= p.Id
 	where Gv.Id=@Id
+end
+
+
+----------------------------sửa proc------------------------------------
+
+
+go 
+Create proc Decentralization_GetAll
+as 
+begin
+	select d.Id,d.TeacherId,t.FullName as 'TeacherName',t.Gender as 'TeacherGender',t.Phone as 'TeacherPhone',t.Birth as 'TeacherBirth',d.UserId,u.Name as 'NameUser',d.CreatedDate,d.CreatedUserId,d.IsDeleted
+	from System_Decentralization d ,S_Teacher t,[System_User] u
+	where d.TeacherId=t.Id and d.UserId=u.Id and ISNULL(d.IsDeleted,0)=0
 end

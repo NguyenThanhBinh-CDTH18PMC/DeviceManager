@@ -38,7 +38,7 @@ namespace DeviceManagerApp
 
         private void TrangChu_Load(object sender, EventArgs e)
         {
-
+            lblNameUser.Text = LoginInUser.Name;
         }
 
 

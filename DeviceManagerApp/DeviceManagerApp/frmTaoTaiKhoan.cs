@@ -28,7 +28,7 @@ namespace DeviceManagerApp
             user.IsDeleted = false;
             user.Status = 0;
             user.UserName = txtTenDangNhap.Text;
-            user.Pass = GetMD5(txtMatKhau.Text);
+            user.Pass = SettingClass.GetMD5(txtMatKhau.Text);
             user.Name = txtTenHienThi.Text;
             try
             {
@@ -47,21 +47,7 @@ namespace DeviceManagerApp
                 MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private static string GetMD5(string chuoi)
-        {
-            string str_md5 = "";
-            byte[] mang = System.Text.Encoding.UTF8.GetBytes(chuoi);
-
-            MD5CryptoServiceProvider my_md5 = new MD5CryptoServiceProvider();
-            mang = my_md5.ComputeHash(mang);
-
-            foreach (byte b in mang)
-            {
-                str_md5 += b.ToString("X2");//Nếu là "X2" thì kết quả sẽ tự chuyển sang ký tự in Hoa
-            }
-
-            return str_md5;
-        }
+        
         private  bool Check()
         {
             if (txtTenDangNhap.Text.Trim() == "")

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using DTO.ModelBase;
 using System.Data.SqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using DeviceManagerApp.DTO.Model;
 
 namespace DAO.DataLayerBase
 {
@@ -31,46 +32,16 @@ namespace DAO.DataLayerBase
         }
         public static List<UserModel> SelectAll()
         {
-            List<UserModel> listUser = null;
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(PathString.ConnectionString))
-                {
-                    connection.Open();
-
-                    using (SqlCommand command = new SqlCommand("[dbo].[User_SelectAll]", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        using (SqlDataAdapter da = new SqlDataAdapter(command))
-                        {
-                            DataTable dt = new DataTable();
-                            da.Fill(dt);
-
-                            if (dt != null)
-                            {
-                                if (dt.Rows.Count > 0)
-                                {
-                                    listUser = new List<UserModel>();
-
-                                    foreach (DataRow dr in dt.Rows)
-                                    {
-                                        UserModel user = CreateUserModelFromDataRowShared(dr);
-                                        listUser.Add(user);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-
-            }
-
-            return listUser;
+            SqlConnection conn = new SqlConnection(PathString.ConnectionString);
+            SqlCommand cmd = new SqlCommand("User_SelectAll", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            conn.Open();
+            SqlDataAdapter da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            conn.Close();
+            return CreateUserModelfromDataTable(dt);
         }
 
         public static List<UserModel> SelectAllDynamicWhere(int? Id, string username, string name, string image, bool? isdeleted, int? status, int? accessrightsgroup, DateTime? createddate, DateTime? modifieddate, int? createduserid, int? modifieduserid, string sort)
@@ -766,6 +737,7 @@ namespace DAO.DataLayerBase
             return user;
         }
 
+
         public static string CheckLoginDTO(UserModel taikhoan)
         {
             string user = null;
@@ -793,6 +765,60 @@ namespace DAO.DataLayerBase
                 return"Tài khoản hoặc mật khẩu không chính xác";
             }
             return user;
+        }
+
+        public static List<UserModel> CreateUserModelfromDataTable(DataTable dt)
+        {
+            List<UserModel> users = new List<UserModel>();
+            if (dt != null)
+            {
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        UserModel userModel = new UserModel();
+                        userModel.Id = (int)dr["Id"];
+                        if (dr["UserName"] != System.DBNull.Value)
+                            userModel.UserName = dr["UserName"].ToString();
+                        else userModel.UserName = null;
+
+                        if (dr["Pass"] != System.DBNull.Value)
+                            userModel.Pass = dr["Pass"].ToString();
+                        else userModel.Pass = null;
+
+                        if (dr["Name"] != System.DBNull.Value)
+                            userModel.Name = dr["Name"].ToString();
+                        else userModel.Name = null;
+
+                        if (dr["Image"] != System.DBNull.Value)
+                            userModel.Image = dr["Image"].ToString();
+                        else userModel.Image = null;
+
+                        if (dr["AccessRightsGroup"] != System.DBNull.Value)
+                            userModel.AccessRightsGroup =(int) dr["AccessRightsGroup"];
+                        else userModel.AccessRightsGroup = null;
+
+                        if (dr["CreatedDate"] != System.DBNull.Value)
+                            userModel.CreatedDate = (DateTime)dr["CreatedDate"];
+                        else userModel.CreatedDate = null;
+
+                        if (dr["CreatedUserId"] != System.DBNull.Value)
+                            userModel.CreatedUserId = (int)dr["CreatedUserId"];
+                        else userModel.CreatedUserId = null;
+
+                        if (dr["IsDeleted"] != System.DBNull.Value)
+                            userModel.IsDeleted = (bool)dr["IsDeleted"];
+                        else userModel.IsDeleted = false;
+
+                        if (dr["Status"] != System.DBNull.Value)
+                            userModel.Status = (int)dr["Status"];
+                        else userModel.Status = null;
+
+                        users.Add(userModel);
+                    }
+                }
+            }
+            return users;
         }
     }
 }
