@@ -236,7 +236,7 @@ namespace DeviceManagerApp
                     MessageBox.Show("Vui Lòng Chọn 1 Phương Thức Tìm Kiếm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            
+
         }
     }
 }

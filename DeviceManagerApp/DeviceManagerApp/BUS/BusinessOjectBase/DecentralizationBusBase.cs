@@ -14,7 +14,7 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
 {
     public class DecentralizationBusBase
     {
-        public static DataTable GetAllDecentralization()
+        public static List<DecentralizationModel> GetAllDecentralization()
         {
             return DecentralizationDAO.GetData();
         }
@@ -47,6 +47,18 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
         public static UserModel GetInfoById(int UserId)
         {
             return DecentralizationDAO.GetInfoById(UserId);
+        }
+
+        public static void InSertDecentralization(DecentralizationModel decentralizationModel)
+        {
+            if(DecentralizationDAO.CheckTeacherId(decentralizationModel.TeacherId))
+            {
+                throw new Exception("Tên Nhân Viên Đã Được Cấp");
+            }else if(DecentralizationDAO.CheckIdUser(decentralizationModel.UserId))
+            {
+                throw new Exception("Tên Hiển Thị Đã Được Cấp");
+            }
+            DecentralizationDAO.InSertDecentralization(decentralizationModel);
         }
     }
 }
