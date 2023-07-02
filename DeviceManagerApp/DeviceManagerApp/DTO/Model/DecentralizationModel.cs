@@ -5,8 +5,15 @@ using System.Text;
 
 namespace DeviceManagerApp.DTO.Model
 {
-    public class DecentralizationModel:DecentralizationModelBase
+    public class DecentralizationModel : DecentralizationModelBase
     {
+        public string TeacherName { get; set; }
+        public bool TeacherGender { get; set; }
+
+        public string TeacherPhone { get; set; }
+        public DateTime TeacherBirth {  get; set; }
+
+        public string NameUser { get; set; }
         public DecentralizationModel() { }
     }
 }

@@ -26,7 +26,7 @@ namespace DeviceManagerApp
             else
             {
                 string UserName = txtTenDangNhap.Text;
-                string Pass = txtMatKhau.Text;
+                string Pass =SettingClass.GetMD5 (txtMatKhau.Text);
                 UserModel user = DecentralizationBus.GetUserByUserName_Pass(UserName, Pass);
                 if (user != null)
                 {
