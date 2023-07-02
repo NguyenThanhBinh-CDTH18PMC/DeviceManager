@@ -37,7 +37,7 @@ begin
 	where UserId=@UserId and ISNULL(IsDeleted,0)=0
 end
 
-----------------------------------thêm proc-------------------------
+
 go
 create proc User_SelectAll
 as
@@ -63,7 +63,7 @@ begin
 	set @Id=SCOPE_IDENTITY()
 	return @Id
 end
-
+-----------------------------------sua proc-----------------------
 go 
 create proc Update_Decentralization(
 	@Id int null,
@@ -78,4 +78,32 @@ begin
 	set Nocount on
 	update [System_Decentralization]
 	set TeacherId=@TeacherId,UserId=@UserId,CreatedDate=@CreatedDate,CreatedUserId=@CreatedUserId,IsDeleted=@IsDelete
+	WHERE @Id=Id
+	SET @Id =SCOPE_IDENTITY()
+	return @Id
+end
+
+----------------------------------them proc-------------------------
+
+go 
+create proc UpdateUserNameAndPass(
+@UserId int null,
+@UserName varchar(50) null,
+@Pass varchar(100) null,
+--@Name nvarchar(100) null,
+--Image nvarchar(200) null,
+--AccessRightsGroup int null,
+@CreatedDate DateTime null,
+@CreatedUserId int null,
+@IsDeleted bit null
+--@Status int null)
+)
+as
+begin
+	SET NOCOUNT ON;
+	update [System_User]
+	set UserName=@UserName,Pass=@Pass,CreatedDate=@CreatedDate,CreatedUserId=@CreatedUserId,IsDeleted=@IsDeleted
+	where Id=@UserId
+	set @UserId = SCOPE_IDENTITY()
+	return @UserId
 end

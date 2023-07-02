@@ -36,6 +36,9 @@
             txtTenHienThi = new System.Windows.Forms.TextBox();
             lblTenHienThi = new System.Windows.Forms.Label();
             btnThemTaiKhoan = new System.Windows.Forms.Button();
+            lblQuyen = new System.Windows.Forms.Label();
+            cbQuyen = new System.Windows.Forms.ComboBox();
+            btnThoat = new System.Windows.Forms.Button();
             SuspendLayout();
             // 
             // label1
@@ -102,7 +105,7 @@
             btnThemTaiKhoan.BackColor = System.Drawing.Color.Lime;
             btnThemTaiKhoan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnThemTaiKhoan.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            btnThemTaiKhoan.Location = new System.Drawing.Point(75, 342);
+            btnThemTaiKhoan.Location = new System.Drawing.Point(27, 394);
             btnThemTaiKhoan.Name = "btnThemTaiKhoan";
             btnThemTaiKhoan.Size = new System.Drawing.Size(134, 50);
             btnThemTaiKhoan.TabIndex = 7;
@@ -110,11 +113,44 @@
             btnThemTaiKhoan.UseVisualStyleBackColor = false;
             btnThemTaiKhoan.Click += btnThemTaiKhoan_Click;
             // 
+            // lblQuyen
+            // 
+            lblQuyen.AutoSize = true;
+            lblQuyen.Location = new System.Drawing.Point(27, 307);
+            lblQuyen.Name = "lblQuyen";
+            lblQuyen.Size = new System.Drawing.Size(73, 25);
+            lblQuyen.TabIndex = 8;
+            lblQuyen.Text = "Quyền :";
+            // 
+            // cbQuyen
+            // 
+            cbQuyen.FormattingEnabled = true;
+            cbQuyen.Items.AddRange(new object[] { "Admin", "Giáo Viên" });
+            cbQuyen.Location = new System.Drawing.Point(196, 304);
+            cbQuyen.Name = "cbQuyen";
+            cbQuyen.Size = new System.Drawing.Size(216, 33);
+            cbQuyen.TabIndex = 9;
+            // 
+            // btnThoat
+            // 
+            btnThoat.BackColor = System.Drawing.Color.Lime;
+            btnThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnThoat.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            btnThoat.Location = new System.Drawing.Point(278, 394);
+            btnThoat.Name = "btnThoat";
+            btnThoat.Size = new System.Drawing.Size(134, 50);
+            btnThoat.TabIndex = 10;
+            btnThoat.Text = "Thoát";
+            btnThoat.UseVisualStyleBackColor = false;
+            // 
             // frmTaoTaiKhoan
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(478, 506);
+            Controls.Add(btnThoat);
+            Controls.Add(cbQuyen);
+            Controls.Add(lblQuyen);
             Controls.Add(btnThemTaiKhoan);
             Controls.Add(txtTenHienThi);
             Controls.Add(lblTenHienThi);
@@ -139,5 +175,8 @@
         private System.Windows.Forms.TextBox txtTenHienThi;
         private System.Windows.Forms.Label lblTenHienThi;
         private System.Windows.Forms.Button btnThemTaiKhoan;
+        private System.Windows.Forms.Label lblQuyen;
+        private System.Windows.Forms.ComboBox cbQuyen;
+        private System.Windows.Forms.Button btnThoat;
     }
 }

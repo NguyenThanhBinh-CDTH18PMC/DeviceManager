@@ -144,6 +144,25 @@ namespace DeviceManagerApp.DAO.DataLayerBase
             }
         }
 
+        public static void DeleteDecentralizationAndTeacher(int Id)
+        {
+            using (SqlConnection conn = new SqlConnection(PathString.ConnectionString))
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("update S_Teacher set IsDeleted=1 where Id=@Id", conn);
+                //cmd.CommandType=CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Id", Id);
+                cmd.ExecuteNonQuery();
+
+                SqlCommand cmd1 = new SqlCommand("update System_Decentralization set IsDeleted=1 where TeacherId=@Id", conn);
+                //cmd.CommandType=CommandType.StoredProcedure;
+                cmd1.Parameters.AddWithValue("@Id", Id);
+                cmd1.ExecuteNonQuery();
+                conn.Close();
+            }
+        }
+
         public static List<TeacherModel> CreateTeachersModelfromDataTable(DataTable dt)
         {
             List<TeacherModel> teacher = new List<TeacherModel>();

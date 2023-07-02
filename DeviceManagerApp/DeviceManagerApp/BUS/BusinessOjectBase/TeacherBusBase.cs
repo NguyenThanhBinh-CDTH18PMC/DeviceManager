@@ -90,7 +90,12 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
             return TeacherDAO.GetTeachersAfterDelete();
         }
         public static void DeleteTeacher(int Id)
-        {
+        {   
+            bool ckeckTeacherId =DecentralizationDAO.CheckTeacherId(Id);
+            if (ckeckTeacherId)
+            {
+                TeacherDAO.DeleteDecentralizationAndTeacher(Id);
+            }
             TeacherDAO.DeleteTeacher(Id);
         }
 
