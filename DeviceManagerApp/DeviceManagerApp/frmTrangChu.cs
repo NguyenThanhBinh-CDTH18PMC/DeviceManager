@@ -58,7 +58,7 @@ namespace DeviceManagerApp
 
         private void btnQLPhongMay_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new frmQuanLyPhongMay());
+            OpenChildForm(new frmQuanLyPhongMay(LoginInUser));
             lbl_text.Text = btnQLPhongMay.Text;
         }
 
@@ -70,13 +70,13 @@ namespace DeviceManagerApp
 
         private void btnQlKhoa_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new frmQuanLyKhoa());
+            OpenChildForm(new frmQuanLyKhoa(LoginInUser));
             lbl_text.Text = btnQlKhoa.Text;
         }
 
         private void btnQlThuongHieu_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new frmQuanLyThuongHieu());
+            OpenChildForm(new frmQuanLyThuongHieu(LoginInUser));
             lbl_text.Text = btnQlThuongHieu.Text;
         }
 
@@ -94,12 +94,12 @@ namespace DeviceManagerApp
 
         private void btnQlGiaoVien_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new frmQuanLyGiaoVien());
+            OpenChildForm(new frmQuanLyGiaoVien(LoginInUser));
             lbl_text.Text = btnQlGiaoVien.Text;
         }
         private void btnQLTaiKhoan_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new frmQuanLyTaiKhoan());
+            OpenChildForm(new frmQuanLyTaiKhoan(LoginInUser));
             lbl_text.Text = btnQLTaiKhoan.Text;
         }
 

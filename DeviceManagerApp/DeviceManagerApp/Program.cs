@@ -21,10 +21,12 @@ namespace DeviceManagerApp
             //Application.Run(new frmTrangChu());
             Application.Run(new frmLogin());
             //Application.Run(new frmTaoTaiKhoan());
+            //Application.Run(new frmQuanLyGiaoVien());
             //Application.Run(new frmQuanLyChucVu());
             //Application.Run(new QR_Code());
             //Application.Run(new frmQuanLyLoaiThietBi());
             //Application.Run(new frmQuanLyThietBi());
+            //Application.Run(new frmQuanLyTaiKhoan());
         }
     }
 }

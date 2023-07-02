@@ -13,7 +13,9 @@ using DeviceManagerApp.DAO.DataLayer;
 using ZXing.QrCode.Internal;
 using DeviceManagerApp.DTO.Model;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-
+using DocumentFormat.OpenXml.Wordprocessing;
+using DocumentFormat.OpenXml.Spreadsheet;
+using DeviceManagerApp.BUS.BusinessObject;
 
 namespace DeviceManagerApp.DAO.DataLayerBase
 {
@@ -237,5 +239,98 @@ namespace DeviceManagerApp.DAO.DataLayerBase
             }
         }
 
+        public static void UpdateDecentralization(DecentralizationModel decentralization)
+        {
+            SqlConnection conn = new SqlConnection(PathString.ConnectionString);
+            SqlCommand cmd = new SqlCommand("Update_Decentralization", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Id", decentralization.Id);
+            cmd.Parameters.AddWithValue("@UserId", decentralization.UserId);
+            cmd.Parameters.AddWithValue("@TeacherId", decentralization.TeacherId);
+            cmd.Parameters.AddWithValue("@CreatedDate", decentralization.CreatedDate);
+            cmd.Parameters.AddWithValue("@CreatedUserId", decentralization.CreatedUserId);
+            cmd.Parameters.AddWithValue("@IsDelete", decentralization.IsDeleted);
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+        public static bool CheckTeacherIdAndUserID(DecentralizationModel decentralization,int Id)
+        {
+            using (SqlConnection conn = new SqlConnection(PathString.ConnectionString))
+            {
+                string sql = "select COUNT(*) from System_Decentralization where ((TeacherId=@TeacherId or UserId=@UserId)and Id <>@Id) and ISNULL(IsDeleted,0)=0";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@Id", Id);
+                cmd.Parameters.AddWithValue("@TeacherId", decentralization.TeacherId);
+                cmd.Parameters.AddWithValue("@UserId", decentralization.UserId);
+                conn.Open();
+                int count = (int)cmd.ExecuteScalar();
+                if (count > 0)
+                {
+                    return true;
+                }
+                else { return false; }
+            }
+        }
+
+        public static void UpdateUserAndPass(UserModel user)
+        {
+            SqlConnection conn = new SqlConnection(PathString.ConnectionString);
+            SqlCommand cmd = new SqlCommand("UpdateUserNameAndPass", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@UserId",user.Id);
+            cmd.Parameters.AddWithValue("@UserName", user.UserName);
+            cmd.Parameters.AddWithValue("@Pass", user.Pass);
+            cmd.Parameters.AddWithValue("@CreatedDate", user.CreatedDate);
+            //cmd.Parameters.AddWithValue("@modifiedDate", modifiedDate);
+            cmd.Parameters.AddWithValue("@CreatedUserId", user.CreatedUserId);
+            //cmd.Parameters.AddWithValue("@modifiedUserId", modifiedUserId);
+            cmd.Parameters.AddWithValue("@IsDeleted", user.IsDeleted);
+            //cmd.Parameters.AddWithValue("@Status", user.Status);
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        public static bool CheckUserNameDuplicated(UserModel user,int UserId)
+        {
+            using (SqlConnection conn = new SqlConnection(PathString.ConnectionString))
+            {
+                string sql = "select COUNT(*) from [System_User] where ((UserName=@UserName)and Id <>@UserId) and ISNULL(IsDeleted,0)=0";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@UserId", UserId);
+                cmd.Parameters.AddWithValue("@UserName", user.UserName);
+                conn.Open();
+                int count = (int)cmd.ExecuteScalar();
+                if (count > 0)
+                {
+                    return true;
+                }
+                else { return false; }
+            }
+        }
+
+
+        ///xoa giáo viên thì xóa lun giáo viên trong bảng Decentralization
+        public static void DeleteDecentralization(int Id)
+        {
+            using (SqlConnection conn = new SqlConnection(PathString.ConnectionString))
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("update [System_User] set IsDeleted=1 where Id=@Id", conn);
+                //cmd.CommandType=CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Id", Id);
+                cmd.ExecuteNonQuery();
+
+                SqlCommand cmd1 = new SqlCommand("update System_Decentralization set IsDeleted=1 where UserId=@Id", conn);
+                //cmd.CommandType=CommandType.StoredProcedure;
+                cmd1.Parameters.AddWithValue("@Id", Id);
+                cmd1.ExecuteNonQuery();
+                conn.Close();
+            }
+        }
+
+        
     }
 }

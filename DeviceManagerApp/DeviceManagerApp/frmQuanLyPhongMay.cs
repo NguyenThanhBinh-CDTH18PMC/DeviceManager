@@ -9,16 +9,19 @@ using BUS;
 using DeviceManagerApp.BUS.BusinessObject;
 using DeviceManagerApp.DTO.Model;
 using DTO;
+using DTO.Model;
 
 namespace DeviceManagerApp
 {
     public partial class frmQuanLyPhongMay : Form
     {
         private int selectedRowIndex;
-        public frmQuanLyPhongMay()
+        public UserModel LoginLoginInUser;
+        public frmQuanLyPhongMay(UserModel loginLoginInUser)
         {
             InitializeComponent();
             dgvPhongMay.AutoGenerateColumns = false;
+            LoginLoginInUser = loginLoginInUser;
         }
 
         private void frmQuanLyPhongMay_Load(object sender, EventArgs e)
@@ -92,50 +95,50 @@ namespace DeviceManagerApp
 
         private void btnSuaPhong_Click(object sender, EventArgs e)
         {
-        //    DataGridViewRow row = dgvPhongMay.Rows[selectedRowIndex];
-        //    int Id = int.Parse(row.Cells[0].Value.ToString());
-        //    RoomModel roomModel = new RoomModel();
-        //    roomModel.Id = Id;
-        //    roomModel.Code = txtMaPhong.Text;
-        //    roomModel.Name = txtTenPhong.Text;
-        //    roomModel.Description = rtbGhiChuPhong.Text;
-        //    roomModel.CreatedDate = DateTime.Now;
-        //    roomModel.CreatedUserId = 1;
-        //    roomModel.IsDeleted = false;
-        //    roomModel.Status = 0;
-        //    int deviceQuantity;
-        //    if (int.TryParse(txtSoLuongTB.Text, out deviceQuantity))
-        //    {
-        //        roomModel.DeviceQuantity = deviceQuantity;
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Số Lượng Thiết Bị Phải là Số Nguyên", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        return;
-        //    }
-        //    try
-        //    {
-        //        if (txtMaPhong.Text == "" || txtTenPhong.Text == "" || rtbGhiChuPhong.Text == "" || txtSoLuongTB.Text == "")
-        //        {
-        //            MessageBox.Show("Thông Tin Không Được Trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        }
-        //        else
-        //        {
-        //            RoomBus.UpdateRoom(roomModel);
-        //            MessageBox.Show("Cập Nhật Thành Công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //            //dgvPhongMay.DataSource = RoomBus.GetAllRoom();
-        //            dgvPhongMay.DataSource = RoomBus.GetRoomAfterDelete();
-        //            txtMaPhong.Text = "";
-        //            txtTenPhong.Text = "";
-        //            rtbGhiChuPhong.Text = "";
-        //            txtSoLuongTB.Text = "";
-        //        }
+            //    DataGridViewRow row = dgvPhongMay.Rows[selectedRowIndex];
+            //    int Id = int.Parse(row.Cells[0].Value.ToString());
+            //    RoomModel roomModel = new RoomModel();
+            //    roomModel.Id = Id;
+            //    roomModel.Code = txtMaPhong.Text;
+            //    roomModel.Name = txtTenPhong.Text;
+            //    roomModel.Description = rtbGhiChuPhong.Text;
+            //    roomModel.CreatedDate = DateTime.Now;
+            //    roomModel.CreatedUserId = 1;
+            //    roomModel.IsDeleted = false;
+            //    roomModel.Status = 0;
+            //    int deviceQuantity;
+            //    if (int.TryParse(txtSoLuongTB.Text, out deviceQuantity))
+            //    {
+            //        roomModel.DeviceQuantity = deviceQuantity;
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Số Lượng Thiết Bị Phải là Số Nguyên", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //        return;
+            //    }
+            //    try
+            //    {
+            //        if (txtMaPhong.Text == "" || txtTenPhong.Text == "" || rtbGhiChuPhong.Text == "" || txtSoLuongTB.Text == "")
+            //        {
+            //            MessageBox.Show("Thông Tin Không Được Trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //        }
+            //        else
+            //        {
+            //            RoomBus.UpdateRoom(roomModel);
+            //            MessageBox.Show("Cập Nhật Thành Công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //            //dgvPhongMay.DataSource = RoomBus.GetAllRoom();
+            //            dgvPhongMay.DataSource = RoomBus.GetRoomAfterDelete();
+            //            txtMaPhong.Text = "";
+            //            txtTenPhong.Text = "";
+            //            rtbGhiChuPhong.Text = "";
+            //            txtSoLuongTB.Text = "";
+            //        }
 
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    }
         }
 
         private void btnXoaPhong_Click(object sender, EventArgs e)

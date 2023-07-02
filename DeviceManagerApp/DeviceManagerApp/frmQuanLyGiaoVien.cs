@@ -1,5 +1,6 @@
 ﻿using DeviceManagerApp.BUS.BusinessObject;
 using DeviceManagerApp.DTO.Model;
+using DTO.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,12 +13,14 @@ namespace DeviceManagerApp
 {
     public partial class frmQuanLyGiaoVien : Form
     {
-        public frmQuanLyGiaoVien()
+        public UserModel LoginInUser;
+        public frmQuanLyGiaoVien(UserModel user)
         {
             InitializeComponent();
             dgvGiaoVien.CellFormatting += dgvGiaoVien_CellFormatting;
             dgvGiaoVien.AutoGenerateColumns = false;
             dtNgaySinhGV.CustomFormat = "dd/MM/yyyy";
+            LoginInUser = user;
         }
 
         private void btnQlChucVu_Click(object sender, EventArgs e)
@@ -84,7 +87,7 @@ namespace DeviceManagerApp
                 teacher.Gender = rdNam.Checked;
                 teacher.PositionId = (int)cbChucVu.SelectedValue;
                 teacher.Phone = txtSdtGV.Text;
-                teacher.CreatedUserId = 1;
+                teacher.CreatedUserId = LoginInUser.Id;
                 teacher.CreatedDate = DateTime.Now;
                 teacher.IsDeleted = false;
                 teacher.Status = 0;
@@ -143,7 +146,7 @@ namespace DeviceManagerApp
                 teacher.Gender = rdNam.Checked;
                 teacher.PositionId = (int)cbChucVu.SelectedValue;
                 teacher.Phone = txtSdtGV.Text;
-                teacher.CreatedUserId = 1;
+                teacher.CreatedUserId = LoginInUser.Id;
                 teacher.CreatedDate = DateTime.Now;
                 teacher.IsDeleted = false;
                 teacher.Status = 0;

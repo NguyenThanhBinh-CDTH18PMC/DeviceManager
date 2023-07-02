@@ -13,23 +13,22 @@ namespace DeviceManagerApp
 {
     public partial class frmTaoTaiKhoan : Form
     {
-        public frmTaoTaiKhoan()
+        UserModel LoginInUser;
+        public frmTaoTaiKhoan(UserModel user)
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             this.WindowState = FormWindowState.Normal;
+            LoginInUser = user;
         }
 
         private void btnThemTaiKhoan_Click(object sender, EventArgs e)
         {
-            UserModel user = new UserModel();
-            user.CreatedDate = DateTime.Now;
-            user.CreatedUserId = 1;
-            user.IsDeleted = false;
-            user.Status = 0;
-            user.UserName = txtTenDangNhap.Text;
-            user.Pass = SettingClass.GetMD5(txtMatKhau.Text);
-            user.Name = txtTenHienThi.Text;
+            int status=0;
+            if (cbQuyen.SelectedItem.ToString() == "Admin")
+            {
+                status = 1;
+            }
             try
             {
                 if (!Check())
@@ -37,24 +36,36 @@ namespace DeviceManagerApp
 
                     MessageBox.Show("Thông Tin Không Được Trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else {
+                else
+                {
+                   
+                    UserModel user = new UserModel();
+                    
+                    user.CreatedDate = DateTime.Now;
+                    user.CreatedUserId = LoginInUser.Id;
+                    user.IsDeleted = false;
+                    user.Status = status;
+                    user.UserName = txtTenDangNhap.Text;
+                    user.Pass = SettingClass.GetMD5(txtMatKhau.Text);
+                    user.Name = txtTenHienThi.Text;
+                    
                     UserBus.InsertUser(user);
                     MessageBox.Show("Tạo Thành Công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
-        private  bool Check()
+
+        private bool Check()
         {
             if (txtTenDangNhap.Text.Trim() == "")
             {
                 return false;
             }
-            if(txtMatKhau.Text.Trim()=="" || txtMatKhau.Text.Length <= 6)
+            if (txtMatKhau.Text.Trim() == "" || txtMatKhau.Text.Length <= 6)
             {
                 return false;
             }

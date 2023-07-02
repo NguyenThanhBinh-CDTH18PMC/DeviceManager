@@ -1,5 +1,6 @@
 ﻿using DeviceManagerApp.BUS.BusinessObject;
 using DeviceManagerApp.DTO.Model;
+using DTO.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,10 +13,12 @@ namespace DeviceManagerApp
 {
     public partial class frmQuanLyKhoa : Form
     {
-        public frmQuanLyKhoa()
+        public UserModel LoginInUser;
+        public frmQuanLyKhoa(UserModel user)
         {
             InitializeComponent();
             dgvQlKhoa.AutoGenerateColumns = false;
+            LoginInUser = user;
         }
 
         private void frmQuanLyKhoa_Load(object sender, EventArgs e)
@@ -47,7 +50,7 @@ namespace DeviceManagerApp
 
                 facultyModel.Name = txtTenKhoa.Text;
                 facultyModel.Description = rtbKhoa.Text;
-                facultyModel.CreatedUserId = 1;
+                facultyModel.CreatedUserId = LoginInUser.Id;
                 facultyModel.CreatedDate = DateTime.Now;
                 facultyModel.IsDeleted = false;
                 if (txtTenKhoa.Text == "" || rtbKhoa.Text == "")
@@ -81,7 +84,7 @@ namespace DeviceManagerApp
                 facultyModel.Id = Id;
                 facultyModel.Name = txtTenKhoa.Text;
                 facultyModel.Description = rtbKhoa.Text;
-                facultyModel.CreatedUserId = 1;
+                facultyModel.CreatedUserId = LoginInUser.Id;
                 facultyModel.CreatedDate = DateTime.Now;
                 facultyModel.IsDeleted = false;
                 if (txtTenKhoa.Text == "" || rtbKhoa.Text == "")

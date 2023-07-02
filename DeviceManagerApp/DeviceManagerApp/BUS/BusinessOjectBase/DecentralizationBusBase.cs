@@ -1,4 +1,6 @@
-﻿using DAO.DataLayer;
+﻿using DAO;
+using DAO.DataLayer;
+using DeviceManagerApp.BUS.BusinessObject;
 using DeviceManagerApp.DAO.DataLayer;
 using DeviceManagerApp.DTO.Model;
 using DTO.Model;
@@ -60,5 +62,33 @@ namespace DeviceManagerApp.BUS.BusinessOjectBase
             }
             DecentralizationDAO.InSertDecentralization(decentralizationModel);
         }
+
+        public static void UpdateDecentralization(DecentralizationModel decentralization)
+        {
+            if(DecentralizationDAO.CheckTeacherIdAndUserID(decentralization, decentralization.Id)){
+                throw new Exception("Tên Giáo Viên Hoặc Tên Tài Khoản Đã Tồn Tại");
+            }
+            else { 
+                DecentralizationDAO.UpdateDecentralization(decentralization); 
+            }
+        }
+        public static void UpdateUserNameAndPass(UserModel userModel)
+        {
+            if (DecentralizationDAO.CheckUserNameDuplicated(userModel, userModel.Id)){
+                throw new Exception("Tên Đăng Nhập Tồn Tại");
+            }
+            DecentralizationDAO.UpdateUserAndPass(userModel);
+        }
+
+        public static void DeleteDecentralization(int Id)
+        {
+            bool checkUserId = DecentralizationDAO.CheckIdUser(Id);
+            if(checkUserId)
+            {
+                DecentralizationDAO.DeleteDecentralization(Id);
+            }
+        }
+
+
     }
 }

@@ -34,7 +34,7 @@
             btnCapNhatUser = new System.Windows.Forms.Button();
             cbTenTaiKhoan = new System.Windows.Forms.ComboBox();
             lblTenTK = new System.Windows.Forms.Label();
-            CkbMatKhau = new System.Windows.Forms.CheckBox();
+            CkbSua = new System.Windows.Forms.CheckBox();
             lblMatKhauCu = new System.Windows.Forms.Label();
             txtMatKhauMoi = new System.Windows.Forms.TextBox();
             lblMatKhauMoi = new System.Windows.Forms.Label();
@@ -58,7 +58,6 @@
             btnSuaTk = new System.Windows.Forms.Button();
             btnThemTk = new System.Windows.Forms.Button();
             dgvTaiKhoan = new System.Windows.Forms.DataGridView();
-            toolTip1 = new System.Windows.Forms.ToolTip(components);
             Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             TeacherId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             TeacherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,6 +66,7 @@
             TeacherBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
             UserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             NameUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            toolTip1 = new System.Windows.Forms.ToolTip(components);
             gbTaiKhoan.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -100,7 +100,7 @@
             groupBox2.Controls.Add(btnCapNhatUser);
             groupBox2.Controls.Add(cbTenTaiKhoan);
             groupBox2.Controls.Add(lblTenTK);
-            groupBox2.Controls.Add(CkbMatKhau);
+            groupBox2.Controls.Add(CkbSua);
             groupBox2.Controls.Add(lblMatKhauCu);
             groupBox2.Controls.Add(txtMatKhauMoi);
             groupBox2.Controls.Add(lblMatKhauMoi);
@@ -123,6 +123,7 @@
             btnCapNhatUser.TabIndex = 26;
             btnCapNhatUser.Text = "Sửa";
             btnCapNhatUser.UseVisualStyleBackColor = false;
+            btnCapNhatUser.Click += btnCapNhatUser_Click;
             // 
             // cbTenTaiKhoan
             // 
@@ -142,16 +143,16 @@
             lblTenTK.TabIndex = 9;
             lblTenTK.Text = "Tên Tài Khoản :";
             // 
-            // CkbMatKhau
+            // CkbSua
             // 
-            CkbMatKhau.AutoSize = true;
-            CkbMatKhau.Location = new System.Drawing.Point(27, 89);
-            CkbMatKhau.Name = "CkbMatKhau";
-            CkbMatKhau.Size = new System.Drawing.Size(164, 29);
-            CkbMatKhau.TabIndex = 19;
-            CkbMatKhau.Text = "Đổi Mật Khẩu ?";
-            CkbMatKhau.UseVisualStyleBackColor = true;
-            CkbMatKhau.CheckedChanged += CkbMatKhau_CheckedChanged;
+            CkbSua.AutoSize = true;
+            CkbSua.Location = new System.Drawing.Point(27, 89);
+            CkbSua.Name = "CkbSua";
+            CkbSua.Size = new System.Drawing.Size(235, 29);
+            CkbSua.TabIndex = 19;
+            CkbSua.Text = "Đổi UserName và Pass ?";
+            CkbSua.UseVisualStyleBackColor = true;
+            CkbSua.CheckedChanged += CkbMatKhau_CheckedChanged;
             // 
             // lblMatKhauCu
             // 
@@ -316,6 +317,7 @@
             btnThuHoiTK.TabIndex = 21;
             toolTip1.SetToolTip(btnThuHoiTK, "Thu Hồi Tài Khoản");
             btnThuHoiTK.UseVisualStyleBackColor = false;
+            btnThuHoiTK.Click += btnThuHoiTK_Click;
             // 
             // gbTiemKim
             // 
@@ -373,6 +375,7 @@
             btnSuaTk.TabIndex = 14;
             btnSuaTk.Text = "Cập Nhật";
             btnSuaTk.UseVisualStyleBackColor = false;
+            btnSuaTk.Click += btnSuaTk_Click;
             // 
             // btnThemTk
             // 
@@ -525,7 +528,7 @@
         private System.Windows.Forms.DataGridView dgvTaiKhoan;
         private System.Windows.Forms.TextBox txtMatKhauMoi;
         private System.Windows.Forms.Label lblMatKhauMoi;
-        private System.Windows.Forms.CheckBox CkbMatKhau;
+        private System.Windows.Forms.CheckBox CkbSua;
         private System.Windows.Forms.Button btnThuHoiTK;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ComboBox cbTeacher;

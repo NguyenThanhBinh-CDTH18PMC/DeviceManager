@@ -1,5 +1,7 @@
 ﻿using DeviceManagerApp.BUS.BusinessObject;
 using DeviceManagerApp.DTO.Model;
+using DTO.Model;
+using Microsoft.Identity.Client;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,10 +15,12 @@ namespace DeviceManagerApp
     public partial class frmQuanLyThuongHieu : Form
     {
         private int RowIndex;
-        public frmQuanLyThuongHieu()
+        public UserModel LoginInUser;
+        public frmQuanLyThuongHieu(UserModel user)
         {
             InitializeComponent();
             dgvThuongHieu.AutoGenerateColumns = false;
+            LoginInUser = user;
         }
 
         private void frmQuanLyThuongHieu_Load(object sender, EventArgs e)
@@ -32,7 +36,7 @@ namespace DeviceManagerApp
                 BrandModel brandModel = new BrandModel();
                 brandModel.Name = txtTenThuongHieu.Text;
                 brandModel.Address = rtbDiaChi.Text;
-                brandModel.CreatedUserId = 1;
+                brandModel.CreatedUserId = LoginInUser.Id;
                 brandModel.CreatedDate = DateTime.Now;
                 brandModel.IsDeleted = false;
                 brandModel.Status = 0;
@@ -84,7 +88,7 @@ namespace DeviceManagerApp
                 brandModel.Id = Id;
                 brandModel.Name = txtTenThuongHieu.Text;
                 brandModel.Address = rtbDiaChi.Text;
-                brandModel.CreatedUserId = 1;
+                brandModel.CreatedUserId = LoginInUser.Id;
                 brandModel.CreatedDate = DateTime.Now;
                 brandModel.IsDeleted = false;
                 brandModel.Status = 0;
