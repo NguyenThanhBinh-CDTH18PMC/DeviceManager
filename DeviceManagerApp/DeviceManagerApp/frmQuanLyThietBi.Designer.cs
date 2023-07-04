@@ -28,570 +28,563 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.lblQLTbi = new System.Windows.Forms.Label();
-            this.gbThongtinTB = new System.Windows.Forms.GroupBox();
-            this.btn_Buy = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cbPhong = new System.Windows.Forms.ComboBox();
-            this.ckb_isAddIntoRoom = new System.Windows.Forms.CheckBox();
-            this.cb_ListImg = new System.Windows.Forms.ComboBox();
-            this.btn_Make_QR = new System.Windows.Forms.Button();
-            this.cbNhaCungCap = new System.Windows.Forms.ComboBox();
-            this.cbLoaiTbi = new System.Windows.Forms.ComboBox();
-            this.txtTenTbi = new System.Windows.Forms.TextBox();
-            this.lblNhaCungCap = new System.Windows.Forms.Label();
-            this.lblLoaiTbi = new System.Windows.Forms.Label();
-            this.lblTenTBi = new System.Windows.Forms.Label();
-            this.txtPrice = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnDetail = new System.Windows.Forms.Button();
-            this.ptb_Device = new System.Windows.Forms.PictureBox();
-            this.gbTimKiemTbi = new System.Windows.Forms.GroupBox();
-            this.dtp_DateBuy = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnTimKiemTbi = new System.Windows.Forms.Button();
-            this.txtTiemKiemTbi = new System.Windows.Forms.TextBox();
-            this.btnXoaTbi = new System.Windows.Forms.Button();
-            this.btnSuaTbi = new System.Windows.Forms.Button();
-            this.btnThemTbi = new System.Windows.Forms.Button();
-            this.rtbGhiChuTbi = new System.Windows.Forms.RichTextBox();
-            this.lblGhiChuTbi = new System.Windows.Forms.Label();
-            this.dtBaoHanh = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbKhoa = new System.Windows.Forms.ComboBox();
-            this.lblKhoa = new System.Windows.Forms.Label();
-            this.lb_Image = new System.Windows.Forms.Label();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.DeviceId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DeviceDetail = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.SpecsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WarrantyPeriob = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DeviceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DeviceImage = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dtgvQlThietBi = new System.Windows.Forms.DataGridView();
-            this.gbThongtinTB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_Device)).BeginInit();
-            this.gbTimKiemTbi.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvQlThietBi)).BeginInit();
-            this.SuspendLayout();
+            components = new System.ComponentModel.Container();
+            lblQLTbi = new System.Windows.Forms.Label();
+            gbThongtinTB = new System.Windows.Forms.GroupBox();
+            btn_Buy = new System.Windows.Forms.Button();
+            label4 = new System.Windows.Forms.Label();
+            cbPhong = new System.Windows.Forms.ComboBox();
+            ckb_isAddIntoRoom = new System.Windows.Forms.CheckBox();
+            cb_ListImg = new System.Windows.Forms.ComboBox();
+            btn_Make_QR = new System.Windows.Forms.Button();
+            cbNhaCungCap = new System.Windows.Forms.ComboBox();
+            cbLoaiTbi = new System.Windows.Forms.ComboBox();
+            txtTenTbi = new System.Windows.Forms.TextBox();
+            lblNhaCungCap = new System.Windows.Forms.Label();
+            lblLoaiTbi = new System.Windows.Forms.Label();
+            lblTenTBi = new System.Windows.Forms.Label();
+            txtPrice = new System.Windows.Forms.TextBox();
+            label3 = new System.Windows.Forms.Label();
+            btnDetail = new System.Windows.Forms.Button();
+            ptb_Device = new System.Windows.Forms.PictureBox();
+            gbTimKiemTbi = new System.Windows.Forms.GroupBox();
+            dtp_DateBuy = new System.Windows.Forms.DateTimePicker();
+            label2 = new System.Windows.Forms.Label();
+            btnTimKiemTbi = new System.Windows.Forms.Button();
+            txtTiemKiemTbi = new System.Windows.Forms.TextBox();
+            btnXoaTbi = new System.Windows.Forms.Button();
+            btnSuaTbi = new System.Windows.Forms.Button();
+            btnThemTbi = new System.Windows.Forms.Button();
+            rtbGhiChuTbi = new System.Windows.Forms.RichTextBox();
+            lblGhiChuTbi = new System.Windows.Forms.Label();
+            dtBaoHanh = new System.Windows.Forms.DateTimePicker();
+            label1 = new System.Windows.Forms.Label();
+            cbKhoa = new System.Windows.Forms.ComboBox();
+            lblKhoa = new System.Windows.Forms.Label();
+            lb_Image = new System.Windows.Forms.Label();
+            toolTip1 = new System.Windows.Forms.ToolTip(components);
+            DeviceId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            DeviceDetail = new System.Windows.Forms.DataGridViewButtonColumn();
+            SpecsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            WarrantyPeriob = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            DeviceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            DeviceImage = new System.Windows.Forms.DataGridViewImageColumn();
+            dtgvQlThietBi = new System.Windows.Forms.DataGridView();
+            gbThongtinTB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ptb_Device).BeginInit();
+            gbTimKiemTbi.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dtgvQlThietBi).BeginInit();
+            SuspendLayout();
             // 
             // lblQLTbi
             // 
-            this.lblQLTbi.AutoSize = true;
-            this.lblQLTbi.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblQLTbi.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblQLTbi.Location = new System.Drawing.Point(0, 0);
-            this.lblQLTbi.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.lblQLTbi.Name = "lblQLTbi";
-            this.lblQLTbi.Size = new System.Drawing.Size(306, 50);
-            this.lblQLTbi.TabIndex = 0;
-            this.lblQLTbi.Text = "Quản Lý Thiết Bị";
+            lblQLTbi.AutoSize = true;
+            lblQLTbi.Dock = System.Windows.Forms.DockStyle.Top;
+            lblQLTbi.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblQLTbi.Location = new System.Drawing.Point(0, 0);
+            lblQLTbi.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            lblQLTbi.Name = "lblQLTbi";
+            lblQLTbi.Size = new System.Drawing.Size(365, 60);
+            lblQLTbi.TabIndex = 0;
+            lblQLTbi.Text = "Quản Lý Thiết Bị";
             // 
             // gbThongtinTB
             // 
-            this.gbThongtinTB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.gbThongtinTB.Controls.Add(this.btn_Buy);
-            this.gbThongtinTB.Controls.Add(this.label4);
-            this.gbThongtinTB.Controls.Add(this.cbPhong);
-            this.gbThongtinTB.Controls.Add(this.ckb_isAddIntoRoom);
-            this.gbThongtinTB.Controls.Add(this.cb_ListImg);
-            this.gbThongtinTB.Controls.Add(this.btn_Make_QR);
-            this.gbThongtinTB.Controls.Add(this.cbNhaCungCap);
-            this.gbThongtinTB.Controls.Add(this.cbLoaiTbi);
-            this.gbThongtinTB.Controls.Add(this.txtTenTbi);
-            this.gbThongtinTB.Controls.Add(this.lblNhaCungCap);
-            this.gbThongtinTB.Controls.Add(this.lblLoaiTbi);
-            this.gbThongtinTB.Controls.Add(this.lblTenTBi);
-            this.gbThongtinTB.Controls.Add(this.txtPrice);
-            this.gbThongtinTB.Controls.Add(this.label3);
-            this.gbThongtinTB.Controls.Add(this.btnDetail);
-            this.gbThongtinTB.Controls.Add(this.ptb_Device);
-            this.gbThongtinTB.Controls.Add(this.gbTimKiemTbi);
-            this.gbThongtinTB.Controls.Add(this.btnXoaTbi);
-            this.gbThongtinTB.Controls.Add(this.btnSuaTbi);
-            this.gbThongtinTB.Controls.Add(this.btnThemTbi);
-            this.gbThongtinTB.Controls.Add(this.rtbGhiChuTbi);
-            this.gbThongtinTB.Controls.Add(this.lblGhiChuTbi);
-            this.gbThongtinTB.Controls.Add(this.dtBaoHanh);
-            this.gbThongtinTB.Controls.Add(this.label1);
-            this.gbThongtinTB.Controls.Add(this.cbKhoa);
-            this.gbThongtinTB.Controls.Add(this.lblKhoa);
-            this.gbThongtinTB.Controls.Add(this.lb_Image);
-            this.gbThongtinTB.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbThongtinTB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gbThongtinTB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.gbThongtinTB.Location = new System.Drawing.Point(0, 50);
-            this.gbThongtinTB.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.gbThongtinTB.Name = "gbThongtinTB";
-            this.gbThongtinTB.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.gbThongtinTB.Size = new System.Drawing.Size(1498, 512);
-            this.gbThongtinTB.TabIndex = 1;
-            this.gbThongtinTB.TabStop = false;
-            this.gbThongtinTB.Text = "Thông tin thiết bị";
+            gbThongtinTB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            gbThongtinTB.Controls.Add(btn_Buy);
+            gbThongtinTB.Controls.Add(label4);
+            gbThongtinTB.Controls.Add(cbPhong);
+            gbThongtinTB.Controls.Add(ckb_isAddIntoRoom);
+            gbThongtinTB.Controls.Add(cb_ListImg);
+            gbThongtinTB.Controls.Add(btn_Make_QR);
+            gbThongtinTB.Controls.Add(cbNhaCungCap);
+            gbThongtinTB.Controls.Add(cbLoaiTbi);
+            gbThongtinTB.Controls.Add(txtTenTbi);
+            gbThongtinTB.Controls.Add(lblNhaCungCap);
+            gbThongtinTB.Controls.Add(lblLoaiTbi);
+            gbThongtinTB.Controls.Add(lblTenTBi);
+            gbThongtinTB.Controls.Add(txtPrice);
+            gbThongtinTB.Controls.Add(label3);
+            gbThongtinTB.Controls.Add(btnDetail);
+            gbThongtinTB.Controls.Add(ptb_Device);
+            gbThongtinTB.Controls.Add(gbTimKiemTbi);
+            gbThongtinTB.Controls.Add(btnXoaTbi);
+            gbThongtinTB.Controls.Add(btnSuaTbi);
+            gbThongtinTB.Controls.Add(btnThemTbi);
+            gbThongtinTB.Controls.Add(rtbGhiChuTbi);
+            gbThongtinTB.Controls.Add(lblGhiChuTbi);
+            gbThongtinTB.Controls.Add(dtBaoHanh);
+            gbThongtinTB.Controls.Add(label1);
+            gbThongtinTB.Controls.Add(cbKhoa);
+            gbThongtinTB.Controls.Add(lblKhoa);
+            gbThongtinTB.Controls.Add(lb_Image);
+            gbThongtinTB.Dock = System.Windows.Forms.DockStyle.Top;
+            gbThongtinTB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            gbThongtinTB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            gbThongtinTB.Location = new System.Drawing.Point(0, 60);
+            gbThongtinTB.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            gbThongtinTB.Name = "gbThongtinTB";
+            gbThongtinTB.Padding = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            gbThongtinTB.Size = new System.Drawing.Size(1872, 640);
+            gbThongtinTB.TabIndex = 1;
+            gbThongtinTB.TabStop = false;
+            gbThongtinTB.Text = "Thông tin thiết bị";
             // 
             // btn_Buy
             // 
-            this.btn_Buy.BackColor = System.Drawing.Color.Transparent;
-            this.btn_Buy.BackgroundImage = global::DeviceManagerApp.Properties.Resources.buy2;
-            this.btn_Buy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_Buy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Buy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_Buy.Location = new System.Drawing.Point(1341, 297);
-            this.btn_Buy.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btn_Buy.Name = "btn_Buy";
-            this.btn_Buy.Size = new System.Drawing.Size(82, 76);
-            this.btn_Buy.TabIndex = 30;
-            this.toolTip1.SetToolTip(this.btn_Buy, "Tạo mã quét");
-            this.btn_Buy.UseVisualStyleBackColor = false;
-            this.btn_Buy.Click += new System.EventHandler(this.btn_Buy_Click);
+            btn_Buy.BackColor = System.Drawing.Color.Transparent;
+            btn_Buy.BackgroundImage = Properties.Resources.buy2;
+            btn_Buy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            btn_Buy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btn_Buy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            btn_Buy.Location = new System.Drawing.Point(1676, 371);
+            btn_Buy.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            btn_Buy.Name = "btn_Buy";
+            btn_Buy.Size = new System.Drawing.Size(102, 95);
+            btn_Buy.TabIndex = 30;
+            toolTip1.SetToolTip(btn_Buy, "Tạo mã quét");
+            btn_Buy.UseVisualStyleBackColor = false;
+            btn_Buy.Click += btn_Buy_Click;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1065, 240);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 20);
-            this.label4.TabIndex = 29;
-            this.label4.Text = "Phòng :";
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(1331, 300);
+            label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(77, 25);
+            label4.TabIndex = 29;
+            label4.Text = "Phòng :";
             // 
             // cbPhong
             // 
-            this.cbPhong.FormattingEnabled = true;
-            this.cbPhong.Location = new System.Drawing.Point(1181, 240);
-            this.cbPhong.Name = "cbPhong";
-            this.cbPhong.Size = new System.Drawing.Size(243, 28);
-            this.cbPhong.TabIndex = 28;
+            cbPhong.FormattingEnabled = true;
+            cbPhong.Location = new System.Drawing.Point(1476, 300);
+            cbPhong.Margin = new System.Windows.Forms.Padding(4);
+            cbPhong.Name = "cbPhong";
+            cbPhong.Size = new System.Drawing.Size(303, 33);
+            cbPhong.TabIndex = 28;
             // 
             // ckb_isAddIntoRoom
             // 
-            this.ckb_isAddIntoRoom.AutoSize = true;
-            this.ckb_isAddIntoRoom.Location = new System.Drawing.Point(1066, 186);
-            this.ckb_isAddIntoRoom.Name = "ckb_isAddIntoRoom";
-            this.ckb_isAddIntoRoom.Size = new System.Drawing.Size(156, 24);
-            this.ckb_isAddIntoRoom.TabIndex = 27;
-            this.ckb_isAddIntoRoom.Text = "Thêm vào phòng?";
-            this.ckb_isAddIntoRoom.UseVisualStyleBackColor = true;
+            ckb_isAddIntoRoom.AutoSize = true;
+            ckb_isAddIntoRoom.Location = new System.Drawing.Point(1332, 232);
+            ckb_isAddIntoRoom.Margin = new System.Windows.Forms.Padding(4);
+            ckb_isAddIntoRoom.Name = "ckb_isAddIntoRoom";
+            ckb_isAddIntoRoom.Size = new System.Drawing.Size(190, 29);
+            ckb_isAddIntoRoom.TabIndex = 27;
+            ckb_isAddIntoRoom.Text = "Thêm vào phòng?";
+            ckb_isAddIntoRoom.UseVisualStyleBackColor = true;
             // 
             // cb_ListImg
             // 
-            this.cb_ListImg.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_ListImg.FormattingEnabled = true;
-            this.cb_ListImg.Location = new System.Drawing.Point(13, 85);
-            this.cb_ListImg.Name = "cb_ListImg";
-            this.cb_ListImg.Size = new System.Drawing.Size(229, 28);
-            this.cb_ListImg.TabIndex = 26;
+            cb_ListImg.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cb_ListImg.FormattingEnabled = true;
+            cb_ListImg.Location = new System.Drawing.Point(16, 106);
+            cb_ListImg.Margin = new System.Windows.Forms.Padding(4);
+            cb_ListImg.Name = "cb_ListImg";
+            cb_ListImg.Size = new System.Drawing.Size(285, 33);
+            cb_ListImg.TabIndex = 26;
             // 
             // btn_Make_QR
             // 
-            this.btn_Make_QR.BackColor = System.Drawing.Color.Transparent;
-            this.btn_Make_QR.BackgroundImage = global::DeviceManagerApp.Properties.Resources.QR2;
-            this.btn_Make_QR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_Make_QR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Make_QR.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_Make_QR.Location = new System.Drawing.Point(921, 298);
-            this.btn_Make_QR.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btn_Make_QR.Name = "btn_Make_QR";
-            this.btn_Make_QR.Size = new System.Drawing.Size(82, 76);
-            this.btn_Make_QR.TabIndex = 25;
-            this.toolTip1.SetToolTip(this.btn_Make_QR, "Tạo mã quét");
-            this.btn_Make_QR.UseVisualStyleBackColor = false;
+            btn_Make_QR.BackColor = System.Drawing.Color.Transparent;
+            btn_Make_QR.BackgroundImage = Properties.Resources.QR2;
+            btn_Make_QR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            btn_Make_QR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btn_Make_QR.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            btn_Make_QR.Location = new System.Drawing.Point(1151, 372);
+            btn_Make_QR.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            btn_Make_QR.Name = "btn_Make_QR";
+            btn_Make_QR.Size = new System.Drawing.Size(102, 95);
+            btn_Make_QR.TabIndex = 25;
+            toolTip1.SetToolTip(btn_Make_QR, "Tạo mã quét");
+            btn_Make_QR.UseVisualStyleBackColor = false;
             // 
             // cbNhaCungCap
             // 
-            this.cbNhaCungCap.FormattingEnabled = true;
-            this.cbNhaCungCap.Location = new System.Drawing.Point(406, 236);
-            this.cbNhaCungCap.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.cbNhaCungCap.Name = "cbNhaCungCap";
-            this.cbNhaCungCap.Size = new System.Drawing.Size(198, 28);
-            this.cbNhaCungCap.TabIndex = 22;
+            cbNhaCungCap.FormattingEnabled = true;
+            cbNhaCungCap.Location = new System.Drawing.Point(508, 295);
+            cbNhaCungCap.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            cbNhaCungCap.Name = "cbNhaCungCap";
+            cbNhaCungCap.Size = new System.Drawing.Size(246, 33);
+            cbNhaCungCap.TabIndex = 22;
             // 
             // cbLoaiTbi
             // 
-            this.cbLoaiTbi.FormattingEnabled = true;
-            this.cbLoaiTbi.Location = new System.Drawing.Point(406, 133);
-            this.cbLoaiTbi.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.cbLoaiTbi.Name = "cbLoaiTbi";
-            this.cbLoaiTbi.Size = new System.Drawing.Size(198, 28);
-            this.cbLoaiTbi.TabIndex = 20;
+            cbLoaiTbi.FormattingEnabled = true;
+            cbLoaiTbi.Location = new System.Drawing.Point(508, 166);
+            cbLoaiTbi.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            cbLoaiTbi.Name = "cbLoaiTbi";
+            cbLoaiTbi.Size = new System.Drawing.Size(246, 33);
+            cbLoaiTbi.TabIndex = 20;
             // 
             // txtTenTbi
             // 
-            this.txtTenTbi.Location = new System.Drawing.Point(406, 40);
-            this.txtTenTbi.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtTenTbi.Name = "txtTenTbi";
-            this.txtTenTbi.Size = new System.Drawing.Size(198, 27);
-            this.txtTenTbi.TabIndex = 18;
+            txtTenTbi.Location = new System.Drawing.Point(508, 50);
+            txtTenTbi.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            txtTenTbi.Name = "txtTenTbi";
+            txtTenTbi.Size = new System.Drawing.Size(246, 31);
+            txtTenTbi.TabIndex = 18;
             // 
             // lblNhaCungCap
             // 
-            this.lblNhaCungCap.AutoSize = true;
-            this.lblNhaCungCap.Location = new System.Drawing.Point(273, 240);
-            this.lblNhaCungCap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblNhaCungCap.Name = "lblNhaCungCap";
-            this.lblNhaCungCap.Size = new System.Drawing.Size(106, 20);
-            this.lblNhaCungCap.TabIndex = 21;
-            this.lblNhaCungCap.Text = "Thương hiệu :";
+            lblNhaCungCap.AutoSize = true;
+            lblNhaCungCap.Location = new System.Drawing.Point(341, 300);
+            lblNhaCungCap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblNhaCungCap.Name = "lblNhaCungCap";
+            lblNhaCungCap.Size = new System.Drawing.Size(131, 25);
+            lblNhaCungCap.TabIndex = 21;
+            lblNhaCungCap.Text = "Thương hiệu :";
             // 
             // lblLoaiTbi
             // 
-            this.lblLoaiTbi.AutoSize = true;
-            this.lblLoaiTbi.Location = new System.Drawing.Point(271, 137);
-            this.lblLoaiTbi.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblLoaiTbi.Name = "lblLoaiTbi";
-            this.lblLoaiTbi.Size = new System.Drawing.Size(100, 20);
-            this.lblLoaiTbi.TabIndex = 19;
-            this.lblLoaiTbi.Text = "Loại thiết bị :";
+            lblLoaiTbi.AutoSize = true;
+            lblLoaiTbi.Location = new System.Drawing.Point(339, 171);
+            lblLoaiTbi.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblLoaiTbi.Name = "lblLoaiTbi";
+            lblLoaiTbi.Size = new System.Drawing.Size(123, 25);
+            lblLoaiTbi.TabIndex = 19;
+            lblLoaiTbi.Text = "Loại thiết bị :";
             // 
             // lblTenTBi
             // 
-            this.lblTenTBi.AutoSize = true;
-            this.lblTenTBi.Location = new System.Drawing.Point(273, 47);
-            this.lblTenTBi.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblTenTBi.Name = "lblTenTBi";
-            this.lblTenTBi.Size = new System.Drawing.Size(96, 20);
-            this.lblTenTBi.TabIndex = 17;
-            this.lblTenTBi.Text = "Tên thiết bị :";
+            lblTenTBi.AutoSize = true;
+            lblTenTBi.Location = new System.Drawing.Point(341, 59);
+            lblTenTBi.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblTenTBi.Name = "lblTenTBi";
+            lblTenTBi.Size = new System.Drawing.Size(118, 25);
+            lblTenTBi.TabIndex = 17;
+            lblTenTBi.Text = "Tên thiết bị :";
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(1180, 134);
-            this.txtPrice.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(243, 27);
-            this.txtPrice.TabIndex = 16;
+            txtPrice.Location = new System.Drawing.Point(1475, 168);
+            txtPrice.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            txtPrice.Name = "txtPrice";
+            txtPrice.Size = new System.Drawing.Size(303, 31);
+            txtPrice.TabIndex = 16;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1065, 138);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 20);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Giá :";
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(1331, 172);
+            label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(50, 25);
+            label3.TabIndex = 15;
+            label3.Text = "Giá :";
             // 
             // btnDetail
             // 
-            this.btnDetail.BackColor = System.Drawing.Color.Lime;
-            this.btnDetail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDetail.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnDetail.Location = new System.Drawing.Point(1230, 413);
-            this.btnDetail.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnDetail.Name = "btnDetail";
-            this.btnDetail.Size = new System.Drawing.Size(194, 53);
-            this.btnDetail.TabIndex = 14;
-            this.btnDetail.Text = "Thông số kỹ thuật";
-            this.btnDetail.UseVisualStyleBackColor = false;
+            btnDetail.BackColor = System.Drawing.Color.Lime;
+            btnDetail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnDetail.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            btnDetail.Location = new System.Drawing.Point(1538, 516);
+            btnDetail.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            btnDetail.Name = "btnDetail";
+            btnDetail.Size = new System.Drawing.Size(242, 66);
+            btnDetail.TabIndex = 14;
+            btnDetail.Text = "Thông số kỹ thuật";
+            btnDetail.UseVisualStyleBackColor = false;
             // 
             // ptb_Device
             // 
-            this.ptb_Device.Location = new System.Drawing.Point(13, 137);
-            this.ptb_Device.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ptb_Device.Name = "ptb_Device";
-            this.ptb_Device.Size = new System.Drawing.Size(229, 237);
-            this.ptb_Device.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptb_Device.TabIndex = 13;
-            this.ptb_Device.TabStop = false;
-            this.toolTip1.SetToolTip(this.ptb_Device, "Nhấn đúp để tải ảnh");
+            ptb_Device.Location = new System.Drawing.Point(16, 171);
+            ptb_Device.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            ptb_Device.Name = "ptb_Device";
+            ptb_Device.Size = new System.Drawing.Size(286, 296);
+            ptb_Device.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            ptb_Device.TabIndex = 13;
+            ptb_Device.TabStop = false;
+            toolTip1.SetToolTip(ptb_Device, "Nhấn đúp để tải ảnh");
             // 
             // gbTimKiemTbi
             // 
-            this.gbTimKiemTbi.Controls.Add(this.dtp_DateBuy);
-            this.gbTimKiemTbi.Controls.Add(this.label2);
-            this.gbTimKiemTbi.Controls.Add(this.btnTimKiemTbi);
-            this.gbTimKiemTbi.Controls.Add(this.txtTiemKiemTbi);
-            this.gbTimKiemTbi.Location = new System.Drawing.Point(6, 385);
-            this.gbTimKiemTbi.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.gbTimKiemTbi.Name = "gbTimKiemTbi";
-            this.gbTimKiemTbi.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.gbTimKiemTbi.Size = new System.Drawing.Size(998, 100);
-            this.gbTimKiemTbi.TabIndex = 12;
-            this.gbTimKiemTbi.TabStop = false;
-            this.gbTimKiemTbi.Text = "Tìm kiếm thiết bị";
+            gbTimKiemTbi.Controls.Add(dtp_DateBuy);
+            gbTimKiemTbi.Controls.Add(label2);
+            gbTimKiemTbi.Controls.Add(btnTimKiemTbi);
+            gbTimKiemTbi.Controls.Add(txtTiemKiemTbi);
+            gbTimKiemTbi.Location = new System.Drawing.Point(8, 481);
+            gbTimKiemTbi.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            gbTimKiemTbi.Name = "gbTimKiemTbi";
+            gbTimKiemTbi.Padding = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            gbTimKiemTbi.Size = new System.Drawing.Size(1248, 125);
+            gbTimKiemTbi.TabIndex = 12;
+            gbTimKiemTbi.TabStop = false;
+            gbTimKiemTbi.Text = "Tìm kiếm thiết bị";
             // 
             // dtp_DateBuy
             // 
-            this.dtp_DateBuy.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_DateBuy.Location = new System.Drawing.Point(677, 40);
-            this.dtp_DateBuy.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.dtp_DateBuy.Name = "dtp_DateBuy";
-            this.dtp_DateBuy.Size = new System.Drawing.Size(246, 27);
-            this.dtp_DateBuy.TabIndex = 15;
+            dtp_DateBuy.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            dtp_DateBuy.Location = new System.Drawing.Point(846, 50);
+            dtp_DateBuy.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            dtp_DateBuy.Name = "dtp_DateBuy";
+            dtp_DateBuy.Size = new System.Drawing.Size(306, 31);
+            dtp_DateBuy.TabIndex = 15;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(515, 47);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 20);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Ngày mua :";
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(644, 59);
+            label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(109, 25);
+            label2.TabIndex = 16;
+            label2.Text = "Ngày mua :";
             // 
             // btnTimKiemTbi
             // 
-            this.btnTimKiemTbi.BackColor = System.Drawing.Color.Transparent;
-            this.btnTimKiemTbi.BackgroundImage = global::DeviceManagerApp.Properties.Resources.search;
-            this.btnTimKiemTbi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnTimKiemTbi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTimKiemTbi.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnTimKiemTbi.Location = new System.Drawing.Point(275, 45);
-            this.btnTimKiemTbi.Margin = new System.Windows.Forms.Padding(11, 13, 11, 13);
-            this.btnTimKiemTbi.Name = "btnTimKiemTbi";
-            this.btnTimKiemTbi.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.btnTimKiemTbi.Size = new System.Drawing.Size(34, 27);
-            this.btnTimKiemTbi.TabIndex = 13;
-            this.toolTip1.SetToolTip(this.btnTimKiemTbi, "Tìm kiếm");
-            this.btnTimKiemTbi.UseVisualStyleBackColor = false;
+            btnTimKiemTbi.BackColor = System.Drawing.Color.Transparent;
+            btnTimKiemTbi.BackgroundImage = Properties.Resources.search;
+            btnTimKiemTbi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            btnTimKiemTbi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnTimKiemTbi.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            btnTimKiemTbi.Location = new System.Drawing.Point(344, 56);
+            btnTimKiemTbi.Margin = new System.Windows.Forms.Padding(14, 16, 14, 16);
+            btnTimKiemTbi.Name = "btnTimKiemTbi";
+            btnTimKiemTbi.Padding = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            btnTimKiemTbi.Size = new System.Drawing.Size(42, 34);
+            btnTimKiemTbi.TabIndex = 13;
+            toolTip1.SetToolTip(btnTimKiemTbi, "Tìm kiếm");
+            btnTimKiemTbi.UseVisualStyleBackColor = false;
             // 
             // txtTiemKiemTbi
             // 
-            this.txtTiemKiemTbi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTiemKiemTbi.Location = new System.Drawing.Point(7, 45);
-            this.txtTiemKiemTbi.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtTiemKiemTbi.Name = "txtTiemKiemTbi";
-            this.txtTiemKiemTbi.Size = new System.Drawing.Size(255, 27);
-            this.txtTiemKiemTbi.TabIndex = 12;
+            txtTiemKiemTbi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            txtTiemKiemTbi.Location = new System.Drawing.Point(9, 56);
+            txtTiemKiemTbi.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            txtTiemKiemTbi.Name = "txtTiemKiemTbi";
+            txtTiemKiemTbi.Size = new System.Drawing.Size(318, 31);
+            txtTiemKiemTbi.TabIndex = 12;
             // 
             // btnXoaTbi
             // 
-            this.btnXoaTbi.BackColor = System.Drawing.Color.Transparent;
-            this.btnXoaTbi.BackgroundImage = global::DeviceManagerApp.Properties.Resources.delete_pc1;
-            this.btnXoaTbi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnXoaTbi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnXoaTbi.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnXoaTbi.Location = new System.Drawing.Point(522, 297);
-            this.btnXoaTbi.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnXoaTbi.Name = "btnXoaTbi";
-            this.btnXoaTbi.Size = new System.Drawing.Size(82, 76);
-            this.btnXoaTbi.TabIndex = 11;
-            this.toolTip1.SetToolTip(this.btnXoaTbi, "Xóa");
-            this.btnXoaTbi.UseVisualStyleBackColor = false;
+            btnXoaTbi.BackColor = System.Drawing.Color.Transparent;
+            btnXoaTbi.BackgroundImage = Properties.Resources.delete_pc1;
+            btnXoaTbi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            btnXoaTbi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnXoaTbi.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            btnXoaTbi.Location = new System.Drawing.Point(652, 371);
+            btnXoaTbi.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            btnXoaTbi.Name = "btnXoaTbi";
+            btnXoaTbi.Size = new System.Drawing.Size(102, 95);
+            btnXoaTbi.TabIndex = 11;
+            toolTip1.SetToolTip(btnXoaTbi, "Xóa");
+            btnXoaTbi.UseVisualStyleBackColor = false;
             // 
             // btnSuaTbi
             // 
-            this.btnSuaTbi.BackColor = System.Drawing.Color.Transparent;
-            this.btnSuaTbi.BackgroundImage = global::DeviceManagerApp.Properties.Resources.edit_pc2;
-            this.btnSuaTbi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnSuaTbi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSuaTbi.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSuaTbi.Location = new System.Drawing.Point(397, 297);
-            this.btnSuaTbi.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnSuaTbi.Name = "btnSuaTbi";
-            this.btnSuaTbi.Size = new System.Drawing.Size(81, 76);
-            this.btnSuaTbi.TabIndex = 10;
-            this.toolTip1.SetToolTip(this.btnSuaTbi, "Cập nhật");
-            this.btnSuaTbi.UseVisualStyleBackColor = false;
+            btnSuaTbi.BackColor = System.Drawing.Color.Transparent;
+            btnSuaTbi.BackgroundImage = Properties.Resources.edit_pc2;
+            btnSuaTbi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            btnSuaTbi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnSuaTbi.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            btnSuaTbi.Location = new System.Drawing.Point(496, 371);
+            btnSuaTbi.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            btnSuaTbi.Name = "btnSuaTbi";
+            btnSuaTbi.Size = new System.Drawing.Size(101, 95);
+            btnSuaTbi.TabIndex = 10;
+            toolTip1.SetToolTip(btnSuaTbi, "Cập nhật");
+            btnSuaTbi.UseVisualStyleBackColor = false;
             // 
             // btnThemTbi
             // 
-            this.btnThemTbi.BackColor = System.Drawing.Color.Transparent;
-            this.btnThemTbi.BackgroundImage = global::DeviceManagerApp.Properties.Resources.add_device;
-            this.btnThemTbi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnThemTbi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThemTbi.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnThemTbi.Location = new System.Drawing.Point(273, 297);
-            this.btnThemTbi.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnThemTbi.Name = "btnThemTbi";
-            this.btnThemTbi.Size = new System.Drawing.Size(77, 76);
-            this.btnThemTbi.TabIndex = 9;
-            this.toolTip1.SetToolTip(this.btnThemTbi, "Thêm thiết bị");
-            this.btnThemTbi.UseVisualStyleBackColor = false;
+            btnThemTbi.BackColor = System.Drawing.Color.Transparent;
+            btnThemTbi.BackgroundImage = Properties.Resources.add_device;
+            btnThemTbi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            btnThemTbi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnThemTbi.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            btnThemTbi.Location = new System.Drawing.Point(341, 371);
+            btnThemTbi.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            btnThemTbi.Name = "btnThemTbi";
+            btnThemTbi.Size = new System.Drawing.Size(96, 95);
+            btnThemTbi.TabIndex = 9;
+            toolTip1.SetToolTip(btnThemTbi, "Thêm thiết bị");
+            btnThemTbi.UseVisualStyleBackColor = false;
             // 
             // rtbGhiChuTbi
             // 
-            this.rtbGhiChuTbi.Location = new System.Drawing.Point(766, 137);
-            this.rtbGhiChuTbi.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.rtbGhiChuTbi.Name = "rtbGhiChuTbi";
-            this.rtbGhiChuTbi.Size = new System.Drawing.Size(237, 127);
-            this.rtbGhiChuTbi.TabIndex = 8;
-            this.rtbGhiChuTbi.Text = "";
+            rtbGhiChuTbi.Location = new System.Drawing.Point(958, 171);
+            rtbGhiChuTbi.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            rtbGhiChuTbi.Name = "rtbGhiChuTbi";
+            rtbGhiChuTbi.Size = new System.Drawing.Size(295, 158);
+            rtbGhiChuTbi.TabIndex = 8;
+            rtbGhiChuTbi.Text = "";
             // 
             // lblGhiChuTbi
             // 
-            this.lblGhiChuTbi.AutoSize = true;
-            this.lblGhiChuTbi.Location = new System.Drawing.Point(682, 137);
-            this.lblGhiChuTbi.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblGhiChuTbi.Name = "lblGhiChuTbi";
-            this.lblGhiChuTbi.Size = new System.Drawing.Size(72, 20);
-            this.lblGhiChuTbi.TabIndex = 8;
-            this.lblGhiChuTbi.Text = "Ghi Chú :";
+            lblGhiChuTbi.AutoSize = true;
+            lblGhiChuTbi.Location = new System.Drawing.Point(852, 171);
+            lblGhiChuTbi.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblGhiChuTbi.Name = "lblGhiChuTbi";
+            lblGhiChuTbi.Size = new System.Drawing.Size(89, 25);
+            lblGhiChuTbi.TabIndex = 8;
+            lblGhiChuTbi.Text = "Ghi Chú :";
             // 
             // dtBaoHanh
             // 
-            this.dtBaoHanh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtBaoHanh.Location = new System.Drawing.Point(1225, 39);
-            this.dtBaoHanh.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.dtBaoHanh.Name = "dtBaoHanh";
-            this.dtBaoHanh.Size = new System.Drawing.Size(198, 27);
-            this.dtBaoHanh.TabIndex = 7;
+            dtBaoHanh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            dtBaoHanh.Location = new System.Drawing.Point(1531, 49);
+            dtBaoHanh.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            dtBaoHanh.Name = "dtBaoHanh";
+            dtBaoHanh.Size = new System.Drawing.Size(246, 31);
+            dtBaoHanh.TabIndex = 7;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1066, 45);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 20);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Hạn bảo hành :";
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(1332, 56);
+            label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(142, 25);
+            label1.TabIndex = 7;
+            label1.Text = "Hạn bảo hành :";
             // 
             // cbKhoa
             // 
-            this.cbKhoa.FormattingEnabled = true;
-            this.cbKhoa.Location = new System.Drawing.Point(766, 41);
-            this.cbKhoa.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.cbKhoa.Name = "cbKhoa";
-            this.cbKhoa.Size = new System.Drawing.Size(237, 28);
-            this.cbKhoa.TabIndex = 6;
+            cbKhoa.FormattingEnabled = true;
+            cbKhoa.Location = new System.Drawing.Point(958, 51);
+            cbKhoa.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            cbKhoa.Name = "cbKhoa";
+            cbKhoa.Size = new System.Drawing.Size(295, 33);
+            cbKhoa.TabIndex = 6;
             // 
             // lblKhoa
             // 
-            this.lblKhoa.AutoSize = true;
-            this.lblKhoa.Location = new System.Drawing.Point(682, 45);
-            this.lblKhoa.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblKhoa.Name = "lblKhoa";
-            this.lblKhoa.Size = new System.Drawing.Size(53, 20);
-            this.lblKhoa.TabIndex = 6;
-            this.lblKhoa.Text = "Khoa :";
+            lblKhoa.AutoSize = true;
+            lblKhoa.Location = new System.Drawing.Point(852, 56);
+            lblKhoa.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblKhoa.Name = "lblKhoa";
+            lblKhoa.Size = new System.Drawing.Size(66, 25);
+            lblKhoa.TabIndex = 6;
+            lblKhoa.Text = "Khoa :";
             // 
             // lb_Image
             // 
-            this.lb_Image.AutoSize = true;
-            this.lb_Image.Location = new System.Drawing.Point(13, 49);
-            this.lb_Image.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lb_Image.Name = "lb_Image";
-            this.lb_Image.Size = new System.Drawing.Size(96, 20);
-            this.lb_Image.TabIndex = 0;
-            this.lb_Image.Text = "Ảnh thiết bị:";
+            lb_Image.AutoSize = true;
+            lb_Image.Location = new System.Drawing.Point(16, 61);
+            lb_Image.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lb_Image.Name = "lb_Image";
+            lb_Image.Size = new System.Drawing.Size(118, 25);
+            lb_Image.TabIndex = 0;
+            lb_Image.Text = "Ảnh thiết bị:";
             // 
             // DeviceId
             // 
-            this.DeviceId.DataPropertyName = "Id";
-            this.DeviceId.HeaderText = "Id";
-            this.DeviceId.MinimumWidth = 6;
-            this.DeviceId.Name = "DeviceId";
-            this.DeviceId.ReadOnly = true;
-            this.DeviceId.Visible = false;
+            DeviceId.DataPropertyName = "Id";
+            DeviceId.HeaderText = "Id";
+            DeviceId.MinimumWidth = 6;
+            DeviceId.Name = "DeviceId";
+            DeviceId.ReadOnly = true;
+            DeviceId.Visible = false;
             // 
             // Brand
             // 
-            this.Brand.HeaderText = "Thương hiệu";
-            this.Brand.MinimumWidth = 6;
-            this.Brand.Name = "Brand";
-            this.Brand.ReadOnly = true;
+            Brand.HeaderText = "Thương hiệu";
+            Brand.MinimumWidth = 6;
+            Brand.Name = "Brand";
+            Brand.ReadOnly = true;
             // 
             // DeviceDetail
             // 
-            this.DeviceDetail.FillWeight = 79.3672F;
-            this.DeviceDetail.HeaderText = "Thông số chi tiết";
-            this.DeviceDetail.MinimumWidth = 6;
-            this.DeviceDetail.Name = "DeviceDetail";
+            DeviceDetail.FillWeight = 79.3672F;
+            DeviceDetail.HeaderText = "Thông số chi tiết";
+            DeviceDetail.MinimumWidth = 6;
+            DeviceDetail.Name = "DeviceDetail";
             // 
             // SpecsId
             // 
-            this.SpecsId.HeaderText = "Thông số";
-            this.SpecsId.MinimumWidth = 6;
-            this.SpecsId.Name = "SpecsId";
-            this.SpecsId.Visible = false;
+            SpecsId.HeaderText = "Thông số";
+            SpecsId.MinimumWidth = 6;
+            SpecsId.Name = "SpecsId";
+            SpecsId.Visible = false;
             // 
             // WarrantyPeriob
             // 
-            this.WarrantyPeriob.DataPropertyName = "WarrantyPeriod";
-            this.WarrantyPeriob.FillWeight = 79.3672F;
-            this.WarrantyPeriob.HeaderText = "Hạn bảo hành";
-            this.WarrantyPeriob.MinimumWidth = 6;
-            this.WarrantyPeriob.Name = "WarrantyPeriob";
-            this.WarrantyPeriob.ReadOnly = true;
+            WarrantyPeriob.DataPropertyName = "WarrantyPeriod";
+            WarrantyPeriob.FillWeight = 79.3672F;
+            WarrantyPeriob.HeaderText = "Hạn bảo hành";
+            WarrantyPeriob.MinimumWidth = 6;
+            WarrantyPeriob.Name = "WarrantyPeriob";
+            WarrantyPeriob.ReadOnly = true;
             // 
             // CreatedDate
             // 
-            this.CreatedDate.DataPropertyName = "CreatedDate";
-            this.CreatedDate.FillWeight = 79.3672F;
-            this.CreatedDate.HeaderText = "Ngày mua";
-            this.CreatedDate.MinimumWidth = 6;
-            this.CreatedDate.Name = "CreatedDate";
-            this.CreatedDate.ReadOnly = true;
+            CreatedDate.DataPropertyName = "CreatedDate";
+            CreatedDate.FillWeight = 79.3672F;
+            CreatedDate.HeaderText = "Ngày mua";
+            CreatedDate.MinimumWidth = 6;
+            CreatedDate.Name = "CreatedDate";
+            CreatedDate.ReadOnly = true;
             // 
             // Note
             // 
-            this.Note.DataPropertyName = "Note";
-            this.Note.FillWeight = 79.3672F;
-            this.Note.HeaderText = "Mô tả";
-            this.Note.MinimumWidth = 6;
-            this.Note.Name = "Note";
-            this.Note.ReadOnly = true;
+            Note.DataPropertyName = "Note";
+            Note.FillWeight = 79.3672F;
+            Note.HeaderText = "Mô tả";
+            Note.MinimumWidth = 6;
+            Note.Name = "Note";
+            Note.ReadOnly = true;
             // 
             // DeviceName
             // 
-            this.DeviceName.DataPropertyName = "Name";
-            this.DeviceName.FillWeight = 79.3672F;
-            this.DeviceName.HeaderText = "Tên thiết bị";
-            this.DeviceName.MinimumWidth = 6;
-            this.DeviceName.Name = "DeviceName";
-            this.DeviceName.ReadOnly = true;
+            DeviceName.DataPropertyName = "Name";
+            DeviceName.FillWeight = 79.3672F;
+            DeviceName.HeaderText = "Tên thiết bị";
+            DeviceName.MinimumWidth = 6;
+            DeviceName.Name = "DeviceName";
+            DeviceName.ReadOnly = true;
             // 
             // DeviceImage
             // 
-            this.DeviceImage.DataPropertyName = "Image";
-            this.DeviceImage.FillWeight = 79.3672F;
-            this.DeviceImage.HeaderText = "Thiết bị";
-            this.DeviceImage.MinimumWidth = 6;
-            this.DeviceImage.Name = "DeviceImage";
-            this.DeviceImage.ReadOnly = true;
-            this.DeviceImage.Visible = false;
+            DeviceImage.DataPropertyName = "Image";
+            DeviceImage.FillWeight = 79.3672F;
+            DeviceImage.HeaderText = "Thiết bị";
+            DeviceImage.MinimumWidth = 6;
+            DeviceImage.Name = "DeviceImage";
+            DeviceImage.ReadOnly = true;
+            DeviceImage.Visible = false;
             // 
             // dtgvQlThietBi
             // 
-            this.dtgvQlThietBi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgvQlThietBi.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dtgvQlThietBi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvQlThietBi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DeviceImage,
-            this.DeviceName,
-            this.Note,
-            this.CreatedDate,
-            this.WarrantyPeriob,
-            this.SpecsId,
-            this.DeviceDetail,
-            this.Brand,
-            this.DeviceId});
-            this.dtgvQlThietBi.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dtgvQlThietBi.Location = new System.Drawing.Point(0, 562);
-            this.dtgvQlThietBi.Margin = new System.Windows.Forms.Padding(1);
-            this.dtgvQlThietBi.Name = "dtgvQlThietBi";
-            this.dtgvQlThietBi.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dtgvQlThietBi.RowTemplate.Height = 33;
-            this.dtgvQlThietBi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvQlThietBi.Size = new System.Drawing.Size(1498, 303);
-            this.dtgvQlThietBi.TabIndex = 2;
+            dtgvQlThietBi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dtgvQlThietBi.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            dtgvQlThietBi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgvQlThietBi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { DeviceImage, DeviceName, Note, CreatedDate, WarrantyPeriob, SpecsId, DeviceDetail, Brand, DeviceId });
+            dtgvQlThietBi.Dock = System.Windows.Forms.DockStyle.Top;
+            dtgvQlThietBi.Location = new System.Drawing.Point(0, 700);
+            dtgvQlThietBi.Margin = new System.Windows.Forms.Padding(1);
+            dtgvQlThietBi.Name = "dtgvQlThietBi";
+            dtgvQlThietBi.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dtgvQlThietBi.RowTemplate.Height = 33;
+            dtgvQlThietBi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            dtgvQlThietBi.Size = new System.Drawing.Size(1872, 379);
+            dtgvQlThietBi.TabIndex = 2;
             // 
             // frmQuanLyThietBi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1498, 683);
-            this.Controls.Add(this.dtgvQlThietBi);
-            this.Controls.Add(this.gbThongtinTB);
-            this.Controls.Add(this.lblQLTbi);
-            this.Margin = new System.Windows.Forms.Padding(1);
-            this.MinimumSize = new System.Drawing.Size(1516, 728);
-            this.Name = "frmQuanLyThietBi";
-            this.Text = "QuanLyThietBi";
-            this.gbThongtinTB.ResumeLayout(false);
-            this.gbThongtinTB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_Device)).EndInit();
-            this.gbTimKiemTbi.ResumeLayout(false);
-            this.gbTimKiemTbi.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvQlThietBi)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(1872, 854);
+            Controls.Add(dtgvQlThietBi);
+            Controls.Add(gbThongtinTB);
+            Controls.Add(lblQLTbi);
+            Margin = new System.Windows.Forms.Padding(1);
+            MinimumSize = new System.Drawing.Size(1890, 896);
+            Name = "frmQuanLyThietBi";
+            Text = "QuanLyThietBi";
+            gbThongtinTB.ResumeLayout(false);
+            gbThongtinTB.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)ptb_Device).EndInit();
+            gbTimKiemTbi.ResumeLayout(false);
+            gbTimKiemTbi.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dtgvQlThietBi).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

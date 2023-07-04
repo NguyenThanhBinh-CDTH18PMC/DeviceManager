@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuanLyLoaiThietBi));
             lblQLDeviceType = new System.Windows.Forms.Label();
             gbQlDeviceType = new System.Windows.Forms.GroupBox();
             btn_AddSpecs = new System.Windows.Forms.Button();
@@ -45,6 +47,7 @@
             DeviceTypeId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            toolTip1 = new System.Windows.Forms.ToolTip(components);
             gbQlDeviceType.SuspendLayout();
             gbTimKiemLoaiTb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvLoaiTb).BeginInit();
@@ -86,7 +89,9 @@
             // 
             // btn_AddSpecs
             // 
-            btn_AddSpecs.BackColor = System.Drawing.Color.Lime;
+            btn_AddSpecs.BackColor = System.Drawing.Color.Transparent;
+            btn_AddSpecs.BackgroundImage = (System.Drawing.Image)resources.GetObject("btn_AddSpecs.BackgroundImage");
+            btn_AddSpecs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             btn_AddSpecs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btn_AddSpecs.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             btn_AddSpecs.Location = new System.Drawing.Point(1214, 248);
@@ -94,7 +99,7 @@
             btn_AddSpecs.Name = "btn_AddSpecs";
             btn_AddSpecs.Size = new System.Drawing.Size(169, 50);
             btn_AddSpecs.TabIndex = 9;
-            btn_AddSpecs.Text = "Thêm thông số";
+            toolTip1.SetToolTip(btn_AddSpecs, "Thêm thông số");
             btn_AddSpecs.UseVisualStyleBackColor = false;
             btn_AddSpecs.Click += AddSpecs_Click;
             // 
@@ -132,7 +137,9 @@
             // 
             // btnTimKiemLoaiTb
             // 
-            btnTimKiemLoaiTb.BackColor = System.Drawing.Color.Lime;
+            btnTimKiemLoaiTb.BackColor = System.Drawing.Color.Transparent;
+            btnTimKiemLoaiTb.BackgroundImage = Properties.Resources.search;
+            btnTimKiemLoaiTb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             btnTimKiemLoaiTb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnTimKiemLoaiTb.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             btnTimKiemLoaiTb.Location = new System.Drawing.Point(396, 42);
@@ -140,7 +147,7 @@
             btnTimKiemLoaiTb.Name = "btnTimKiemLoaiTb";
             btnTimKiemLoaiTb.Size = new System.Drawing.Size(134, 50);
             btnTimKiemLoaiTb.TabIndex = 8;
-            btnTimKiemLoaiTb.Text = "Tìm kiếm";
+            toolTip1.SetToolTip(btnTimKiemLoaiTb, "Tìm kiếm");
             btnTimKiemLoaiTb.UseVisualStyleBackColor = false;
             // 
             // txtTiemKiemLoaiTb
@@ -154,7 +161,9 @@
             // 
             // btnXoaLoaiTb
             // 
-            btnXoaLoaiTb.BackColor = System.Drawing.Color.Lime;
+            btnXoaLoaiTb.BackColor = System.Drawing.Color.Transparent;
+            btnXoaLoaiTb.BackgroundImage = (System.Drawing.Image)resources.GetObject("btnXoaLoaiTb.BackgroundImage");
+            btnXoaLoaiTb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             btnXoaLoaiTb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnXoaLoaiTb.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             btnXoaLoaiTb.Location = new System.Drawing.Point(661, 175);
@@ -162,28 +171,32 @@
             btnXoaLoaiTb.Name = "btnXoaLoaiTb";
             btnXoaLoaiTb.Size = new System.Drawing.Size(134, 50);
             btnXoaLoaiTb.TabIndex = 6;
-            btnXoaLoaiTb.Text = "Xóa";
+            toolTip1.SetToolTip(btnXoaLoaiTb, "Xóa Loại Thiết Bị");
             btnXoaLoaiTb.UseVisualStyleBackColor = false;
             btnXoaLoaiTb.ClientSizeChanged += btnXoaLoaiTb_Click;
             btnXoaLoaiTb.Click += btnXoaLoaiTb_Click;
             // 
             // btnSuaLoaiTb
             // 
-            btnSuaLoaiTb.BackColor = System.Drawing.Color.Lime;
+            btnSuaLoaiTb.BackColor = System.Drawing.Color.Transparent;
+            btnSuaLoaiTb.BackgroundImage = (System.Drawing.Image)resources.GetObject("btnSuaLoaiTb.BackgroundImage");
+            btnSuaLoaiTb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             btnSuaLoaiTb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnSuaLoaiTb.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            btnSuaLoaiTb.Location = new System.Drawing.Point(661, 102);
+            btnSuaLoaiTb.Location = new System.Drawing.Point(661, 105);
             btnSuaLoaiTb.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             btnSuaLoaiTb.Name = "btnSuaLoaiTb";
             btnSuaLoaiTb.Size = new System.Drawing.Size(134, 50);
             btnSuaLoaiTb.TabIndex = 5;
-            btnSuaLoaiTb.Text = "Cập nhật";
+            toolTip1.SetToolTip(btnSuaLoaiTb, "Cập nhật");
             btnSuaLoaiTb.UseVisualStyleBackColor = false;
             btnSuaLoaiTb.Click += btnSuaLoaiTb_Click;
             // 
             // btnThemLoaiTB
             // 
-            btnThemLoaiTB.BackColor = System.Drawing.Color.Lime;
+            btnThemLoaiTB.BackColor = System.Drawing.Color.Transparent;
+            btnThemLoaiTB.BackgroundImage = (System.Drawing.Image)resources.GetObject("btnThemLoaiTB.BackgroundImage");
+            btnThemLoaiTB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             btnThemLoaiTB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnThemLoaiTB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             btnThemLoaiTB.Location = new System.Drawing.Point(661, 22);
@@ -191,7 +204,7 @@
             btnThemLoaiTB.Name = "btnThemLoaiTB";
             btnThemLoaiTB.Size = new System.Drawing.Size(134, 50);
             btnThemLoaiTB.TabIndex = 4;
-            btnThemLoaiTB.Text = "Thêm Mới";
+            toolTip1.SetToolTip(btnThemLoaiTB, "Thêm Mới");
             btnThemLoaiTB.UseVisualStyleBackColor = false;
             btnThemLoaiTB.Click += btnThemLoaiTB_Click;
             // 
@@ -297,5 +310,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DeviceTypeId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

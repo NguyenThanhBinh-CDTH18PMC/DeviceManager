@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTaoTaiKhoan));
             label1 = new System.Windows.Forms.Label();
             lblTenDangNhap = new System.Windows.Forms.Label();
             txtTenDangNhap = new System.Windows.Forms.TextBox();
@@ -39,6 +41,7 @@
             lblQuyen = new System.Windows.Forms.Label();
             cbQuyen = new System.Windows.Forms.ComboBox();
             btnThoat = new System.Windows.Forms.Button();
+            toolTip1 = new System.Windows.Forms.ToolTip(components);
             SuspendLayout();
             // 
             // label1
@@ -65,14 +68,14 @@
             txtTenDangNhap.Location = new System.Drawing.Point(196, 110);
             txtTenDangNhap.Name = "txtTenDangNhap";
             txtTenDangNhap.Size = new System.Drawing.Size(221, 31);
-            txtTenDangNhap.TabIndex = 2;
+            txtTenDangNhap.TabIndex = 1;
             // 
             // txtMatKhau
             // 
             txtMatKhau.Location = new System.Drawing.Point(196, 170);
             txtMatKhau.Name = "txtMatKhau";
             txtMatKhau.Size = new System.Drawing.Size(221, 31);
-            txtMatKhau.TabIndex = 4;
+            txtMatKhau.TabIndex = 2;
             txtMatKhau.UseSystemPasswordChar = true;
             // 
             // lblMatKhau
@@ -89,7 +92,7 @@
             txtTenHienThi.Location = new System.Drawing.Point(196, 233);
             txtTenHienThi.Name = "txtTenHienThi";
             txtTenHienThi.Size = new System.Drawing.Size(221, 31);
-            txtTenHienThi.TabIndex = 6;
+            txtTenHienThi.TabIndex = 3;
             // 
             // lblTenHienThi
             // 
@@ -102,14 +105,16 @@
             // 
             // btnThemTaiKhoan
             // 
-            btnThemTaiKhoan.BackColor = System.Drawing.Color.Lime;
+            btnThemTaiKhoan.BackColor = System.Drawing.Color.Transparent;
+            btnThemTaiKhoan.BackgroundImage = Properties.Resources.add_user2;
+            btnThemTaiKhoan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             btnThemTaiKhoan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnThemTaiKhoan.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             btnThemTaiKhoan.Location = new System.Drawing.Point(27, 394);
             btnThemTaiKhoan.Name = "btnThemTaiKhoan";
             btnThemTaiKhoan.Size = new System.Drawing.Size(134, 50);
-            btnThemTaiKhoan.TabIndex = 7;
-            btnThemTaiKhoan.Text = "Tạo";
+            btnThemTaiKhoan.TabIndex = 5;
+            toolTip1.SetToolTip(btnThemTaiKhoan, "Tạo Tài Khoản");
             btnThemTaiKhoan.UseVisualStyleBackColor = false;
             btnThemTaiKhoan.Click += btnThemTaiKhoan_Click;
             // 
@@ -129,19 +134,22 @@
             cbQuyen.Location = new System.Drawing.Point(196, 304);
             cbQuyen.Name = "cbQuyen";
             cbQuyen.Size = new System.Drawing.Size(216, 33);
-            cbQuyen.TabIndex = 9;
+            cbQuyen.TabIndex = 4;
             // 
             // btnThoat
             // 
-            btnThoat.BackColor = System.Drawing.Color.Lime;
+            btnThoat.BackColor = System.Drawing.Color.Transparent;
+            btnThoat.BackgroundImage = (System.Drawing.Image)resources.GetObject("btnThoat.BackgroundImage");
+            btnThoat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             btnThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnThoat.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             btnThoat.Location = new System.Drawing.Point(278, 394);
             btnThoat.Name = "btnThoat";
             btnThoat.Size = new System.Drawing.Size(134, 50);
-            btnThoat.TabIndex = 10;
-            btnThoat.Text = "Thoát";
+            btnThoat.TabIndex = 6;
+            toolTip1.SetToolTip(btnThoat, "Thoát");
             btnThoat.UseVisualStyleBackColor = false;
+            btnThoat.Click += btnThoat_Click;
             // 
             // frmTaoTaiKhoan
             // 
@@ -178,5 +186,6 @@
         private System.Windows.Forms.Label lblQuyen;
         private System.Windows.Forms.ComboBox cbQuyen;
         private System.Windows.Forms.Button btnThoat;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -52,13 +52,13 @@
     <Compile Update="frmTaoTaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="frmTeacher.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="frmTrangChu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="frmQR_Code.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmTrangChuGiaoVien.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

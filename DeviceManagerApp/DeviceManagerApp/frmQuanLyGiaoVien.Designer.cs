@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuanLyGiaoVien));
             btnQlChucVu = new System.Windows.Forms.Button();
             cbChucVu = new System.Windows.Forms.ComboBox();
             groupBox1 = new System.Windows.Forms.GroupBox();
@@ -68,6 +70,7 @@
             Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             PositionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            toolTip1 = new System.Windows.Forms.ToolTip(components);
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvGiaoVien).BeginInit();
@@ -75,7 +78,9 @@
             // 
             // btnQlChucVu
             // 
-            btnQlChucVu.BackColor = System.Drawing.Color.Lime;
+            btnQlChucVu.BackColor = System.Drawing.Color.Transparent;
+            btnQlChucVu.BackgroundImage = (System.Drawing.Image)resources.GetObject("btnQlChucVu.BackgroundImage");
+            btnQlChucVu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             btnQlChucVu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnQlChucVu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             btnQlChucVu.Location = new System.Drawing.Point(1104, 142);
@@ -83,7 +88,7 @@
             btnQlChucVu.Name = "btnQlChucVu";
             btnQlChucVu.Size = new System.Drawing.Size(194, 50);
             btnQlChucVu.TabIndex = 18;
-            btnQlChucVu.Text = "Quản lý Chức Vụ";
+            toolTip1.SetToolTip(btnQlChucVu, "Quản lý Chức Vụ");
             btnQlChucVu.UseVisualStyleBackColor = false;
             btnQlChucVu.Click += btnQlChucVu_Click;
             // 
@@ -181,14 +186,16 @@
             // 
             // btnTimKiemGV
             // 
-            btnTimKiemGV.BackColor = System.Drawing.Color.Lime;
+            btnTimKiemGV.BackColor = System.Drawing.Color.Transparent;
+            btnTimKiemGV.BackgroundImage = Properties.Resources.search;
+            btnTimKiemGV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             btnTimKiemGV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnTimKiemGV.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             btnTimKiemGV.Location = new System.Drawing.Point(787, 75);
             btnTimKiemGV.Name = "btnTimKiemGV";
             btnTimKiemGV.Size = new System.Drawing.Size(134, 50);
             btnTimKiemGV.TabIndex = 14;
-            btnTimKiemGV.Text = "Tìm Kiếm";
+            toolTip1.SetToolTip(btnTimKiemGV, "Tìm Kiếm");
             btnTimKiemGV.UseVisualStyleBackColor = false;
             btnTimKiemGV.Click += btnTimKiemGV_Click;
             // 
@@ -202,40 +209,46 @@
             // 
             // btnXoaGV
             // 
-            btnXoaGV.BackColor = System.Drawing.Color.Lime;
+            btnXoaGV.BackColor = System.Drawing.Color.Transparent;
+            btnXoaGV.BackgroundImage = (System.Drawing.Image)resources.GetObject("btnXoaGV.BackgroundImage");
+            btnXoaGV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             btnXoaGV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnXoaGV.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             btnXoaGV.Location = new System.Drawing.Point(1313, 30);
             btnXoaGV.Name = "btnXoaGV";
             btnXoaGV.Size = new System.Drawing.Size(134, 50);
             btnXoaGV.TabIndex = 17;
-            btnXoaGV.Text = "Xóa";
+            toolTip1.SetToolTip(btnXoaGV, "Xóa");
             btnXoaGV.UseVisualStyleBackColor = false;
             btnXoaGV.Click += btnXoaGV_Click;
             // 
             // btnSuaGv
             // 
-            btnSuaGv.BackColor = System.Drawing.Color.Lime;
+            btnSuaGv.BackColor = System.Drawing.Color.Transparent;
+            btnSuaGv.BackgroundImage = (System.Drawing.Image)resources.GetObject("btnSuaGv.BackgroundImage");
+            btnSuaGv.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             btnSuaGv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnSuaGv.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             btnSuaGv.Location = new System.Drawing.Point(1137, 30);
             btnSuaGv.Name = "btnSuaGv";
             btnSuaGv.Size = new System.Drawing.Size(134, 50);
             btnSuaGv.TabIndex = 16;
-            btnSuaGv.Text = "Cập nhật";
+            toolTip1.SetToolTip(btnSuaGv, "Cập nhật");
             btnSuaGv.UseVisualStyleBackColor = false;
             btnSuaGv.Click += btnSuaGv_Click;
             // 
             // btnThemGv
             // 
-            btnThemGv.BackColor = System.Drawing.Color.Lime;
+            btnThemGv.BackColor = System.Drawing.Color.Transparent;
+            btnThemGv.BackgroundImage = (System.Drawing.Image)resources.GetObject("btnThemGv.BackgroundImage");
+            btnThemGv.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             btnThemGv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnThemGv.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            btnThemGv.Location = new System.Drawing.Point(954, 28);
+            btnThemGv.Location = new System.Drawing.Point(948, 28);
             btnThemGv.Name = "btnThemGv";
             btnThemGv.Size = new System.Drawing.Size(134, 50);
             btnThemGv.TabIndex = 15;
-            btnThemGv.Text = "Thêm Mới";
+            toolTip1.SetToolTip(btnThemGv, "Thêm Mới");
             btnThemGv.UseVisualStyleBackColor = false;
             btnThemGv.Click += btnThemGv_Click;
             // 
@@ -570,5 +583,6 @@
         private System.Windows.Forms.RadioButton rdbPhone;
         private System.Windows.Forms.RadioButton rdbLastName;
         private System.Windows.Forms.RadioButton rdbFirstName;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

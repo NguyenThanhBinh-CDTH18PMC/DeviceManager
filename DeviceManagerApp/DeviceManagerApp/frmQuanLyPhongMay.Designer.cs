@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuanLyPhongMay));
             lblQlPhong = new System.Windows.Forms.Label();
             qbPhongMay = new System.Windows.Forms.GroupBox();
             cb_Room = new System.Windows.Forms.ComboBox();
@@ -52,6 +54,7 @@
             Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
             Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             UsingStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            toolTip1 = new System.Windows.Forms.ToolTip(components);
             qbPhongMay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)num_AddDevice).BeginInit();
             ((System.ComponentModel.ISupportInitialize)num_RoomQuantity).BeginInit();
@@ -103,7 +106,7 @@
             // 
             cb_Room.FormattingEnabled = true;
             cb_Room.Location = new System.Drawing.Point(260, 40);
-            cb_Room.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            cb_Room.Margin = new System.Windows.Forms.Padding(4);
             cb_Room.Name = "cb_Room";
             cb_Room.Size = new System.Drawing.Size(252, 33);
             cb_Room.TabIndex = 26;
@@ -112,7 +115,7 @@
             // 
             checkBox1.AutoSize = true;
             checkBox1.Location = new System.Drawing.Point(906, 251);
-            checkBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            checkBox1.Margin = new System.Windows.Forms.Padding(4);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new System.Drawing.Size(109, 29);
             checkBox1.TabIndex = 25;
@@ -122,7 +125,7 @@
             // num_AddDevice
             // 
             num_AddDevice.Location = new System.Drawing.Point(662, 250);
-            num_AddDevice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            num_AddDevice.Margin = new System.Windows.Forms.Padding(4);
             num_AddDevice.Name = "num_AddDevice";
             num_AddDevice.Size = new System.Drawing.Size(135, 31);
             num_AddDevice.TabIndex = 24;
@@ -160,7 +163,7 @@
             // num_RoomQuantity
             // 
             num_RoomQuantity.Location = new System.Drawing.Point(54, 250);
-            num_RoomQuantity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            num_RoomQuantity.Margin = new System.Windows.Forms.Padding(4);
             num_RoomQuantity.Name = "num_RoomQuantity";
             num_RoomQuantity.Size = new System.Drawing.Size(135, 31);
             num_RoomQuantity.TabIndex = 20;
@@ -190,7 +193,9 @@
             // 
             // btnTimKiemPhong
             // 
-            btnTimKiemPhong.BackColor = System.Drawing.Color.Lime;
+            btnTimKiemPhong.BackColor = System.Drawing.Color.Transparent;
+            btnTimKiemPhong.BackgroundImage = Properties.Resources.search;
+            btnTimKiemPhong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             btnTimKiemPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnTimKiemPhong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             btnTimKiemPhong.Location = new System.Drawing.Point(396, 42);
@@ -198,7 +203,7 @@
             btnTimKiemPhong.Name = "btnTimKiemPhong";
             btnTimKiemPhong.Size = new System.Drawing.Size(134, 50);
             btnTimKiemPhong.TabIndex = 9;
-            btnTimKiemPhong.Text = "Tìm kiếm";
+            toolTip1.SetToolTip(btnTimKiemPhong, "Tìm Kiếm Phòng ");
             btnTimKiemPhong.UseVisualStyleBackColor = false;
             // 
             // txtTiemKiemPhong
@@ -212,7 +217,9 @@
             // 
             // btnXoaPhong
             // 
-            btnXoaPhong.BackColor = System.Drawing.Color.Lime;
+            btnXoaPhong.BackColor = System.Drawing.Color.Transparent;
+            btnXoaPhong.BackgroundImage = (System.Drawing.Image)resources.GetObject("btnXoaPhong.BackgroundImage");
+            btnXoaPhong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             btnXoaPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnXoaPhong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             btnXoaPhong.Location = new System.Drawing.Point(662, 109);
@@ -220,12 +227,14 @@
             btnXoaPhong.Name = "btnXoaPhong";
             btnXoaPhong.Size = new System.Drawing.Size(134, 50);
             btnXoaPhong.TabIndex = 7;
-            btnXoaPhong.Text = "Xóa";
+            toolTip1.SetToolTip(btnXoaPhong, "Xóa");
             btnXoaPhong.UseVisualStyleBackColor = false;
             // 
             // btnSuaPhong
             // 
-            btnSuaPhong.BackColor = System.Drawing.Color.Lime;
+            btnSuaPhong.BackColor = System.Drawing.Color.Transparent;
+            btnSuaPhong.BackgroundImage = (System.Drawing.Image)resources.GetObject("btnSuaPhong.BackgroundImage");
+            btnSuaPhong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             btnSuaPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnSuaPhong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             btnSuaPhong.Location = new System.Drawing.Point(662, 32);
@@ -233,12 +242,14 @@
             btnSuaPhong.Name = "btnSuaPhong";
             btnSuaPhong.Size = new System.Drawing.Size(134, 50);
             btnSuaPhong.TabIndex = 6;
-            btnSuaPhong.Text = "Cập nhật";
+            toolTip1.SetToolTip(btnSuaPhong, "Cập nhật");
             btnSuaPhong.UseVisualStyleBackColor = false;
             // 
             // btnThemPhong
             // 
-            btnThemPhong.BackColor = System.Drawing.Color.Lime;
+            btnThemPhong.BackColor = System.Drawing.Color.Transparent;
+            btnThemPhong.BackgroundImage = (System.Drawing.Image)resources.GetObject("btnThemPhong.BackgroundImage");
+            btnThemPhong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             btnThemPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnThemPhong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             btnThemPhong.Location = new System.Drawing.Point(1215, 250);
@@ -246,7 +257,7 @@
             btnThemPhong.Name = "btnThemPhong";
             btnThemPhong.Size = new System.Drawing.Size(134, 50);
             btnThemPhong.TabIndex = 5;
-            btnThemPhong.Text = "Thêm Mới";
+            toolTip1.SetToolTip(btnThemPhong, "Thêm Mới");
             btnThemPhong.UseVisualStyleBackColor = false;
             // 
             // txtTenPhong
@@ -372,5 +383,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown num_RoomQuantity;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

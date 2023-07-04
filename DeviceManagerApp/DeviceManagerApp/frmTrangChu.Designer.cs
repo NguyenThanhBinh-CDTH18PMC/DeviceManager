@@ -188,8 +188,10 @@
             // btnQLTaiKhoan
             // 
             btnQLTaiKhoan.BackColor = System.Drawing.Color.Blue;
+            btnQLTaiKhoan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             btnQLTaiKhoan.Dock = System.Windows.Forms.DockStyle.Top;
             btnQLTaiKhoan.ForeColor = System.Drawing.Color.White;
+            btnQLTaiKhoan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             btnQLTaiKhoan.Location = new System.Drawing.Point(0, 272);
             btnQLTaiKhoan.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             btnQLTaiKhoan.Name = "btnQLTaiKhoan";
@@ -220,17 +222,20 @@
             panel_Top.Location = new System.Drawing.Point(349, 0);
             panel_Top.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             panel_Top.Name = "panel_Top";
-            panel_Top.Size = new System.Drawing.Size(845, 78);
+            panel_Top.Size = new System.Drawing.Size(1417, 78);
             panel_Top.TabIndex = 1;
             // 
             // lblNameUser
             // 
             lblNameUser.AutoSize = true;
-            lblNameUser.Location = new System.Drawing.Point(553, 27);
+            lblNameUser.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblNameUser.ForeColor = System.Drawing.Color.Red;
+            lblNameUser.Location = new System.Drawing.Point(1188, 19);
             lblNameUser.Name = "lblNameUser";
-            lblNameUser.Size = new System.Drawing.Size(59, 25);
+            lblNameUser.Size = new System.Drawing.Size(96, 38);
             lblNameUser.TabIndex = 1;
             lblNameUser.Text = "label1";
+            lblNameUser.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lbl_text
             // 
@@ -251,17 +256,19 @@
             panel_Body.Location = new System.Drawing.Point(349, 78);
             panel_Body.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             panel_Body.Name = "panel_Body";
-            panel_Body.Size = new System.Drawing.Size(845, 793);
+            panel_Body.Size = new System.Drawing.Size(1417, 793);
             panel_Body.TabIndex = 2;
             // 
             // pictureBox1
             // 
+            pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            pictureBox1.ErrorImage = null;
             pictureBox1.Image = (System.Drawing.Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new System.Drawing.Point(0, 0);
             pictureBox1.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new System.Drawing.Size(845, 793);
+            pictureBox1.Size = new System.Drawing.Size(1417, 793);
             pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -270,7 +277,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1194, 871);
+            ClientSize = new System.Drawing.Size(1766, 871);
             Controls.Add(panel_Body);
             Controls.Add(panel_Top);
             Controls.Add(panel_Left);

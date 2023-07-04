@@ -54,21 +54,21 @@ namespace DeviceManagerApp
         private void LoadListImg()
         {
             List<DeviceModel> l = new List<DeviceModel>();
-            if(listDevice != null && listDevice.Count > 0)
+            if (listDevice != null && listDevice.Count > 0)
             {
-                foreach(DeviceModel d in listDevice)
+                foreach (DeviceModel d in listDevice)
                 {
-                    if(!String.IsNullOrEmpty(d.Image))
+                    if (!String.IsNullOrEmpty(d.Image))
                     {
                         bool f = true;
-                        foreach(DeviceModel dd in l)
+                        foreach (DeviceModel dd in l)
                         {
-                            if(dd.Image == d.Image)
+                            if (dd.Image == d.Image)
                             {
                                 f = false;
                             }
                         }
-                        if (f) 
+                        if (f)
                         {
                             l.Add(d);
                         }
@@ -103,7 +103,7 @@ namespace DeviceManagerApp
 
         private void Load_Source()
         {
-            
+
             cbLoaiTbi.DisplayMember = "Name";
             cbLoaiTbi.ValueMember = "Id";
             cbLoaiTbi.DataSource = Device_TypeBus.GetDevice_TypeAfterDelete();
@@ -125,7 +125,7 @@ namespace DeviceManagerApp
             cbNhaCungCap.ValueMember = "Id";
             cbNhaCungCap.DataSource = BrandBus.GetBrandAfterDelete();
 
-            
+
             //cbKhoa.DisplayMember = "Name";
             //cbKhoa.ValueMember = "Id";
             //cbKhoa.DataSource = FacultyBus.GetFacultyAfterDelete();
@@ -150,7 +150,7 @@ namespace DeviceManagerApp
             else
                 listDevice = new List<DeviceModel>();
             ReLoadDataGridView(listDevice);
-            
+
         }
 
         private void ReLoadDataGridView(List<DeviceModel> listData)
@@ -194,7 +194,7 @@ namespace DeviceManagerApp
             //od.ShowDialog();
         }
 
-        
+
 
         //Xử lý trong form - tab Quản lý bàn
         //BanBUS tables = new BanBUS();
@@ -257,7 +257,7 @@ namespace DeviceManagerApp
                         txtPrice.Text = de.Price.ToString();
                         txtTenTbi.Text = de.Name;
                         rtbGhiChuTbi.Text = de.Note;
-                        if(String.IsNullOrEmpty(de.Image))
+                        if (String.IsNullOrEmpty(de.Image))
                         {
                             ptb_Device.Image = Image.FromFile(SettingClass.path_NoImage_Default);
                         }
@@ -289,16 +289,16 @@ namespace DeviceManagerApp
 
             try
             {
-                if(device.Image != null)
+                if (device.Image != null)
                 {
                     device.Image = SaveImage(device.Name, SettingClass.path_Folder_Image_Device, device.CreatedDate.Value);
                 }
                 device.Id = DeviceBus.Insert(device);
-                if(ckb_isAddIntoRoom.Checked)
+                if (ckb_isAddIntoRoom.Checked)
                 {
                     int roomId = (int)cbPhong.SelectedValue;
                     List<LocationModel> ll = LocationBus.GetAllLocationUnUsing(roomId);
-                    if (ll.Count>0)
+                    if (ll.Count > 0)
                     {
                         DeviceRegistrationModel dr = new DeviceRegistrationModel();
                         dr.CreatedDate = device.CreatedDate;
@@ -338,7 +338,7 @@ namespace DeviceManagerApp
             device.DeviceTypeId = (int)cbLoaiTbi.SelectedValue;
             device.BrandId = (int)cbNhaCungCap.SelectedValue;
             device.ShipmentId = 1; // test
-            device.Image = ptb_Device.Tag!= null ? ptb_Device.Tag.ToString() : null;
+            device.Image = ptb_Device.Tag != null ? ptb_Device.Tag.ToString() : null;
             device.FacultyId = (int)cbKhoa.SelectedValue;
             device.Note = rtbGhiChuTbi.Text;
             device.IsDeleted = false;
@@ -393,7 +393,7 @@ namespace DeviceManagerApp
             return img;
         }
 
-        
+
 
         public void AddSpecsByType(int deviveTypeId, int deviceId)
         {
@@ -435,7 +435,7 @@ namespace DeviceManagerApp
             }
         }
 
-        
+
 
         private void txt_Price_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -452,7 +452,7 @@ namespace DeviceManagerApp
             if (cbNhaCungCap.SelectedItem == null)
                 return true;
             if (cbKhoa.SelectedItem == null)
-               return true;
+                return true;
 
             return false;
         }
@@ -490,13 +490,13 @@ namespace DeviceManagerApp
             }
             try
             {
-                
+
                 DeviceBus.Update(device);
-                if(ckb_isAddIntoRoom.Checked)
+                if (ckb_isAddIntoRoom.Checked)
                 {
                     int roomId = (int)cbPhong.SelectedValue;
                     List<DeviceRegistrationModel> dsr = DeviceRegistrationBus.SelectAllDynamicWhere(null, device.Id, null, null, null, null, false, null);
-                    if(dsr.Count>0)
+                    if (dsr.Count > 0)
                     {
                         dsr[0].RoomId = roomId;
                         DeviceRegistrationBus.Update(dsr[0]);
@@ -521,7 +521,7 @@ namespace DeviceManagerApp
                             MessageBox.Show("Hết chỗ trống!", "Thông Báo", MessageBoxButtons.OK);
                         }
                     }
-                    
+
                 }
                 MessageBox.Show("Thành công", "Thông Báo", MessageBoxButtons.OK);
                 LoadDataGridView();
@@ -541,14 +541,14 @@ namespace DeviceManagerApp
 
         private void btn_Make_QR_Click(object sender, EventArgs e)
         {
-            if(currentDevice!= null)
+            if (currentDevice != null)
             {
                 string info = DeviceInfo(currentDevice);
                 Form qr = new frmQR_Code(info);
                 qr.Show();
-                
+
             }
-            
+
         }
 
         private void cb_ListImg_SelectedIndexChanged(object sender, EventArgs e)
@@ -560,16 +560,16 @@ namespace DeviceManagerApp
                 Image i = Image.FromFile(SettingClass.path_Folder_Image_Device + img);
                 ptb_Device.Image = i;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ptb_Device.Image = Image.FromFile(SettingClass.path_NoImage_Default);
             }
-            
+
         }
 
         private void ckb_isAddIntoRoom_CheckedChanged(object sender, EventArgs e)
         {
-            if(ckb_isAddIntoRoom.Checked)
+            if (ckb_isAddIntoRoom.Checked)
             {
                 cbPhong.Enabled = true;
             }

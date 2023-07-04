@@ -36,7 +36,7 @@ namespace DeviceManagerApp
             dgvTaiKhoan.AutoGenerateColumns = false;
             dgvTaiKhoan.CellFormatting += dgvTaiKhoan_CellFormatting;
             dtNgaySinh.CustomFormat = "dd/MM/yyyy";
-            
+
         }
 
         private void CkbMatKhau_CheckedChanged(object sender, EventArgs e)
@@ -102,7 +102,7 @@ namespace DeviceManagerApp
 
                 CkbSua.Visible = true;
                 btnSuaTk.Enabled = true;
-                btnSuaTk.BackColor = System.Drawing.Color.Lime;
+                btnSuaTk.BackColor = System.Drawing.Color.Transparent;
 
             }
             catch

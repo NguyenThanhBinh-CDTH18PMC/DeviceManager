@@ -103,9 +103,6 @@ namespace DeviceManagerApp
             lbl_text.Text = btnQLTaiKhoan.Text;
         }
 
-        private void frmTrangChu_Load(object sender, EventArgs e)
-        {
-            lbltest.Text = LoginInUser.Name;
-        }
+
     }
 }

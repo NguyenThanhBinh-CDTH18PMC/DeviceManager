@@ -45,7 +45,7 @@ namespace DeviceManagerApp
                         {
                             MessageBox.Show("Đăng Nhập Thành Công");
                             //giáo viên
-                            frmTeacher frmTrangChuGiaoVien=new frmTeacher();
+                            frmTrangChuGiaoVien frmTrangChuGiaoVien=new frmTrangChuGiaoVien();
                             frmTrangChuGiaoVien.ShowDialog();
                             this.Close();
                         }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuanLyTaiKhoan));
             gbTaiKhoan = new System.Windows.Forms.GroupBox();
             groupBox2 = new System.Windows.Forms.GroupBox();
             btnCapNhatUser = new System.Windows.Forms.Button();
@@ -54,7 +55,6 @@
             gbTiemKim = new System.Windows.Forms.GroupBox();
             btnTimKiemTk = new System.Windows.Forms.Button();
             txtTimKiem = new System.Windows.Forms.TextBox();
-            btnXoaTk = new System.Windows.Forms.Button();
             btnSuaTk = new System.Windows.Forms.Button();
             btnThemTk = new System.Windows.Forms.Button();
             dgvTaiKhoan = new System.Windows.Forms.DataGridView();
@@ -82,7 +82,6 @@
             gbTaiKhoan.Controls.Add(btnTaoTk);
             gbTaiKhoan.Controls.Add(btnThuHoiTK);
             gbTaiKhoan.Controls.Add(gbTiemKim);
-            gbTaiKhoan.Controls.Add(btnXoaTk);
             gbTaiKhoan.Controls.Add(btnSuaTk);
             gbTaiKhoan.Controls.Add(btnThemTk);
             gbTaiKhoan.Dock = System.Windows.Forms.DockStyle.Top;
@@ -114,14 +113,16 @@
             // 
             // btnCapNhatUser
             // 
-            btnCapNhatUser.BackColor = System.Drawing.Color.Lime;
+            btnCapNhatUser.BackColor = System.Drawing.Color.Transparent;
+            btnCapNhatUser.BackgroundImage = (System.Drawing.Image)resources.GetObject("btnCapNhatUser.BackgroundImage");
+            btnCapNhatUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             btnCapNhatUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnCapNhatUser.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             btnCapNhatUser.Location = new System.Drawing.Point(141, 248);
             btnCapNhatUser.Name = "btnCapNhatUser";
             btnCapNhatUser.Size = new System.Drawing.Size(134, 50);
             btnCapNhatUser.TabIndex = 26;
-            btnCapNhatUser.Text = "Sửa";
+            toolTip1.SetToolTip(btnCapNhatUser, "Sửa User");
             btnCapNhatUser.UseVisualStyleBackColor = false;
             btnCapNhatUser.Click += btnCapNhatUser_Click;
             // 
@@ -186,7 +187,6 @@
             txtTenDangNhap.Name = "txtTenDangNhap";
             txtTenDangNhap.Size = new System.Drawing.Size(216, 31);
             txtTenDangNhap.TabIndex = 12;
-            txtTenDangNhap.UseSystemPasswordChar = true;
             // 
             // groupBox1
             // 
@@ -307,11 +307,11 @@
             // btnThuHoiTK
             // 
             btnThuHoiTK.BackColor = System.Drawing.Color.Transparent;
-            btnThuHoiTK.BackgroundImage = Properties.Resources.delete_x;
+            btnThuHoiTK.BackgroundImage = (System.Drawing.Image)resources.GetObject("btnThuHoiTK.BackgroundImage");
             btnThuHoiTK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             btnThuHoiTK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnThuHoiTK.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            btnThuHoiTK.Location = new System.Drawing.Point(1088, 288);
+            btnThuHoiTK.Location = new System.Drawing.Point(1088, 210);
             btnThuHoiTK.Name = "btnThuHoiTK";
             btnThuHoiTK.Size = new System.Drawing.Size(134, 50);
             btnThuHoiTK.TabIndex = 21;
@@ -334,14 +334,16 @@
             // 
             // btnTimKiemTk
             // 
-            btnTimKiemTk.BackColor = System.Drawing.Color.Lime;
+            btnTimKiemTk.BackColor = System.Drawing.Color.Transparent;
+            btnTimKiemTk.BackgroundImage = Properties.Resources.search;
+            btnTimKiemTk.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             btnTimKiemTk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnTimKiemTk.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             btnTimKiemTk.Location = new System.Drawing.Point(673, 45);
             btnTimKiemTk.Name = "btnTimKiemTk";
             btnTimKiemTk.Size = new System.Drawing.Size(134, 50);
             btnTimKiemTk.TabIndex = 17;
-            btnTimKiemTk.Text = "Tìm Kiếm";
+            toolTip1.SetToolTip(btnTimKiemTk, "Tìm Kiếm");
             btnTimKiemTk.UseVisualStyleBackColor = false;
             // 
             // txtTimKiem
@@ -352,41 +354,33 @@
             txtTimKiem.Size = new System.Drawing.Size(342, 31);
             txtTimKiem.TabIndex = 0;
             // 
-            // btnXoaTk
-            // 
-            btnXoaTk.BackColor = System.Drawing.Color.Lime;
-            btnXoaTk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnXoaTk.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            btnXoaTk.Location = new System.Drawing.Point(1088, 202);
-            btnXoaTk.Name = "btnXoaTk";
-            btnXoaTk.Size = new System.Drawing.Size(134, 50);
-            btnXoaTk.TabIndex = 15;
-            btnXoaTk.Text = "Xóa";
-            btnXoaTk.UseVisualStyleBackColor = false;
-            // 
             // btnSuaTk
             // 
-            btnSuaTk.BackColor = System.Drawing.Color.Lime;
+            btnSuaTk.BackColor = System.Drawing.Color.Transparent;
+            btnSuaTk.BackgroundImage = (System.Drawing.Image)resources.GetObject("btnSuaTk.BackgroundImage");
+            btnSuaTk.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             btnSuaTk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnSuaTk.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             btnSuaTk.Location = new System.Drawing.Point(1088, 126);
             btnSuaTk.Name = "btnSuaTk";
             btnSuaTk.Size = new System.Drawing.Size(134, 50);
             btnSuaTk.TabIndex = 14;
-            btnSuaTk.Text = "Cập Nhật";
+            toolTip1.SetToolTip(btnSuaTk, "Cập Nhật");
             btnSuaTk.UseVisualStyleBackColor = false;
             btnSuaTk.Click += btnSuaTk_Click;
             // 
             // btnThemTk
             // 
-            btnThemTk.BackColor = System.Drawing.Color.Lime;
+            btnThemTk.BackColor = System.Drawing.Color.Transparent;
+            btnThemTk.BackgroundImage = (System.Drawing.Image)resources.GetObject("btnThemTk.BackgroundImage");
+            btnThemTk.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             btnThemTk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnThemTk.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             btnThemTk.Location = new System.Drawing.Point(1088, 45);
             btnThemTk.Name = "btnThemTk";
             btnThemTk.Size = new System.Drawing.Size(134, 50);
             btnThemTk.TabIndex = 13;
-            btnThemTk.Text = "Thêm Mới";
+            toolTip1.SetToolTip(btnThemTk, "Thêm Mới");
             btnThemTk.UseVisualStyleBackColor = false;
             btnThemTk.Click += btnThemTk_Click;
             // 
@@ -520,7 +514,6 @@
         private System.Windows.Forms.Label lblMatKhauCu;
         private System.Windows.Forms.Label lblTenTK;
         private System.Windows.Forms.Button btnThemTk;
-        private System.Windows.Forms.Button btnXoaTk;
         private System.Windows.Forms.Button btnSuaTk;
         private System.Windows.Forms.GroupBox gbTiemKim;
         private System.Windows.Forms.TextBox txtTimKiem;

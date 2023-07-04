@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuanLyThanhLy));
             lblThanhLy = new System.Windows.Forms.Label();
             gbTTThanhLy = new System.Windows.Forms.GroupBox();
             gbTiemKimThanhLy = new System.Windows.Forms.GroupBox();
@@ -49,6 +51,7 @@
             lblTenTbThanhLy = new System.Windows.Forms.Label();
             lblMaThanhLy = new System.Windows.Forms.Label();
             dgvThanhLy = new System.Windows.Forms.DataGridView();
+            toolTip1 = new System.Windows.Forms.ToolTip(components);
             gbTTThanhLy.SuspendLayout();
             gbTiemKimThanhLy.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvThanhLy).BeginInit();
@@ -107,14 +110,16 @@
             // 
             // btnTimKiemThanhLy
             // 
-            btnTimKiemThanhLy.BackColor = System.Drawing.Color.Lime;
+            btnTimKiemThanhLy.BackColor = System.Drawing.Color.Transparent;
+            btnTimKiemThanhLy.BackgroundImage = Properties.Resources.search;
+            btnTimKiemThanhLy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             btnTimKiemThanhLy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnTimKiemThanhLy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             btnTimKiemThanhLy.Location = new System.Drawing.Point(1014, 45);
             btnTimKiemThanhLy.Name = "btnTimKiemThanhLy";
             btnTimKiemThanhLy.Size = new System.Drawing.Size(134, 50);
             btnTimKiemThanhLy.TabIndex = 17;
-            btnTimKiemThanhLy.Text = "Tìm Kiếm";
+            toolTip1.SetToolTip(btnTimKiemThanhLy, "Tìm Kiếm");
             btnTimKiemThanhLy.UseVisualStyleBackColor = false;
             // 
             // txtTimKiemThanhLy
@@ -127,38 +132,44 @@
             // 
             // btbXoaThanhLy
             // 
-            btbXoaThanhLy.BackColor = System.Drawing.Color.Lime;
+            btbXoaThanhLy.BackColor = System.Drawing.Color.Transparent;
+            btbXoaThanhLy.BackgroundImage = (System.Drawing.Image)resources.GetObject("btbXoaThanhLy.BackgroundImage");
+            btbXoaThanhLy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             btbXoaThanhLy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btbXoaThanhLy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             btbXoaThanhLy.Location = new System.Drawing.Point(1217, 203);
             btbXoaThanhLy.Name = "btbXoaThanhLy";
             btbXoaThanhLy.Size = new System.Drawing.Size(134, 50);
             btbXoaThanhLy.TabIndex = 16;
-            btbXoaThanhLy.Text = "Xóa";
+            toolTip1.SetToolTip(btbXoaThanhLy, "Xóa");
             btbXoaThanhLy.UseVisualStyleBackColor = false;
             // 
             // btnSuaThanhLy
             // 
-            btnSuaThanhLy.BackColor = System.Drawing.Color.Lime;
+            btnSuaThanhLy.BackColor = System.Drawing.Color.Transparent;
+            btnSuaThanhLy.BackgroundImage = (System.Drawing.Image)resources.GetObject("btnSuaThanhLy.BackgroundImage");
+            btnSuaThanhLy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             btnSuaThanhLy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnSuaThanhLy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             btnSuaThanhLy.Location = new System.Drawing.Point(1217, 123);
             btnSuaThanhLy.Name = "btnSuaThanhLy";
             btnSuaThanhLy.Size = new System.Drawing.Size(134, 50);
             btnSuaThanhLy.TabIndex = 15;
-            btnSuaThanhLy.Text = "Cập Nhật";
+            toolTip1.SetToolTip(btnSuaThanhLy, "Cập Nhật");
             btnSuaThanhLy.UseVisualStyleBackColor = false;
             // 
             // btnThemThanhLy
             // 
-            btnThemThanhLy.BackColor = System.Drawing.Color.Lime;
+            btnThemThanhLy.BackColor = System.Drawing.Color.Transparent;
+            btnThemThanhLy.BackgroundImage = (System.Drawing.Image)resources.GetObject("btnThemThanhLy.BackgroundImage");
+            btnThemThanhLy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             btnThemThanhLy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnThemThanhLy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             btnThemThanhLy.Location = new System.Drawing.Point(1217, 44);
             btnThemThanhLy.Name = "btnThemThanhLy";
             btnThemThanhLy.Size = new System.Drawing.Size(134, 50);
             btnThemThanhLy.TabIndex = 14;
-            btnThemThanhLy.Text = "Thêm Mới";
+            toolTip1.SetToolTip(btnThemThanhLy, "Thêm Mới");
             btnThemThanhLy.UseVisualStyleBackColor = false;
             // 
             // txtNguoiPhuTrach
@@ -312,5 +323,6 @@
         private System.Windows.Forms.Button btnTimKiemThanhLy;
         private System.Windows.Forms.TextBox txtTimKiemThanhLy;
         private System.Windows.Forms.DataGridView dgvThanhLy;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
