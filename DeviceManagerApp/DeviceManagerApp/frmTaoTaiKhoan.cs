@@ -14,19 +14,18 @@ namespace DeviceManagerApp
     public partial class frmTaoTaiKhoan : Form
     {
         UserModel LoginInUser;
-
+        
         public frmTaoTaiKhoan(UserModel user)
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             this.WindowState = FormWindowState.Normal;
-
             LoginInUser = user;
         }
 
         private void btnThemTaiKhoan_Click(object sender, EventArgs e)
         {
-
+            
             try
             {
                 if (!Check())
@@ -42,7 +41,6 @@ namespace DeviceManagerApp
                         status = 1;
                     }
                     UserModel user = new UserModel();
-
                     user.CreatedDate = DateTime.Now;
                     user.CreatedUserId = LoginInUser.Id;
                     user.IsDeleted = false;
@@ -50,7 +48,6 @@ namespace DeviceManagerApp
                     user.UserName = txtTenDangNhap.Text;
                     user.Pass = SettingClass.GetMD5(txtMatKhau.Text);
                     user.Name = txtTenHienThi.Text;
-
                     UserBus.InsertUser(user);
                     MessageBox.Show("Tạo Thành Công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

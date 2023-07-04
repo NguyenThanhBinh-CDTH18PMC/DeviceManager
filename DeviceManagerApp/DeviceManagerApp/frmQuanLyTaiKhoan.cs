@@ -1,4 +1,4 @@
-﻿using BUS.BusinessObject;
+
 using DeviceManagerApp.BUS.BusinessObject;
 using DeviceManagerApp.DTO.Model;
 using DocumentFormat.OpenXml.Spreadsheet;
@@ -36,7 +36,7 @@ namespace DeviceManagerApp
             dgvTaiKhoan.AutoGenerateColumns = false;
             dgvTaiKhoan.CellFormatting += dgvTaiKhoan_CellFormatting;
             dtNgaySinh.CustomFormat = "dd/MM/yyyy";
-
+            
         }
 
         private void CkbMatKhau_CheckedChanged(object sender, EventArgs e)
